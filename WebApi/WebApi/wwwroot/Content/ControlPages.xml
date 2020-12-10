@@ -1,0 +1,604 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Controls>
+  <ControlCat name="Excel" Icon="fa fa-file-excel-o">
+    <FunctionGroup name="Import/Export Services" name.ja="インポート/エクスポートサービス">
+      <ControlGroup id="EIESMVC" name="MVC Controls">
+        <Control name="MVCFlexGrid">
+          <action text="Overview" name="Index"></action>
+          <action text="Paging" name="Paging"></action>
+          <action text="Virtual Scrolling" name="VirtualScrolling"></action>
+          <action text="Grouping" name="Grouping"></action>
+          <action text="Filtering" name="Filtering"></action>
+          <action text="Frozen Cells" name="FrozenCells"></action>
+          <action text="Remote Data Bind" name="RemoteBind"></action>
+          <action text="Tree View" name="TreeView"></action>
+          <action text="Disable Server Reading" name="DisableServerRead"></action>
+          <action text="Conditional Styling" name="ConditionalStyling"></action>
+        </Control>
+      </ControlGroup>
+      <ControlGroup id="EIESWijmo5" name="Wijmo5 Controls">
+        <Control name="Wijmo5FlexGrid">
+          <action text="Overview" name="Index"></action>
+          <action text="Paging" name="Paging"></action>
+          <action text="Grouping" name="Grouping"></action>
+          <action text="Hierarchical Data" name="HierarchicalData"></action>
+          <action text="Filtering" name="Filtering"></action>
+          <action text="Frozen Cells" name="FrozenCells"></action>
+          <action text="Conditional Styling" name="ConditionalStyling"></action>
+        </Control>
+        <!--<Control name="Wijmo5FlexSheet">
+          <action text="Overview" name="Index"></action>
+        </Control>-->
+      </ControlGroup>
+    </FunctionGroup>
+    <FunctionGroup name="Generate Excel" name.ja="Excel ファイルの生成">
+      <Function name="ExcelGeneratingFromDataGET" method="GET" url="/api/excel" usage ="Generate from dataset\collection"
+          description="Generate excel file from dataset\collection configured on server."
+          description.ja="サーバー上に構成されたデータセット/コレクションから Excel ファイルを生成します。"
+          responseschema='{\r\n  "creator": "",\r\n  "created": "",\r\n  "lastModifiedBy": "",\r\n  "modified": "",\r\n  "activeWorksheet": "",\r\n  "styles": [\r\n    {\r\n
+      "formatCode": "",\r\n      "font": {\r\n        "family": "",\r\n        "size": "",\r\n        "bold": "",\r\n        "italic": "",\r\n        "underline": "",\r\n        "strikethrough": "",\r\n
+        "color": ""\r\n      },\r\n      "hAlign": "",\r\n      "vAlign": "",\r\n      "indent": "",\r\n      "textRotation": "",\r\n      "textDirection": "",\r\n      "border": {\r\n        "top": {\r\n
+          "color": "",\r\n          "type": ""\r\n          },\r\n        "bottom": { },\r\n        "left": { },\r\n        "right": { }\r\n      },\r\n      "fill": {\r\n        "color": "",\r\n        "pattern": ""\r\n
+        },\r\n      "wrapText": "",\r\n      "shrinkToFit": "",\r\n      "locked": ""\r\n    }\r\n  ],\r\n  "sheets": [\r\n    {\r\n      "name": "",\r\n      "frozenPane": "",\r\n      "cols": [\r\n
+        {\r\n        "width": "",\r\n        "visible": "",\r\n        "style": { },\r\n        "autoWidth": ""\r\n        }\r\n      ],\r\n      "rows": [\r\n        {\r\n          "height": "",\r\n          "visible": "",\r\n
+          "groupLevel": "",\r\n          "style": { },\r\n          "cells": [\r\n            {\r\n            "value": "",\r\n            "formula": "",\r\n            "style": "0",\r\n            "colSpan": "",\r\n
+            "rowSpan": ""\r\n            }\r\n          ]\r\n        }\r\n      ]\r\n    }\r\n  ]\r\n}'>
+      </Function>
+      <Function name="ExcelGeneratingFromXMLGET" method="GET" url="/api/excel" usage ="Generate from XML"
+    description="Generate excel file from XML file available in storage."
+          description.ja="ストレージ内にある XML ファイルから Excel ファイルを生成します。"
+    responseschema='{\r\n  "creator": "",\r\n  "created": "",\r\n  "lastModifiedBy": "",\r\n  "modified": "",\r\n  "activeWorksheet": "",\r\n  "styles": [\r\n    {\r\n
+      "formatCode": "",\r\n      "font": {\r\n        "family": "",\r\n        "size": "",\r\n        "bold": "",\r\n        "italic": "",\r\n        "underline": "",\r\n        "strikethrough": "",\r\n
+        "color": ""\r\n      },\r\n      "hAlign": "",\r\n      "vAlign": "",\r\n      "indent": "",\r\n      "textRotation": "",\r\n      "textDirection": "",\r\n      "border": {\r\n        "top": {\r\n
+          "color": "",\r\n          "type": ""\r\n          },\r\n        "bottom": { },\r\n        "left": { },\r\n        "right": { }\r\n      },\r\n      "fill": {\r\n        "color": "",\r\n        "pattern": ""\r\n
+        },\r\n      "wrapText": "",\r\n      "shrinkToFit": "",\r\n      "locked": ""\r\n    }\r\n  ],\r\n  "sheets": [\r\n    {\r\n      "name": "",\r\n      "frozenPane": "",\r\n      "cols": [\r\n
+        {\r\n        "width": "",\r\n        "visible": "",\r\n        "style": { },\r\n        "autoWidth": ""\r\n        }\r\n      ],\r\n      "rows": [\r\n        {\r\n          "height": "",\r\n          "visible": "",\r\n
+          "groupLevel": "",\r\n          "style": { },\r\n          "cells": [\r\n            {\r\n            "value": "",\r\n            "formula": "",\r\n            "style": "0",\r\n            "colSpan": "",\r\n
+            "rowSpan": ""\r\n            }\r\n          ]\r\n        }\r\n      ]\r\n    }\r\n  ]\r\n}'>
+      </Function>
+      <Function name="ExcelGeneratingConvertFormatGET" method="GET" url="/api/excel" usage ="Convert between different formats"
+    description="Convert excel file available in storage into different format."
+          description.ja="ストレージ内にある Excel ファイルを別の形式に変換します。"
+    responseschema='{\r\n  "creator": "",\r\n  "created": "",\r\n  "lastModifiedBy": "",\r\n  "modified": "",\r\n  "activeWorksheet": "",\r\n  "styles": [\r\n    {\r\n
+      "formatCode": "",\r\n      "font": {\r\n        "family": "",\r\n        "size": "",\r\n        "bold": "",\r\n        "italic": "",\r\n        "underline": "",\r\n        "strikethrough": "",\r\n
+        "color": ""\r\n      },\r\n      "hAlign": "",\r\n      "vAlign": "",\r\n      "indent": "",\r\n      "textRotation": "",\r\n      "textDirection": "",\r\n      "border": {\r\n        "top": {\r\n
+          "color": "",\r\n          "type": ""\r\n          },\r\n        "bottom": { },\r\n        "left": { },\r\n        "right": { }\r\n      },\r\n      "fill": {\r\n        "color": "",\r\n        "pattern": ""\r\n
+        },\r\n      "wrapText": "",\r\n      "shrinkToFit": "",\r\n      "locked": ""\r\n    }\r\n  ],\r\n  "sheets": [\r\n    {\r\n      "name": "",\r\n      "frozenPane": "",\r\n      "cols": [\r\n
+        {\r\n        "width": "",\r\n        "visible": "",\r\n        "style": { },\r\n        "autoWidth": ""\r\n        }\r\n      ],\r\n      "rows": [\r\n        {\r\n          "height": "",\r\n          "visible": "",\r\n
+          "groupLevel": "",\r\n          "style": { },\r\n          "cells": [\r\n            {\r\n            "value": "",\r\n            "formula": "",\r\n            "style": "0",\r\n            "colSpan": "",\r\n
+            "rowSpan": ""\r\n            }\r\n          ]\r\n        }\r\n      ]\r\n    }\r\n  ]\r\n}'>
+      </Function>
+
+      <Function name="ExcelGeneratingFromXMLPOST" method="POST" url="/api/excel" usage ="Generate from XML"
+          description="Generate excel file from XML file posted from client."
+          description.ja="クライアントからポストされた XML ファイルから Excel ファイルを生成します。"
+          responseschema='{\r\n  "creator": "",\r\n  "created": "",\r\n  "lastModifiedBy": "",\r\n  "modified": "",\r\n  "activeWorksheet": "",\r\n  "styles": [\r\n    {\r\n
+      "formatCode": "",\r\n      "font": {\r\n        "family": "",\r\n        "size": "",\r\n        "bold": "",\r\n        "italic": "",\r\n        "underline": "",\r\n        "strikethrough": "",\r\n
+        "color": ""\r\n      },\r\n      "hAlign": "",\r\n      "vAlign": "",\r\n      "indent": "",\r\n      "textRotation": "",\r\n      "textDirection": "",\r\n      "border": {\r\n        "top": {\r\n
+          "color": "",\r\n          "type": ""\r\n          },\r\n        "bottom": { },\r\n        "left": { },\r\n        "right": { }\r\n      },\r\n      "fill": {\r\n        "color": "",\r\n        "pattern": ""\r\n
+        },\r\n      "wrapText": "",\r\n      "shrinkToFit": "",\r\n      "locked": ""\r\n    }\r\n  ],\r\n  "sheets": [\r\n    {\r\n      "name": "",\r\n      "frozenPane": "",\r\n      "cols": [\r\n
+        {\r\n        "width": "",\r\n        "visible": "",\r\n        "style": { },\r\n        "autoWidth": ""\r\n        }\r\n      ],\r\n      "rows": [\r\n        {\r\n          "height": "",\r\n          "visible": "",\r\n
+          "groupLevel": "",\r\n          "style": { },\r\n          "cells": [\r\n            {\r\n            "value": "",\r\n            "formula": "",\r\n            "style": "0",\r\n            "colSpan": "",\r\n
+            "rowSpan": ""\r\n            }\r\n          ]\r\n        }\r\n      ]\r\n    }\r\n  ]\r\n}'>
+      </Function>
+      <Function name="ExcelGeneratingFromJSONPOST" method="POST" url="/api/excel" usage ="Generate from JSON"
+    description="Generate excel file from JSON data posted from client."
+          description.ja="クライアントからポストされた JSON データから Excel ファイルを生成します。"
+    responseschema='{\r\n  "creator": "",\r\n  "created": "",\r\n  "lastModifiedBy": "",\r\n  "modified": "",\r\n  "activeWorksheet": "",\r\n  "styles": [\r\n    {\r\n
+      "formatCode": "",\r\n      "font": {\r\n        "family": "",\r\n        "size": "",\r\n        "bold": "",\r\n        "italic": "",\r\n        "underline": "",\r\n        "strikethrough": "",\r\n
+        "color": ""\r\n      },\r\n      "hAlign": "",\r\n      "vAlign": "",\r\n      "indent": "",\r\n      "textRotation": "",\r\n      "textDirection": "",\r\n      "border": {\r\n        "top": {\r\n
+          "color": "",\r\n          "type": ""\r\n          },\r\n        "bottom": { },\r\n        "left": { },\r\n        "right": { }\r\n      },\r\n      "fill": {\r\n        "color": "",\r\n        "pattern": ""\r\n
+        },\r\n      "wrapText": "",\r\n      "shrinkToFit": "",\r\n      "locked": ""\r\n    }\r\n  ],\r\n  "sheets": [\r\n    {\r\n      "name": "",\r\n      "frozenPane": "",\r\n      "cols": [\r\n
+        {\r\n        "width": "",\r\n        "visible": "",\r\n        "style": { },\r\n        "autoWidth": ""\r\n        }\r\n      ],\r\n      "rows": [\r\n        {\r\n          "height": "",\r\n          "visible": "",\r\n
+          "groupLevel": "",\r\n          "style": { },\r\n          "cells": [\r\n            {\r\n            "value": "",\r\n            "formula": "",\r\n            "style": "0",\r\n            "colSpan": "",\r\n
+            "rowSpan": ""\r\n            }\r\n          ]\r\n        }\r\n      ]\r\n    }\r\n  ]\r\n}'>
+      </Function>
+      <Function name="ExcelGeneratingConvertFormatPOST" method="POST" url="/api/excel" usage ="Convert between different formats"
+    description="Convert excel file into different format."
+          description.ja="Excel ファイルを別の形式に変換します。"
+    responseschema='{\r\n  "creator": "",\r\n  "created": "",\r\n  "lastModifiedBy": "",\r\n  "modified": "",\r\n  "activeWorksheet": "",\r\n  "styles": [\r\n    {\r\n
+      "formatCode": "",\r\n      "font": {\r\n        "family": "",\r\n        "size": "",\r\n        "bold": "",\r\n        "italic": "",\r\n        "underline": "",\r\n        "strikethrough": "",\r\n
+        "color": ""\r\n      },\r\n      "hAlign": "",\r\n      "vAlign": "",\r\n      "indent": "",\r\n      "textRotation": "",\r\n      "textDirection": "",\r\n      "border": {\r\n        "top": {\r\n
+          "color": "",\r\n          "type": ""\r\n          },\r\n        "bottom": { },\r\n        "left": { },\r\n        "right": { }\r\n      },\r\n      "fill": {\r\n        "color": "",\r\n        "pattern": ""\r\n
+        },\r\n      "wrapText": "",\r\n      "shrinkToFit": "",\r\n      "locked": ""\r\n    }\r\n  ],\r\n  "sheets": [\r\n    {\r\n      "name": "",\r\n      "frozenPane": "",\r\n      "cols": [\r\n
+        {\r\n        "width": "",\r\n        "visible": "",\r\n        "style": { },\r\n        "autoWidth": ""\r\n        }\r\n      ],\r\n      "rows": [\r\n        {\r\n          "height": "",\r\n          "visible": "",\r\n
+          "groupLevel": "",\r\n          "style": { },\r\n          "cells": [\r\n            {\r\n            "value": "",\r\n            "formula": "",\r\n            "style": "0",\r\n            "colSpan": "",\r\n
+            "rowSpan": ""\r\n            }\r\n          ]\r\n        }\r\n      ]\r\n    }\r\n  ]\r\n}'>
+      </Function>
+    </FunctionGroup>
+    <FunctionGroup name="Merge Excel Files" name.ja="Excel ファイルの結合">
+      <Function name="ExcelMergingGET" method="GET" url="/api/excel/merge" usage =""
+          description="Merge multiple excel files available in file storage."
+          description.ja="ファイルストレージ内にある複数の Excel ファイルを結合します。"
+          responseschema='{\r\n  "creator": "",\r\n  "created": "",\r\n  "lastModifiedBy": "",\r\n  "modified": "",\r\n  "activeWorksheet": "",\r\n  "styles": [\r\n    {\r\n
+      "formatCode": "",\r\n      "font": {\r\n        "family": "",\r\n        "size": "",\r\n        "bold": "",\r\n        "italic": "",\r\n        "underline": "",\r\n        "strikethrough": "",\r\n
+        "color": ""\r\n      },\r\n      "hAlign": "",\r\n      "vAlign": "",\r\n      "indent": "",\r\n      "textRotation": "",\r\n      "textDirection": "",\r\n      "border": {\r\n        "top": {\r\n
+          "color": "",\r\n          "type": ""\r\n          },\r\n        "bottom": { },\r\n        "left": { },\r\n        "right": { }\r\n      },\r\n      "fill": {\r\n        "color": "",\r\n        "pattern": ""\r\n
+        },\r\n      "wrapText": "",\r\n      "shrinkToFit": "",\r\n      "locked": ""\r\n    }\r\n  ],\r\n  "sheets": [\r\n    {\r\n      "name": "",\r\n      "frozenPane": "",\r\n      "cols": [\r\n
+        {\r\n        "width": "",\r\n        "visible": "",\r\n        "style": { },\r\n        "autoWidth": ""\r\n        }\r\n      ],\r\n      "rows": [\r\n        {\r\n          "height": "",\r\n          "visible": "",\r\n
+          "groupLevel": "",\r\n          "style": { },\r\n          "cells": [\r\n            {\r\n            "value": "",\r\n            "formula": "",\r\n            "style": "0",\r\n            "colSpan": "",\r\n
+            "rowSpan": ""\r\n            }\r\n          ]\r\n        }\r\n      ]\r\n    }\r\n  ]\r\n
+}'></Function>
+      <Function name="ExcelMergingPOST" method="POST" url="/api/excel/merge" usage =""
+          description="Merge multiple files posted from client."
+          description.ja="クライアントからポストされた複数のファイルを結合します。"
+          responseschema='{\r\n  "creator": "",\r\n  "created": "",\r\n  "lastModifiedBy": "",\r\n  "modified": "",\r\n  "activeWorksheet": "",\r\n  "styles": [\r\n    {\r\n
+      "formatCode": "",\r\n      "font": {\r\n        "family": "",\r\n        "size": "",\r\n        "bold": "",\r\n        "italic": "",\r\n        "underline": "",\r\n        "strikethrough": "",\r\n
+        "color": ""\r\n      },\r\n      "hAlign": "",\r\n      "vAlign": "",\r\n      "indent": "",\r\n      "textRotation": "",\r\n      "textDirection": "",\r\n      "border": {\r\n        "top": {\r\n
+          "color": "",\r\n          "type": ""\r\n          },\r\n        "bottom": { },\r\n        "left": { },\r\n        "right": { }\r\n      },\r\n      "fill": {\r\n        "color": "",\r\n        "pattern": ""\r\n
+        },\r\n      "wrapText": "",\r\n      "shrinkToFit": "",\r\n      "locked": ""\r\n    }\r\n  ],\r\n  "sheets": [\r\n    {\r\n      "name": "",\r\n      "frozenPane": "",\r\n      "cols": [\r\n
+        {\r\n        "width": "",\r\n        "visible": "",\r\n        "style": { },\r\n        "autoWidth": ""\r\n        }\r\n      ],\r\n      "rows": [\r\n        {\r\n          "height": "",\r\n          "visible": "",\r\n
+          "groupLevel": "",\r\n          "style": { },\r\n          "cells": [\r\n            {\r\n            "value": "",\r\n            "formula": "",\r\n            "style": "0",\r\n            "colSpan": "",\r\n
+            "rowSpan": ""\r\n            }\r\n          ]\r\n        }\r\n      ]\r\n    }\r\n  ]\r\n
+}'></Function>
+    </FunctionGroup>
+    <FunctionGroup name="Split Excel File" name.ja="Excel ファイルの分割">
+      <Function name="ExcelSplitGET" method="GET" url="/api/excel/{excel path}/split" usage =""
+          description="Split an excel file from storage to multiple excel files and save it into storage."
+          description.ja="ストレージにある 1 つの Excel ファイルを複数の Excel ファイルに分割して、ストレージに保存します。"
+          responseschema='{\r\n    "success": true,\r\n    "message: "",\r\n    "data": ["string"]\r\n}'></Function>
+    </FunctionGroup>
+    <FunctionGroup name="Find/Replace" name.ja="検索/置換">
+      <Function name="ExcelFindGET" method="GET" url="/api/excel/{excel path}/{sheet name}/find" usage =""
+          description="Find text in excel, return all matches info."
+          description.ja="Excel 内のテキストを検索し、すべての一致情報を返します。"
+          responseschema='{\r\n    "success": true,\r\n    "message: "",\r\n    "data": [\r\n        {\r\n            "sheetName": "Sheet1",\r\n            "rowIndex": 0,\r\n            "columnIndex": 0,\r\n            "startIndex": 0\r\n        }\r\n    ]\r\n}'></Function>
+      <Function name="ExcelReplaceGET" method="GET" url="/api/excel/{excel path}/{sheet name}/replace" usage =""
+          description="Replace text in excel."
+          description.ja="Excel 内のテキストを置き換えます。"
+          responseschema='{\r\n    "success": true,\r\n    "message: "",\r\n    "data": {\r\n        "replaceCount": 0\r\n    }\r\n}'></Function>
+    </FunctionGroup>
+    <FunctionGroup name="Rows" name.ja="行">
+      <Function name="ExcelRowsPOST" method="POST" url="/api/excel/{excel path}/{sheet name}/rows/{row index}" usage =""
+          description="Add rows."
+          description.ja="行を追加します。"
+          responseschema='{\r\n    "success": true,\r\n    "message: "",\r\n    "data": null\r\n}'></Function>
+      <Function name="ExcelRowsPUT" method="PUT" url="/api/excel/{excel path}/{sheet name}/rows/{row indexes}" usage =""
+          description="Update rows, you can use this API to hide/unhide group/ungroup rows."
+          description.ja="行を更新します。この API を使用して、行を非表示/非表示およびグループ/グループ解除できます。"
+          responseschema='{\r\n    "success": true,\r\n    "message: "",\r\n    "data": null\r\n}'></Function>
+      <Function name="ExcelRowsDELETE" method="DELETE" url="/api/excel/{excel path}/{sheet name}/rows/{row indexes}" usage =""
+          description="Delete rows."
+          description.ja="行を削除します。"
+          responseschema='{\r\n    "success": true,\r\n    "message: "",\r\n    "data": null\r\n}'></Function>
+    </FunctionGroup>
+    <FunctionGroup name="Columns" name.ja="列">
+      <Function name="ExcelColumnsPOST" method="POST" url="/api/excel/{excel path}/{sheet name}/columns/{column index}" usage =""
+          description="Add columns."
+          description.ja="列を追加します。"
+          responseschema='{\r\n    "success": true,\r\n    "message: "",\r\n    "data": null\r\n}'></Function>
+      <Function name="ExcelColumnsPUT" method="PUT" url="/api/excel/{excel path}/{sheet name}/columns/{column indexes}" usage =""
+          description="Update columns, you can use this API to hide/unhide group/ungroup columns."
+          description.ja="列を更新します。この API を使用して、列を非表示/非表示およびグループ/グループ解除できます。"
+          responseschema='{\r\n    "success": true,\r\n    "message: "",\r\n    "data": null\r\n}'></Function>
+      <Function name="ExcelColumnsDELETE" method="DELETE" url="/api/excel/{excel path}/{sheet name}/columns/{column indexes}" usage =""
+          description="Delete columns."
+          description.ja="列を削除します。"
+          responseschema='{\r\n    "success": true,\r\n    "message: "",\r\n    "data": null\r\n}'></Function>
+    </FunctionGroup>
+  </ControlCat>
+  <ControlCat name="Storage" Icon="fa fa-file-storage-o">
+    <FunctionGroup name="File Management" name.ja="ファイル管理">
+      <Function name="StorageUploadPOST" method="POST" url="/api/storage/{path}" usage =""
+          description="Upload a file to storage."
+          description.ja="ファイルをストレージにアップロードします。"
+          responseschema='{\r\n    "success": true\r\n}'></Function>
+    </FunctionGroup>
+  </ControlCat>
+  <ControlCat name="Report" Icon="fa fa-file-report-o">
+    <FunctionGroup name="Report List" name.ja="レポートリスト">
+      <Function name="ReportsGET" method="GET" url="/api/report/{folder path}" usage =""
+          description="Gets the report list in the specified folder path."
+          description.ja="指定されたフォルダパス内のレポートリストを取得します。"
+          responseschema='[\r\n    {\r\n        "name": "string",\r\n        "path": "string",\r\n        "type": 0,\r\n        "items": [{ }]\r\n    }\r\n]'>
+        <Status name='200' description='Json string contains the ICatalogItem object which describes the folder or report.'></Status>
+        <Status name='404' description='The folder path or report path does not exist.'></Status>
+      </Function>
+    </FunctionGroup>
+    <FunctionGroup name="Report" name.ja="レポート">
+      <Function name="ReportInfoGET" method="GET" url="/api/report/{folder path}/{report name}/$report" usage =""
+          description="Gets the info of the specified report."
+          description.ja="指定されたレポートの情報を取得します。"
+          responseschema='{\r\n    "path": "string",\r\n    "hasParameters": false,\r\n    "pageSettings": {\r\n        "paginated": true,\r\n        "height": "string",\r\n        "width": "string",\r\n        "topMargin": "string",\r\n        "leftMargin": "string",\r\n        "rightMargin": "string",\r\n        "bottomMargin": "string",\r\n        "landscape": false,\r\n        "paperSize": 1\r\n    },\r\n    "parametersLocation": "string",\r\n    "pageSettingsLocation": "string",\r\n    "supportedFormatsLocation": "string",\r\n    "creationLocation": "string"\r\n}'>
+        <Status name='200' description='Json string contains IReportInfo type object.'></Status>
+        <Status name='404' description='The report path does not exist.'></Status>
+      </Function>
+      <Function name="ReportPageSettingsGET" method="GET" url="/api/report/{folder path}/{report name}/$report/pagesettings" usage =""
+          description="Gets the default page settings defined in the specified report."
+          description.ja="指定されたレポートで定義されているデフォルトのページ設定を取得します。"
+          responseschema='{\r\n    "paginated": true,\r\n    "height": "string",\r\n    "width": "string",\r\n    "topMargin": "string",\r\n    "leftMargin": "string",\r\n    "rightMargin": "string",\r\n    "bottomMargin": "string",\r\n    "landscape": false,\r\n    "paperSize": 1\r\n}'>
+        <Status name='200' description='Json string contains IPageSettings type object.'></Status>
+        <Status name='404' description='The report path does not exist.'></Status>
+      </Function>
+      <Function name="ReportParametersGET" method="GET" url="/api/report/{folder path}/{report name}/$report/parameters" usage =""
+          description="Get all the parameters defined in the report."
+          description.ja="レポートで定義されているすべてのパラメータを取得します。"
+          responseschema='[\r\n    {\r\n        "name": "string",\r\n        "dataType": 0,\r\n        "nullable": true,\r\n        "allowedValues": [\r\n            {\r\n                "key": "string",\r\n                "value": "string"\r\n            }\r\n        ],\r\n        "value": { },\r\n        "hidden": true,\r\n        "multiValue": true,\r\n        "prompt": "string",\r\n        "error": "string"\r\n    }\r\n]'>
+        <Status name='200' description='Json string contains a collection of IParameter.'></Status>
+        <Status name='404' description='The report path does not exist.'></Status>
+      </Function>
+      <Function name="ReportParameterGET" method="GET" url="/api/report/{folder path}/{report name}/$report/parameters/{parameter name}" usage =""
+          description="Get specified parameter defined in the report."
+          description.ja="レポート内で定義されている指定のパラメータを取得します。"
+          responseschema='{\r\n    "name": "string",\r\n    "dataType": 0,\r\n    "nullable": false,\r\n    "allowedValues": [\r\n        {\r\n            "key": "string",\r\n            "value": "string"\r\n        }\r\n    ],\r\n    "value": { },\r\n    "hidden": false,\r\n    "multiValue": true\r\n}'>
+        <Status name='200' description='Json string contains IParameter type object.'></Status>
+        <Status name='404' description='The report path or parameter name does not exist.'></Status>
+      </Function>
+      <Function name="ReportSupportedFormatsGET" method="GET" url="/api/report/{folder path}/{report name}/$report/supportedformats" usage =""
+          description="Get all the supported export formats."
+          description.ja="サポートされているすべてのエクスポート形式を取得します。"
+          responseschema='[\r\n    {\r\n        "name": "string",\r\n        "format": "string",\r\n        "optionDescriptions": [\r\n            {\r\n                "name": "string",\r\n                "type": "string",\r\n                "nullable": true,\r\n                "defaultValue": "string",\r\n                "allowedValues": ["string"]\r\n            }\r\n        ]\r\n    }\r\n]'>
+        <Status name='200' description='Json string contains a collection of IExportDescription.'></Status>
+        <Status name='404' description='The report path does not exist.'></Status>
+      </Function>
+      <Function name="ReportSupportedFormatGET" method="GET" url="/api/report/{folder path}/{report name}/$report/supportedformats/{supported format}" usage =""
+          description="Get specified supported format."
+          description.ja="サポートされている指定の形式を取得します。"
+          responseschema='{\r\n    "name": "string",\r\n    "format": "string",\r\n    "optionDescriptions": [\r\n        {\r\n            "name": "string",\r\n            "type": "string",\r\n            "nullable": false,\r\n            "defaultValue": "string",\r\n            "allowedValues": ["string"]\r\n        }\r\n    ]\r\n}'>
+        <Status name='200' description='Json string contains IExportDescription type object.'></Status>
+        <Status name='404' description='The report path or format name does not exist.'></Status>
+      </Function>
+      <Function name="ReportExportGET" method="GET" url="/api/report/{folder path}/{report name}/$report/export" usage =""
+          description="Render and export the report to the specified export filter with options and the specified page settings or/and parameters."
+          description.ja="オプション、指定されたページ設定/パラメータなどを使用して、指定されたエクスポートフィルタにレポートをレンダリングおよびエクスポートします。"
+          responseschema='[file stream]'>
+        <Status name='200' description='The exported file stream.'></Status>
+        <Status name='404' description='The report path or format name does not exist.'></Status>
+        <Status name='406' description='The format name is not acceptable.'></Status>
+      </Function>
+      <Function name="ReportExportPOST" method="POST" url="/api/report/{folder path}/{report name}/$report/export" usage =""
+          description="Render and export the report to the specified export filter with options and the specified page settings or/and parameters."
+          description.ja="オプション、指定されたページ設定/パラメータなどを使用して、指定されたエクスポートフィルタにレポートをレンダリングおよびエクスポートします。"
+          responseschema='[file stream]'>
+        <Status name='200' description='The exported file stream.'></Status>
+        <Status name='404' description='The report path or format name does not exist.'></Status>
+        <Status name='406' description='The format name is not acceptable.'></Status>
+      </Function>
+    </FunctionGroup>
+    <FunctionGroup name="Report Instance" name.ja="レポートインスタンス">
+      <!--<Function name="ReportInstancesGET" method="GET" url="/api/report/{folder path}/{report name}/$instances" usage =""
+          description="Gets all report instances created by the specified report."
+          description.ja="指定されたレポートによって作成されたすべてのレポートインスタンスを取得します。"
+          responseschema='[\r\n    {\r\n        "id": "string",\r\n        "hasParameters": false,\r\n        "parametersLocation": "string",\r\n        "loadedDateTime": "string",\r\n        "expiredDateTime": "string",\r\n        "path": "string",\r\n        "outlinesLocation": "string",\r\n        "statusLocation": "string",\r\n        "pageSettingsLocation": "string",\r\n        "featuresLocation": "string",\r\n        "supportedFormatsLocation": "string"\r\n    }\r\n]'>
+        <Status name='200' description='Json string contains a collection of IReportInstanceInfo type.'></Status>
+        <Status name='404' description='The report path does not exist.'></Status>
+      </Function>-->
+      <Function name="ReportInstancesPOST" method="POST" url="/api/report/{folder path}/{report name}/$instances" usage =""
+          description="Creates new report instance from the specified report."
+          description.ja="指定されたレポートから新しいレポートインスタンスを作成します。"
+          responseschema='{\r\n    "id": "string",\r\n    "hasParameters": false,\r\n    "parametersLocation": "string",\r\n    "status": {\r\n        "expiredDateTime": "string",\r\n        "hasOutlines": false,\r\n        "status": "string",\r\n        "errorList": [],\r\n        "progress": 0,\r\n        "pageCount": 0\r\n    },\r\n    "loadedDateTime": "string",\r\n    "expiredDateTime": "string",\r\n    "path": "string",\r\n    "pageSettings": {\r\n        "paginated": true,\r\n        "height": "string",\r\n        "width": "string",\r\n        "topMargin": "string",\r\n        "leftMargin": "string",\r\n        "rightMargin": "string",\r\n        "bottomMargin": "string",\r\n        "landscape": false,\r\n        "paperSize": 1\r\n    },\r\n    "features": {\r\n        "nonPaginated": false,\r\n        "paginated": true,\r\n        "textSearchInPaginatedMode": true,\r\n        "pageSettings": true\r\n    },\r\n    "outlinesLocation": "string",\r\n    "statusLocation": "string",\r\n    "pageSettingsLocation": "string",\r\n    "featuresLocation": "string",\r\n    "supportedFormatsLocation": "string"\r\n}'>
+        <Status name='201' description='Json string contains IReportInstanceInfo type object, for the new created instance.'></Status>
+        <Status name='404' description='The report path does not exist.'></Status>
+      </Function>
+      <Function name="ReportInstanceInfoGET" method="GET" url="/api/report/{folder path}/{report name}/$instances/{instance id}" usage =""
+          description="Gets the info of the report instance with the specified instance id."
+          description.ja="指定されたインスタンス ID を持つレポートインスタンスの情報を取得します。"
+          responseschema='{\r\n    "id": "string",\r\n    "hasParameters": false,\r\n    "parametersLocation": "string",\r\n    "status": {\r\n        "expiredDateTime": "string",\r\n        "hasOutlines": false,\r\n        "status": "string",\r\n        "errorList": [],\r\n        "progress": 0,\r\n        "pageCount": 0\r\n    },\r\n    "loadedDateTime": "string",\r\n    "expiredDateTime": "string",\r\n    "path": "string",\r\n    "pageSettings": {\r\n        "paginated": true,\r\n        "height": "string",\r\n        "width": "string",\r\n        "topMargin": "string",\r\n        "leftMargin": "720tw",\r\n        "rightMargin": "string",\r\n        "bottomMargin": "string",\r\n        "landscape": false,\r\n        "paperSize": 1\r\n    },\r\n    "features": {\r\n        "nonPaginated": false,\r\n        "paginated": true,\r\n        "textSearchInPaginatedMode": true,\r\n        "pageSettings": true\r\n    },\r\n    "outlinesLocation": "string",\r\n    "statusLocation": "string",\r\n    "pageSettingsLocation": "string",\r\n    "featuresLocation": "string",\r\n    "supportedFormatsLocation": "string"\r\n}'>
+        <Status name='200' description='Json string contains IReportInstanceInfo type object.'></Status>
+        <Status name='404' description='The report path or instance id does not exist.'></Status>
+      </Function>
+      <Function name="ReportInstanceRenderPOST" method="POST" url="/api/report/{folder path}/{report name}/$instances/{instance id}/render" usage =""
+          description="Renders the report instance with the specified instance id."
+          description.ja="指定されたインスタンス ID を持つレポートインスタンスをレンダリングします。"
+          responseschema=''>
+        <Status name='200' description='(Render completed.) Json string contains IReportStatus type object.'></Status>
+        <Status name='202' description='(On Rendering.) The render action is accepted.'></Status>
+        <Status name='404' description='The report path or instance id does not exist.'></Status>
+      </Function>
+      <Function name="ReportInstanceStatusGET" method="GET" url="/api/report/{folder path}/{report name}/$instances/{instance id}/status" usage =""
+          description="Gets the status of the report instance with specified instance id."
+          description.ja="指定されたインスタンス ID を持つレポートインスタンスのステータスを取得します。"
+          responseschema='{\r\n    "expiredDateTime": "string",\r\n    "hasOutlines": false,\r\n    "status": "string",\r\n    "errorList": [],\r\n    "progress": 0,\r\n    "pageCount": 0\r\n}'>
+        <Status name='200' description='Json string contains IReportStatus type object.'></Status>
+        <Status name='404' description='The report path or instance id does not exist.'></Status>
+      </Function>
+      <Function name="ReportInstanceParametersGET" method="GET" url="/api/report/{folder path}/{report name}/$instances/{instance id}/parameters" usage =""
+          description="Gets the parameters in the report instance with specified instance id."
+          description.ja="指定されたインスタンス ID を持つレポートインスタンス内のパラメータを取得します。"
+          responseschema='[\r\n    {\r\n        "name": "string",\r\n        "dataType": 0,\r\n        "nullable": true,\r\n        "allowedValues": [\r\n            {\r\n                "key": "string",\r\n                "value": "string"\r\n            }\r\n        ],\r\n        "value": { },\r\n        "hidden": true,\r\n        "multiValue": true,\r\n        "prompt": "string",\r\n        "error": "string"\r\n    }\r\n]'>
+        <Status name='200' description='Json string contains a collection of IParameter.'></Status>
+        <Status name='404' description='The report path or instance id does not exist.'></Status>
+      </Function>
+      <Function name="ReportInstanceParametersPUT" method="PUT" url="/api/report/{folder path}/{report name}/$instances/{instance id}/parameters" usage =""
+          description="Updates all parameter values in the report instance with specified instance id."
+          description.ja="指定されたインスタンス ID を持つレポートインスタンス内のすべてのパラメータ値を更新します。"
+          responseschema='[\r\n    {\r\n        "name": "string",\r\n        "dataType": 0,\r\n        "nullable": true,\r\n        "allowedValues": [\r\n            {\r\n                "key": "string",\r\n                "value": "string"\r\n            }\r\n        ],\r\n        "value": { },\r\n        "hidden": true,\r\n        "multiValue": true,\r\n        "prompt": "string",\r\n        "error": "string"\r\n    }\r\n]'>
+        <Status name='200' description='Json string contains a collection of IParameter which are the new parameters with validation.'></Status>
+        <Status name='404' description='The report path or instance id does not exist.'></Status>
+      </Function>
+      <Function name="ReportInstanceParametersPATCH" method="PATCH" url="/api/report/{folder path}/{report name}/$instances/{instance id}/parameters" usage =""
+          description="Updates specified parameter values in the report instance with specified instance id."
+          description.ja="指定されたインスタンス ID を持つレポートインスタンス内の指定されたパラメータ値を更新します。"
+          responseschema='[\r\n    {\r\n        "name": "string",\r\n        "dataType": 0,\r\n        "nullable": true,\r\n        "allowedValues": [\r\n            {\r\n                "key": "string",\r\n                "value": "string"\r\n            }\r\n        ],\r\n        "value": { },\r\n        "hidden": true,\r\n        "multiValue": true,\r\n        "prompt": "string",\r\n        "error": "string"\r\n    }\r\n]'>
+        <Status name='200' description='Json string contains a collection of IParameter which are the new parameters with validation.'></Status>
+        <Status name='404' description='The report path or instance id does not exist.'></Status>
+      </Function>
+      <Function name="ReportInstanceParameterGET" method="GET" url="/api/report/{folder path}/{report name}/$instances/{instance id}/parameters/{parameterName}" usage =""
+          description="Gets the parameter with specified name in the report instance with specified instance id."
+          description.ja="指定されたインスタンス ID を持つレポートインスタンス内の指定された名前のパラメータを取得します。"
+          responseschema='[\r\n    {\r\n        "name": "string",\r\n        "dataType": 0,\r\n        "nullable": true,\r\n        "allowedValues": [\r\n            {\r\n                "key": "string",\r\n                "value": "string"\r\n            }\r\n        ],\r\n        "value": { },\r\n        "hidden": true,\r\n        "multiValue": true,\r\n        "prompt": "string",\r\n        "error": "string"\r\n    }\r\n]'>
+        <Status name='200' description='Json string contains IParameter type object.'></Status>
+        <Status name='404' description='The report path or instance id does not exist.'></Status>
+      </Function>
+      <Function name="ReportInstanceParameterPUT" method="PUT" url="/api/report/{folder path}/{report name}/$instances/{instance id}/parameters/{parameterName}" usage =""
+          description="Updates the value of parameter with specified name in the report instance with specified instance if."
+          description.ja="指定されたインスタンス ID を持つレポートインスタンス内の指定された名前のパラメータの値を更新します。"
+          responseschema='[\r\n    {\r\n        "name": "string",\r\n        "dataType": 0,\r\n        "nullable": true,\r\n        "allowedValues": [\r\n            {\r\n                "key": "string",\r\n                "value": "string"\r\n            }\r\n        ],\r\n        "value": { },\r\n        "hidden": true,\r\n        "multiValue": true,\r\n        "prompt": "string",\r\n        "error": "string"\r\n    }\r\n]'>
+        <Status name='200' description='Json string contains IParameter type object which is the new parameter with validation.'></Status>
+        <Status name='404' description='The report path or instance id or parameter name does not exist.'></Status>
+      </Function>
+      <Function name="ReportInstancePageSettingsGET" method="GET" url="/api/report/{folder path}/{report name}/$instances/{instance id}/pagesettings" usage =""
+          description="Gets the current page settings in the report instance with specified instance id."
+          description.ja="指定されたインスタンス ID を持つレポートインスタンス内の現在のページ設定を取得します。"
+          responseschema='{\r\n    "paginated": true,\r\n    "height": "string",\r\n    "width": "string",\r\n    "topMargin": "string",\r\n    "leftMargin": "string",\r\n    "rightMargin": "string",\r\n    "bottomMargin": "string",\r\n    "landscape": false,\r\n    "paperSize": 0\r\n}'>
+        <Status name='200' description='Json string contains IPageSettings type object.'></Status>
+        <Status name='404' description='The report path or instance id does not exist.'></Status>
+      </Function>
+      <Function name="ReportInstancePageSettingsPUT" method="PUT" url="/api/report/{folder path}/{report name}/$instances/{instance id}/pagesettings" usage =""
+          description="Updates all page settings properties in the report instance with specified instance id."
+          description.ja="指定されたインスタンス ID を持つレポートインスタンス内のすべてのページ設定プロパティを更新します。"
+          responseschema='{\r\n    "paginated": true,\r\n    "height": "string",\r\n    "width": "string",\r\n    "topMargin": "string",\r\n    "leftMargin": "string",\r\n    "rightMargin": "string",\r\n    "bottomMargin": "string",\r\n    "landscape": false,\r\n    "paperSize": 0\r\n}'>
+        <Status name='200' description='Json string contains IPageSettings type object which is the new page settings. Use the default value if one property is not set.'></Status>
+        <Status name='404' description='The report path or instance id does not exist.'></Status>
+      </Function>
+      <Function name="ReportInstancePageSettingsPATCH" method="PATCH" url="/api/report/{folder path}/{report name}/$instances/{instance id}/pagesettings" usage =""
+          description="Updates the specified page settings properties in the report instancce with specified instance id."
+          description.ja="指定されたインスタンス ID を持つレポートインスタンス内の指定されたページ設定プロパティを更新します。"
+          responseschema='{\r\n    "paginated": true,\r\n    "height": "string",\r\n    "width": "string",\r\n    "topMargin": "string",\r\n    "leftMargin": "string",\r\n    "rightMargin": "string",\r\n    "bottomMargin": "string",\r\n    "landscape": false,\r\n    "paperSize": 0\r\n}'>
+        <Status name='200' description='Json string contains IPageSettings type object which is the new page settings.'></Status>
+        <Status name='404' description='The report path or instance id does not exist.'></Status>
+      </Function>
+      <Function name="ReportInstanceSupportedFormatsGET" method="GET" url="/api/report/{folder path}/{report name}/$instances/{instance id}/supportedformats" usage =""
+          description="Get all the supported export formats."
+          description.ja="サポートされているすべてのエクスポート形式を取得します。"
+          responseschema='[\r\n    {\r\n        "name": "string",\r\n        "format": "string",\r\n        "optionDescriptions": [\r\n            {\r\n                "name": "string",\r\n                "type": "string",\r\n                "nullable": true,\r\n                "defaultValue": "string",\r\n                "allowedValues": ["string"]\r\n            }\r\n        ]\r\n    }\r\n]'>
+        <Status name='200' description='Json string contains a collection of IExportDescription.'></Status>
+        <Status name='404' description='The report path or instance id does not exist.'></Status>
+      </Function>
+      <Function name="ReportInstanceSupportedFormatGET" method="GET" url="/api/report/{folder path}/{report name}/$instances/{instance id}/supportedformats/{format name}" usage =""
+          description="Gets the export format with specified name supported by the report instance with specified instance id."
+          description.ja="指定されたインスタンス ID を持つレポートインスタンスによってサポートされる、指定された名前のエクスポート形式を取得します。"
+          responseschema='{\r\n    "name": "string",\r\n    "format": "string",\r\n    "optionDescriptions": [\r\n        {\r\n            "name": "string",\r\n            "type": "string",\r\n            "nullable": false,\r\n            "defaultValue": "string",\r\n            "allowedValues": ["string"]\r\n        }\r\n    ]\r\n}'>
+        <Status name='200' description='Json string contains IExportDescription type object.'></Status>
+        <Status name='404' description='The report path or instance id or format name does not exist.'></Status>
+      </Function>
+      <Function name="ReportInstanceFeaturesGET" method="GET" url="/api/report/{folder path}/{report name}/$instances/{instance id}/features" usage =""
+          description="Gets the features supported by the report instance with specified instance id."
+          description.ja="指定されたインスタンス ID を持つレポートインスタンスによってサポートされる機能を取得します。"
+          responseschema='{\r\n    "nonPaginated": false,\r\n    "paginated": true,\r\n    "textSearchInPaginatedMode": true,\r\n    "pageSettings": true\r\n}'>
+        <Status name='200' description='Json string contains IDocumentFeatures type object.'></Status>
+        <Status name='404' description='The report path or instance id does not exist.'></Status>
+      </Function>
+      <Function name="ReportInstanceExportGET" method="GET" url="/api/report/{folder path}/{report name}/$instances/{instance id}/export" usage =""
+          description="Exports the report instance with specified instance id into report filter with options."
+          description.ja="オプションを使用して、指定されたインスタンス ID を持つレポートインスタンスをレポートフィルタにエクスポートします。"
+          responseschema='[file stream]'>
+        <Status name='200' description='The exported file stream.'></Status>
+        <Status name='404' description='The report path or instance id does not exist or the request page range is not rendered. (The report is not render completed.)'></Status>
+        <Status name='406' description='The format name is not acceptable.'></Status>
+      </Function>
+      <Function name="ReportInstanceExportPOST" method="POST" url="/api/report/{folder path}/{report name}/$instances/{instance id}/export" usage =""
+          description="Exports the report instance with specified instance id into report filter with options."
+          description.ja="オプションを使用して、指定されたインスタンス ID を持つレポートインスタンスをレポートフィルタにエクスポートします。"
+          responseschema='[file stream]'>
+        <Status name='200' description='The exported file stream.'></Status>
+        <Status name='404' description='The report path or instance id does not exist or the request page range is not rendered. (The report is not render completed.)'></Status>
+        <Status name='406' description='The format name is not acceptable.'></Status>
+      </Function>
+      <Function name="ReportInstanceOutlinesGET" method="GET" url="/api/report/{folder path}/{report name}/$instances/{instance id}/outlines" usage =""
+          description="Gets all outlines in the report instance with specified instance id."
+          description.ja="指定されたインスタンス ID を持つレポートインスタンス内のすべてのアウトラインを取得します。"
+          responseschema='[\r\n    {\r\n        "caption": "string",\r\n        "children": [{ }],\r\n        "level": 0,\r\n        "target": "string"\r\n    }\r\n]'>
+        <Status name='200' description='Json string contains collection of IOutlineNode type objects.'></Status>
+        <Status name='404' description='The report path or instance id does not exist.'></Status>
+      </Function>
+      <Function name="ReportInstanceBookmarkGET" method="GET" url="/api/report/{folder path}/{report name}/$instances/{instance id}/bookmarks/{bookmark name}" usage =""
+          description="Gets the bookmark with specified name in the report instance with specified instance id."
+          description.ja="指定されたインスタンス ID を持つレポートインスタンス内の指定された名前のブックマークを取得します。"
+          responseschema='{\r\n    "pageBounds": {\r\n        "x": 0,\r\n        "y": 0,\r\n        "width":0,\r\n        "height": 0\r\n    },\r\n    "pageIndex": 0\r\n}'>
+        <Status name='200' description='Json string contains IDocumentPosition type object.'></Status>
+        <Status name='404' description='The report path or instance id or bookmark id does not exist.'></Status>
+      </Function>
+      <Function name="ReportInstanceSearchGET" method="GET" url="/api/report/{folder path}/{report name}/$instances/{instance id}/search" usage =""
+          description="Get the search result of the report with specified instance id, please ensure that the report has been rendered."
+          description.ja="指定されたインスタンス ID を持つレポートの検索結果を取得します。レポートがレンダリング済みであることを確認してください。"
+          responseschema='[\r\n    {\r\n        "nearText": "string",\r\n        "positionInNearText": 0,\r\n        "boundsList": [\r\n            {\r\n                "x": 0,\r\n                "y": 0,\r\n                "width": 0,\r\n                "height": 0\r\n            }\r\n        ],\r\n        "pageIndex": 0\r\n    }\r\n]'>
+        <Status name='200' description='Json string contains a collection of ISearchResult type objects.'></Status>
+        <Status name='404' description='The report path or instance id does not exist.'></Status>
+      </Function>
+      <Function name="ReportInstanceStopPOST" method="POST" url="/api/report/{folder path}/{report name}/$instances/{instance id}/stop" usage =""
+          description="Stop the current rendering."
+          description.ja="現在のレンダリングを停止します。"
+          responseschema='{\r\n    "expiredDateTime": "string",\r\n    "hasOutlines": false,\r\n    "status": "string",\r\n    "errorList": [],\r\n    "progress": 0,\r\n    "pageCount": 0\r\n}'>
+        <Status name='200' description='Json string contains IReportStatus type object.'></Status>
+        <Status name='404' description='The report path or instance id does not exist.'></Status>
+      </Function>
+      <Function name="ReportInstanceDELETE" method="DELETE" url="/api/report/{folder path}/{report name}/$instances/{instance id}" usage =""
+          description="Delete the instance."
+          description.ja="インスタンスを削除します。"
+          responseschema=''>
+        <Status name='204' description='Succeed to delete the instance.'></Status>
+        <Status name='404' description='The report path or instance id does not exist.'></Status>
+      </Function>
+    </FunctionGroup>
+  </ControlCat>
+  <ControlCat name="Image" Icon="fa fa-file-image-o">
+    <FunctionGroup name="Export Services" name.ja="エクスポートサービス">
+      <ControlGroup id="IESMVC" name="MVC Controls">
+        <Control name="MVCLinearGauge">
+          <action text="Overview" name="Index"></action>
+        </Control>
+        <Control name="MVCBulletGraph">
+          <action text="Overview" name="Index"></action>
+        </Control>
+        <Control name="MVCRadialGauge">
+          <action text="Overview" name="Index"></action>
+        </Control>
+        <Control name="MVCFlexPie">
+          <action text="Overview" name="Index"></action>
+        </Control>
+        <Control name="MVCFlexChart">
+          <action text="Overview" name="Index"></action>
+          <action text="Header and Footer" name="HeaderFooter"></action>
+          <action text="Labels" name="Labels"></action>
+          <action text="Bubble" name="Bubble"></action>
+        </Control>
+      </ControlGroup>
+      <ControlGroup id="IESWijmo5" name="Wijmo5 Controls">
+        <Control name="Wijmo5LinearGauge">
+          <action text="Overview" name="Index"></action>
+        </Control>
+        <Control name="Wijmo5BulletGraph">
+          <action text="Overview" name="Index"></action>
+        </Control>
+        <Control name="Wijmo5RadialGauge">
+          <action text="Overview" name="Index"></action>
+        </Control>
+        <Control name="Wijmo5FlexPie">
+          <action text="Overview" name="Index"></action>
+        </Control>
+        <Control name="Wijmo5FlexChart">
+          <action text="Overview" name="Index"></action>
+          <action text="Header and Footer" name="HeaderFooter"></action>
+          <action text="Labels" name="Labels"></action>
+          <action text="Bubble" name="Bubble"></action>
+        </Control>
+      </ControlGroup>
+    </FunctionGroup>
+  </ControlCat>
+  <ControlCat name="Barcode" Icon="fa fa-barcode">
+    <FunctionGroup name="Generate Barcode" name.ja="バーコードの生成">
+      <Function name="BarcodeGenerating" method="GET" url="/api/barcode" usage =""
+          description="API to generate barcode"
+          description.ja="バーコードを生成する API"
+          responseschema=''></Function>
+    </FunctionGroup>
+  </ControlCat>
+  <ControlCat name="DataEngine" Icon="fa fa-dataengine">
+    <FunctionGroup name="Samples for Services" name.ja="サービスのサンプル">
+      <ControlGroup id="DEMVC" name="MVC Controls">
+        <Control name="MVCOlap">
+          <action text="Overview" name="Index"></action>
+        </Control>
+      </ControlGroup>
+      <ControlGroup id="DEWijmo5" name="Wijmo5 Controls">
+        <Control name="Wijmo5Olap">
+          <action text="Overview" name="Index"></action>
+        </Control>
+      </ControlGroup>
+    </FunctionGroup>
+    <FunctionGroup name="Services" name.ja="サービス">
+      <Function name="Fields" method="GET" url="/api/dataengine/{datasource}/fields" usage =""
+          description="Gets all the fields in the data."
+          description.ja="データ内のすべてのフィールドを取得します。"
+          responseschema='[\r\n      {\r\n        "header": "",\r\n        "binding": "",\r\n        "dataType": //a number value indicates the data type of the field\r\n        "dimensionType": //the dimension type of the field\r\n        "subFields": []//the child fields\r\n      },\r\n      ...\r\n]'>
+        <Status name='200' description='A field array is returned.'></Status>
+        <Status name='404' description='{datasource} is invalid.'></Status>
+      </Function>
+      <Function name="RawData" method="GET" url="/api/dataengine/{datasource}?[skip=n&amp;top=m]" usage =""
+          description="Get the raw data. It is not supported when connecting cube data."
+          description.ja="生データを取得します。キューブデータとの接続時にはサポートされません。"
+          responseschema='{\r\n  "value": [...] //the data item array\r\n  "totalCount": //the total count of the raw data without paging.\r\n}'>
+        <Status name='200' description='An IRawData object is returned to specify the aggregated result information. It includes two items: an array for the aggregated data and a number value for the total count of all the raw data without paging.'></Status>
+        <Status name='404' description='{datasource} is invalid.'></Status>
+      </Function>
+      <Function name="Detail" method="POST" url="/api/dataengine/{datasource}" usage =""
+          description="Get a list of objects in the raw data source that define the content of a specific cell in the output table. It is not supported when connecting cube data."
+          description.ja="出力テーブル内の特定のセルのコンテンツを定義する生データソース内のオブジェクトのリストを取得します。キューブデータとの接続時にはサポートされません。"
+          responseschema='{\r\n  "value": [...] //the data item array\r\n  "totalCount": //the total count of the detail data without paging.\r\n}'>
+        <Status name='200' description='An IRawData object is returned to specify the detail result information. It includes two parts: an array for the raw data of the cell and the total count of the raw data without paging.'></Status>
+        <Status name='404' description='{datasource} is invalid.'></Status>
+      </Function>
+      <Function name="UniqueValues" method="POST" url="/api/dataengine/{datasource}/fields/{fieldname}/uniquevalues" usage =""
+          description="Get the unique values of a field. It is not supported when connecting cube data."
+          description.ja="フィールドの一意の値を取得します。キューブデータとの接続時にはサポートされません。"
+          responseschema='[...] //the unique value list array.'>
+        <Status name='200' description='An array is returned to specify the unique values of a field.'></Status>
+        <Status name='404' description='{datasource} or {fieldname} is invalid.'></Status>
+      </Function>
+      <Function name="Analyze" method="POST" url="/api/dataengine/{datasource}/analyses" usage =""
+          description="Analyze the data from the specified data source."
+          description.ja="指定されたデータソースのデータを分析します。"
+          responseschema='{\r\n  "token": ""\r\n  "status":\r\n  {\r\n    executingStatus: ""//Five possible status: "NotSet", "Executing", "Exception", "Completed" and "Cancelled".\r\n    "progress": //a number value indicates the analysis progress.\r\n  }\r\n  "result":[...] //the aggregated result data. If the analysis finished normally, it returns the result data. Otherwise, it is null.\r\n}'>
+        <Status name='201' description='An IAnalysis object is returned to specify the analysis result information. It includes the status and the result data. If executingStatus in the status is “Completed”, the result data is an array which stands for the aggregated result data. Otherwise, the result data is always null.\r\nLocation in response header shows the url to access the analysis instance.'></Status>
+        <Status name='404' description='{datasource} is invalid.'></Status>
+      </Function>
+      <Function name="Status" method="GET" url="/api/dataengine/{datasource}/analyses/{token}/status" usage =""
+          description="Get the status of the analysis."
+          description.ja="分析のステータスを取得します。"
+          responseschema='{\r\n  "status": ""\r\n  "progress": //a number value indicates the analysis progress.\r\n}'>
+        <Status name='200' description='An IStatus object is returned to specify the status. If the status is still “Executing”, you can send this request repeatedly until the status is changed to other values: Completed, Cleared or Exception. When it is “Completed”, it means the query has been executed successfully and the data is prepared. You can get the data by the 7th service: Get: /host/{datasourcekey}/analyses/{token}/result. If the status is “Exception”, it means some error occurs during the executing. For example, the token provided in this request doesn’t exist, an exception would be returned as response.'></Status>
+        <Status name='404' description='{datasource} or {token} is invalid.'></Status>
+      </Function>
+      <Function name="Result" method="GET" url="/api/dataengine/{datasource}/analyses/{token}/result" usage =""
+          description="Get the analysis result data."
+          description.ja="分析結果データを取得します。"
+          responseschema='[...] //the aggregated data list\r\n'>
+        <Status name='200' description='An array object is returned to specify the result data. After calling this service to obtain the data prepared, the token will be removed. You cannot use it in other requests then. Otherwise, an exception would be returned.'></Status>
+        <Status name='404' description='{datasource} or {token} is invalid.'></Status>
+      </Function>
+      <Function name="Analysis" method="GET" url="/api/dataengine/{datasource}/analyses/{token}" usage =""
+          description="Get the analysis information."
+          description.ja="分析情報を取得します。"
+          responseschema='{\r\n  "token": ""\r\n  "status":\r\n  {\r\n    executingStatus: ""//Five possible status: "NotSet", "Executing", "Exception", "Completed" and "Cancelled".\r\n    "progress": //a number value indicates the analysis progress.\r\n  }\r\n  "result":[...] //the aggregated result data. If the analysis finished normally, it returns the result data. Otherwise, it is null.\r\n}'>
+        <Status name='200' description='An IAnalysis object is returned to specify the analysis result information.'></Status>
+        <Status name='404' description='{datasource} or {token} is invalid.'></Status>
+      </Function>
+      <Function name="Clear" method="DELETE" url="/api/dataengine/{datasource}/analyses/{token}" usage =""
+          description="Clear the analysis."
+          description.ja="分析をクリアします。"
+          responseschema='No content.'>
+        <Status name='204' description='No content for response.'></Status>
+        <Status name='404' description='{datasource} or {token} is invalid.'></Status>
+      </Function>
+    </FunctionGroup>
+  </ControlCat>
+  <ControlCat name="Pdf" Icon="fa fa-file-pdf-o">
+    <FunctionGroup name="Pdf" name.ja="PDF">
+      <Function name="PdfInfoGET" method="GET" url="/api/pdf/{pdf path}/$pdf" usage =""
+            description="Get the execution info of the specified pdf."
+          description.ja="指定された PDF の実行情報を取得します。"
+            responseschema='{\r\n    "loadedDateTime": "2016/12/23 13:32:44",\r\n    "expiredDateTime": "2016/12/23 14:04:05",\r\n    "path": "string",\r\n    "pageSettings": {\r\n        "paginated": true,\r\n        "height": "string",\r\n        "width": "string",\r\n        "topMargin": "string",\r\n        "leftMargin": "string",\r\n        "rightMargin": "string",\r\n        "bottomMargin": "string",\r\n        "landscape": false,\r\n        "paperSize": 0\r\n    },\r\n    "features": {\r\n        "nonPaginated": false,\r\n        "paginated": true,\r\n        "textSearchInPaginatedMode": false,\r\n        "pageSettings": false\r\n    },\r\n    "status": {\r\n        "expiredDateTime": "2016/12/23 14:04:05",\r\n        "hasOutlines": false,\r\n        "status": "string",\r\n        "errorList": [],\r\n        "progress": 1,\r\n        "pageCount": 1\r\n    },\r\n    "statusLocation": "string",\r\n    "featuresLocation": "string"\r\n}'>
+        <Status name='200' description='Json string contains IExecutionInfo type object.'></Status>
+        <Status name='404' description='The pdf path does not exist.'></Status>
+      </Function>
+      <Function name="PdfStatusGET" method="GET" url="/api/pdf/{pdf path}/$pdf/status" usage =""
+          description="Get the status of the specified pdf."
+          description.ja="指定された PDF のステータスを取得します。"
+          responseschema='{\r\n    "expiredDateTime": "2016/12/23 14:30:12",\r\n    "hasOutlines": false,\r\n    "status": "string",\r\n    "errorList": [],\r\n    "progress": 0,\r\n    "pageCount": 0\r\n}'>
+        <Status name='200' description='Json string contains IDocumentStatus type object.'></Status>
+        <Status name='404' description='The pdf path does not exist.'></Status>
+      </Function>
+      <Function name="PdfSupportedFormatsGET" method="GET" url="/api/pdf/{pdf path}/$pdf/supportedformats" usage =""
+          description="Get all the supported export formats."
+          description.ja="サポートされているすべてのエクスポート形式を取得します。"
+          responseschema='[\r\n    {\r\n        "name": "string",\r\n        "format": "string",\r\n        "optionDescriptions": [\r\n            {\r\n                "name": "string",\r\n                "type": "string",\r\n                "nullable": true,\r\n                "defaultValue": "string",\r\n                "allowedValues": ["string"]\r\n            }\r\n        ]\r\n    }\r\n]'>
+        <Status name='200' description='Json string contains a collection of IExportDescription.'></Status>
+        <Status name='404' description='The pdf path does not exist.'></Status>
+      </Function>
+      <Function name="PdfFeaturesGET" method="GET" url="/api/pdf/{pdf path}/$pdf/features" usage =""
+                description="Get all the supported features."
+          description.ja="サポートされているすべての機能を取得します。"
+                responseschema='{\r\n    "nonPaginated": false,\r\n    "paginated": true,\r\n    "textSearchInPaginatedMode": false,\r\n    "pageSettings": false\r\n}'>
+        <Status name='200' description='Json string contains IDocumentFeatures type object.'></Status>
+        <Status name='404' description='The pdf path does not exist.'></Status>
+      </Function>
+      <Function name="PdfExportGET" method="GET" url="/api/pdf/{pdf path}/$pdf/export" usage =""
+          description="Export the pdf to the specified format with options."
+          description.ja="指定された形式とオプションで PDF をエクスポートします。"
+          responseschema='[file stream]'>
+        <Status name='200' description='The exported file stream.'></Status>
+        <Status name='404' description='The pdf path does not exist.'></Status>
+        <Status name='406' description='The format name is not acceptable.'></Status>
+      </Function>
+      <Function name="PdfExportPOST" method="POST" url="/api/pdf/{pdf path}/$pdf/export" usage =""
+          description="Export the pdf to the specified format with options in body."
+          description.ja="ボディに指定された形式とオプションで PDF をエクスポートします。"
+          responseschema='[file stream]'>
+        <Status name='200' description='The exported file stream.'></Status>
+        <Status name='404' description='The pdf path does not exist.'></Status>
+        <Status name='406' description='The format name is not acceptable.'></Status>
+      </Function>
+    </FunctionGroup>
+  </ControlCat>
+</Controls>

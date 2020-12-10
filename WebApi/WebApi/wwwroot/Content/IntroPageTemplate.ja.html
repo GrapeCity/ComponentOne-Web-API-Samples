@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>C1 @Name サービス</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="../Content/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="../Content/favicon/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../Content/favicon/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="../Content/favicon/manifest.json">
+    <link rel="mask-icon" href="../Content/favicon/safari-pinned-tab.svg" color="#503b75">
+    <link href="../styles/bootstrap.min.css" rel="stylesheet" />
+    <link href="../Content/css/wijmo.min.css" rel="stylesheet" />
+    <link href="../Content/css/page.css" rel="stylesheet" />
+    <link href="../Content/css/gcicons.ja.css" rel="stylesheet" />
+    <script src="../Content/Scripts/wijmo.min.js"></script>
+    <script src="../Content/Scripts/wijmo.grid.min.js"></script>
+    <script src="../Content/Scripts/jquery.js"></script>
+    <script src="../Content/Scripts/MultiLevelMenu.js"></script>
+    <script src="../Content/Scripts/Layout.js"></script>
+</head>
+<body>
+    <div class="hide">
+        <ul class="site-nav narrow-screen">
+            <li>
+                <a href="https://www.grapecity.co.jp/developer/controls/aspnet-mvc/webapi" target="_blank">詳細</a>
+            </li>
+            <li>
+                <a href="https://www.grapecity.co.jp/developer/support" target="_blank">サポート</a>
+            </li>
+            <li>
+                <a href="https://www.grapecity.co.jp/developer/purchase" target="_blank">ご購入</a>
+            </li>
+            <li class="bold">
+                <a href="https://www.grapecity.co.jp/developer/download" target="_blank">トライアル版</a>
+            </li>
+        </ul>
+    </div>
+    <header>
+        <div class="hamburger-nav-btn narrow-screen"><span class="icon-bars"></span></div>
+        <a class="logo-container" href="https://www.grapecity.co.jp/developer/controls/aspnet-mvc/webapi" target="_blank"> <i class="gcicon-product-c1"></i>ComponentOne </a>
+        <div class="task-bar">
+            <span class="semi-bold">C1 @Name サービス</span>
+            <ul class="site-nav wide-screen">
+                <li>
+                    <a href="https://www.grapecity.co.jp/developer/controls/aspnet-mvc/webapi" target="_blank">詳細</a>
+                </li>
+                <li>
+                    <a href="https://www.grapecity.co.jp/developer/support" target="_blank">サポート</a>
+                </li>
+                <li>
+                    <a href="https://www.grapecity.co.jp/developer/purchase" target="_blank">ご購入</a>
+                </li>
+                <li class="bold">
+                    <a href="https://www.grapecity.co.jp/developer/download" target="_blank">トライアル版</a>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <section class="content controls">
+        <div class="page-content">
+            <div style="padding:20px">
+                <div class="abstract">
+                    @Abstract
+                </div>
+                <div class="detailList">
+                    @DetailList
+                </div>
+                <div class="services">
+                    <h4>サービス</h4>
+                    <p>次のサービスリストが提供されています。</p>
+                    <div class="serviceList">
+                        <div id="serviceTree"></div>
+                        @ServiceList
+                    </div>
+                    <p>詳細については、<a href="https://demos.componentone.com/aspnet/webapiexplorer">WebApiExplorer サンプル</a>を参照してください。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <a href="http://www.grapecity.com/">
+            <i class="gcicon-logo-gc-horiz"></i>
+        </a>
+        <p>
+            © <span id="crYear"></span> GrapeCity, Inc. All Rights Reserved.<br />
+            ここで示されているすべての製品および会社名は、それぞれの所有者の商標である場合があります。
+        </p>
+    </footer>
+</body>
+</html>

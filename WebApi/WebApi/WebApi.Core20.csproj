@@ -1,0 +1,91 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>net461</TargetFramework>
+    <RuntimeIdentifier>win7-x86</RuntimeIdentifier>
+    <AssemblyName>WebApi</AssemblyName>
+    <RootNamespace>WebApi</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DefineConstants>TRACE;DEBUG;ASPNETCORE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DefineConstants>TRACE;ASPNETCORE</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="AWSSDK.Core" Version="3.3.31.4" />
+    <PackageReference Include="AWSSDK.S3" Version="3.3.31.12" />
+    <PackageReference Include="Dropbox.Api" Version="4.9.3" />
+    <PackageReference Include="Google.Apis" Version="1.25.0" />
+    <PackageReference Include="WindowsAzure.Storage" Version="8.7.0" />
+    <PackageReference Include="Google.Apis.Drive.v3" Version="1.25.0.862" />
+    <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="1.1.3" />
+    <PackageReference Include="C1.DataEngine" Version="5.0.20202.154" />
+    <PackageReference Include="C1.Win.C1Document" Version="4.5.20203.468" />
+    <PackageReference Include="C1.C1Excel" Version="4.5.20203.468" />
+    <PackageReference Include="C1.Win.FlexReport" Version="4.5.20203.468" />
+    <PackageReference Include="C1.AspNetCore.Api.Cloud" Version="1.0.20203.277" />
+    <PackageReference Include="C1.AspNetCore.Api" Version="1.0.20203.277" />
+    <PackageReference Include="C1.AspNetCore.Api.BarCode" Version="1.0.20203.277" />
+    <PackageReference Include="C1.AspNetCore.Api.DataEngine" Version="1.0.20203.277" />
+    <PackageReference Include="C1.AspNetCore.Api.Document" Version="1.0.20203.277" />
+    <PackageReference Include="C1.AspNetCore.Api.Excel" Version="1.0.20203.277" />
+    <PackageReference Include="C1.AspNetCore.Api.Image" Version="1.0.20203.277" />
+    <PackageReference Include="C1.AspNetCore.Api.Pdf" Version="1.0.20203.277" />
+    <PackageReference Include="C1.AspNetCore.Api.Report" Version="1.0.20203.277" />
+    <PackageReference Include="Microsoft.AspNetCore.Session" Version="2.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore" Version="2.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="2.0.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="2.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="project.json" />
+    <Content Remove="project.lock.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="GCDTLicenses.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="phantomjs.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="wwwroot/App_Data/*.*">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Localization\Resource.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resource.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Localization\Resource.ja.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resource.ja.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Localization\Resource.ja.resx">
+      <Generator></Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Localization\Resource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>
