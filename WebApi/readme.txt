@@ -34,3 +34,7 @@ step 5: change "C1WebApi" to your apps name.
 
 step 6: change "test.xlsx" to your file name you want to post.
 NOTE: if using List Api, need change "test1" to your sub folder path. 
+
+Note for FlexReport using SQLite database:
+Currently, SQLite has this issue: https://stackoverflow.com/questions/13028069/unable-to-load-dll-sqlite-interop-dll/60176344.
+Then SQLite 1.0.113 x86 package is requied for the sample.

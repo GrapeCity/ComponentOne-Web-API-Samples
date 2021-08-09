@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Specialized;
 using System.Data;
-using System.Data.SqlClient;
+using System.Data.SQLite;
 
 namespace WebApi
 {
@@ -29,8 +29,8 @@ namespace WebApi
             }
 
             var selectCommand = string.Format("select * from {0}", tableName);
-            var conn = new SqlConnection(ConnectionString);
-            var command = new SqlCommand(selectCommand) { Connection = conn };
+            var conn = new SQLiteConnection(ConnectionString);
+            var command = new SQLiteCommand(selectCommand) { Connection = conn };
             conn.Open();
             return command.ExecuteReader(CommandBehavior.CloseConnection);
         }

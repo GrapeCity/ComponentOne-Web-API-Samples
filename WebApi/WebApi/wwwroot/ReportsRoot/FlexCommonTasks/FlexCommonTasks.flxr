@@ -20,8 +20,8 @@
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=SQLNCLI11;Integrated Security=SSPI;Data Source=(localdb)\v11.0;Initial File Name=|DataDirectory|\wwwroot\App_Data\C1NWind.mdf;Persist Security Info=False</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
         <RecordSource>Employees</RecordSource>
         <RecordSourceType>TableDirect</RecordSourceType>
       </DataSource>
@@ -350,8 +350,8 @@
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=SQLNCLI11;Integrated Security=SSPI;Data Source=(localdb)\v11.0;Initial File Name=|DataDirectory|\wwwroot\App_Data\C1NWind.mdf;Persist Security Info=False</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
         <RecordSource>SELECT Categories.*, Products.*
 FROM Categories INNER JOIN Products ON Categories.CategoryID = Products.CategoryID</RecordSource>
       </DataSource>
@@ -898,9 +898,10 @@ Parameters</Keywords>
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=SQLNCLI11;Integrated Security=SSPI;Data Source=(localdb)\v11.0;Initial File Name=|DataDirectory|\wwwroot\App_Data\C1NWind.mdf;Persist Security Info=False</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
         <RecordSource>Products</RecordSource>
+        <RecordSourceType>TableDirect</RecordSourceType>
       </DataSource>
     </DataSources>
     <ReportParameters>
@@ -1767,8 +1768,8 @@ The </Value>
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=SQLNCLI11;Integrated Security=SSPI;Data Source=(localdb)\v11.0;Initial File Name=|DataDirectory|\wwwroot\App_Data\C1NWind.mdf;Persist Security Info=False</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
         <RecordSource>SELECT Categories.*, Products.*
 FROM Categories INNER JOIN Products ON Categories.CategoryID = Products.CategoryID</RecordSource>
       </DataSource>
@@ -2265,8 +2266,8 @@ When specified this way, the custom paper size is used regardless of what printe
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=SQLNCLI11;Integrated Security=SSPI;Data Source=(localdb)\v11.0;Initial File Name=|DataDirectory|\wwwroot\App_Data\C1NWind.mdf;Persist Security Info=False</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
         <RecordSource>SELECT Categories.*, Products.*
 FROM Categories INNER JOIN Products ON Categories.CategoryID = Products.CategoryID</RecordSource>
       </DataSource>
@@ -2827,8 +2828,8 @@ The report also suppresses the page header on the first page by setting the </Va
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=SQLNCLI11;Integrated Security=SSPI;Data Source=(localdb)\v11.0;Initial File Name=|DataDirectory|\wwwroot\App_Data\C1NWind.mdf;Persist Security Info=False</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
         <RecordSource>SELECT Categories.*, Products.*
 FROM Categories INNER JOIN Products ON Categories.CategoryID = Products.CategoryID</RecordSource>
       </DataSource>
@@ -3253,8 +3254,8 @@ Outlines</Keywords>
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=SQLNCLI11;Integrated Security=SSPI;Data Source=(localdb)\v11.0;Initial File Name=|DataDirectory|\wwwroot\App_Data\C1NWind.mdf;Persist Security Info=False</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
         <RecordSource>SELECT Employees.EmployeeID as EmployeeID,
        Employees.FirstName as FirstName,
        Employees.LastName as LastName,
@@ -4173,8 +4174,8 @@ Also this report demonstrates how a report can be customized with parameters.</V
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=SQLNCLI11;Integrated Security=SSPI;Data Source=(localdb)\v11.0;Initial File Name=|DataDirectory|\wwwroot\App_Data\C1NWind.mdf;Persist Security Info=False</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
         <RecordSource>SELECT Employees.Country, 
        Employees.EmployeeID,
        Employees.LastName,
@@ -5258,21 +5259,22 @@ The Employee group is sorted by the employee's total sales in descending order.<
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=SQLNCLI11;Integrated Security=SSPI;Data Source=(localdb)\v11.0;Initial File Name=|DataDirectory|\wwwroot\App_Data\C1NWind.mdf;Persist Security Info=False</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
         <RecordSource>SELECT Categories.*, Products.*
 FROM Categories INNER JOIN Products ON Categories.CategoryID = Products.CategoryID where Products.CategoryID in pCategory</RecordSource>
       </DataSource>
       <DataSource>
         <Name>dsCategories</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=SQLNCLI11;Integrated Security=SSPI;Data Source=(localdb)\v11.0;Initial File Name=|DataDirectory|\wwwroot\App_Data\C1NWind.mdf;Persist Security Info=False</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
         <RecordSource>select CategoryID, CategoryName from Categories order by CategoryName</RecordSource>
       </DataSource>
     </DataSources>
     <ReportParameters>
       <ReportParameter>
         <Name>pCategory</Name>
+        <Value sys="int">1</Value>
         <Values>
           <Item sys="int">1</Item>
           <Item sys="int">2</Item>
@@ -6021,8 +6023,8 @@ This report contains a </Value>
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=SQLNCLI11;Integrated Security=SSPI;Data Source=(localdb)\v11.0;Initial File Name=|DataDirectory|\wwwroot\App_Data\C1NWind.mdf;Persist Security Info=False</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
         <RecordSource>select orderid, orders.customerid, companyname, employees.firstname, employees.lastname, orderdate, RequiredDate, shippeddate, Freight
   from (orders inner join customers on orders.customerid = customers.customerid) inner join employees on orders.employeeid = employees.employeeid
  where orders.CustomerID in pCustomers</RecordSource>
@@ -6035,8 +6037,8 @@ This report contains a </Value>
       </DataSource>
       <DataSource>
         <Name>dsCountries</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=SQLNCLI11;Integrated Security=SSPI;Data Source=(localdb)\v11.0;Initial File Name=|DataDirectory|\wwwroot\App_Data\C1NWind.mdf;Persist Security Info=False</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
         <RecordSource>select Country, Count(*) as CustomerCount from Customers group by Country order by Country</RecordSource>
         <CalculatedFields>
           <CalculatedField>
@@ -6047,8 +6049,8 @@ This report contains a </Value>
       </DataSource>
       <DataSource>
         <Name>dsCustomers</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=SQLNCLI11;Integrated Security=SSPI;Data Source=(localdb)\v11.0;Initial File Name=|DataDirectory|\wwwroot\App_Data\C1NWind.mdf;Persist Security Info=False</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
         <RecordSource>select CustomerID, CompanyName from Customers where Country = pCountry</RecordSource>
       </DataSource>
     </DataSources>
@@ -6068,6 +6070,7 @@ This report contains a </Value>
       </ReportParameter>
       <ReportParameter>
         <Name>pCustomers</Name>
+        <Value sys="string">MORGK</Value>
         <Values>
           <Item sys="string">MORGK</Item>
           <Item sys="string">LEHMS</Item>
@@ -6884,30 +6887,32 @@ Charts</Keywords>
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=SQLNCLI11;Integrated Security=SSPI;Data Source=(localdb)\v11.0;Initial File Name=|DataDirectory|\wwwroot\App_Data\C1NWind.mdf;Persist Security Info=False</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
         <RecordSource>Suppliers</RecordSource>
         <RecordSourceType>TableDirect</RecordSourceType>
       </DataSource>
       <DataSource>
         <Name>dsYears</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=SQLNCLI11;Integrated Security=SSPI;Data Source=(localdb)\v11.0;Initial File Name=|DataDirectory|\wwwroot\App_Data\C1NWind.mdf;Persist Security Info=False</ConnectionString>
-        <RecordSource>select distinct year(orderdate) as OrderYear from orders order by 1</RecordSource>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
+        <RecordSource>select distinct strftime('%Y', orderdate) as OrderYear from orders order by 1</RecordSource>
       </DataSource>
       <DataSource>
         <Name>dsChart</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=SQLNCLI11;Integrated Security=SSPI;Data Source=(localdb)\v11.0;Initial File Name=|DataDirectory|\wwwroot\App_Data\C1NWind.mdf;Persist Security Info=False</ConnectionString>
-        <RecordSource>select p.SupplierID, o.OrderDate, sum(od.Quantity * od.UnitPrice) as OrderSum
-  from [Order Details] od, Orders o, Products p
- where od.OrderID = o.OrderID and od.ProductID = p.ProductID and year(o.OrderDate) = pYear
- group by p.SupplierID, o.OrderDate</RecordSource>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
+        <RecordSource>
+            select p.SupplierID, o.OrderDate, sum(od.Quantity * od.UnitPrice) as OrderSum
+            from [Order Details] od, Orders o, Products p
+            where od.OrderID = o.OrderID and od.ProductID = p.ProductID and strftime('%Y', o.OrderDate) = pYear
+            group by p.SupplierID, o.OrderDate</RecordSource>
       </DataSource>
     </DataSources>
     <ReportParameters>
       <ReportParameter>
         <Name>pYear</Name>
+        <Value sys="string">2014</Value>
         <AllowedValuesDefinition>
           <Binding>
             <DataSourceName>dsYears</DataSourceName>
@@ -7792,8 +7797,8 @@ Note that ChartField uses the </Value>
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=SQLNCLI11;Integrated Security=SSPI;Data Source=(localdb)\v11.0;Initial File Name=|DataDirectory|\wwwroot\App_Data\C1NWind.mdf;Persist Security Info=False</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
         <RecordSource>Products</RecordSource>
         <RecordSourceType>TableDirect</RecordSourceType>
       </DataSource>
@@ -8191,26 +8196,27 @@ The current subsection has Visible set to false so that it does not show in the 
     <DataSources>
       <DataSource>
         <Name>dsCategories</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=SQLNCLI11;Integrated Security=SSPI;Data Source=(localdb)\v11.0;Initial File Name=|DataDirectory|\wwwroot\App_Data\C1NWind.mdf;Persist Security Info=False</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
         <RecordSource>select distinct Category from Cars order by Category</RecordSource>
       </DataSource>
       <DataSource>
         <Name>dsLeftBrands</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=SQLNCLI11;Integrated Security=SSPI;Data Source=(localdb)\v11.0;Initial File Name=|DataDirectory|\wwwroot\App_Data\C1NWind.mdf;Persist Security Info=False</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
         <RecordSource>select distinct Brand from Cars where Category in pLeftCategories order by Brand</RecordSource>
       </DataSource>
       <DataSource>
         <Name>dsRightBrands</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=SQLNCLI11;Integrated Security=SSPI;Data Source=(localdb)\v11.0;Initial File Name=|DataDirectory|\wwwroot\App_Data\C1NWind.mdf;Persist Security Info=False</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
         <RecordSource>select distinct Brand from Cars where Category in pRightCategories order by Brand</RecordSource>
       </DataSource>
     </DataSources>
     <ReportParameters>
       <ReportParameter>
         <Name>pLeftCategories</Name>
+        <Value sys="string">SALOO</Value>
         <MultiValue>true</MultiValue>
         <AllowedValuesDefinition>
           <Binding>
@@ -8224,6 +8230,7 @@ The current subsection has Visible set to false so that it does not show in the 
       </ReportParameter>
       <ReportParameter>
         <Name>pLeftBrands</Name>
+        <Value sys="string">Audi</Value>
         <MultiValue>true</MultiValue>
         <AllowedValuesDefinition>
           <Binding>
@@ -8237,6 +8244,7 @@ The current subsection has Visible set to false so that it does not show in the 
       </ReportParameter>
       <ReportParameter>
         <Name>pRightCategories</Name>
+        <Value sys="string">SALOO</Value>
         <MultiValue>true</MultiValue>
         <AllowedValuesDefinition>
           <Binding>
@@ -8250,6 +8258,7 @@ The current subsection has Visible set to false so that it does not show in the 
       </ReportParameter>
       <ReportParameter>
         <Name>pRightBrands</Name>
+        <Value sys="string">Audi</Value>
         <MultiValue>true</MultiValue>
         <AllowedValuesDefinition>
           <Binding>
@@ -8377,12 +8386,14 @@ Besides data parameters, the subreports also receive the main color as a hidden 
         <ParameterValues>
           <SubreportParameterValue>
             <Name>pCategories</Name>
+            <Value sys="string">SALOO</Value>
             <Value>
               <Expression>pLeftCategories</Expression>
             </Value>
           </SubreportParameterValue>
           <SubreportParameterValue>
             <Name>pBrands</Name>
+            <Value sys="string">Audi</Value>
             <Value>
               <Expression>pLeftBrands</Expression>
             </Value>
@@ -8452,20 +8463,20 @@ BrandGroup_Footer.SubSections(0).Border.Color = pColor
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=SQLNCLI11;Integrated Security=SSPI;Data Source=(localdb)\v11.0;Initial File Name=|DataDirectory|\wwwroot\App_Data\C1NWind.mdf;Persist Security Info=False</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
         <RecordSource>select * from Cars where Category in pCategories and Brand in pBrands</RecordSource>
       </DataSource>
       <DataSource>
         <Name>dsCategories</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=SQLNCLI11;Integrated Security=SSPI;Data Source=(localdb)\v11.0;Initial File Name=|DataDirectory|\wwwroot\App_Data\C1NWind.mdf;Persist Security Info=False</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
         <RecordSource>select distinct Category from Cars order by Category</RecordSource>
       </DataSource>
       <DataSource>
         <Name>dsBrands</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=SQLNCLI11;Integrated Security=SSPI;Data Source=(localdb)\v11.0;Initial File Name=|DataDirectory|\wwwroot\App_Data\C1NWind.mdf;Persist Security Info=False</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
         <RecordSource>select distinct Brand from Cars where Category in pCategories order by Brand</RecordSource>
       </DataSource>
     </DataSources>
@@ -8931,8 +8942,8 @@ Brands:
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=SQLNCLI11;Integrated Security=SSPI;Data Source=(localdb)\v11.0;Initial File Name=|DataDirectory|\wwwroot\App_Data\C1NWind.mdf;Persist Security Info=False</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
         <RecordSource>select o.OrderID, 
        c.CompanyName,
        e.LastName,
@@ -9764,8 +9775,8 @@ The use of report.Layout.Overlay feature is also demonstrated (used here to show
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=SQLNCLI11;Integrated Security=SSPI;Data Source=(localdb)\v11.0;Initial File Name=|DataDirectory|\wwwroot\App_Data\C1NWind.mdf;Persist Security Info=False</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
         <RecordSource>Products</RecordSource>
         <RecordSourceType>TableDirect</RecordSourceType>
         <CalculatedFields>
@@ -9942,8 +9953,8 @@ Outlines</Keywords>
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=SQLNCLI11;Integrated Security=SSPI;Data Source=(localdb)\v11.0;Initial File Name=|DataDirectory|\wwwroot\App_Data\C1NWind.mdf;Persist Security Info=False</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
         <RecordSource>SELECT Categories.*, Products.*
 FROM Categories INNER JOIN Products ON Categories.CategoryID = Products.CategoryID</RecordSource>
       </DataSource>
@@ -10631,8 +10642,8 @@ endif</OnFormat>
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=SQLNCLI11;Integrated Security=SSPI;Data Source=(localdb)\v11.0;Initial File Name=|DataDirectory|\wwwroot\App_Data\C1NWind.mdf;Persist Security Info=False</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
         <RecordSource>select c.*, (select count(*) from products p where p.CategoryID = c.CategoryID) as ProductCount from Categories c</RecordSource>
       </DataSource>
     </DataSources>
@@ -10889,8 +10900,8 @@ Subsection containing this text is has Visible = false so this text not showed i
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=SQLNCLI11;Integrated Security=SSPI;Data Source=(localdb)\v11.0;Initial File Name=|DataDirectory|\wwwroot\App_Data\C1NWind.mdf;Persist Security Info=False</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
         <RecordSource>Employees</RecordSource>
         <RecordSourceType>TableDirect</RecordSourceType>
         <CalculatedFields>
@@ -11374,31 +11385,32 @@ ACME Inc.,
     <DataSources>
       <DataSource>
         <Name>Products</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=SQLNCLI11;Integrated Security=SSPI;Data Source=(localdb)\v11.0;Initial File Name=|DataDirectory|\wwwroot\App_Data\C1NWind.mdf;Persist Security Info=False</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
         <RecordSource>SELECT Categories.*, Categories.CategoryID as CategoryID, Products.*
 FROM Categories INNER JOIN Products ON Categories.CategoryID = Products.CategoryID</RecordSource>
       </DataSource>
       <DataSource>
         <Name>OrdersDetails</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=SQLNCLI11;Integrated Security=SSPI;Data Source=(localdb)\v11.0;Initial File Name=|DataDirectory|\wwwroot\App_Data\C1NWind.mdf;Persist Security Info=False</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
         <RecordSource>select *, orders.orderid as OrderID from orders inner join [order details] on orders.orderid=[order details].orderid</RecordSource>
       </DataSource>
       <DataSource>
         <Name>Orders</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=SQLNCLI11;Integrated Security=SSPI;Data Source=(localdb)\v11.0;Initial File Name=|DataDirectory|\wwwroot\App_Data\C1NWind.mdf;Persist Security Info=False</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
         <RecordSource>select * from orders</RecordSource>
       </DataSource>
       <DataSource>
         <Name>OrdersAmount</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=SQLNCLI11;Integrated Security=SSPI;Data Source=(localdb)\v11.0;Initial File Name=|DataDirectory|\wwwroot\App_Data\C1NWind.mdf;Persist Security Info=False</ConnectionString>
-        <RecordSource>SELECT Month(OrderDate) AS OrderMonth, Max(Amount) as MaxAmount, Min(Amount) as MinAmount, First(Amount) as FirstAmount, Last(Amount) as LastAmount
-FROM (SELECT orders.OrderID, Sum([Order Details].Quantity*[Order Details].UnitPrice) AS Amount, First(orders.OrderDate) as OrderDate
-FROM orders INNER JOIN [Order Details] ON orders.OrderID = [Order Details].OrderID
-WHERE Year([OrderDate])=2014 GROUP BY orders.OrderID)  AS [Amounts] group by Month(OrderDate)</RecordSource>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
+        <RecordSource>
+            SELECT strftime('%m', OrderDate) AS OrderMonth, Max(Amount) as MaxAmount, Min(Amount) as MinAmount, First(Amount) as FirstAmount, Last(Amount) as LastAmount
+            FROM (SELECT orders.OrderID, Sum([Order Details].Quantity*[Order Details].UnitPrice) AS Amount, First(orders.OrderDate) as OrderDate
+            FROM orders INNER JOIN [Order Details] ON orders.OrderID = [Order Details].OrderID
+            WHERE strftime('%Y', [OrderDate])=2014 GROUP BY orders.OrderID)  AS [Amounts] group by strftime('%m', OrderDate)</RecordSource>
       </DataSource>
     </DataSources>
     <Sections>
@@ -15416,35 +15428,35 @@ Bookmarks and hyperlinks are used to improve navigation within the report.</Valu
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=SQLNCLI11;Integrated Security=SSPI;Data Source=(localdb)\v11.0;Initial File Name=|DataDirectory|\wwwroot\App_Data\C1NWind.mdf;Persist Security Info=False</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
         <RecordSource>SELECT Categories.*, Categories.CategoryID as CategoryID, Products.*
 FROM Categories INNER JOIN Products ON Categories.CategoryID = Products.CategoryID</RecordSource>
       </DataSource>
       <DataSource>
         <Name>OrdersDetails</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=SQLNCLI11;Integrated Security=SSPI;Data Source=(localdb)\v11.0;Initial File Name=|DataDirectory|\wwwroot\App_Data\C1NWind.mdf;Persist Security Info=False</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
         <RecordSource>select *, orders.orderid as OrderID from orders inner join [order details] on orders.orderid=[order details].orderid</RecordSource>
       </DataSource>
       <DataSource>
         <Name>Orders</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=SQLNCLI11;Integrated Security=SSPI;Data Source=(localdb)\v11.0;Initial File Name=|DataDirectory|\wwwroot\App_Data\C1NWind.mdf;Persist Security Info=False</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
         <RecordSource>select * from Orders</RecordSource>
       </DataSource>
       <DataSource>
         <Name>OrdersAmount</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=SQLNCLI11;Integrated Security=SSPI;Data Source=(localdb)\v11.0;Initial File Name=|DataDirectory|\wwwroot\App_Data\C1NWind.mdf;Persist Security Info=False</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
         <RecordSource>SELECT orders.OrderID, Sum([Order Details].Quantity*[Order Details].UnitPrice) AS Amount, First(orders.OrderDate) as OrderDate
 FROM orders INNER JOIN [Order Details] ON orders.OrderID = [Order Details].OrderID
 GROUP BY orders.OrderID</RecordSource>
       </DataSource>
       <DataSource>
         <Name>Demo3D</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=SQLNCLI11;Integrated Security=SSPI;Data Source=(localdb)\v11.0;Initial File Name=|DataDirectory|\wwwroot\App_Data\C1NWind.mdf;Persist Security Info=False</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
         <RecordSource>select * from Chart3DData</RecordSource>
       </DataSource>
     </DataSources>
@@ -16454,8 +16466,8 @@ Bookmarks and hyperlinks are used to improve navigation within the report.</Valu
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=SQLNCLI11;Integrated Security=SSPI;Data Source=(localdb)\v11.0;Initial File Name=|DataDirectory|\wwwroot\App_Data\C1NWind.mdf;Persist Security Info=False</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
         <RecordSource>SELECT Categories.*, Categories.CategoryID as CategoryID, Products.*
 FROM Categories INNER JOIN Products ON Categories.CategoryID = Products.CategoryID</RecordSource>
       </DataSource>
@@ -17520,15 +17532,15 @@ FROM Categories INNER JOIN Products ON Categories.CategoryID = Products.Category
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=SQLNCLI11;Integrated Security=SSPI;Data Source=(localdb)\v11.0;Initial File Name=|DataDirectory|\wwwroot\App_Data\C1NWind.mdf;Persist Security Info=False</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
         <RecordSource>SELECT Categories.*, Categories.CategoryID as CategoryID, Products.*
 FROM Categories INNER JOIN Products ON Categories.CategoryID = Products.CategoryID where CategoryName=[paramCategoryName]</RecordSource>
       </DataSource>
       <DataSource>
         <Name>dsCategories</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=SQLNCLI11;Integrated Security=SSPI;Data Source=(localdb)\v11.0;Initial File Name=|DataDirectory|\wwwroot\App_Data\C1NWind.mdf;Persist Security Info=False</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
         <RecordSource>select CategoryName from categories</RecordSource>
       </DataSource>
     </DataSources>
@@ -17999,21 +18011,21 @@ The chart shows the count of products in a specific category and different price
     <DataSources>
       <DataSource>
         <Name>Products</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=SQLNCLI11;Integrated Security=SSPI;Data Source=(localdb)\v11.0;Initial File Name=|DataDirectory|\wwwroot\App_Data\C1NWind.mdf;Persist Security Info=False</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
         <RecordSource>SELECT Categories.*, Categories.CategoryID as CategoryID, Products.*
 FROM Categories INNER JOIN Products ON Categories.CategoryID = Products.CategoryID</RecordSource>
       </DataSource>
       <DataSource>
         <Name>Employees</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=SQLNCLI11;Integrated Security=SSPI;Data Source=(localdb)\v11.0;Initial File Name=|DataDirectory|\wwwroot\App_Data\C1NWind.mdf;Persist Security Info=False</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
         <RecordSource>select * from employees</RecordSource>
       </DataSource>
       <DataSource>
         <Name>Customers</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=SQLNCLI11;Integrated Security=SSPI;Data Source=(localdb)\v11.0;Initial File Name=|DataDirectory|\wwwroot\App_Data\C1NWind.mdf;Persist Security Info=False</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
         <RecordSource>select * from customers</RecordSource>
       </DataSource>
     </DataSources>
