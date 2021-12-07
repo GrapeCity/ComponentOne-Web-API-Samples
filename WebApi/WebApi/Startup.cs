@@ -101,7 +101,8 @@ namespace WebApi
 
             app.UseStorageProviders()
                 .AddDiskStorage("ExcelRoot", Path.Combine(env.WebRootPath, "ExcelRoot"))
-                .AddDiskStorage("PdfRoot", Path.Combine(env.WebRootPath, "PdfRoot"));
+                .AddDiskStorage("PdfRoot", Path.Combine(env.WebRootPath, "PdfRoot"))
+                .AddDiskStorage("LocalDocuments", Path.Combine(env.WebRootPath, "LocalDocuments"));
 
             var ssrsUrl = Configuration["AppSettings:SsrsUrl"];
             var ssrsUserName = Configuration["AppSettings:SsrsUserName"];
