@@ -23,18 +23,18 @@
     <PackageReference Include="Google.Apis.Drive.v3" Version="1.25.0.862" />
     <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="1.1.3" />
     <PackageReference Include="C1.DataEngine" Version="5.0.20213.235" />
-    <PackageReference Include="C1.Win.C1Document" Version="4.5.20213.532" />      
-    <PackageReference Include="C1.C1Excel" Version="4.5.20213.532" />
-    <PackageReference Include="C1.Win.FlexReport" Version="4.5.20213.532" />
-    <PackageReference Include="C1.AspNetCore.Api.Cloud" Version="1.0.20212.302" />
-    <PackageReference Include="C1.AspNetCore.Api" Version="1.0.20212.302" />
-    <PackageReference Include="C1.AspNetCore.Api.BarCode" Version="1.0.20212.302" />
-    <PackageReference Include="C1.AspNetCore.Api.DataEngine" Version="1.0.20212.302" />
-    <PackageReference Include="C1.AspNetCore.Api.Document" Version="1.0.20212.302" />
-    <PackageReference Include="C1.AspNetCore.Api.Excel" Version="1.0.20212.302" />
-    <PackageReference Include="C1.AspNetCore.Api.Image" Version="1.0.20212.302" />
-    <PackageReference Include="C1.AspNetCore.Api.Pdf" Version="1.0.20212.302" />
-    <PackageReference Include="C1.AspNetCore.Api.Report" Version="1.0.20212.302" />
+    <PackageReference Include="C1.Win.C1Document" Version="4.5.20221.548" />      
+    <PackageReference Include="C1.C1Excel" Version="4.5.20221.548" />
+    <PackageReference Include="C1.Win.FlexReport" Version="4.5.20221.548" />
+    <PackageReference Include="C1.AspNetCore.Api.Cloud" Version="1.0.20213.310" />
+    <PackageReference Include="C1.AspNetCore.Api" Version="1.0.20213.310" />
+    <PackageReference Include="C1.AspNetCore.Api.BarCode" Version="1.0.20213.310" />
+    <PackageReference Include="C1.AspNetCore.Api.DataEngine" Version="1.0.20213.310" />
+    <PackageReference Include="C1.AspNetCore.Api.Document" Version="1.0.20213.310" />
+    <PackageReference Include="C1.AspNetCore.Api.Excel" Version="1.0.20213.310" />
+    <PackageReference Include="C1.AspNetCore.Api.Image" Version="1.0.20213.310" />
+    <PackageReference Include="C1.AspNetCore.Api.Pdf" Version="1.0.20213.310" />
+    <PackageReference Include="C1.AspNetCore.Api.Report" Version="1.0.20213.310" />
     <PackageReference Include="Microsoft.AspNetCore.Session" Version="2.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.0.0" />
     <PackageReference Include="Microsoft.AspNetCore" Version="2.0.0" />

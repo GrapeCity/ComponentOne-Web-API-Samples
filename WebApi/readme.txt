@@ -29,7 +29,7 @@ step 4: open WebApiExplorer project and navigate to Storage api section.
 step 5: change "demostoragepdfcontainer" to your container name.
 step 6: change "test.xlsx" to your file name you want to post.
 NOTE: if using List Api, need change "test1" to your sub folder path.
-
+ 
 - AWS: AWS/test.xlsx
 step 1: you need prepare value for following 3 keys in the Web.config.
 AccessToken
@@ -38,7 +38,7 @@ BucketName
 step 2: open WebApiExplorer project and navigate to Storage api section.
 step 3: change "test.xlsx" to your file name you want to post.
 NOTE: if using List Api, need change "test1" to your sub folder path.
-
+ 
 DropBox : DropBox/C1WebApi/test.xlsx
 step 1: login to your DropBox account.
 step 2: create an App and generate Access Token for this app.
@@ -55,7 +55,7 @@ step 3: usecredentials.json  created at step 2 to put into WebApi folder.
 step 4: open WebApiExplorer project and navigate to Storage api section.
 step 5: change "WebAPI" to your apps name.
 step 6: change "test.xlsx" to your file name you want to post.
-NOTE: if using List Api, need change "test1" to your sub folder path. 
+NOTE: if using List Api, need change "test1" to your sub folder path.
 
 OneDrive : OneDrive/C1WebApi/test.xlsx</br>
 step 1: login to your OneDrive account.</br>
@@ -68,4 +68,4 @@ NOTE: if using List Api, need change "test1" to your sub folder path.
 
 Note for FlexReport using SQLite database:
 Currently, SQLite has this issue: https://stackoverflow.com/questions/13028069/unable-to-load-dll-sqlite-interop-dll/60176344.
-Then SQLite 1.0.113 x86 package is requied for the sample.
+Then SQLite 1.0.113 x86 package is required for the sample.
