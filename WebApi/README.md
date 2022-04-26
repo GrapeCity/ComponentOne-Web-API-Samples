@@ -1,7 +1,7 @@
-## ASP.NET Core Web API Sample.
-#### [Download as zip](https://downgit.github.io/#/home?url=https://github.com/GrapeCity/ComponentOne-Web-API-Samples/tree/master/ASPNETCore/WebApi)
+## ASP.NET WebAPI Sample.
+#### [Download as zip](https://downgit.github.io/#/home?url=https://github.com/GrapeCity/ComponentOne-Web-API-Samples/tree/master/WebApi)
 ____
-#### The WebAPI sample demonstrates how to make a webapi server to provide all services that ComponentOne Web API products supports.
+#### The WebAPI sample demonstrates how to make a webapi server to provide all services that ComponentOne WebAPI products supports.
 ____
 The sample is a service application which provides all these services:
 
@@ -11,7 +11,6 @@ The sample is a service application which provides all these services:
 * Report: generate a report from given report definition file and datasource, export the report to other formats etc.
 * DataEngine: analyze the raw data to show the aggregate result, show detailed row data etc.
 * Pdf: load a pdf from given path, export the pdf to other formats etc.
-
 
 For cloud service storage, this sample demo for DropBox only. Other services (Azure, AWS, GoogleDrive, OneDrive) will be shown in FileManager sample.
 
@@ -63,7 +62,3 @@ step 4: open WebApiExplorer project and navigate to Storage api section.</br>
 step 5: change "C1WebApi" to your apps name.</br>
 step 6: change "test.xlsx" to your file name you want to post.</br>
 NOTE: if using List Api, need change "test1" to your sub folder path.
-
-Note for FlexReport using SQLite database:
-Currently, SQLite has this issue: https://stackoverflow.com/questions/13028069/unable-to-load-dll-sqlite-interop-dll/60176344.
-Then SQLite 1.0.113 x86 package is required for the sample.
