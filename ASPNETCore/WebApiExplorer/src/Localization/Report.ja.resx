@@ -1,0 +1,2160 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+		Microsoft ResX Schema
+
+		Version 1.3
+
+		The primary goals of this format is to allow a simple XML format 
+		that is mostly human readable. The generation and parsing of the 
+		various data types are done through the TypeConverter classes 
+		associated with the data types.
+
+		Example:
+
+		... ado.net/XML headers & schema ...
+		<resheader name="resmimetype">text/microsoft-resx</resheader>
+		<resheader name="version">1.3</resheader>
+		<resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+		<resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+		<data name="Name1">this is my long string</data>
+		<data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+		<data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+			[base64 mime encoded serialized .NET Framework object]
+		</data>
+		<data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+			[base64 mime encoded string representing a byte array form of the .NET Framework object]
+		</data>
+
+		There are any number of "resheader" rows that contain simple 
+		name/value pairs.
+
+		Each data row contains a name, and value. The row also contains a 
+		type or mimetype. Type corresponds to a .NET class that support 
+		text/value conversion through the TypeConverter architecture. 
+		Classes that don't support this are serialized and stored with the 
+		mimetype set.
+
+		The mimetype is used for serialized objects, and tells the 
+		ResXResourceReader how to depersist the object. This is currently not 
+		extensible. For a given mimetype the value must be set accordingly:
+
+		Note - application/x-microsoft.net.object.binary.base64 is the format 
+		that the ResXResourceWriter will generate, however the reader can 
+		read any of the formats listed below.
+
+		mimetype: application/x-microsoft.net.object.binary.base64
+		value   : The object must be serialized with 
+			: System.Serialization.Formatters.Binary.BinaryFormatter
+			: and then encoded with base64 encoding.
+
+		mimetype: application/x-microsoft.net.object.soap.base64
+		value   : The object must be serialized with 
+			: System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+			: and then encoded with base64 encoding.
+
+		mimetype: application/x-microsoft.net.object.bytearray.base64
+		value   : The object must be serialized into a byte array 
+			: using a System.ComponentModel.TypeConverter
+			: and then encoded with base64 encoding.
+	-->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>1.3</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ReportExportGET_Parameters" xml:space="preserve">
+    <value>パラメータ</value>
+    <comment>Parameters</comment>
+  </data>
+  <data name="ReportExportGET_Export" xml:space="preserve">
+    <value>エクスポート</value>
+    <comment>Export</comment>
+  </data>
+  <data name="ReportExportGET_Parameter" xml:space="preserve">
+    <value>パラメータ</value>
+    <comment>Parameter</comment>
+  </data>
+  <data name="ReportExportGET_Value" xml:space="preserve">
+    <value>値</value>
+    <comment>Value</comment>
+  </data>
+  <data name="ReportExportGET_Description" xml:space="preserve">
+    <value>説明</value>
+    <comment>Description</comment>
+  </data>
+  <data name="ReportExportGET_FolderPath" xml:space="preserve">
+    <value>フォルダパス</value>
+    <comment>Folder Path</comment>
+  </data>
+  <data name="ReportExportGET_FolderPath_None" xml:space="preserve">
+    <value>フォルダパスを選択してください</value>
+    <comment>Select a folder path</comment>
+  </data>
+  <data name="ReportExportGET_FolderPathText" xml:space="preserve">
+    <value>レポートプロバイダマネージャーが認識できるフォルダパス。</value>
+    <comment>The folder path that report provider manager can recognize.</comment>
+  </data>
+  <data name="ReportExportGET_ReportName" xml:space="preserve">
+    <value>レポート名</value>
+    <comment>Report Name</comment>
+  </data>
+  <data name="ReportExportGET_ReportNameText" xml:space="preserve">
+    <value>FlexReport ファイルまたは SSRS フォルダの下に定義されているレポート名。</value>
+    <comment>The report name that is defined in the FlexReport file, or under the SSRS folder.</comment>
+  </data>
+  <data name="ReportExportGET_Format" xml:space="preserve">
+    <value>形式</value>
+    <comment>Format</comment>
+  </data>
+  <data name="ReportExportGET_FormatText" xml:space="preserve">
+    <value>サポートされている形式。&lt;strong&gt;supportedformats&lt;/strong&gt; アクションの応答を参照してください。</value>
+    <comment>The supported formats, please see the response of action &lt;strong&gt;supportedformats&lt;/strong&gt;.</comment>
+  </data>
+  <data name="ReportExportGET_ExportFileName" xml:space="preserve">
+    <value>エクスポートファイル名</value>
+    <comment>Export File Name</comment>
+  </data>
+  <data name="ReportExportGET_ExportFileNameText" xml:space="preserve">
+    <value>エクスポートされるファイルの名前。</value>
+    <comment>The exported file name.</comment>
+  </data>
+  <data name="ReportExportGET_ReportParameters" xml:space="preserve">
+    <value>レポートパラメータ</value>
+    <comment>Report Parameters</comment>
+  </data>
+  <data name="ReportExportGET_ReportParametersText" xml:space="preserve">
+    <value>例として、&lt;strong&gt;FlexCommonTasks.flxr/MultiValue DataBound Parameters&lt;/strong&gt; レポートを使用できます。&lt;br /&gt;レポートパラメータ。&lt;strong&gt;parameters&lt;/strong&gt; アクションの応答を参照してください。例：&lt;br /&gt; parameters.pCategory=1&amp;amp;...&lt;br /&gt;&lt;br /&gt; パラメータが複数値の場合は、その回数だけパラメータを設定します。例：&lt;br/&gt; parameters.pCategory=1&amp;amp;parameters.pCustomers=3&amp;amp;...</value>
+    <comment>Suggest to use report &lt;strong&gt;FlexCommonTasks.flxr/MultiValue DataBound Parameters&lt;/strong&gt; as example.&lt;br /&gt;The report parameters, please see the response of action &lt;strong&gt;parameters&lt;/strong&gt;.  e.g:&lt;br /&gt; parameters.pCategory=1&amp;amp;...&lt;br /&gt;&lt;br /&gt; If the parameter is multi-value, please set the parameters for many times, e.g:&lt;br/&gt; parameters.pCategory=1&amp;amp;parameters.pCustomers=3&amp;amp;...</comment>
+  </data>
+  <data name="ReportExportGET_ExportOptions" xml:space="preserve">
+    <value>エクスポートオプション</value>
+    <comment>Export Options</comment>
+  </data>
+  <data name="ReportExportGET_ExportOptionsText" xml:space="preserve">
+    <value>エクスポートオプション。&lt;strong&gt;supportedformats&lt;/strong&gt; アクションの応答を参照してください。例：&lt;br /&gt; exportOptions.outputRange=1&amp;amp;... </value>
+    <comment>The export options, please see the response of action &lt;strong&gt;supportedformats&lt;/strong&gt;. e.g:&lt;br /&gt; exportOptions.outputRange=1&amp;amp;... </comment>
+  </data>
+  <data name="ReportExportGET_ReportPageSettings" xml:space="preserve">
+    <value>レポートページ設定</value>
+    <comment>Report Page Settings</comment>
+  </data>
+  <data name="ReportExportGET_ReportPageSettingsText" xml:space="preserve">
+    <value>ページ設定は次のように行います。pageSettings.paperSize=custom&amp;amp;pageSettings.height=10in&amp;amp;pageSettings.width=20.5cm</value>
+    <comment>Please set the page settings like: pageSettings.paperSize=custom&amp;amp;pageSettings.height=10in&amp;amp;pageSettings.width=20.5cm</comment>
+  </data>
+  <data name="ReportExportGET_RequestURL" xml:space="preserve">
+    <value>要求 URL：</value>
+    <comment>Request URL: </comment>
+  </data>
+  <data name="ReportExportPOST_Parameters" xml:space="preserve">
+    <value>パラメータ</value>
+    <comment>Parameters</comment>
+  </data>
+  <data name="ReportExportPOST_Export" xml:space="preserve">
+    <value>エクスポート</value>
+    <comment>Export</comment>
+  </data>
+  <data name="ReportExportPOST_Parameter" xml:space="preserve">
+    <value>パラメータ</value>
+    <comment>Parameter</comment>
+  </data>
+  <data name="ReportExportPOST_Value" xml:space="preserve">
+    <value>値</value>
+    <comment>Value</comment>
+  </data>
+  <data name="ReportExportPOST_Description" xml:space="preserve">
+    <value>説明</value>
+    <comment>Description</comment>
+  </data>
+  <data name="ReportExportPOST_FolderPath" xml:space="preserve">
+    <value>フォルダパス</value>
+    <comment>Folder Path</comment>
+  </data>
+  <data name="ReportExportPOST_FolderPath_None" xml:space="preserve">
+    <value>フォルダパスを選択してください</value>
+    <comment>Select a folder path</comment>
+  </data>
+  <data name="ReportExportPOST_FolderPathText" xml:space="preserve">
+    <value>レポートプロバイダマネージャーが認識できるフォルダパス。</value>
+    <comment>The folder path that report provider manager can recognize.</comment>
+  </data>
+  <data name="ReportExportPOST_ReportName" xml:space="preserve">
+    <value>レポート名</value>
+    <comment>Report Name</comment>
+  </data>
+  <data name="ReportExportPOST_ReportNameText" xml:space="preserve">
+    <value>FlexReport ファイルまたは SSRS フォルダの下に定義されているレポート名。</value>
+    <comment>The report name that is defined in the FlexReport file, or under the SSRS folder.</comment>
+  </data>
+  <data name="ReportExportPOST_Format" xml:space="preserve">
+    <value>形式</value>
+    <comment>Format</comment>
+  </data>
+  <data name="ReportExportPOST_FormatText" xml:space="preserve">
+    <value>サポートされている形式。&lt;strong&gt;supportedformats&lt;/strong&gt; アクションの応答を参照してください。</value>
+    <comment>The supported formats, please see the response of action &lt;strong&gt;supportedformats&lt;/strong&gt;.</comment>
+  </data>
+  <data name="ReportExportPOST_ExportFileName" xml:space="preserve">
+    <value>エクスポートファイル名</value>
+    <comment>Export File Name</comment>
+  </data>
+  <data name="ReportExportPOST_ExportFileNameText" xml:space="preserve">
+    <value>エクスポートされるファイルの名前。</value>
+    <comment>The exported file name.</comment>
+  </data>
+  <data name="ReportExportPOST_ReportParameters" xml:space="preserve">
+    <value>レポートパラメータ</value>
+    <comment>Report Parameters</comment>
+  </data>
+  <data name="ReportExportPOST_ReportParametersText" xml:space="preserve">
+    <value>例として、&lt;strong&gt;FlexCommonTasks.flxr/MultiValue DataBound Parameters&lt;/strong&gt; レポートを使用できます。&lt;br /&gt;レポートパラメータ。&lt;strong&gt;parameters&lt;/strong&gt; アクションの応答を参照してください。例：&lt;br /&gt; parameters.pCategory=1&amp;amp;...&lt;br /&gt;&lt;br /&gt; パラメータが複数値の場合は、その回数だけパラメータを設定します。例：&lt;br/&gt; parameters.pCategory=1&amp;amp;parameters.pCustomers=3&amp;amp;... </value>
+    <comment>Suggest to use report &lt;strong&gt;FlexCommonTasks.flxr/MultiValue DataBound Parameters&lt;/strong&gt; as example.&lt;br /&gt;The report parameters, please see the response of action &lt;strong&gt;parameters&lt;/strong&gt;. e.g:&lt;br /&gt; parameters.pCategory=1&amp;amp;...&lt;br /&gt;&lt;br /&gt; If the parameter is multi-value, please set the parameters for many times, e.g:&lt;br/&gt; parameters.pCategory=1&amp;amp;parameters.pCustomers=3&amp;amp;... </comment>
+  </data>
+  <data name="ReportExportPOST_ExportOptions" xml:space="preserve">
+    <value>エクスポートオプション</value>
+    <comment>Export Options</comment>
+  </data>
+  <data name="ReportExportPOST_ExportOptionsText" xml:space="preserve">
+    <value>エクスポートオプション。&lt;strong&gt;supportedformats&lt;/strong&gt; アクションの応答を参照してください。例：&lt;br /&gt; exportOptions.outputRange=1&amp;amp;... </value>
+    <comment>The export options, please see the response of action &lt;strong&gt;supportedformats&lt;/strong&gt;. e.g:&lt;br /&gt; exportOptions.outputRange=1&amp;amp;... </comment>
+  </data>
+  <data name="ReportExportPOST_ReportPageSettings" xml:space="preserve">
+    <value>レポートページ設定</value>
+    <comment>Report Page Settings</comment>
+  </data>
+  <data name="ReportExportPOST_ReportPageSettingsText" xml:space="preserve">
+    <value>ページ設定は次のように行います。pageSettings.paperSize=custom&amp;amp;pageSettings.height=10in&amp;amp;pageSettings.width=20.5cm</value>
+    <comment>Please set the page settings like: pageSettings.paperSize=custom&amp;amp;pageSettings.height=10in&amp;amp;pageSettings.width=20.5cm</comment>
+  </data>
+  <data name="ReportExportPOST_Headers" xml:space="preserve">
+    <value>ヘッダー</value>
+    <comment>Headers</comment>
+  </data>
+  <data name="ReportExportPOST_RequestURL" xml:space="preserve">
+    <value>要求 URL：</value>
+    <comment>Request URL: </comment>
+  </data>
+  <data name="ReportInfoGET_Parameters" xml:space="preserve">
+    <value>パラメータ</value>
+    <comment>Parameters</comment>
+  </data>
+  <data name="ReportInfoGET_GetInfo" xml:space="preserve">
+    <value>情報の取得</value>
+    <comment>Get Info</comment>
+  </data>
+  <data name="ReportInfoGET_Parameter" xml:space="preserve">
+    <value>パラメータ</value>
+    <comment>Parameter</comment>
+  </data>
+  <data name="ReportInfoGET_Value" xml:space="preserve">
+    <value>値</value>
+    <comment>Value</comment>
+  </data>
+  <data name="ReportInfoGET_Description" xml:space="preserve">
+    <value>説明</value>
+    <comment>Description</comment>
+  </data>
+  <data name="ReportInfoGET_FolderPath" xml:space="preserve">
+    <value>フォルダパス</value>
+    <comment>Folder Path</comment>
+  </data>
+  <data name="ReportInfoGET_FolderPath_None" xml:space="preserve">
+    <value>フォルダパスを選択してください</value>
+    <comment>Select a folder path</comment>
+  </data>
+  <data name="ReportInfoGET_FolderPathText" xml:space="preserve">
+    <value>レポートプロバイダマネージャーが認識できるフォルダパス。</value>
+    <comment>The folder path that report provider manager can recognize.</comment>
+  </data>
+  <data name="ReportInfoGET_ReportName" xml:space="preserve">
+    <value>レポート名</value>
+    <comment>Report Name</comment>
+  </data>
+  <data name="ReportInfoGET_ReportNameText" xml:space="preserve">
+    <value>FlexReport ファイルまたは SSRS フォルダの下に定義されているレポート名。</value>
+    <comment>The report name that is defined in the FlexReport file, or under the SSRS folder.</comment>
+  </data>
+  <data name="ReportInfoGET_Headers" xml:space="preserve">
+    <value>ヘッダー</value>
+    <comment>Headers</comment>
+  </data>
+  <data name="ReportInfoGET_ResponseData" xml:space="preserve">
+    <value>応答データ</value>
+    <comment>Response Data</comment>
+  </data>
+  <data name="ReportInfoGET_RequestURL" xml:space="preserve">
+    <value>要求 URL：</value>
+    <comment>Request URL: </comment>
+  </data>
+  <data name="ReportInfoGET_StatusCode" xml:space="preserve">
+    <value>ステータスコード：</value>
+    <comment>Status Code: </comment>
+  </data>
+  <data name="ReportInstanceBookmarkGET_Parameters" xml:space="preserve">
+    <value>パラメータ</value>
+    <comment>Parameters</comment>
+  </data>
+  <data name="ReportInstanceBookmarkGET_GetBookmark" xml:space="preserve">
+    <value>ブックマークの取得</value>
+    <comment>Get Bookmark</comment>
+  </data>
+  <data name="ReportInstanceBookmarkGET_Parameter" xml:space="preserve">
+    <value>パラメータ</value>
+    <comment>Parameter</comment>
+  </data>
+  <data name="ReportInstanceBookmarkGET_Value" xml:space="preserve">
+    <value>値</value>
+    <comment>Value</comment>
+  </data>
+  <data name="ReportInstanceBookmarkGET_Description" xml:space="preserve">
+    <value>説明</value>
+    <comment>Description</comment>
+  </data>
+  <data name="ReportInstanceBookmarkGET_ReportFullPath" xml:space="preserve">
+    <value>レポートの完全パス</value>
+    <comment>Report Full Path</comment>
+  </data>
+  <data name="ReportInstanceBookmarkGET_ReportFullPathText" xml:space="preserve">
+    <value>実行するレポートの完全パス。&lt;br /&gt;例として、&lt;strong&gt;FlexCommonTasks.flxr/Report Navigation&lt;/strong&gt; レポートを使用できます。</value>
+    <comment>The full path of executing report.&lt;br /&gt;Suggest to use report &lt;strong&gt;FlexCommonTasks.flxr/Report Navigation&lt;/strong&gt; as example.</comment>
+  </data>
+  <data name="ReportInstanceBookmarkGET_PleaseLoadAReportFirst" xml:space="preserve">
+    <value>最初にレポートをロードしてください。</value>
+    <comment>please load a report first.</comment>
+  </data>
+  <data name="ReportInstanceBookmarkGET_InstanceId" xml:space="preserve">
+    <value>インスタンス ID</value>
+    <comment>Instance Id</comment>
+  </data>
+  <data name="ReportInstanceBookmarkGET_InstanceIdText" xml:space="preserve">
+    <value>実行するレポートのインスタンス ID。</value>
+    <comment>The instance id of executing report.</comment>
+  </data>
+  <data name="ReportInstanceBookmarkGET_BookmarkName" xml:space="preserve">
+    <value>ブックマーク名</value>
+    <comment>Bookmark Name</comment>
+  </data>
+  <data name="ReportInstanceBookmarkGET_BookmarkNameText" xml:space="preserve">
+    <value>ブックマーク名。</value>
+    <comment>The bookmark name.</comment>
+  </data>
+  <data name="ReportInstanceBookmarkGET_Headers" xml:space="preserve">
+    <value>ヘッダー</value>
+    <comment>Headers</comment>
+  </data>
+  <data name="ReportInstanceBookmarkGET_ResponseData" xml:space="preserve">
+    <value>応答データ</value>
+    <comment>Response Data</comment>
+  </data>
+  <data name="ReportInstanceBookmarkGET_RequestURL" xml:space="preserve">
+    <value>要求 URL：</value>
+    <comment>Request URL: </comment>
+  </data>
+  <data name="ReportInstanceBookmarkGET_StatusCode" xml:space="preserve">
+    <value>ステータスコード：</value>
+    <comment>Status Code: </comment>
+  </data>
+  <data name="ReportInstanceDELETE_Parameters" xml:space="preserve">
+    <value>パラメータ</value>
+    <comment>Parameters</comment>
+  </data>
+  <data name="ReportInstanceDELETE_Delete" xml:space="preserve">
+    <value>削除</value>
+    <comment>Delete</comment>
+  </data>
+  <data name="ReportInstanceDELETE_Parameter" xml:space="preserve">
+    <value>パラメータ</value>
+    <comment>Parameter</comment>
+  </data>
+  <data name="ReportInstanceDELETE_Value" xml:space="preserve">
+    <value>値</value>
+    <comment>Value</comment>
+  </data>
+  <data name="ReportInstanceDELETE_Description" xml:space="preserve">
+    <value>説明</value>
+    <comment>Description</comment>
+  </data>
+  <data name="ReportInstanceDELETE_ReportFullPath" xml:space="preserve">
+    <value>レポートの完全パス</value>
+    <comment>Report Full Path</comment>
+  </data>
+  <data name="ReportInstanceDELETE_ReportFullPathText" xml:space="preserve">
+    <value>実行するレポートの完全パス。</value>
+    <comment>The full path of executing report.</comment>
+  </data>
+  <data name="ReportInstanceDELETE_PleaseLoadAReportFirst" xml:space="preserve">
+    <value>最初にレポートをロードしてください。</value>
+    <comment>please load a report first.</comment>
+  </data>
+  <data name="ReportInstanceDELETE_CacheId" xml:space="preserve">
+    <value>キャッシュ ID</value>
+    <comment>Cache Id</comment>
+  </data>
+  <data name="ReportInstanceDELETE_CacheIdText" xml:space="preserve">
+    <value>実行するレポートのインスタンス ID。</value>
+    <comment>The instance id of executing report.</comment>
+  </data>
+  <data name="ReportInstanceDELETE_Headers" xml:space="preserve">
+    <value>ヘッダー</value>
+    <comment>Headers</comment>
+  </data>
+  <data name="ReportInstanceDELETE_ResponseData" xml:space="preserve">
+    <value>応答データ</value>
+    <comment>Response Data</comment>
+  </data>
+  <data name="ReportInstanceDELETE_RequestURL" xml:space="preserve">
+    <value>要求 URL：</value>
+    <comment>Request URL: </comment>
+  </data>
+  <data name="ReportInstanceDELETE_StatusCode" xml:space="preserve">
+    <value>ステータスコード：</value>
+    <comment>Status Code: </comment>
+  </data>
+  <data name="ReportInstanceExportGET_Parameters" xml:space="preserve">
+    <value>パラメータ</value>
+    <comment>Parameters</comment>
+  </data>
+  <data name="ReportInstanceExportGET_Export" xml:space="preserve">
+    <value>エクスポート</value>
+    <comment>Export</comment>
+  </data>
+  <data name="ReportInstanceExportGET_Parameter" xml:space="preserve">
+    <value>パラメータ</value>
+    <comment>Parameter</comment>
+  </data>
+  <data name="ReportInstanceExportGET_Value" xml:space="preserve">
+    <value>値</value>
+    <comment>Value</comment>
+  </data>
+  <data name="ReportInstanceExportGET_Description" xml:space="preserve">
+    <value>説明</value>
+    <comment>Description</comment>
+  </data>
+  <data name="ReportInstanceExportGET_ReportFullPath" xml:space="preserve">
+    <value>レポートの完全パス</value>
+    <comment>Report Full Path</comment>
+  </data>
+  <data name="ReportInstanceExportGET_ReportFullPathText" xml:space="preserve">
+    <value>実行するレポートの完全パス。</value>
+    <comment>The full path of executing report.</comment>
+  </data>
+  <data name="ReportInstanceExportGET_PleaseLoadAReportFirst" xml:space="preserve">
+    <value>最初にレポートをロードしてください。</value>
+    <comment>please load a report first.</comment>
+  </data>
+  <data name="ReportInstanceExportGET_InstanceId" xml:space="preserve">
+    <value>インスタンス ID</value>
+    <comment>Instance Id</comment>
+  </data>
+  <data name="ReportInstanceExportGET_InstanceIdText" xml:space="preserve">
+    <value>実行するレポートのインスタンス ID。</value>
+    <comment>The instance id of executing report.</comment>
+  </data>
+  <data name="ReportInstanceExportGET_Format" xml:space="preserve">
+    <value>形式</value>
+    <comment>Format</comment>
+  </data>
+  <data name="ReportInstanceExportGET_FormatText" xml:space="preserve">
+    <value>サポートされている形式。&lt;strong&gt;supportedformats&lt;/strong&gt; アクションの応答を参照してください。</value>
+    <comment>The supported formats, please see the response of action &lt;strong&gt;supportedformats&lt;/strong&gt;.</comment>
+  </data>
+  <data name="ReportInstanceExportGET_ExportFileName" xml:space="preserve">
+    <value>エクスポートファイル名</value>
+    <comment>Export File Name</comment>
+  </data>
+  <data name="ReportInstanceExportGET_ExportFileNameText" xml:space="preserve">
+    <value>エクスポートされるファイルの名前。</value>
+    <comment>The exported file name.</comment>
+  </data>
+  <data name="ReportInstanceExportGET_ExportOptions" xml:space="preserve">
+    <value>エクスポートオプション</value>
+    <comment>Export Options</comment>
+  </data>
+  <data name="ReportInstanceExportGET_ExportOptionsText" xml:space="preserve">
+    <value>エクスポートオプション。&lt;strong&gt;supportedformats&lt;/strong&gt; アクションの応答を参照してください。例：&lt;br /&gt; outputRange=1&amp;amp;... </value>
+    <comment>The export options, please see the response of &lt;strong&gt;supportedformats&lt;/strong&gt; action. E.g:&lt;br /&gt; outputRange=1&amp;amp;... </comment>
+  </data>
+  <data name="ReportInstanceExportGET_Headers" xml:space="preserve">
+    <value>ヘッダー</value>
+    <comment>Headers</comment>
+  </data>
+  <data name="ReportInstanceExportGET_RequestURL" xml:space="preserve">
+    <value>要求 URL：</value>
+    <comment>Request URL: </comment>
+  </data>
+  <data name="ReportInstanceExportPOST_Parameters" xml:space="preserve">
+    <value>パラメータ</value>
+    <comment>Parameters</comment>
+  </data>
+  <data name="ReportInstanceExportPOST_Export" xml:space="preserve">
+    <value>エクスポート</value>
+    <comment>Export</comment>
+  </data>
+  <data name="ReportInstanceExportPOST_Parameter" xml:space="preserve">
+    <value>パラメータ</value>
+    <comment>Parameter</comment>
+  </data>
+  <data name="ReportInstanceExportPOST_Value" xml:space="preserve">
+    <value>値</value>
+    <comment>Value</comment>
+  </data>
+  <data name="ReportInstanceExportPOST_Description" xml:space="preserve">
+    <value>説明</value>
+    <comment>Description</comment>
+  </data>
+  <data name="ReportInstanceExportPOST_ReportFullPath" xml:space="preserve">
+    <value>レポートの完全パス</value>
+    <comment>Report Full Path</comment>
+  </data>
+  <data name="ReportInstanceExportPOST_ReportFullPathText" xml:space="preserve">
+    <value>実行するレポートの完全パス。</value>
+    <comment>The full path of executing report.</comment>
+  </data>
+  <data name="ReportInstanceExportPOST_PleaseLoadAReportFirst" xml:space="preserve">
+    <value>最初にレポートをロードしてください。</value>
+    <comment>please load a report first.</comment>
+  </data>
+  <data name="ReportInstanceExportPOST_InstanceId" xml:space="preserve">
+    <value>インスタンス ID</value>
+    <comment>Instance Id</comment>
+  </data>
+  <data name="ReportInstanceExportPOST_InstanceIdText" xml:space="preserve">
+    <value>実行するレポートのインスタンス ID。</value>
+    <comment>The instance id of executing report.</comment>
+  </data>
+  <data name="ReportInstanceExportPOST_Format" xml:space="preserve">
+    <value>形式</value>
+    <comment>Format</comment>
+  </data>
+  <data name="ReportInstanceExportPOST_FormatText" xml:space="preserve">
+    <value>サポートされている形式。&lt;strong&gt;supportedformats&lt;/strong&gt; アクションの応答を参照してください。</value>
+    <comment>The supported formats, please see the response of action &lt;strong&gt;supportedformats&lt;/strong&gt;.</comment>
+  </data>
+  <data name="ReportInstanceExportPOST_ExportFileName" xml:space="preserve">
+    <value>エクスポートファイル名</value>
+    <comment>Export File Name</comment>
+  </data>
+  <data name="ReportInstanceExportPOST_ExportFileNameText" xml:space="preserve">
+    <value>エクスポートされるファイルの名前。</value>
+    <comment>The exported file name.</comment>
+  </data>
+  <data name="ReportInstanceExportPOST_ExportOptions" xml:space="preserve">
+    <value>エクスポートオプション</value>
+    <comment>Export Options</comment>
+  </data>
+  <data name="ReportInstanceExportPOST_ExportOptionsText" xml:space="preserve">
+    <value>エクスポートオプション。&lt;strong&gt;supportedformats&lt;/strong&gt; アクションの応答を参照してください。例：&lt;br /&gt; outputRange=1&amp;amp;... </value>
+    <comment>The export options, please see the response of &lt;strong&gt;supportedformats&lt;/strong&gt; action. E.g:&lt;br /&gt; outputRange=1&amp;amp;... </comment>
+  </data>
+  <data name="ReportInstanceExportPOST_Headers" xml:space="preserve">
+    <value>ヘッダー</value>
+    <comment>Headers</comment>
+  </data>
+  <data name="ReportInstanceExportPOST_RequestURL" xml:space="preserve">
+    <value>要求 URL：</value>
+    <comment>Request URL: </comment>
+  </data>
+  <data name="ReportInstanceFeaturesGET_Parameters" xml:space="preserve">
+    <value>パラメータ</value>
+    <comment>Parameters</comment>
+  </data>
+  <data name="ReportInstanceFeaturesGET_GetSupportedFormats" xml:space="preserve">
+    <value>サポートされている形式を取得</value>
+    <comment>Get Supported Formats</comment>
+  </data>
+  <data name="ReportInstanceFeaturesGET_Parameter" xml:space="preserve">
+    <value>パラメータ</value>
+    <comment>Parameter</comment>
+  </data>
+  <data name="ReportInstanceFeaturesGET_Value" xml:space="preserve">
+    <value>値</value>
+    <comment>Value</comment>
+  </data>
+  <data name="ReportInstanceFeaturesGET_Description" xml:space="preserve">
+    <value>説明</value>
+    <comment>Description</comment>
+  </data>
+  <data name="ReportInstanceFeaturesGET_ReportFullPath" xml:space="preserve">
+    <value>レポートの完全パス</value>
+    <comment>Report Full Path</comment>
+  </data>
+  <data name="ReportInstanceFeaturesGET_ReportFullPathText" xml:space="preserve">
+    <value>実行するレポートの完全パス。</value>
+    <comment>The full path of executing report.</comment>
+  </data>
+  <data name="ReportInstanceFeaturesGET_PleaseLoadAReportFirst" xml:space="preserve">
+    <value>最初にレポートをロードしてください。</value>
+    <comment>please load a report first.</comment>
+  </data>
+  <data name="ReportInstanceFeaturesGET_InstanceId" xml:space="preserve">
+    <value>インスタンス ID</value>
+    <comment>Instance Id</comment>
+  </data>
+  <data name="ReportInstanceFeaturesGET_InstanceIdText" xml:space="preserve">
+    <value>実行するレポートのインスタンス ID。</value>
+    <comment>The instance id of executing report.</comment>
+  </data>
+  <data name="ReportInstanceFeaturesGET_Headers" xml:space="preserve">
+    <value>ヘッダー</value>
+    <comment>Headers</comment>
+  </data>
+  <data name="ReportInstanceFeaturesGET_ResponseData" xml:space="preserve">
+    <value>応答データ</value>
+    <comment>Response Data</comment>
+  </data>
+  <data name="ReportInstanceFeaturesGET_RequestURL" xml:space="preserve">
+    <value>要求 URL：</value>
+    <comment>Request URL: </comment>
+  </data>
+  <data name="ReportInstanceFeaturesGET_StatusCode" xml:space="preserve">
+    <value>ステータスコード：</value>
+    <comment>Status Code: </comment>
+  </data>
+  <data name="ReportInstanceInfoGET_Parameters" xml:space="preserve">
+    <value>パラメータ</value>
+    <comment>Parameters</comment>
+  </data>
+  <data name="ReportInstanceInfoGET_GetInfo" xml:space="preserve">
+    <value>情報の取得</value>
+    <comment>Get Info</comment>
+  </data>
+  <data name="ReportInstanceInfoGET_Parameter" xml:space="preserve">
+    <value>パラメータ</value>
+    <comment>Parameter</comment>
+  </data>
+  <data name="ReportInstanceInfoGET_Value" xml:space="preserve">
+    <value>値</value>
+    <comment>Value</comment>
+  </data>
+  <data name="ReportInstanceInfoGET_Description" xml:space="preserve">
+    <value>説明</value>
+    <comment>Description</comment>
+  </data>
+  <data name="ReportInstanceInfoGET_ReportFullPath" xml:space="preserve">
+    <value>レポートの完全パス</value>
+    <comment>Report Full Path</comment>
+  </data>
+  <data name="ReportInstanceInfoGET_ReportFullPathText" xml:space="preserve">
+    <value>実行するレポートの完全パス。</value>
+    <comment>The full path of executing report.</comment>
+  </data>
+  <data name="ReportInstanceInfoGET_PleaseLoadAReportFirst" xml:space="preserve">
+    <value>最初にレポートをロードしてください。</value>
+    <comment>please load a report first.</comment>
+  </data>
+  <data name="ReportInstanceInfoGET_CacheId" xml:space="preserve">
+    <value>キャッシュ ID</value>
+    <comment>Cache Id</comment>
+  </data>
+  <data name="ReportInstanceInfoGET_CacheIdText" xml:space="preserve">
+    <value>実行するレポートのインスタンス ID。</value>
+    <comment>The instance id of executing report.</comment>
+  </data>
+  <data name="ReportInstanceInfoGET_Headers" xml:space="preserve">
+    <value>ヘッダー</value>
+    <comment>Headers</comment>
+  </data>
+  <data name="ReportInstanceInfoGET_ResponseData" xml:space="preserve">
+    <value>応答データ</value>
+    <comment>Response Data</comment>
+  </data>
+  <data name="ReportInstanceInfoGET_RequestURL" xml:space="preserve">
+    <value>要求 URL：</value>
+    <comment>Request URL: </comment>
+  </data>
+  <data name="ReportInstanceInfoGET_StatusCode" xml:space="preserve">
+    <value>ステータスコード：</value>
+    <comment>Status Code: </comment>
+  </data>
+  <data name="ReportInstanceOutlinesGET_Parameters" xml:space="preserve">
+    <value>パラメータ</value>
+    <comment>Parameters</comment>
+  </data>
+  <data name="ReportInstanceOutlinesGET_GetOutlines" xml:space="preserve">
+    <value>アウトラインの取得</value>
+    <comment>Get Outlines</comment>
+  </data>
+  <data name="ReportInstanceOutlinesGET_Parameter" xml:space="preserve">
+    <value>パラメータ</value>
+    <comment>Parameter</comment>
+  </data>
+  <data name="ReportInstanceOutlinesGET_Value" xml:space="preserve">
+    <value>値</value>
+    <comment>Value</comment>
+  </data>
+  <data name="ReportInstanceOutlinesGET_Description" xml:space="preserve">
+    <value>説明</value>
+    <comment>Description</comment>
+  </data>
+  <data name="ReportInstanceOutlinesGET_ReportFullPath" xml:space="preserve">
+    <value>レポートの完全パス</value>
+    <comment>Report Full Path</comment>
+  </data>
+  <data name="ReportInstanceOutlinesGET_ReportFullPathText" xml:space="preserve">
+    <value>実行するレポートの完全パス。</value>
+    <comment>The full path of executing report.</comment>
+  </data>
+  <data name="ReportInstanceOutlinesGET_PleaseLoadAReportFirst" xml:space="preserve">
+    <value>最初にレポートをロードしてください。</value>
+    <comment>please load a report first.</comment>
+  </data>
+  <data name="ReportInstanceOutlinesGET_InstanceId" xml:space="preserve">
+    <value>インスタンス ID</value>
+    <comment>Instance Id</comment>
+  </data>
+  <data name="ReportInstanceOutlinesGET_InstanceIdText" xml:space="preserve">
+    <value>実行するレポートのインスタンス ID。</value>
+    <comment>The instance id of executing report.</comment>
+  </data>
+  <data name="ReportInstanceOutlinesGET_Headers" xml:space="preserve">
+    <value>ヘッダー</value>
+    <comment>Headers</comment>
+  </data>
+  <data name="ReportInstanceOutlinesGET_ResponseData" xml:space="preserve">
+    <value>応答データ</value>
+    <comment>Response Data</comment>
+  </data>
+  <data name="ReportInstanceOutlinesGET_RequestURL" xml:space="preserve">
+    <value>要求 URL：</value>
+    <comment>Request URL: </comment>
+  </data>
+  <data name="ReportInstanceOutlinesGET_StatusCode" xml:space="preserve">
+    <value>ステータスコード：</value>
+    <comment>Status Code: </comment>
+  </data>
+  <data name="ReportInstancePageSettingsGET_Parameters" xml:space="preserve">
+    <value>パラメータ</value>
+    <comment>Parameters</comment>
+  </data>
+  <data name="ReportInstancePageSettingsGET_GetPageSettings" xml:space="preserve">
+    <value>ページ設定の取得</value>
+    <comment>Get Page Settings</comment>
+  </data>
+  <data name="ReportInstancePageSettingsGET_Parameter" xml:space="preserve">
+    <value>パラメータ</value>
+    <comment>Parameter</comment>
+  </data>
+  <data name="ReportInstancePageSettingsGET_Value" xml:space="preserve">
+    <value>値</value>
+    <comment>Value</comment>
+  </data>
+  <data name="ReportInstancePageSettingsGET_Description" xml:space="preserve">
+    <value>説明</value>
+    <comment>Description</comment>
+  </data>
+  <data name="ReportInstancePageSettingsGET_ReportFullPath" xml:space="preserve">
+    <value>レポートの完全パス</value>
+    <comment>Report Full Path</comment>
+  </data>
+  <data name="ReportInstancePageSettingsGET_ReportFullPathText" xml:space="preserve">
+    <value>実行するレポートの完全パス。</value>
+    <comment>The full path of executing report.</comment>
+  </data>
+  <data name="ReportInstancePageSettingsGET_PleaseLoadAReportFirst" xml:space="preserve">
+    <value>最初にレポートをロードしてください。</value>
+    <comment>please load a report first.</comment>
+  </data>
+  <data name="ReportInstancePageSettingsGET_InstanceId" xml:space="preserve">
+    <value>インスタンス ID</value>
+    <comment>Instance Id</comment>
+  </data>
+  <data name="ReportInstancePageSettingsGET_InstanceIdText" xml:space="preserve">
+    <value>実行するレポートのインスタンス ID。</value>
+    <comment>The instance id of executing report.</comment>
+  </data>
+  <data name="ReportInstancePageSettingsGET_Headers" xml:space="preserve">
+    <value>ヘッダー</value>
+    <comment>Headers</comment>
+  </data>
+  <data name="ReportInstancePageSettingsGET_ResponseData" xml:space="preserve">
+    <value>応答データ</value>
+    <comment>Response Data</comment>
+  </data>
+  <data name="ReportInstancePageSettingsGET_RequestURL" xml:space="preserve">
+    <value>要求 URL：</value>
+    <comment>Request URL: </comment>
+  </data>
+  <data name="ReportInstancePageSettingsGET_StatusCode" xml:space="preserve">
+    <value>ステータスコード：</value>
+    <comment>Status Code: </comment>
+  </data>
+  <data name="ReportInstancePageSettingsPATCH_PageSettings" xml:space="preserve">
+    <value>PageSettings</value>
+    <comment>PageSettings</comment>
+  </data>
+  <data name="ReportInstancePageSettingsPATCH_SetPageSettings" xml:space="preserve">
+    <value>ページ設定の設定</value>
+    <comment>Set Page Settings</comment>
+  </data>
+  <data name="ReportInstancePageSettingsPATCH_Parameter" xml:space="preserve">
+    <value>パラメータ</value>
+    <comment>Parameter</comment>
+  </data>
+  <data name="ReportInstancePageSettingsPATCH_Value" xml:space="preserve">
+    <value>値</value>
+    <comment>Value</comment>
+  </data>
+  <data name="ReportInstancePageSettingsPATCH_Description" xml:space="preserve">
+    <value>説明</value>
+    <comment>Description</comment>
+  </data>
+  <data name="ReportInstancePageSettingsPATCH_ReportFullPath" xml:space="preserve">
+    <value>レポートの完全パス</value>
+    <comment>Report Full Path</comment>
+  </data>
+  <data name="ReportInstancePageSettingsPATCH_ReportFullPathText" xml:space="preserve">
+    <value>実行するレポートの完全パス。</value>
+    <comment>The full path of executing report.</comment>
+  </data>
+  <data name="ReportInstancePageSettingsPATCH_PleaseLoadAReportFirst" xml:space="preserve">
+    <value>最初にレポートをロードしてください。</value>
+    <comment>please load a report first.</comment>
+  </data>
+  <data name="ReportInstancePageSettingsPATCH_InstanceId" xml:space="preserve">
+    <value>インスタンス ID</value>
+    <comment>Instance Id</comment>
+  </data>
+  <data name="ReportInstancePageSettingsPATCH_InstanceIdText" xml:space="preserve">
+    <value>実行するレポートのインスタンス ID。</value>
+    <comment>The instance id of executing report.</comment>
+  </data>
+  <data name="ReportInstancePageSettingsPATCH_ReportPageSettings" xml:space="preserve">
+    <value>レポートページ設定</value>
+    <comment>Report Page Settings</comment>
+  </data>
+  <data name="ReportInstancePageSettingsPATCH_ReportPageSettingsText" xml:space="preserve">
+    <value>ページ設定は次のように行います。paperSize=custom&amp;amp;height=10in&amp;amp;width=20.5cm</value>
+    <comment>Please set the page settings like: paperSize=custom&amp;amp;height=10in&amp;amp;width=20.5cm</comment>
+  </data>
+  <data name="ReportInstancePageSettingsPATCH_Headers" xml:space="preserve">
+    <value>ヘッダー</value>
+    <comment>Headers</comment>
+  </data>
+  <data name="ReportInstancePageSettingsPATCH_ResponseData" xml:space="preserve">
+    <value>応答データ</value>
+    <comment>Response Data</comment>
+  </data>
+  <data name="ReportInstancePageSettingsPATCH_RequestURL" xml:space="preserve">
+    <value>要求 URL：</value>
+    <comment>Request URL: </comment>
+  </data>
+  <data name="ReportInstancePageSettingsPATCH_StatusCode" xml:space="preserve">
+    <value>ステータスコード：</value>
+    <comment>Status Code: </comment>
+  </data>
+  <data name="ReportInstancePageSettingsPUT_PageSettings" xml:space="preserve">
+    <value>PageSettings</value>
+    <comment>PageSettings</comment>
+  </data>
+  <data name="ReportInstancePageSettingsPUT_SetPageSettings" xml:space="preserve">
+    <value>ページ設定の設定</value>
+    <comment>Set Page Settings</comment>
+  </data>
+  <data name="ReportInstancePageSettingsPUT_Parameter" xml:space="preserve">
+    <value>パラメータ</value>
+    <comment>Parameter</comment>
+  </data>
+  <data name="ReportInstancePageSettingsPUT_Value" xml:space="preserve">
+    <value>値</value>
+    <comment>Value</comment>
+  </data>
+  <data name="ReportInstancePageSettingsPUT_Description" xml:space="preserve">
+    <value>説明</value>
+    <comment>Description</comment>
+  </data>
+  <data name="ReportInstancePageSettingsPUT_ReportFullPath" xml:space="preserve">
+    <value>レポートの完全パス</value>
+    <comment>Report Full Path</comment>
+  </data>
+  <data name="ReportInstancePageSettingsPUT_ReportFullPathText" xml:space="preserve">
+    <value>実行するレポートの完全パス。</value>
+    <comment>The full path of executing report.</comment>
+  </data>
+  <data name="ReportInstancePageSettingsPUT_PleaseLoadAReportFirst" xml:space="preserve">
+    <value>最初にレポートをロードしてください。</value>
+    <comment>please load a report first.</comment>
+  </data>
+  <data name="ReportInstancePageSettingsPUT_InstanceId" xml:space="preserve">
+    <value>インスタンス ID</value>
+    <comment>Instance Id</comment>
+  </data>
+  <data name="ReportInstancePageSettingsPUT_InstanceIdText" xml:space="preserve">
+    <value>実行するレポートのインスタンス ID。</value>
+    <comment>The instance id of executing report.</comment>
+  </data>
+  <data name="ReportInstancePageSettingsPUT_ReportPageSettings" xml:space="preserve">
+    <value>レポートページ設定</value>
+    <comment>Report Page Settings</comment>
+  </data>
+  <data name="ReportInstancePageSettingsPUT_ReportPageSettingsText" xml:space="preserve">
+    <value>ページ設定は次のように行います。paperSize=custom&amp;amp;height=10in&amp;amp;width=20.5cm</value>
+    <comment>Please set the page settings like: paperSize=custom&amp;amp;height=10in&amp;amp;width=20.5cm</comment>
+  </data>
+  <data name="ReportInstancePageSettingsPUT_RequestURL" xml:space="preserve">
+    <value>要求 URL：</value>
+    <comment>Request URL: </comment>
+  </data>
+  <data name="ReportInstancePageSettingsPUT_StatusCode" xml:space="preserve">
+    <value>ステータスコード：</value>
+    <comment>Status Code: </comment>
+  </data>
+  <data name="ReportInstanceParameterGET_Parameters" xml:space="preserve">
+    <value>パラメータ</value>
+    <comment>Parameters</comment>
+  </data>
+  <data name="ReportInstanceParameterGET_GetParameter" xml:space="preserve">
+    <value>パラメータの取得</value>
+    <comment>Get Parameter</comment>
+  </data>
+  <data name="ReportInstanceParameterGET_Parameter" xml:space="preserve">
+    <value>パラメータ</value>
+    <comment>Parameter</comment>
+  </data>
+  <data name="ReportInstanceParameterGET_Value" xml:space="preserve">
+    <value>値</value>
+    <comment>Value</comment>
+  </data>
+  <data name="ReportInstanceParameterGET_Description" xml:space="preserve">
+    <value>説明</value>
+    <comment>Description</comment>
+  </data>
+  <data name="ReportInstanceParameterGET_ReportFullPath" xml:space="preserve">
+    <value>レポートの完全パス</value>
+    <comment>Report Full Path</comment>
+  </data>
+  <data name="ReportInstanceParameterGET_ReportFullPathText" xml:space="preserve">
+    <value>実行するレポートの完全パス。&lt;br /&gt;例として、&lt;strong&gt;FlexCommonTasks.flxr/MultiValue DataBound Parameters&lt;/strong&gt; レポートを使用できます。</value>
+    <comment>The full path of executing report.&lt;br /&gt;Suggest to use report &lt;strong&gt;FlexCommonTasks.flxr/MultiValue DataBound Parameters&lt;/strong&gt; as example.</comment>
+  </data>
+  <data name="ReportInstanceParameterGET_PleaseLoadAReportFirst" xml:space="preserve">
+    <value>最初にレポートをロードしてください。</value>
+    <comment>please load a report first.</comment>
+  </data>
+  <data name="ReportInstanceParameterGET_InstanceId" xml:space="preserve">
+    <value>インスタンス ID</value>
+    <comment>Instance Id</comment>
+  </data>
+  <data name="ReportInstanceParameterGET_InstanceIdText" xml:space="preserve">
+    <value>実行するレポートのインスタンス ID。</value>
+    <comment>The instance id of executing report.</comment>
+  </data>
+  <data name="ReportInstanceParameterGET_ParameterName" xml:space="preserve">
+    <value>パラメータ名</value>
+    <comment>Parameter Name</comment>
+  </data>
+  <data name="ReportInstanceParameterGET_ParameterNameText" xml:space="preserve">
+    <value>パラメータ名。</value>
+    <comment>The parameter name.</comment>
+  </data>
+  <data name="ReportInstanceParameterGET_Headers" xml:space="preserve">
+    <value>ヘッダー</value>
+    <comment>Headers</comment>
+  </data>
+  <data name="ReportInstanceParameterGET_ResponseData" xml:space="preserve">
+    <value>応答データ</value>
+    <comment>Response Data</comment>
+  </data>
+  <data name="ReportInstanceParameterGET_RequestURL" xml:space="preserve">
+    <value>要求 URL：</value>
+    <comment>Request URL: </comment>
+  </data>
+  <data name="ReportInstanceParameterGET_StatusCode" xml:space="preserve">
+    <value>ステータスコード：</value>
+    <comment>Status Code: </comment>
+  </data>
+  <data name="ReportInstanceParameterPUT_Parameters" xml:space="preserve">
+    <value>パラメータ</value>
+    <comment>Parameters</comment>
+  </data>
+  <data name="ReportInstanceParameterPUT_SetParameter" xml:space="preserve">
+    <value>パラメータの設定</value>
+    <comment>Set Parameter</comment>
+  </data>
+  <data name="ReportInstanceParameterPUT_Parameter" xml:space="preserve">
+    <value>パラメータ</value>
+    <comment>Parameter</comment>
+  </data>
+  <data name="ReportInstanceParameterPUT_Value" xml:space="preserve">
+    <value>値</value>
+    <comment>Value</comment>
+  </data>
+  <data name="ReportInstanceParameterPUT_Description" xml:space="preserve">
+    <value>説明</value>
+    <comment>Description</comment>
+  </data>
+  <data name="ReportInstanceParameterPUT_ReportFullPath" xml:space="preserve">
+    <value>レポートの完全パス</value>
+    <comment>Report Full Path</comment>
+  </data>
+  <data name="ReportInstanceParameterPUT_ReportFullPathText" xml:space="preserve">
+    <value>実行するレポートの完全パス。例として、&lt;strong&gt;FlexCommonTasks.flxr/MultiValue DataBound Parameters&lt;/strong&gt; レポートを使用できます。</value>
+    <comment>The full path of executing report.  Suggest to use report &lt;strong&gt;FlexCommonTasks.flxr/MultiValue DataBound Parameters&lt;/strong&gt; as example.</comment>
+  </data>
+  <data name="ReportInstanceParameterPUT_PleaseLoadAReportFirst" xml:space="preserve">
+    <value>最初にレポートをロードしてください。</value>
+    <comment>please load a report first.</comment>
+  </data>
+  <data name="ReportInstanceParameterPUT_InstanceId" xml:space="preserve">
+    <value>インスタンス ID</value>
+    <comment>Instance Id</comment>
+  </data>
+  <data name="ReportInstanceParameterPUT_InstanceIdText" xml:space="preserve">
+    <value>実行するレポートのインスタンス ID。</value>
+    <comment>The instance id of executing report.</comment>
+  </data>
+  <data name="ReportInstanceParameterPUT_ParameterName" xml:space="preserve">
+    <value>パラメータ名</value>
+    <comment>Parameter Name</comment>
+  </data>
+  <data name="ReportInstanceParameterPUT_ParameterNameText" xml:space="preserve">
+    <value>パラメータ名。</value>
+    <comment>The parameter name.</comment>
+  </data>
+  <data name="ReportInstanceParameterPUT_ParameterValues" xml:space="preserve">
+    <value>パラメータ値</value>
+    <comment>Parameter Values</comment>
+  </data>
+  <data name="ReportInstanceParameterPUT_ParameterValuesText" xml:space="preserve">
+    <value>レポートパラメータ値。例：&lt;br /&gt; value=1&amp;amp;...&lt;br /&gt;</value>
+    <comment>The report parameter values. e.g:&lt;br /&gt; value=1&amp;amp;...&lt;br /&gt;</comment>
+  </data>
+  <data name="ReportInstanceParameterPUT_Headers" xml:space="preserve">
+    <value>ヘッダー</value>
+    <comment>Headers</comment>
+  </data>
+  <data name="ReportInstanceParameterPUT_ResponseData" xml:space="preserve">
+    <value>応答データ</value>
+    <comment>Response Data</comment>
+  </data>
+  <data name="ReportInstanceParameterPUT_RequestURL" xml:space="preserve">
+    <value>要求 URL：</value>
+    <comment>Request URL: </comment>
+  </data>
+  <data name="ReportInstanceParameterPUT_StatusCode" xml:space="preserve">
+    <value>ステータスコード：</value>
+    <comment>Status Code: </comment>
+  </data>
+  <data name="ReportInstanceParametersGET_Parameters" xml:space="preserve">
+    <value>パラメータ</value>
+    <comment>Parameters</comment>
+  </data>
+  <data name="ReportInstanceParametersGET_GetParameters" xml:space="preserve">
+    <value>パラメータの取得</value>
+    <comment>Get Parameters</comment>
+  </data>
+  <data name="ReportInstanceParametersGET_Parameter" xml:space="preserve">
+    <value>パラメータ</value>
+    <comment>Parameter</comment>
+  </data>
+  <data name="ReportInstanceParametersGET_Value" xml:space="preserve">
+    <value>値</value>
+    <comment>Value</comment>
+  </data>
+  <data name="ReportInstanceParametersGET_Description" xml:space="preserve">
+    <value>説明</value>
+    <comment>Description</comment>
+  </data>
+  <data name="ReportInstanceParametersGET_ReportFullPath" xml:space="preserve">
+    <value>レポートの完全パス</value>
+    <comment>Report Full Path</comment>
+  </data>
+  <data name="ReportInstanceParametersGET_ReportFullPathText" xml:space="preserve">
+    <value>実行するレポートの完全パス。&lt;br /&gt;例として、&lt;strong&gt;FlexCommonTasks.flxr/MultiValue DataBound Parameters&lt;/strong&gt; レポートを使用できます。</value>
+    <comment>The full path of executing report.&lt;br /&gt;Suggest to use report &lt;strong&gt;FlexCommonTasks.flxr/MultiValue DataBound Parameters&lt;/strong&gt; as example.</comment>
+  </data>
+  <data name="ReportInstanceParametersGET_PleaseLoadAReportFirst" xml:space="preserve">
+    <value>最初にレポートをロードしてください。</value>
+    <comment>please load a report first.</comment>
+  </data>
+  <data name="ReportInstanceParametersGET_InstanceId" xml:space="preserve">
+    <value>インスタンス ID</value>
+    <comment>Instance Id</comment>
+  </data>
+  <data name="ReportInstanceParametersGET_InstanceIdText" xml:space="preserve">
+    <value>実行するレポートのインスタンス ID。</value>
+    <comment>The instance id of executing report.</comment>
+  </data>
+  <data name="ReportInstanceParametersGET_Headers" xml:space="preserve">
+    <value>ヘッダー</value>
+    <comment>Headers</comment>
+  </data>
+  <data name="ReportInstanceParametersGET_ResponseData" xml:space="preserve">
+    <value>応答データ</value>
+    <comment>Response Data</comment>
+  </data>
+  <data name="ReportInstanceParametersGET_RequestURL" xml:space="preserve">
+    <value>要求 URL：</value>
+    <comment>Request URL: </comment>
+  </data>
+  <data name="ReportInstanceParametersGET_StatusCode" xml:space="preserve">
+    <value>ステータスコード：</value>
+    <comment>Status Code: </comment>
+  </data>
+  <data name="ReportInstanceParametersPATCH_Parameters" xml:space="preserve">
+    <value>パラメータ</value>
+    <comment>Parameters</comment>
+  </data>
+  <data name="ReportInstanceParametersPATCH_SetParameters" xml:space="preserve">
+    <value>パラメータの設定</value>
+    <comment>Set Parameters</comment>
+  </data>
+  <data name="ReportInstanceParametersPATCH_Parameter" xml:space="preserve">
+    <value>パラメータ</value>
+    <comment>Parameter</comment>
+  </data>
+  <data name="ReportInstanceParametersPATCH_Value" xml:space="preserve">
+    <value>値</value>
+    <comment>Value</comment>
+  </data>
+  <data name="ReportInstanceParametersPATCH_Description" xml:space="preserve">
+    <value>説明</value>
+    <comment>Description</comment>
+  </data>
+  <data name="ReportInstanceParametersPATCH_ReportFullPath" xml:space="preserve">
+    <value>レポートの完全パス</value>
+    <comment>Report Full Path</comment>
+  </data>
+  <data name="ReportInstanceParametersPATCH_ReportFullPathText" xml:space="preserve">
+    <value>実行するレポートの完全パス。&lt;br /&gt;例として、&lt;strong&gt;FlexCommonTasks.flxr/MultiValue DataBound Parameters&lt;/strong&gt; レポートを使用できます。</value>
+    <comment>The full path of executing report.&lt;br /&gt;Suggest to use report &lt;strong&gt;FlexCommonTasks.flxr/MultiValue DataBound Parameters&lt;/strong&gt; as example.</comment>
+  </data>
+  <data name="ReportInstanceParametersPATCH_PleaseLoadAReportFirst" xml:space="preserve">
+    <value>最初にレポートをロードしてください。</value>
+    <comment>please load a report first.</comment>
+  </data>
+  <data name="ReportInstanceParametersPATCH_InstanceId" xml:space="preserve">
+    <value>インスタンス ID</value>
+    <comment>Instance Id</comment>
+  </data>
+  <data name="ReportInstanceParametersPATCH_InstanceIdText" xml:space="preserve">
+    <value>実行するレポートのインスタンス ID。</value>
+    <comment>The instance id of executing report.</comment>
+  </data>
+  <data name="ReportInstanceParametersPATCH_ReportParameters" xml:space="preserve">
+    <value>レポートパラメータ</value>
+    <comment>Report Parameters</comment>
+  </data>
+  <data name="ReportInstanceParametersPATCH_ReportParametersText" xml:space="preserve">
+    <value>レポートパラメータ。&lt;strong&gt;parameters&lt;/strong&gt; アクションの応答を参照してください。例：&lt;br /&gt; pCategory=1&amp;amp;...&lt;br /&gt;&lt;br /&gt; パラメータが複数値の場合は、その回数だけパラメータを設定します。例：&lt;br /&gt; pCategory=1&amp;amp;pCustomers=3&amp;amp;... </value>
+    <comment>The report parameters, please see the response of action &lt;strong&gt;parameters&lt;/strong&gt;. e.g:&lt;br /&gt; pCategory=1&amp;amp;...&lt;br /&gt;&lt;br /&gt; If the parameter is multi-value, please set the parameters for many times, e.g:&lt;br /&gt; pCategory=1&amp;amp;pCustomers=3&amp;amp;... </comment>
+  </data>
+  <data name="ReportInstanceParametersPATCH_Headers" xml:space="preserve">
+    <value>ヘッダー</value>
+    <comment>Headers</comment>
+  </data>
+  <data name="ReportInstanceParametersPATCH_ResponseData" xml:space="preserve">
+    <value>応答データ</value>
+    <comment>Response Data</comment>
+  </data>
+  <data name="ReportInstanceParametersPATCH_RequestURL" xml:space="preserve">
+    <value>要求 URL：</value>
+    <comment>Request URL: </comment>
+  </data>
+  <data name="ReportInstanceParametersPATCH_StatusCode" xml:space="preserve">
+    <value>ステータスコード：</value>
+    <comment>Status Code: </comment>
+  </data>
+  <data name="ReportInstanceParametersPUT_Parameters" xml:space="preserve">
+    <value>パラメータ</value>
+    <comment>Parameters</comment>
+  </data>
+  <data name="ReportInstanceParametersPUT_SetParameters" xml:space="preserve">
+    <value>パラメータの設定</value>
+    <comment>Set Parameters</comment>
+  </data>
+  <data name="ReportInstanceParametersPUT_Parameter" xml:space="preserve">
+    <value>パラメータ</value>
+    <comment>Parameter</comment>
+  </data>
+  <data name="ReportInstanceParametersPUT_Value" xml:space="preserve">
+    <value>値</value>
+    <comment>Value</comment>
+  </data>
+  <data name="ReportInstanceParametersPUT_Description" xml:space="preserve">
+    <value>説明</value>
+    <comment>Description</comment>
+  </data>
+  <data name="ReportInstanceParametersPUT_ReportFullPath" xml:space="preserve">
+    <value>レポートの完全パス</value>
+    <comment>Report Full Path</comment>
+  </data>
+  <data name="ReportInstanceParametersPUT_ReportFullPathText" xml:space="preserve">
+    <value>実行するレポートの完全パス。&lt;br /&gt;例として、&lt;strong&gt;FlexCommonTasks.flxr/MultiValue DataBound Parameters&lt;/strong&gt; レポートを使用できます。</value>
+    <comment>The full path of executing report.&lt;br /&gt;Suggest to use report &lt;strong&gt;FlexCommonTasks.flxr/MultiValue DataBound Parameters&lt;/strong&gt; as example.</comment>
+  </data>
+  <data name="ReportInstanceParametersPUT_PleaseLoadAReportFirst" xml:space="preserve">
+    <value>最初にレポートをロードしてください。</value>
+    <comment>please load a report first.</comment>
+  </data>
+  <data name="ReportInstanceParametersPUT_InstanceId" xml:space="preserve">
+    <value>インスタンス ID</value>
+    <comment>Instance Id</comment>
+  </data>
+  <data name="ReportInstanceParametersPUT_InstanceIdText" xml:space="preserve">
+    <value>実行するレポートのインスタンス ID。</value>
+    <comment>The instance id of executing report.</comment>
+  </data>
+  <data name="ReportInstanceParametersPUT_ReportParameters" xml:space="preserve">
+    <value>レポートパラメータ</value>
+    <comment>Report Parameters</comment>
+  </data>
+  <data name="ReportInstanceParametersPUT_ReportParametersText" xml:space="preserve">
+    <value>レポートパラメータ。&lt;strong&gt;parameters&lt;/strong&gt; アクションの応答を参照してください。例：&lt;br /&gt; pCategory=1&amp;amp;...&lt;br /&gt;&lt;br /&gt; パラメータが複数値の場合は、その回数だけパラメータを設定します。例：&lt;br /&gt; pCategory=1&amp;amp;pCustomers=3&amp;amp;... </value>
+    <comment>The report parameters, please see the response of action &lt;strong&gt;parameters&lt;/strong&gt;. e.g:&lt;br /&gt; pCategory=1&amp;amp;...&lt;br /&gt;&lt;br /&gt; If the parameter is multi-value, please set the parameters for many times, e.g:&lt;br /&gt; pCategory=1&amp;amp;pCustomers=3&amp;amp;... </comment>
+  </data>
+  <data name="ReportInstanceParametersPUT_Headers" xml:space="preserve">
+    <value>ヘッダー</value>
+    <comment>Headers</comment>
+  </data>
+  <data name="ReportInstanceParametersPUT_ResponseData" xml:space="preserve">
+    <value>応答データ</value>
+    <comment>Response Data</comment>
+  </data>
+  <data name="ReportInstanceParametersPUT_RequestURL" xml:space="preserve">
+    <value>要求 URL：</value>
+    <comment>Request URL: </comment>
+  </data>
+  <data name="ReportInstanceParametersPUT_StatusCode" xml:space="preserve">
+    <value>ステータスコード：</value>
+    <comment>Status Code: </comment>
+  </data>
+  <data name="ReportInstanceRenderPOST_Parameters" xml:space="preserve">
+    <value>パラメータ</value>
+    <comment>Parameters</comment>
+  </data>
+  <data name="ReportInstanceRenderPOST_Render" xml:space="preserve">
+    <value>レンダリング</value>
+    <comment>Render</comment>
+  </data>
+  <data name="ReportInstanceRenderPOST_Parameter" xml:space="preserve">
+    <value>パラメータ</value>
+    <comment>Parameter</comment>
+  </data>
+  <data name="ReportInstanceRenderPOST_Value" xml:space="preserve">
+    <value>値</value>
+    <comment>Value</comment>
+  </data>
+  <data name="ReportInstanceRenderPOST_Description" xml:space="preserve">
+    <value>説明</value>
+    <comment>Description</comment>
+  </data>
+  <data name="ReportInstanceRenderPOST_ReportFullPath" xml:space="preserve">
+    <value>レポートの完全パス</value>
+    <comment>Report Full Path</comment>
+  </data>
+  <data name="ReportInstanceRenderPOST_ReportFullPathText" xml:space="preserve">
+    <value>実行するレポートの完全パス。</value>
+    <comment>The full path of executing report.</comment>
+  </data>
+  <data name="ReportInstanceRenderPOST_PleaseLoadAReportFirst" xml:space="preserve">
+    <value>最初にレポートをロードしてください。</value>
+    <comment>please load a report first.</comment>
+  </data>
+  <data name="ReportInstanceRenderPOST_InstanceId" xml:space="preserve">
+    <value>インスタンス ID</value>
+    <comment>Instance Id</comment>
+  </data>
+  <data name="ReportInstanceRenderPOST_InstanceIdText" xml:space="preserve">
+    <value>実行するレポートのキャッシュ ID。</value>
+    <comment>The cache id of executing report.</comment>
+  </data>
+  <data name="ReportInstanceRenderPOST_ReportParameters" xml:space="preserve">
+    <value>レポートパラメータ</value>
+    <comment>Report Parameters</comment>
+  </data>
+  <data name="ReportInstanceRenderPOST_ReportParametersText" xml:space="preserve">
+    <value>例として、&lt;strong&gt;FlexCommonTasks.flxr/MultiValue DataBound Parameters&lt;/strong&gt; レポートを使用できます。&lt;br /&gt;レポートパラメータ。&lt;strong&gt;parameters&lt;/strong&gt; アクションの応答を参照してください。例：&lt;br /&gt; parameters.pCategory=1&amp;amp;...&lt;br /&gt;&lt;br /&gt; パラメータが複数値の場合は、その回数だけパラメータを設定します。例：&lt;br /&gt; parameters.pCategory=1&amp;amp;parameters.pCustomers=3&amp;amp;... </value>
+    <comment>Suggest to use report &lt;strong&gt;FlexCommonTasks.flxr/MultiValue DataBound Parameters&lt;/strong&gt; as example.&lt;br /&gt;The report parameters, please see the response of action &lt;strong&gt;parameters&lt;/strong&gt;. e.g:&lt;br /&gt; parameters.pCategory=1&amp;amp;...&lt;br /&gt;&lt;br /&gt; If the parameter is multi-value, please set the parameters for many times, e.g:&lt;br /&gt; parameters.pCategory=1&amp;amp;parameters.pCustomers=3&amp;amp;... </comment>
+  </data>
+  <data name="ReportInstanceRenderPOST_ReportPageSettings" xml:space="preserve">
+    <value>レポートページ設定</value>
+    <comment>Report Page Settings</comment>
+  </data>
+  <data name="ReportInstanceRenderPOST_ReportPageSettingsText" xml:space="preserve">
+    <value>ページ設定は次のように行います。pageSettings.paperSize=custom&amp;amp;pageSettings.height=10in&amp;amp;pageSettings.width=20.5cm</value>
+    <comment>Please set the page settings like: pageSettings.paperSize=custom&amp;amp;pageSettings.height=10in&amp;amp;pageSettings.width=20.5cm</comment>
+  </data>
+  <data name="ReportInstanceRenderPOST_ActionString" xml:space="preserve">
+    <value>アクション文字列</value>
+    <comment>Action String</comment>
+  </data>
+  <data name="ReportInstanceRenderPOST_ActionStringText" xml:space="preserve">
+    <value>アクション文字列。これは SSRS レポート専用です。例として、&lt;strong&gt;AdventureWorks (SSRS)/Product Line Sales&lt;/strong&gt; レポートを使用できます。例：&lt;br /&gt;actionString=77u%2FPD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48TFQgcmVmPSIxIiB0eXBlPSJMVCI%2BPERBIHR5cGU9IlNTUlNTQSI%2BPFNJRD4zM2lUMDwvU0lEPjxEPkFzY2VuZGluZzwvRD48L0RBPjwvTFQ%2B</value>
+    <comment>The action string.  This is only for SSRS report and suggest to use report &lt;strong&gt;AdventureWorks (SSRS)/Product Line Sales&lt;/strong&gt; as example.  e.g:&lt;br /&gt;actionString=77u%2FPD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48TFQgcmVmPSIxIiB0eXBlPSJMVCI%2BPERBIHR5cGU9IlNTUlNTQSI%2BPFNJRD4zM2lUMDwvU0lEPjxEPkFzY2VuZGluZzwvRD48L0RBPjwvTFQ%2B</comment>
+  </data>
+  <data name="ReportInstanceRenderPOST_Headers" xml:space="preserve">
+    <value>ヘッダー</value>
+    <comment>Headers</comment>
+  </data>
+  <data name="ReportInstanceRenderPOST_ResponseData" xml:space="preserve">
+    <value>応答データ</value>
+    <comment>Response Data</comment>
+  </data>
+  <data name="ReportInstanceRenderPOST_RequestURL" xml:space="preserve">
+    <value>要求 URL：</value>
+    <comment>Request URL: </comment>
+  </data>
+  <data name="ReportInstanceRenderPOST_StatusCode" xml:space="preserve">
+    <value>ステータスコード：</value>
+    <comment>Status Code: </comment>
+  </data>
+  <data name="ReportInstanceSearchGET_Parameters" xml:space="preserve">
+    <value>パラメータ</value>
+    <comment>Parameters</comment>
+  </data>
+  <data name="ReportInstanceSearchGET_Search" xml:space="preserve">
+    <value>検索</value>
+    <comment>Search</comment>
+  </data>
+  <data name="ReportInstanceSearchGET_Parameter" xml:space="preserve">
+    <value>パラメータ</value>
+    <comment>Parameter</comment>
+  </data>
+  <data name="ReportInstanceSearchGET_Value" xml:space="preserve">
+    <value>値</value>
+    <comment>Value</comment>
+  </data>
+  <data name="ReportInstanceSearchGET_Description" xml:space="preserve">
+    <value>説明</value>
+    <comment>Description</comment>
+  </data>
+  <data name="ReportInstanceSearchGET_ReportFullPath" xml:space="preserve">
+    <value>レポートの完全パス</value>
+    <comment>Report Full Path</comment>
+  </data>
+  <data name="ReportInstanceSearchGET_ReportFullPathText" xml:space="preserve">
+    <value>実行するレポートの完全パス。&lt;br /&gt;例として、&lt;strong&gt;FlexCommonTasks.flxr/Simple List&lt;/strong&gt; レポートを使用できます。</value>
+    <comment>The full path of executing report.&lt;br /&gt;Suggest to use report &lt;strong&gt;FlexCommonTasks.flxr/Simple List&lt;/strong&gt; as example.</comment>
+  </data>
+  <data name="ReportInstanceSearchGET_PleaseLoadAReportFirst" xml:space="preserve">
+    <value>最初にレポートをロードしてください。</value>
+    <comment>please load a report first.</comment>
+  </data>
+  <data name="ReportInstanceSearchGET_InstanceId" xml:space="preserve">
+    <value>インスタンス ID</value>
+    <comment>Instance Id</comment>
+  </data>
+  <data name="ReportInstanceSearchGET_InstanceIdText" xml:space="preserve">
+    <value>実行するレポートのインスタンス ID。</value>
+    <comment>The instance id of executing report.</comment>
+  </data>
+  <data name="ReportInstanceSearchGET_StartPageIndex" xml:space="preserve">
+    <value>開始ページインデックス</value>
+    <comment>Start Page Index</comment>
+  </data>
+  <data name="ReportInstanceSearchGET_StartPageIndexText" xml:space="preserve">
+    <value>検索する最初のページの 0 ベースのインデックス。</value>
+    <comment>0-based index of the first page to search.</comment>
+  </data>
+  <data name="ReportInstanceSearchGET_SearchScope" xml:space="preserve">
+    <value>検索範囲</value>
+    <comment>Search Scope</comment>
+  </data>
+  <data name="ReportInstanceSearchGET_SearchScopeText" xml:space="preserve">
+    <value>検索の範囲。</value>
+    <comment>The search scope.</comment>
+  </data>
+  <data name="ReportInstanceSearchGET_SearchScope_WholeDocument" xml:space="preserve">
+    <value>ドキュメント全体</value>
+    <comment>The whole document</comment>
+  </data>
+  <data name="ReportInstanceSearchGET_SearchScope_EndOfDocument" xml:space="preserve">
+    <value>ドキュメントの最後まで</value>
+    <comment>To the end of the document</comment>
+  </data>
+  <data name="ReportInstanceSearchGET_SearchScope_FirstOccurrence" xml:space="preserve">
+    <value>最初の一致が見つかるまで</value>
+    <comment>Till the first occurrence is found</comment>
+  </data>
+  <data name="ReportInstanceSearchGET_SearchScope_SinglePage" xml:space="preserve">
+    <value>指定されたページ内のみ</value>
+    <comment>Within the specified page only</comment>
+  </data>
+  <data name="ReportInstanceSearchGET_SearchText" xml:space="preserve">
+    <value>検索テキスト</value>
+    <comment>Search Text</comment>
+  </data>
+  <data name="ReportInstanceSearchGET_SearchTextText" xml:space="preserve">
+    <value>検索に使用する値。</value>
+    <comment>The value which is used to search.</comment>
+  </data>
+  <data name="ReportInstanceSearchGET_MatchCase" xml:space="preserve">
+    <value>大文字小文字の区別</value>
+    <comment>Match Case</comment>
+  </data>
+  <data name="ReportInstanceSearchGET_MatchCaseText" xml:space="preserve">
+    <value>大文字小文字を区別して値を検索するかどうかを示す Boolean 値。</value>
+    <comment>A boolean value indicates if search the value with case sensitive.</comment>
+  </data>
+  <data name="ReportInstanceSearchGET_WholeWord" xml:space="preserve">
+    <value>単語単位</value>
+    <comment>Whole Word</comment>
+  </data>
+  <data name="ReportInstanceSearchGET_WholeWordText" xml:space="preserve">
+    <value>単語単位で値を検索するかどうかを示す Boolean 値。</value>
+    <comment>A boolean value indicates if search the value with matching a whole word.</comment>
+  </data>
+  <data name="ReportInstanceSearchGET_Headers" xml:space="preserve">
+    <value>ヘッダー</value>
+    <comment>Headers</comment>
+  </data>
+  <data name="ReportInstanceSearchGET_ResponseData" xml:space="preserve">
+    <value>応答データ</value>
+    <comment>Response Data</comment>
+  </data>
+  <data name="ReportInstanceSearchGET_RequestURL" xml:space="preserve">
+    <value>要求 URL：</value>
+    <comment>Request URL: </comment>
+  </data>
+  <data name="ReportInstanceSearchGET_StatusCode" xml:space="preserve">
+    <value>ステータスコード：</value>
+    <comment>Status Code: </comment>
+  </data>
+  <data name="ReportInstancesGET_Parameters" xml:space="preserve">
+    <value>パラメータ</value>
+    <comment>Parameters</comment>
+  </data>
+  <data name="ReportInstancesGET_GetInstances" xml:space="preserve">
+    <value>インスタンスの取得</value>
+    <comment>Get Instances</comment>
+  </data>
+  <data name="ReportInstancesGET_Parameter" xml:space="preserve">
+    <value>パラメータ</value>
+    <comment>Parameter</comment>
+  </data>
+  <data name="ReportInstancesGET_Value" xml:space="preserve">
+    <value>値</value>
+    <comment>Value</comment>
+  </data>
+  <data name="ReportInstancesGET_Description" xml:space="preserve">
+    <value>説明</value>
+    <comment>Description</comment>
+  </data>
+  <data name="ReportInstancesGET_FolderPath" xml:space="preserve">
+    <value>フォルダパス</value>
+    <comment>Folder Path</comment>
+  </data>
+  <data name="ReportInstancesGET_FolderPath_None" xml:space="preserve">
+    <value>フォルダパスを選択してください</value>
+    <comment>Select a folder path</comment>
+  </data>
+  <data name="ReportInstancesGET_FolderPathText" xml:space="preserve">
+    <value>レポートプロバイダマネージャーが認識できるフォルダパス。</value>
+    <comment>The folder path that report provider manager can recognize.</comment>
+  </data>
+  <data name="ReportInstancesGET_ReportName" xml:space="preserve">
+    <value>レポート名</value>
+    <comment>Report Name</comment>
+  </data>
+  <data name="ReportInstancesGET_ReportNameText" xml:space="preserve">
+    <value>FlexReport ファイルまたは SSRS フォルダの下に定義されているレポート名。</value>
+    <comment>The report name that is defined in the FlexReport file, or under the SSRS folder.</comment>
+  </data>
+  <data name="ReportInstancesGET_Headers" xml:space="preserve">
+    <value>ヘッダー</value>
+    <comment>Headers</comment>
+  </data>
+  <data name="ReportInstancesGET_ResponseData" xml:space="preserve">
+    <value>応答データ</value>
+    <comment>Response Data</comment>
+  </data>
+  <data name="ReportInstancesGET_RequestURL" xml:space="preserve">
+    <value>要求 URL：</value>
+    <comment>Request URL: </comment>
+  </data>
+  <data name="ReportInstancesGET_StatusCode" xml:space="preserve">
+    <value>ステータスコード：</value>
+    <comment>Status Code: </comment>
+  </data>
+  <data name="ReportInstancesPOST_Parameters" xml:space="preserve">
+    <value>パラメータ</value>
+    <comment>Parameters</comment>
+  </data>
+  <data name="ReportInstancesPOST_LoadReport" xml:space="preserve">
+    <value>レポートのロード</value>
+    <comment>Load Report</comment>
+  </data>
+  <data name="ReportInstancesPOST_Parameter" xml:space="preserve">
+    <value>パラメータ</value>
+    <comment>Parameter</comment>
+  </data>
+  <data name="ReportInstancesPOST_Value" xml:space="preserve">
+    <value>値</value>
+    <comment>Value</comment>
+  </data>
+  <data name="ReportInstancesPOST_Description" xml:space="preserve">
+    <value>説明</value>
+    <comment>Description</comment>
+  </data>
+  <data name="ReportInstancesPOST_FolderPath" xml:space="preserve">
+    <value>フォルダパス</value>
+    <comment>Folder Path</comment>
+  </data>
+  <data name="ReportInstancesPOST_FolderPath_None" xml:space="preserve">
+    <value>フォルダパスを選択してください</value>
+    <comment>Select a folder path</comment>
+  </data>
+  <data name="ReportInstancesPOST_FolderPathText" xml:space="preserve">
+    <value>レポートプロバイダマネージャーが認識できるフォルダパス。</value>
+    <comment>The folder path that report provider manager can recognize.</comment>
+  </data>
+  <data name="ReportInstancesPOST_ReportName" xml:space="preserve">
+    <value>レポート名</value>
+    <comment>Report Name</comment>
+  </data>
+  <data name="ReportInstancesPOST_ReportNameText" xml:space="preserve">
+    <value>FlexReport ファイルまたは SSRS フォルダの下に定義されているレポート名。</value>
+    <comment>The report name that is defined in the FlexReport file, or under the SSRS folder.</comment>
+  </data>
+  <data name="ReportInstancesPOST_ReportParameters" xml:space="preserve">
+    <value>レポートパラメータ</value>
+    <comment>Report Parameters</comment>
+  </data>
+  <data name="ReportInstancesPOST_ReportParametersText" xml:space="preserve">
+    <value>例として、&lt;strong&gt;FlexCommonTasks.flxr/MultiValue DataBound Parameters&lt;/strong&gt; レポートを使用できます。&lt;br /&gt;レポートパラメータ。&lt;strong&gt;parameters&lt;/strong&gt; アクションの応答を参照してください。例：&lt;br /&gt; parameters.pCategory=1&amp;amp;...&lt;br /&gt;&lt;br /&gt; パラメータが複数値の場合は、その回数だけパラメータを設定します。例：&lt;br/&gt; parameters.pCategory=1&amp;amp;parameters.pCustomers=3&amp;amp;... </value>
+    <comment>Suggest to use report &lt;strong&gt;FlexCommonTasks.flxr/MultiValue DataBound Parameters&lt;/strong&gt; as example.&lt;br /&gt;The report parameters, please see the response of action &lt;strong&gt;parameters&lt;/strong&gt;. e.g:&lt;br /&gt; parameters.pCategory=1&amp;amp;...&lt;br /&gt;&lt;br /&gt; If the parameter is multi-value, please set the parameters for many times, e.g:&lt;br/&gt; parameters.pCategory=1&amp;amp;parameters.pCustomers=3&amp;amp;... </comment>
+  </data>
+  <data name="ReportInstancesPOST_ReportPageSettings" xml:space="preserve">
+    <value>レポートページ設定</value>
+    <comment>Report Page Settings</comment>
+  </data>
+  <data name="ReportInstancesPOST_ReportPageSettingsText" xml:space="preserve">
+    <value>ページ設定は次のように行います。pageSettings.paperSize=custom&amp;amp;pageSettings.height=10in&amp;amp;pageSettings.width=20.5cm</value>
+    <comment>Please set the page settings like: pageSettings.paperSize=custom&amp;amp;pageSettings.height=10in&amp;amp;pageSettings.width=20.5cm</comment>
+  </data>
+  <data name="ReportInstancesPOST_Headers" xml:space="preserve">
+    <value>ヘッダー</value>
+    <comment>Headers</comment>
+  </data>
+  <data name="ReportInstancesPOST_ResponseData" xml:space="preserve">
+    <value>応答データ</value>
+    <comment>Response Data</comment>
+  </data>
+  <data name="ReportInstancesPOST_RequestURL" xml:space="preserve">
+    <value>要求 URL：</value>
+    <comment>Request URL: </comment>
+  </data>
+  <data name="ReportInstancesPOST_StatusCode" xml:space="preserve">
+    <value>ステータスコード：</value>
+    <comment>Status Code: </comment>
+  </data>
+  <data name="ReportInstanceStatusGET_Parameters" xml:space="preserve">
+    <value>パラメータ</value>
+    <comment>Parameters</comment>
+  </data>
+  <data name="ReportInstanceStatusGET_GetStatus" xml:space="preserve">
+    <value>ステータスの取得</value>
+    <comment>Get Status</comment>
+  </data>
+  <data name="ReportInstanceStatusGET_Parameter" xml:space="preserve">
+    <value>パラメータ</value>
+    <comment>Parameter</comment>
+  </data>
+  <data name="ReportInstanceStatusGET_Value" xml:space="preserve">
+    <value>値</value>
+    <comment>Value</comment>
+  </data>
+  <data name="ReportInstanceStatusGET_Description" xml:space="preserve">
+    <value>説明</value>
+    <comment>Description</comment>
+  </data>
+  <data name="ReportInstanceStatusGET_ReportFullPath" xml:space="preserve">
+    <value>レポートの完全パス</value>
+    <comment>Report Full Path</comment>
+  </data>
+  <data name="ReportInstanceStatusGET_ReportFullPathText" xml:space="preserve">
+    <value>実行するレポートの完全パス。</value>
+    <comment>The full path of executing report.</comment>
+  </data>
+  <data name="ReportInstanceStatusGET_PleaseLoadAReportFirst" xml:space="preserve">
+    <value>最初にレポートをロードしてください。</value>
+    <comment>please load a report first.</comment>
+  </data>
+  <data name="ReportInstanceStatusGET_InstanceId" xml:space="preserve">
+    <value>インスタンス ID</value>
+    <comment>Instance Id</comment>
+  </data>
+  <data name="ReportInstanceStatusGET_InstanceIdText" xml:space="preserve">
+    <value>実行するレポートのキャッシュ ID。</value>
+    <comment>The cache id of executing report.</comment>
+  </data>
+  <data name="ReportInstanceStatusGET_Headers" xml:space="preserve">
+    <value>ヘッダー</value>
+    <comment>Headers</comment>
+  </data>
+  <data name="ReportInstanceStatusGET_ResponseData" xml:space="preserve">
+    <value>応答データ</value>
+    <comment>Response Data</comment>
+  </data>
+  <data name="ReportInstanceStatusGET_RequestURL" xml:space="preserve">
+    <value>要求 URL：</value>
+    <comment>Request URL: </comment>
+  </data>
+  <data name="ReportInstanceStatusGET_StatusCode" xml:space="preserve">
+    <value>ステータスコード：</value>
+    <comment>Status Code: </comment>
+  </data>
+  <data name="ReportInstanceStopPOST_Parameters" xml:space="preserve">
+    <value>パラメータ</value>
+    <comment>Parameters</comment>
+  </data>
+  <data name="ReportInstanceStopPOST_Stop" xml:space="preserve">
+    <value>停止</value>
+    <comment>Stop</comment>
+  </data>
+  <data name="ReportInstanceStopPOST_Parameter" xml:space="preserve">
+    <value>パラメータ</value>
+    <comment>Parameter</comment>
+  </data>
+  <data name="ReportInstanceStopPOST_Value" xml:space="preserve">
+    <value>値</value>
+    <comment>Value</comment>
+  </data>
+  <data name="ReportInstanceStopPOST_Description" xml:space="preserve">
+    <value>説明</value>
+    <comment>Description</comment>
+  </data>
+  <data name="ReportInstanceStopPOST_ReportFullPath" xml:space="preserve">
+    <value>レポートの完全パス</value>
+    <comment>Report Full Path</comment>
+  </data>
+  <data name="ReportInstanceStopPOST_ReportFullPathText" xml:space="preserve">
+    <value>実行するレポートの完全パス。</value>
+    <comment>The full path of executing report.</comment>
+  </data>
+  <data name="ReportInstanceStopPOST_PleaseLoadAReportFirst" xml:space="preserve">
+    <value>最初にレポートをロードしてください。</value>
+    <comment>please load a report first.</comment>
+  </data>
+  <data name="ReportInstanceStopPOST_InstanceId" xml:space="preserve">
+    <value>インスタンス ID</value>
+    <comment>Instance Id</comment>
+  </data>
+  <data name="ReportInstanceStopPOST_InstanceIdText" xml:space="preserve">
+    <value>実行するレポートのインスタンス ID。</value>
+    <comment>The instance id of executing report.</comment>
+  </data>
+  <data name="ReportInstanceStopPOST_Headers" xml:space="preserve">
+    <value>ヘッダー</value>
+    <comment>Headers</comment>
+  </data>
+  <data name="ReportInstanceStopPOST_ResponseData" xml:space="preserve">
+    <value>応答データ</value>
+    <comment>Response Data</comment>
+  </data>
+  <data name="ReportInstanceStopPOST_RequestURL" xml:space="preserve">
+    <value>要求 URL：</value>
+    <comment>Request URL: </comment>
+  </data>
+  <data name="ReportInstanceStopPOST_StatusCode" xml:space="preserve">
+    <value>ステータスコード：</value>
+    <comment>Status Code: </comment>
+  </data>
+  <data name="ReportInstanceSupportedFormatGET_Parameters" xml:space="preserve">
+    <value>パラメータ</value>
+    <comment>Parameters</comment>
+  </data>
+  <data name="ReportInstanceSupportedFormatGET_GetSupportedFormat" xml:space="preserve">
+    <value>サポートされている形式を取得</value>
+    <comment>Get Supported Format</comment>
+  </data>
+  <data name="ReportInstanceSupportedFormatGET_Parameter" xml:space="preserve">
+    <value>パラメータ</value>
+    <comment>Parameter</comment>
+  </data>
+  <data name="ReportInstanceSupportedFormatGET_Value" xml:space="preserve">
+    <value>値</value>
+    <comment>Value</comment>
+  </data>
+  <data name="ReportInstanceSupportedFormatGET_Description" xml:space="preserve">
+    <value>説明</value>
+    <comment>Description</comment>
+  </data>
+  <data name="ReportInstanceSupportedFormatGET_ReportFullPath" xml:space="preserve">
+    <value>レポートの完全パス</value>
+    <comment>Report Full Path</comment>
+  </data>
+  <data name="ReportInstanceSupportedFormatGET_ReportFullPathText" xml:space="preserve">
+    <value>実行するレポートの完全パス。</value>
+    <comment>The full path of executing report.</comment>
+  </data>
+  <data name="ReportInstanceSupportedFormatGET_PleaseLoadAReportFirst" xml:space="preserve">
+    <value>最初にレポートをロードしてください。</value>
+    <comment>please load a report first.</comment>
+  </data>
+  <data name="ReportInstanceSupportedFormatGET_InstanceId" xml:space="preserve">
+    <value>インスタンス ID</value>
+    <comment>Instance Id</comment>
+  </data>
+  <data name="ReportInstanceSupportedFormatGET_InstanceIdText" xml:space="preserve">
+    <value>実行するレポートのインスタンス ID。</value>
+    <comment>The instance id of executing report.</comment>
+  </data>
+  <data name="ReportInstanceSupportedFormatGET_SupportedFormatName" xml:space="preserve">
+    <value>サポートされている形式名</value>
+    <comment>Supported Format Name</comment>
+  </data>
+  <data name="ReportInstanceSupportedFormatGET_SupportedFormatNameText" xml:space="preserve">
+    <value>サポートされている形式名。例：HTML</value>
+    <comment>The supported format name.  e.g: html</comment>
+  </data>
+  <data name="ReportInstanceSupportedFormatGET_Headers" xml:space="preserve">
+    <value>ヘッダー</value>
+    <comment>Headers</comment>
+  </data>
+  <data name="ReportInstanceSupportedFormatGET_ResponseData" xml:space="preserve">
+    <value>応答データ</value>
+    <comment>Response Data</comment>
+  </data>
+  <data name="ReportInstanceSupportedFormatGET_RequestURL" xml:space="preserve">
+    <value>要求 URL：</value>
+    <comment>Request URL: </comment>
+  </data>
+  <data name="ReportInstanceSupportedFormatGET_StatusCode" xml:space="preserve">
+    <value>ステータスコード：</value>
+    <comment>Status Code: </comment>
+  </data>
+  <data name="ReportInstanceSupportedFormatsGET_Parameters" xml:space="preserve">
+    <value>パラメータ</value>
+    <comment>Parameters</comment>
+  </data>
+  <data name="ReportInstanceSupportedFormatsGET_GetSupportedFormats" xml:space="preserve">
+    <value>サポートされている形式を取得</value>
+    <comment>Get Supported Formats</comment>
+  </data>
+  <data name="ReportInstanceSupportedFormatsGET_Parameter" xml:space="preserve">
+    <value>パラメータ</value>
+    <comment>Parameter</comment>
+  </data>
+  <data name="ReportInstanceSupportedFormatsGET_Value" xml:space="preserve">
+    <value>値</value>
+    <comment>Value</comment>
+  </data>
+  <data name="ReportInstanceSupportedFormatsGET_Description" xml:space="preserve">
+    <value>説明</value>
+    <comment>Description</comment>
+  </data>
+  <data name="ReportInstanceSupportedFormatsGET_ReportFullPath" xml:space="preserve">
+    <value>レポートの完全パス</value>
+    <comment>Report Full Path</comment>
+  </data>
+  <data name="ReportInstanceSupportedFormatsGET_ReportFullPathText" xml:space="preserve">
+    <value>実行するレポートの完全パス。</value>
+    <comment>The full path of executing report.</comment>
+  </data>
+  <data name="ReportInstanceSupportedFormatsGET_PleaseLoadAReportFirst" xml:space="preserve">
+    <value>最初にレポートをロードしてください。</value>
+    <comment>please load a report first.</comment>
+  </data>
+  <data name="ReportInstanceSupportedFormatsGET_InstanceId" xml:space="preserve">
+    <value>インスタンス ID</value>
+    <comment>Instance Id</comment>
+  </data>
+  <data name="ReportInstanceSupportedFormatsGET_InstanceIdText" xml:space="preserve">
+    <value>実行するレポートのインスタンス ID。</value>
+    <comment>The instance id of executing report.</comment>
+  </data>
+  <data name="ReportInstanceSupportedFormatsGET_Headers" xml:space="preserve">
+    <value>ヘッダー</value>
+    <comment>Headers</comment>
+  </data>
+  <data name="ReportInstanceSupportedFormatsGET_ResponseData" xml:space="preserve">
+    <value>応答データ</value>
+    <comment>Response Data</comment>
+  </data>
+  <data name="ReportInstanceSupportedFormatsGET_RequestURL" xml:space="preserve">
+    <value>要求 URL：</value>
+    <comment>Request URL: </comment>
+  </data>
+  <data name="ReportInstanceSupportedFormatsGET_StatusCode" xml:space="preserve">
+    <value>ステータスコード：</value>
+    <comment>Status Code: </comment>
+  </data>
+  <data name="ReportPageSettingsGET_Parameters" xml:space="preserve">
+    <value>パラメータ</value>
+    <comment>Parameters</comment>
+  </data>
+  <data name="ReportPageSettingsGET_GetPageSettings" xml:space="preserve">
+    <value>ページ設定の取得</value>
+    <comment>Get Page Settings</comment>
+  </data>
+  <data name="ReportPageSettingsGET_Parameter" xml:space="preserve">
+    <value>パラメータ</value>
+    <comment>Parameter</comment>
+  </data>
+  <data name="ReportPageSettingsGET_Value" xml:space="preserve">
+    <value>値</value>
+    <comment>Value</comment>
+  </data>
+  <data name="ReportPageSettingsGET_Description" xml:space="preserve">
+    <value>説明</value>
+    <comment>Description</comment>
+  </data>
+  <data name="ReportPageSettingsGET_FolderPath" xml:space="preserve">
+    <value>フォルダパス</value>
+    <comment>Folder Path</comment>
+  </data>
+  <data name="ReportPageSettingsGET_FolderPath_None" xml:space="preserve">
+    <value>フォルダパスを選択してください</value>
+    <comment>Select a folder path</comment>
+  </data>
+  <data name="ReportPageSettingsGET_FolderPathText" xml:space="preserve">
+    <value>レポートプロバイダマネージャーが認識できるフォルダパス。</value>
+    <comment>The folder path that report provider manager can recognize.</comment>
+  </data>
+  <data name="ReportPageSettingsGET_ReportName" xml:space="preserve">
+    <value>レポート名</value>
+    <comment>Report Name</comment>
+  </data>
+  <data name="ReportPageSettingsGET_ReportNameText" xml:space="preserve">
+    <value>FlexReport ファイルまたは SSRS フォルダの下に定義されているレポート名。</value>
+    <comment>The report name that is defined in the FlexReport file, or under the SSRS folder.</comment>
+  </data>
+  <data name="ReportPageSettingsGET_Headers" xml:space="preserve">
+    <value>ヘッダー</value>
+    <comment>Headers</comment>
+  </data>
+  <data name="ReportPageSettingsGET_ResponseData" xml:space="preserve">
+    <value>応答データ</value>
+    <comment>Response Data</comment>
+  </data>
+  <data name="ReportPageSettingsGET_RequestURL" xml:space="preserve">
+    <value>要求 URL：</value>
+    <comment>Request URL: </comment>
+  </data>
+  <data name="ReportPageSettingsGET_StatusCode" xml:space="preserve">
+    <value>ステータスコード：</value>
+    <comment>Status Code: </comment>
+  </data>
+  <data name="ReportParameterGET_Parameters" xml:space="preserve">
+    <value>パラメータ</value>
+    <comment>Parameters</comment>
+  </data>
+  <data name="ReportParameterGET_GetParameter" xml:space="preserve">
+    <value>パラメータの取得</value>
+    <comment>Get Parameter</comment>
+  </data>
+  <data name="ReportParameterGET_Parameter" xml:space="preserve">
+    <value>パラメータ</value>
+    <comment>Parameter</comment>
+  </data>
+  <data name="ReportParameterGET_Value" xml:space="preserve">
+    <value>値</value>
+    <comment>Value</comment>
+  </data>
+  <data name="ReportParameterGET_Description" xml:space="preserve">
+    <value>説明</value>
+    <comment>Description</comment>
+  </data>
+  <data name="ReportParameterGET_FolderPath" xml:space="preserve">
+    <value>フォルダパス</value>
+    <comment>Folder Path</comment>
+  </data>
+  <data name="ReportParameterGET_FolderPathText" xml:space="preserve">
+    <value>レポートプロバイダマネージャーが認識できるフォルダパス。</value>
+    <comment>The folder path that report provider manager can recognize.</comment>
+  </data>
+  <data name="ReportParameterGET_ReportName" xml:space="preserve">
+    <value>レポート名</value>
+    <comment>Report Name</comment>
+  </data>
+  <data name="ReportParameterGET_ReportNameText" xml:space="preserve">
+    <value>FlexReport ファイルまたは SSRS フォルダの下に定義されているレポート名。</value>
+    <comment>The report name that is defined in the FlexReport file, or under the SSRS folder.</comment>
+  </data>
+  <data name="ReportParameterGET_ParameterName" xml:space="preserve">
+    <value>パラメータ名</value>
+    <comment>Parameter Name</comment>
+  </data>
+  <data name="ReportParameterGET_ParameterNameText" xml:space="preserve">
+    <value>パラメータ名。例：pCategory</value>
+    <comment>The parameter name. e.g: pCategory</comment>
+  </data>
+  <data name="ReportParameterGET_Headers" xml:space="preserve">
+    <value>ヘッダー</value>
+    <comment>Headers</comment>
+  </data>
+  <data name="ReportParameterGET_ResponseData" xml:space="preserve">
+    <value>応答データ</value>
+    <comment>Response Data</comment>
+  </data>
+  <data name="ReportParameterGET_RequestURL" xml:space="preserve">
+    <value>要求 URL：</value>
+    <comment>Request URL: </comment>
+  </data>
+  <data name="ReportParameterGET_StatusCode" xml:space="preserve">
+    <value>ステータスコード：</value>
+    <comment>Status Code: </comment>
+  </data>
+  <data name="ReportParametersGET_Parameters" xml:space="preserve">
+    <value>パラメータ</value>
+    <comment>Parameters</comment>
+  </data>
+  <data name="ReportParametersGET_GetParameters" xml:space="preserve">
+    <value>パラメータの取得</value>
+    <comment>Get Parameters</comment>
+  </data>
+  <data name="ReportParametersGET_Parameter" xml:space="preserve">
+    <value>パラメータ</value>
+    <comment>Parameter</comment>
+  </data>
+  <data name="ReportParametersGET_Value" xml:space="preserve">
+    <value>値</value>
+    <comment>Value</comment>
+  </data>
+  <data name="ReportParametersGET_Description" xml:space="preserve">
+    <value>説明</value>
+    <comment>Description</comment>
+  </data>
+  <data name="ReportParametersGET_FolderPath" xml:space="preserve">
+    <value>フォルダパス</value>
+    <comment>Folder Path</comment>
+  </data>
+  <data name="ReportParametersGET_FolderPath_None" xml:space="preserve">
+    <value>フォルダパスを選択してください</value>
+    <comment>Select a folder path</comment>
+  </data>
+  <data name="ReportParametersGET_FolderPathText" xml:space="preserve">
+    <value>レポートプロバイダマネージャーが認識できるフォルダパス。</value>
+    <comment>The folder path that report provider manager can recognize.</comment>
+  </data>
+  <data name="ReportParametersGET_ReportName" xml:space="preserve">
+    <value>レポート名</value>
+    <comment>Report Name</comment>
+  </data>
+  <data name="ReportParametersGET_ReportNameText" xml:space="preserve">
+    <value>FlexReport ファイルまたは SSRS フォルダの下に定義されているレポート名。</value>
+    <comment>The report name that is defined in the FlexReport file, or under the SSRS folder.</comment>
+  </data>
+  <data name="ReportParametersGET_Headers" xml:space="preserve">
+    <value>ヘッダー</value>
+    <comment>Headers</comment>
+  </data>
+  <data name="ReportParametersGET_ResponseData" xml:space="preserve">
+    <value>応答データ</value>
+    <comment>Response Data</comment>
+  </data>
+  <data name="ReportParametersGET_RequestURL" xml:space="preserve">
+    <value>要求 URL：</value>
+    <comment>Request URL: </comment>
+  </data>
+  <data name="ReportParametersGET_StatusCode" xml:space="preserve">
+    <value>ステータスコード：</value>
+    <comment>Status Code: </comment>
+  </data>
+  <data name="ReportsGET_Parameters" xml:space="preserve">
+    <value>パラメータ</value>
+    <comment>Parameters</comment>
+  </data>
+  <data name="ReportsGET_GetReports" xml:space="preserve">
+    <value>レポートの取得</value>
+    <comment>Get Reports</comment>
+  </data>
+  <data name="ReportsGET_Parameter" xml:space="preserve">
+    <value>パラメータ</value>
+    <comment>Parameter</comment>
+  </data>
+  <data name="ReportsGET_Value" xml:space="preserve">
+    <value>値</value>
+    <comment>Value</comment>
+  </data>
+  <data name="ReportsGET_Description" xml:space="preserve">
+    <value>説明</value>
+    <comment>Description</comment>
+  </data>
+  <data name="ReportsGET_FolderPath" xml:space="preserve">
+    <value>フォルダパス</value>
+    <comment>Folder Path</comment>
+  </data>
+  <data name="ReportsGET_FolderPath_None" xml:space="preserve">
+    <value>フォルダパスを選択してください</value>
+    <comment>Select a folder path</comment>
+  </data>
+  <data name="ReportsGET_FolderPathText" xml:space="preserve">
+    <value>レポートプロバイダマネージャーが認識できるフォルダパス。</value>
+    <comment>The folder path that report provider manager can recognize.</comment>
+  </data>
+  <data name="ReportsGET_Recursive" xml:space="preserve">
+    <value>再帰的</value>
+    <comment>Recursive</comment>
+  </data>
+  <data name="ReportsGET_RecursiveText" xml:space="preserve">
+    <value>パス以下のすべてのレポートを取得するかどうかを示す boolean 値。</value>
+    <comment>A boolean value indicates whether get all reports under the path.</comment>
+  </data>
+  <data name="ReportsGET_Headers" xml:space="preserve">
+    <value>ヘッダー</value>
+    <comment>Headers</comment>
+  </data>
+  <data name="ReportsGET_ResponseData" xml:space="preserve">
+    <value>応答データ</value>
+    <comment>Response Data</comment>
+  </data>
+  <data name="ReportsGET_RequestURL" xml:space="preserve">
+    <value>要求 URL：</value>
+    <comment>Request URL: </comment>
+  </data>
+  <data name="ReportsGET_StatusCode" xml:space="preserve">
+    <value>ステータスコード：</value>
+    <comment>Status Code: </comment>
+  </data>
+  <data name="ReportSupportedFormatGET_Parameters" xml:space="preserve">
+    <value>パラメータ</value>
+    <comment>Parameters</comment>
+  </data>
+  <data name="ReportSupportedFormatGET_GetSupportedFormat" xml:space="preserve">
+    <value>サポートされている形式を取得</value>
+    <comment>Get Supported Format</comment>
+  </data>
+  <data name="ReportSupportedFormatGET_Parameter" xml:space="preserve">
+    <value>パラメータ</value>
+    <comment>Parameter</comment>
+  </data>
+  <data name="ReportSupportedFormatGET_Value" xml:space="preserve">
+    <value>値</value>
+    <comment>Value</comment>
+  </data>
+  <data name="ReportSupportedFormatGET_Description" xml:space="preserve">
+    <value>説明</value>
+    <comment>Description</comment>
+  </data>
+  <data name="ReportSupportedFormatGET_FolderPath" xml:space="preserve">
+    <value>フォルダパス</value>
+    <comment>Folder Path</comment>
+  </data>
+  <data name="ReportSupportedFormatGET_FolderPath_None" xml:space="preserve">
+    <value>フォルダパスを選択してください</value>
+    <comment>Select a folder path</comment>
+  </data>
+  <data name="ReportSupportedFormatGET_FolderPathText" xml:space="preserve">
+    <value>レポートプロバイダマネージャーが認識できるフォルダパス。</value>
+    <comment>The folder path that report provider manager can recognize.</comment>
+  </data>
+  <data name="ReportSupportedFormatGET_ReportName" xml:space="preserve">
+    <value>レポート名</value>
+    <comment>Report Name</comment>
+  </data>
+  <data name="ReportSupportedFormatGET_ReportNameText" xml:space="preserve">
+    <value>FlexReport ファイルまたは SSRS フォルダの下に定義されているレポート名。</value>
+    <comment>The report name that is defined in the FlexReport file, or under the SSRS folder.</comment>
+  </data>
+  <data name="ReportSupportedFormatGET_SupportedFormatName" xml:space="preserve">
+    <value>サポートされている形式名</value>
+    <comment>Supported Format Name</comment>
+  </data>
+  <data name="ReportSupportedFormatGET_SupportedFormatNameText" xml:space="preserve">
+    <value>サポートされている形式名。例：HTML</value>
+    <comment>The supported format name.  e.g: html</comment>
+  </data>
+  <data name="ReportSupportedFormatGET_Headers" xml:space="preserve">
+    <value>ヘッダー</value>
+    <comment>Headers</comment>
+  </data>
+  <data name="ReportSupportedFormatGET_ResponseData" xml:space="preserve">
+    <value>応答データ</value>
+    <comment>Response Data</comment>
+  </data>
+  <data name="ReportSupportedFormatGET_RequestURL" xml:space="preserve">
+    <value>要求 URL：</value>
+    <comment>Request URL: </comment>
+  </data>
+  <data name="ReportSupportedFormatGET_StatusCode" xml:space="preserve">
+    <value>ステータスコード：</value>
+    <comment>Status Code: </comment>
+  </data>
+  <data name="ReportSupportedFormatsGET_Parameters" xml:space="preserve">
+    <value>パラメータ</value>
+    <comment>Parameters</comment>
+  </data>
+  <data name="ReportSupportedFormatsGET_GetSupportedFormats" xml:space="preserve">
+    <value>サポートされている形式を取得</value>
+    <comment>Get Supported Formats</comment>
+  </data>
+  <data name="ReportSupportedFormatsGET_Parameter" xml:space="preserve">
+    <value>パラメータ</value>
+    <comment>Parameter</comment>
+  </data>
+  <data name="ReportSupportedFormatsGET_Value" xml:space="preserve">
+    <value>値</value>
+    <comment>Value</comment>
+  </data>
+  <data name="ReportSupportedFormatsGET_Description" xml:space="preserve">
+    <value>説明</value>
+    <comment>Description</comment>
+  </data>
+  <data name="ReportSupportedFormatsGET_FolderPath" xml:space="preserve">
+    <value>フォルダパス</value>
+    <comment>Folder Path</comment>
+  </data>
+  <data name="ReportSupportedFormatsGET_FolderPath_None" xml:space="preserve">
+    <value>フォルダパスを選択してください</value>
+    <comment>Select a folder path</comment>
+  </data>
+  <data name="ReportSupportedFormatsGET_FolderPathText" xml:space="preserve">
+    <value>レポートプロバイダマネージャーが認識できるフォルダパス。</value>
+    <comment>The folder path that report provider manager can recognize.</comment>
+  </data>
+  <data name="ReportSupportedFormatsGET_ReportName" xml:space="preserve">
+    <value>レポート名</value>
+    <comment>Report Name</comment>
+  </data>
+  <data name="ReportSupportedFormatsGET_ReportNameText" xml:space="preserve">
+    <value>FlexReport ファイルまたは SSRS フォルダの下に定義されているレポート名。</value>
+    <comment>The report name that is defined in the FlexReport file, or under the SSRS folder.</comment>
+  </data>
+  <data name="ReportSupportedFormatsGET_Headers" xml:space="preserve">
+    <value>ヘッダー</value>
+    <comment>Headers</comment>
+  </data>
+  <data name="ReportSupportedFormatsGET_ResponseData" xml:space="preserve">
+    <value>応答データ</value>
+    <comment>Response Data</comment>
+  </data>
+  <data name="ReportSupportedFormatsGET_RequestURL" xml:space="preserve">
+    <value>要求 URL：</value>
+    <comment>Request URL: </comment>
+  </data>
+  <data name="ReportSupportedFormatsGET_StatusCode" xml:space="preserve">
+    <value>ステータスコード：</value>
+    <comment>Status Code: </comment>
+  </data>
+  <data name="ReportInstanceBookmarkGET_RenderRequired" xml:space="preserve">
+    <value>（最初にレポートをロードしてください。）</value>
+    <comment>(Please render report first)</comment>
+  </data>
+</root>

@@ -1,0 +1,83 @@
+@model WebApiExplorer.Models.ControlsClass.Function
+
+<div class="settings-panel-content">
+    <div style="float:left;width:100%">
+        <div style="float:left"><h4>@Html.Raw(Resources.Report.ReportsGET_Parameters)</h4></div>
+        <div style="float:right">
+            <button style="margin-top:3px;padding: 4px;" class="btn btn-primary btn-get-reports" disabled="disabled"
+                    onclick="reportsGet('@Model.FunctionName', '@(System.Configuration.ConfigurationManager.AppSettings["WebAPIService"])');">
+                @Html.Raw(Resources.Report.ReportsGET_GetReports)
+            </button>
+        </div>
+    </div>
+    <div>
+        <div class="settings-panel reports">
+            <div class="param-item">
+                <label class="param-lable parameter"><b>@Html.Raw(Resources.Report.ReportsGET_Parameter)</b></label>
+                <label class="param-lable value"><b>@Html.Raw(Resources.Report.ReportsGET_Value)</b></label>
+                <label class="param-lable description"><b>@Html.Raw(Resources.Report.ReportsGET_Description)</b></label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Resources.Report.ReportsGET_FolderPath)</label>
+                <span class ="param-value-group">
+                    <select name="folderPath" class="param-value" onchange="reports_FolderPathChange($(this).val())" style=" width: 100%; margin-bottom: 10px;">
+                        <option value="none" selected="selected">@Html.Raw(Resources.Report.ReportsGET_FolderPath_None)</option>
+                        <option value="ReportsRoot/FlexCommonTasks/FlexCommonTasks.flxr">FlexCommonTasks.flxr</option>
+                        <option value="ReportsRoot">ReportsRoot (FlexReport)</option>
+                        <option value="c1ssrs">SSRS</option>
+                    </select>
+                </span>
+                <label class="param-lable description">@Html.Raw(Resources.Report.ReportsGET_FolderPathText)</label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Resources.Report.ReportsGET_Recursive)</label>
+                <span class="param-value-group">
+                    <input type="checkbox" name="recursive" checked="checked" class="param-value" style="margin-bottom: 10px;" />
+                </span>
+                <label class="param-lable description">@Html.Raw(Resources.Report.ReportsGET_RecursiveText)</label>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="@(Model.FunctionName)result" class="content-panel-result">
+    <h4>@Html.Raw(Resources.Report.ReportsGET_Headers)</h4>
+    <div id="@(Model.FunctionName)headers" class="content-panel-result-url">
+        <pre>
+        </pre>
+    </div>
+    <h4 class="content-json-data">@Html.Raw(Resources.Report.ReportsGET_ResponseData)</h4>
+    <div id="@(Model.FunctionName)showdata" class="result-content-data" style="height:auto">
+        <pre style="max-height:200px">
+        </pre>
+    </div>
+</div>
+
+<script>
+    function reportsGet(id, url) {
+        var folderPath = $(".reports .param-value[name=folderPath]").val();
+        var recursive = $(".reports .param-value[name=recursive]").is(":checked");
+        var fullUrl = url + "api/report/" + folderPath;
+        if (recursive === true) {
+            fullUrl += "?recursive=true";
+        }
+        $("#@(Model.FunctionName)headers pre").text("@(Resources.Report.ReportsGET_RequestURL)" + fullUrl);
+        $("#@(Model.FunctionName)result").show();
+
+        $.ajax({
+            type: "GET",
+            url: fullUrl,
+            cache: false,
+            success: function (data) {
+                $("#@(Model.FunctionName)showdata pre").text(JSON.stringify(data, null, 4));
+                $(".content-json-data").show();
+            },
+            complete: function (xhr, status) {
+                $("#@(Model.FunctionName)headers pre").append("\r\n@(Resources.Report.ReportsGET_StatusCode)" + xhr.status);
+            }
+        });
+    }
+
+    function reports_FolderPathChange(folderPath) {
+        $("button.btn-get-reports").attr("disabled", folderPath === "none");
+    }
+</script>

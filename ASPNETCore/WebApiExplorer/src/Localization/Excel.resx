@@ -1,0 +1,976 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+		Microsoft ResX Schema
+
+		Version 1.3
+
+		The primary goals of this format is to allow a simple XML format 
+		that is mostly human readable. The generation and parsing of the 
+		various data types are done through the TypeConverter classes 
+		associated with the data types.
+
+		Example:
+
+		... ado.net/XML headers & schema ...
+		<resheader name="resmimetype">text/microsoft-resx</resheader>
+		<resheader name="version">1.3</resheader>
+		<resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+		<resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+		<data name="Name1">this is my long string</data>
+		<data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+		<data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+			[base64 mime encoded serialized .NET Framework object]
+		</data>
+		<data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+			[base64 mime encoded string representing a byte array form of the .NET Framework object]
+		</data>
+
+		There are any number of "resheader" rows that contain simple 
+		name/value pairs.
+
+		Each data row contains a name, and value. The row also contains a 
+		type or mimetype. Type corresponds to a .NET class that support 
+		text/value conversion through the TypeConverter architecture. 
+		Classes that don't support this are serialized and stored with the 
+		mimetype set.
+
+		The mimetype is used for serialized objects, and tells the 
+		ResXResourceReader how to depersist the object. This is currently not 
+		extensible. For a given mimetype the value must be set accordingly:
+
+		Note - application/x-microsoft.net.object.binary.base64 is the format 
+		that the ResXResourceWriter will generate, however the reader can 
+		read any of the formats listed below.
+
+		mimetype: application/x-microsoft.net.object.binary.base64
+		value   : The object must be serialized with 
+			: System.Serialization.Formatters.Binary.BinaryFormatter
+			: and then encoded with base64 encoding.
+
+		mimetype: application/x-microsoft.net.object.soap.base64
+		value   : The object must be serialized with 
+			: System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+			: and then encoded with base64 encoding.
+
+		mimetype: application/x-microsoft.net.object.bytearray.base64
+		value   : The object must be serialized into a byte array 
+			: using a System.ComponentModel.TypeConverter
+			: and then encoded with base64 encoding.
+	-->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>1.3</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ExcelColumnsDELETE_Parameters" xml:space="preserve">
+    <value>Parameters</value>
+  </data>
+  <data name="ExcelColumnsDELETE_DeleteColumn" xml:space="preserve">
+    <value>Delete column</value>
+  </data>
+  <data name="ExcelColumnsDELETE_Parameter" xml:space="preserve">
+    <value>Parameter</value>
+  </data>
+  <data name="ExcelColumnsDELETE_Value" xml:space="preserve">
+    <value>Value</value>
+  </data>
+  <data name="ExcelColumnsDELETE_Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="ExcelColumnsDELETE_ExcelPath" xml:space="preserve">
+    <value>Excel Path</value>
+  </data>
+  <data name="ExcelColumnsDELETE_ExcelPathDesc" xml:space="preserve">
+    <value>The excel file name that storage manager can recognize.</value>
+  </data>
+  <data name="ExcelColumnsDELETE_SheetName" xml:space="preserve">
+    <value>Sheet Name</value>
+  </data>
+  <data name="ExcelColumnsDELETE_SheetNameDesc" xml:space="preserve">
+    <value>The sheet name.</value>
+  </data>
+  <data name="ExcelColumnsDELETE_ColumnIndexes" xml:space="preserve">
+    <value>Column Indexes</value>
+  </data>
+  <data name="ExcelColumnsDELETE_ColumnIndexesDesc" xml:space="preserve">
+    <value>The column indexes. format: {num}; {num},{num},...; {num}-{num}. for example: 1,3-5</value>
+  </data>
+  <data name="ExcelColumnsDELETE_RequestUrl" xml:space="preserve">
+    <value>Request Url</value>
+  </data>
+  <data name="ExcelColumnsDELETE_ResponseData" xml:space="preserve">
+    <value>Response Data</value>
+  </data>
+  <data name="ExcelColumnsPOST_Parameters" xml:space="preserve">
+    <value>Parameters</value>
+  </data>
+  <data name="ExcelColumnsPOST_AddColumns" xml:space="preserve">
+    <value>Add Columns</value>
+  </data>
+  <data name="ExcelColumnsPOST_Parameter" xml:space="preserve">
+    <value>Parameter</value>
+  </data>
+  <data name="ExcelColumnsPOST_Value" xml:space="preserve">
+    <value>Value</value>
+  </data>
+  <data name="ExcelColumnsPOST_Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="ExcelColumnsPOST_ExcelPath" xml:space="preserve">
+    <value>Excel Path</value>
+  </data>
+  <data name="ExcelColumnsPOST_ExcelPathDesc" xml:space="preserve">
+    <value>The excel file name that storage manager can recognize.</value>
+  </data>
+  <data name="ExcelColumnsPOST_ColumnIndex" xml:space="preserve">
+    <value>Column Index</value>
+  </data>
+  <data name="ExcelColumnsPOST_ColumnIndexDesc" xml:space="preserve">
+    <value>The column index.</value>
+  </data>
+  <data name="ExcelColumnsPOST_SheetName" xml:space="preserve">
+    <value>Sheet Name</value>
+  </data>
+  <data name="ExcelColumnsPOST_SheetNameDesc" xml:space="preserve">
+    <value>The sheet name.</value>
+  </data>
+  <data name="ExcelColumnsPOST_Count" xml:space="preserve">
+    <value>Count</value>
+  </data>
+  <data name="ExcelColumnsPOST_CountDesc" xml:space="preserve">
+    <value>The count of columns.</value>
+  </data>
+  <data name="ExcelColumnsPOST_RequestUrl" xml:space="preserve">
+    <value>Request Url</value>
+  </data>
+  <data name="ExcelColumnsPOST_ResponseData" xml:space="preserve">
+    <value>Response Data</value>
+  </data>
+  <data name="ExcelColumnsPUT_Parameters" xml:space="preserve">
+    <value>Parameters</value>
+  </data>
+  <data name="ExcelColumnsPUT_UpdateColumn" xml:space="preserve">
+    <value>Update column</value>
+  </data>
+  <data name="ExcelColumnsPUT_Parameter" xml:space="preserve">
+    <value>Parameter</value>
+  </data>
+  <data name="ExcelColumnsPUT_Value" xml:space="preserve">
+    <value>Value</value>
+  </data>
+  <data name="ExcelColumnsPUT_Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="ExcelColumnsPUT_ExcelPath" xml:space="preserve">
+    <value>Excel Path</value>
+  </data>
+  <data name="ExcelColumnsPUT_ExcelPathDesc" xml:space="preserve">
+    <value>The excel file name that storage manager can recognize.</value>
+  </data>
+  <data name="ExcelColumnsPUT_SheetName" xml:space="preserve">
+    <value>Sheet Name</value>
+  </data>
+  <data name="ExcelColumnsPUT_SheetNameDesc" xml:space="preserve">
+    <value>The sheet name.</value>
+  </data>
+  <data name="ExcelColumnsPUT_ColumnIndexes" xml:space="preserve">
+    <value>Column Indexes</value>
+  </data>
+  <data name="ExcelColumnsPUT_ColumnIndexesDesc" xml:space="preserve">
+    <value>The column indexes. format: {num}; {num},{num},...; {num}-{num}. for example: 1,3-5</value>
+  </data>
+  <data name="ExcelColumnsPUT_PropertyName" xml:space="preserve">
+    <value>Property Name</value>
+  </data>
+  <data name="ExcelColumnsPUT_PropertyNameDesc" xml:space="preserve">
+    <value>The property name of column, available properties are "Visible(bool)" and "OutlineLevel(int)"</value>
+  </data>
+  <data name="ExcelColumnsPUT_PropertyValue" xml:space="preserve">
+    <value>Property Value</value>
+  </data>
+  <data name="ExcelColumnsPUT_PropertyValueDesc" xml:space="preserve">
+    <value>The property value of column.</value>
+  </data>
+  <data name="ExcelColumnsPUT_RequestUrl" xml:space="preserve">
+    <value>Request Url</value>
+  </data>
+  <data name="ExcelColumnsPUT_ResponseData" xml:space="preserve">
+    <value>Response Data</value>
+  </data>
+  <data name="ExcelColumnsPUT_ViewFiles" xml:space="preserve">
+    <value>View Files: </value>
+  </data>
+  <data name="ExcelColumnsPOST_ViewFiles" xml:space="preserve">
+    <value>View Files: </value>
+  </data>
+  <data name="ExcelColumnsDELETE_ViewFiles" xml:space="preserve">
+    <value>View Files: </value>
+  </data>
+  <data name="ExcelFindGET_Parameters" xml:space="preserve">
+    <value>Parameters</value>
+  </data>
+  <data name="ExcelFindGET_Find" xml:space="preserve">
+    <value>Find</value>
+  </data>
+  <data name="ExcelFindGET_Parameter" xml:space="preserve">
+    <value>Parameter</value>
+  </data>
+  <data name="ExcelFindGET_Value" xml:space="preserve">
+    <value>Value</value>
+  </data>
+  <data name="ExcelFindGET_Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="ExcelFindGET_ExcelPath" xml:space="preserve">
+    <value>Excel Path</value>
+  </data>
+  <data name="ExcelFindGET_ExcelPathDesc" xml:space="preserve">
+    <value>The excel file name that storage manager can recognize. </value>
+  </data>
+  <data name="ExcelFindGET_SheetName" xml:space="preserve">
+    <value>Sheet Name</value>
+  </data>
+  <data name="ExcelFindGET_SheetNameDesc" xml:space="preserve">
+    <value>The sheet name (if not provide, find in all sheets).</value>
+  </data>
+  <data name="ExcelFindGET_Text" xml:space="preserve">
+    <value>Text</value>
+  </data>
+  <data name="ExcelFindGET_TextDesc" xml:space="preserve">
+    <value>The value which is used to search.</value>
+  </data>
+  <data name="ExcelFindGET_MatchCase" xml:space="preserve">
+    <value>Match Case</value>
+  </data>
+  <data name="ExcelFindGET_MatchCaseDesc" xml:space="preserve">
+    <value>A boolean value indicates whether to search the value with case sensitive.</value>
+  </data>
+  <data name="ExcelFindGET_WholeCell" xml:space="preserve">
+    <value>Whole Cell</value>
+  </data>
+  <data name="ExcelFindGET_WholeCellDesc" xml:space="preserve">
+    <value>A boolean value indicates whether to search the value with matching the whole cell.</value>
+  </data>
+  <data name="ExcelFindGET_RequestUrl" xml:space="preserve">
+    <value>Request Url</value>
+  </data>
+  <data name="ExcelFindGET_ResponseData" xml:space="preserve">
+    <value>Response Data</value>
+  </data>
+  <data name="ExcelGeneratingConvertFormatGET_Parameters" xml:space="preserve">
+    <value>Parameters</value>
+  </data>
+  <data name="ExcelGeneratingConvertFormatGET_GenerateExcel" xml:space="preserve">
+    <value>Generate Excel</value>
+  </data>
+  <data name="ExcelGeneratingConvertFormatGET_Parameter" xml:space="preserve">
+    <value>Parameter</value>
+  </data>
+  <data name="ExcelGeneratingConvertFormatGET_Value" xml:space="preserve">
+    <value>Value</value>
+  </data>
+  <data name="ExcelGeneratingConvertFormatGET_Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="ExcelGeneratingConvertFormatGET_FileName" xml:space="preserve">
+    <value>FileName</value>
+  </data>
+  <data name="ExcelGeneratingConvertFormatGET_FileNameDesc" xml:space="preserve">
+    <value>The exported file name.</value>
+  </data>
+  <data name="ExcelGeneratingConvertFormatGET_Type" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="ExcelGeneratingConvertFormatGET_TypeDesc" xml:space="preserve">
+    <value>The file format of the excel</value>
+  </data>
+  <data name="ExcelGeneratingConvertFormatGET_WorkBookFileName" xml:space="preserve">
+    <value>WorkBookFileName</value>
+  </data>
+  <data name="ExcelGeneratingConvertFormatGET_WorkBookFileName_None" xml:space="preserve">
+    <value>Select a Excel file name</value>
+  </data>
+  <data name="ExcelGeneratingConvertFormatGET_WorkBookFileNameDesc" xml:space="preserve">
+    <value>The excel file name that storage manager can recognize.</value>
+  </data>
+  <data name="ExcelGeneratingConvertFormatGET_RequestUrl" xml:space="preserve">
+    <value>Request Url</value>
+  </data>
+  <data name="ExcelGeneratingConvertFormatGET_ShowJsonDataByFlexGrid" xml:space="preserve">
+    <value>Show Json Data by FlexGrid</value>
+  </data>
+  <data name="ExcelGeneratingConvertFormatGET_ShowXMLData" xml:space="preserve">
+    <value>Show XML Data</value>
+  </data>
+  <data name="ExcelGeneratingConvertFormatPOST_Parameters" xml:space="preserve">
+    <value>Parameters</value>
+  </data>
+  <data name="ExcelGeneratingConvertFormatPOST_GenerateExcel" xml:space="preserve">
+    <value>Generate Excel</value>
+  </data>
+  <data name="ExcelGeneratingConvertFormatPOST_Parameter" xml:space="preserve">
+    <value>Parameter</value>
+  </data>
+  <data name="ExcelGeneratingConvertFormatPOST_Value" xml:space="preserve">
+    <value>Value</value>
+  </data>
+  <data name="ExcelGeneratingConvertFormatPOST_Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="ExcelGeneratingConvertFormatPOST_FileName" xml:space="preserve">
+    <value>FileName</value>
+  </data>
+  <data name="ExcelGeneratingConvertFormatPOST_FileNameDesc" xml:space="preserve">
+    <value>The exported file name.</value>
+  </data>
+  <data name="ExcelGeneratingConvertFormatPOST_Type" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="ExcelGeneratingConvertFormatPOST_TypeDesc" xml:space="preserve">
+    <value>The file format of the excel.</value>
+  </data>
+  <data name="ExcelGeneratingConvertFormatPOST_WorkbookFile" xml:space="preserve">
+    <value>WorkbookFile</value>
+  </data>
+  <data name="ExcelGeneratingConvertFormatPOST_WorkbookFileDesc" xml:space="preserve">
+    <value>The excel file which is posted from client side. The file can be: xls, xlsx, csv.</value>
+  </data>
+  <data name="ExcelGeneratingConvertFormatPOST_RequestUrl" xml:space="preserve">
+    <value>Request Url</value>
+  </data>
+  <data name="ExcelGeneratingConvertFormatPOST_ShowJsonDataByFlexGrid" xml:space="preserve">
+    <value>Show Json Data by FlexGrid</value>
+  </data>
+  <data name="ExcelGeneratingConvertFormatPOST_ShowXMLData" xml:space="preserve">
+    <value>Show XML Data</value>
+  </data>
+  <data name="ExcelGeneratingFromDataGET_Parameters" xml:space="preserve">
+    <value>Parameters</value>
+  </data>
+  <data name="ExcelGeneratingFromDataGET_GenerateExcel" xml:space="preserve">
+    <value>Generate Excel</value>
+  </data>
+  <data name="ExcelGeneratingFromDataGET_Parameter" xml:space="preserve">
+    <value>Parameter</value>
+  </data>
+  <data name="ExcelGeneratingFromDataGET_Value" xml:space="preserve">
+    <value>Value</value>
+  </data>
+  <data name="ExcelGeneratingFromDataGET_Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="ExcelGeneratingFromDataGET_FileName" xml:space="preserve">
+    <value>FileName</value>
+  </data>
+  <data name="ExcelGeneratingFromDataGET_FileNameDesc" xml:space="preserve">
+    <value>The exported file name.</value>
+  </data>
+  <data name="ExcelGeneratingFromDataGET_TemplateFileName" xml:space="preserve">
+    <value>TemplateFileName</value>
+  </data>
+  <data name="ExcelGeneratingFromDataGET_TemplateFileNameText" xml:space="preserve">
+    <value>The Template file name (if not provide, use generated template automatically).</value>
+  </data>
+  <data name="ExcelGeneratingFromDataGET_Type" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="ExcelGeneratingFromDataGET_TypeText" xml:space="preserve">
+    <value>The file format of the excel</value>
+  </data>
+  <data name="ExcelGeneratingFromDataGET_DataName" xml:space="preserve">
+    <value>DataName</value>
+  </data>
+  <data name="ExcelGeneratingFromDataGET_DataNameText" xml:space="preserve">
+    <value>The data name that data provider recognizes.</value>
+  </data>
+  <data name="ExcelGeneratingFromDataGET_DataName_None" xml:space="preserve">
+    <value>Select a DataSource</value>
+  </data>
+  <data name="ExcelGeneratingFromDataGET_DataName_DataCollection" xml:space="preserve">
+    <value>Data Collection</value>
+  </data>
+  <data name="ExcelGeneratingFromDataGET_DataName_TableFromNwindDatabase" xml:space="preserve">
+    <value>Table from Nwind Database</value>
+  </data>
+  <data name="ExcelGeneratingFromDataGET_RequestUrl" xml:space="preserve">
+    <value>Request Url</value>
+  </data>
+  <data name="ExcelGeneratingFromDataGET_ShowJsonDataByFlexGrid" xml:space="preserve">
+    <value>Show Json Data by FlexGrid</value>
+  </data>
+  <data name="ExcelGeneratingFromDataGET_ShowXMLData" xml:space="preserve">
+    <value>Show XML Data</value>
+  </data>
+  <data name="ExcelGeneratingFromJSONPOST_Parameters" xml:space="preserve">
+    <value>Parameters</value>
+  </data>
+  <data name="ExcelGeneratingFromJSONPOST_GenerateExcel" xml:space="preserve">
+    <value>Generate Excel</value>
+  </data>
+  <data name="ExcelGeneratingFromJSONPOST_Parameter" xml:space="preserve">
+    <value>Parameter</value>
+  </data>
+  <data name="ExcelGeneratingFromJSONPOST_Value" xml:space="preserve">
+    <value>Value</value>
+  </data>
+  <data name="ExcelGeneratingFromJSONPOST_Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="ExcelGeneratingFromJSONPOST_FileName" xml:space="preserve">
+    <value>FileName</value>
+  </data>
+  <data name="ExcelGeneratingFromJSONPOST_FileNameText" xml:space="preserve">
+    <value>The exported file name.</value>
+  </data>
+  <data name="ExcelGeneratingFromJSONPOST_TemplateFileName" xml:space="preserve">
+    <value>TemplateFileName</value>
+  </data>
+  <data name="ExcelGeneratingFromJSONPOST_TemplateFileNameText" xml:space="preserve">
+    <value>The Template file name (if not provide, use generated template automatically).</value>
+  </data>
+  <data name="ExcelGeneratingFromJSONPOST_Type" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="ExcelGeneratingFromJSONPOST_TypeText" xml:space="preserve">
+    <value>The file format of the excel.</value>
+  </data>
+  <data name="ExcelGeneratingFromJSONPOST_Data" xml:space="preserve">
+    <value>Data</value>
+  </data>
+  <data name="ExcelGeneratingFromJSONPOST_DataText" xml:space="preserve">
+    <value>A data collection which is posted from client side.</value>
+  </data>
+  <data name="ExcelGeneratingFromJSONPOST_RequestUrl" xml:space="preserve">
+    <value>Request Url</value>
+  </data>
+  <data name="ExcelGeneratingFromJSONPOST_ShowJsonDataByFlexGrid" xml:space="preserve">
+    <value>Show Json Data by FlexGrid</value>
+  </data>
+  <data name="ExcelGeneratingFromJSONPOST_ShowXMLData" xml:space="preserve">
+    <value>Show XML Data</value>
+  </data>
+  <data name="ExcelGeneratingFromWorkbookPOST_Text" xml:space="preserve">
+    <value>Parameters</value>
+  </data>
+  <data name="ExcelGeneratingFromWorkbookPOST_GenerateExcel" xml:space="preserve">
+    <value>Generate Excel</value>
+  </data>
+  <data name="ExcelGeneratingFromWorkbookPOST_Parameter" xml:space="preserve">
+    <value>Parameter</value>
+  </data>
+  <data name="ExcelGeneratingFromWorkbookPOST_Value" xml:space="preserve">
+    <value>Value</value>
+  </data>
+  <data name="ExcelGeneratingFromWorkbookPOST_Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="ExcelGeneratingFromWorkbookPOST_FileName" xml:space="preserve">
+    <value>FileName</value>
+  </data>
+  <data name="ExcelGeneratingFromWorkbookPOST_FileNameText" xml:space="preserve">
+    <value>The exported file name.</value>
+  </data>
+  <data name="ExcelGeneratingFromWorkbookPOST_Type" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="ExcelGeneratingFromWorkbookPOST_TypeText" xml:space="preserve">
+    <value>The file format of the excel.</value>
+  </data>
+  <data name="ExcelGeneratingFromWorkbookPOST_Workbook" xml:space="preserve">
+    <value>Workbook</value>
+  </data>
+  <data name="ExcelGeneratingFromWorkbookPOST_WorkbookText" xml:space="preserve">
+    <value>The workbook which is posted from client side.</value>
+  </data>
+  <data name="ExcelGeneratingFromWorkbookPOST_RequestUrl" xml:space="preserve">
+    <value>Request Url</value>
+  </data>
+  <data name="ExcelGeneratingFromWorkbookPOST_ShowJsonDataByFlexGrid" xml:space="preserve">
+    <value>Show Json Data by FlexGrid</value>
+  </data>
+  <data name="ExcelGeneratingFromWorkbookPOST_ShowXMLData" xml:space="preserve">
+    <value>Show XML Data</value>
+  </data>
+  <data name="ExcelGeneratingFromXMLGET_Parameters" xml:space="preserve">
+    <value>Parameters</value>
+  </data>
+  <data name="ExcelGeneratingFromXMLGET_GenerateExcel" xml:space="preserve">
+    <value>Generate Excel</value>
+  </data>
+  <data name="ExcelGeneratingFromXMLGET_Parameter" xml:space="preserve">
+    <value>Parameter</value>
+  </data>
+  <data name="ExcelGeneratingFromXMLGET_Value" xml:space="preserve">
+    <value>Value</value>
+  </data>
+  <data name="ExcelGeneratingFromXMLGET_Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="ExcelGeneratingFromXMLGET_FileName" xml:space="preserve">
+    <value>FileName</value>
+  </data>
+  <data name="ExcelGeneratingFromXMLGET_FileNameText" xml:space="preserve">
+    <value>The exported file name.</value>
+  </data>
+  <data name="ExcelGeneratingFromXMLGET_TemplateFileName" xml:space="preserve">
+    <value>TemplateFileName</value>
+  </data>
+  <data name="ExcelGeneratingFromXMLGET_TemplateFileNameText" xml:space="preserve">
+    <value>The Template file name (if not provide, use generated template automatically).</value>
+  </data>
+  <data name="ExcelGeneratingFromXMLGET_Type" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="ExcelGeneratingFromXMLGET_TypeText" xml:space="preserve">
+    <value>The file format of the excel</value>
+  </data>
+  <data name="ExcelGeneratingFromXMLGET_DataFileName" xml:space="preserve">
+    <value>DataFileName</value>
+  </data>
+  <data name="ExcelGeneratingFromXMLGET_DataFileName_None" xml:space="preserve">
+    <value>Select a XML file name</value>
+  </data>
+  <data name="ExcelGeneratingFromXMLGET_DataFileNameText" xml:space="preserve">
+    <value>The xml data file name that storage manager can recognize.
+                    The content of the xml data file is collection-like, a root element with multiple same elements as its children:
+                    &lt;pre&gt;
+&amp;lt;orders&amp;gt;
+    &amp;lt;order id="1"&amp;gt;
+        &amp;lt;price&amp;gt;1000&amp;lt;/price&amp;gt;
+    &amp;lt;/order&amp;gt;
+    ......
+ &amp;lt;/orders&amp;gt;&lt;/pre&gt;</value>
+  </data>
+  <data name="ExcelGeneratingFromXMLGET_RequestUrl" xml:space="preserve">
+    <value>Request Url</value>
+  </data>
+  <data name="ExcelGeneratingFromXMLGET_ShowJsonDataByFlexGrid" xml:space="preserve">
+    <value>Show Json Data by FlexGrid</value>
+  </data>
+  <data name="ExcelGeneratingFromXMLGET_ShowXMLData" xml:space="preserve">
+    <value>Show XML Data</value>
+  </data>
+  <data name="ExcelGeneratingFromXMLPOST_Parameters" xml:space="preserve">
+    <value>Parameters</value>
+  </data>
+  <data name="ExcelGeneratingFromXMLPOST_GenerateExcel" xml:space="preserve">
+    <value>Generate Excel</value>
+  </data>
+  <data name="ExcelGeneratingFromXMLPOST_Parameter" xml:space="preserve">
+    <value>Parameter</value>
+  </data>
+  <data name="ExcelGeneratingFromXMLPOST_Value" xml:space="preserve">
+    <value>Value</value>
+  </data>
+  <data name="ExcelGeneratingFromXMLPOST_Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="ExcelGeneratingFromXMLPOST_FileName" xml:space="preserve">
+    <value>FileName</value>
+  </data>
+  <data name="ExcelGeneratingFromXMLPOST_FileNameText" xml:space="preserve">
+    <value>The exported file name.</value>
+  </data>
+  <data name="ExcelGeneratingFromXMLPOST_TemplateFile" xml:space="preserve">
+    <value>TemplateFile</value>
+  </data>
+  <data name="ExcelGeneratingFromXMLPOST_TemplateFileText" xml:space="preserve">
+    <value>The Template file (if not provide, use generated template automatically).</value>
+  </data>
+  <data name="ExcelGeneratingFromXMLPOST_Type" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="ExcelGeneratingFromXMLPOST_TypeText" xml:space="preserve">
+    <value>The file format of the excel.</value>
+  </data>
+  <data name="ExcelGeneratingFromXMLPOST_DataFile" xml:space="preserve">
+    <value>DataFile</value>
+  </data>
+  <data name="ExcelGeneratingFromXMLPOST_DataFileText" xml:space="preserve">
+    <value>The xml data file which is posted from client side.The content of the xml data file is collection-like, a root element with multiple same elements as its children:
+&lt;pre&gt;
+&amp;lt;orders&amp;gt;
+    &amp;lt;order id="1"&amp;gt;
+        &amp;lt;price&amp;gt;1000&amp;lt;/price&amp;gt;
+    &amp;lt;/order&amp;gt;
+    ......
+ &amp;lt;/orders&amp;gt;&lt;/pre&gt;</value>
+  </data>
+  <data name="ExcelGeneratingFromXMLPOST_RequestUrl" xml:space="preserve">
+    <value>Request Url</value>
+  </data>
+  <data name="ExcelGeneratingFromXMLPOST_ShowJsonDataByFlexGrid" xml:space="preserve">
+    <value>Show Json Data by FlexGrid</value>
+  </data>
+  <data name="ExcelGeneratingFromXMLPOST_ShowXMLData" xml:space="preserve">
+    <value>Show XML Data</value>
+  </data>
+  <data name="ExcelMergingGET_Parameters" xml:space="preserve">
+    <value>Parameters</value>
+  </data>
+  <data name="ExcelMergingGET_MergeExcel" xml:space="preserve">
+    <value>Merge Excel</value>
+  </data>
+  <data name="ExcelMergingGET_Parameter" xml:space="preserve">
+    <value>Parameter</value>
+  </data>
+  <data name="ExcelMergingGET_Value" xml:space="preserve">
+    <value>Value</value>
+  </data>
+  <data name="ExcelMergingGET_Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="ExcelMergingGET_FileName" xml:space="preserve">
+    <value>FileName</value>
+  </data>
+  <data name="ExcelMergingGET_FileNameText" xml:space="preserve">
+    <value>The exported file name.</value>
+  </data>
+  <data name="ExcelMergingGET_Type" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="ExcelMergingGET_TypeText" xml:space="preserve">
+    <value>The file format of the excel.</value>
+  </data>
+  <data name="ExcelMergingGET_FileNamesToMerge" xml:space="preserve">
+    <value>FileNamesToMerge</value>
+  </data>
+  <data name="ExcelMergingGET_FileNamesToMerge_None" xml:space="preserve">
+    <value>Select a Excel file</value>
+  </data>
+  <data name="ExcelMergingGET_FileNamesToMergeText" xml:space="preserve">
+    <value>The excel file names that storage manager can recognize.</value>
+  </data>
+  <data name="ExcelMergingGET_RequestUrl" xml:space="preserve">
+    <value>Request Url</value>
+  </data>
+  <data name="ExcelMergingGET_ShowJsonDataByFlexGrid" xml:space="preserve">
+    <value>Show Json Data by FlexGrid</value>
+  </data>
+  <data name="ExcelMergingGET_ShowXMLData" xml:space="preserve">
+    <value>Show XML Data</value>
+  </data>
+  <data name="ExcelMergingPOST_Parameters" xml:space="preserve">
+    <value>Parameters</value>
+  </data>
+  <data name="ExcelMergingPOST_MergeExcel" xml:space="preserve">
+    <value>Merge Excel</value>
+  </data>
+  <data name="ExcelMergingPOST_Parameter" xml:space="preserve">
+    <value>Parameter</value>
+  </data>
+  <data name="ExcelMergingPOST_Value" xml:space="preserve">
+    <value>Value</value>
+  </data>
+  <data name="ExcelMergingPOST_Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="ExcelMergingPOST_FileName" xml:space="preserve">
+    <value>FileName</value>
+  </data>
+  <data name="ExcelMergingPOST_FileNameText" xml:space="preserve">
+    <value>The exported file name.</value>
+  </data>
+  <data name="ExcelMergingPOST_Type" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="ExcelMergingPOST_TypeText" xml:space="preserve">
+    <value>The file format of the excel.</value>
+  </data>
+  <data name="ExcelMergingPOST_FilesToMerge" xml:space="preserve">
+    <value>FilesToMerge</value>
+  </data>
+  <data name="ExcelMergingPOST_FilesToMergeText" xml:space="preserve">
+    <value>The excel file names that storage manager can recognize.</value>
+  </data>
+  <data name="ExcelMergingPOST_RequestUrl" xml:space="preserve">
+    <value>Request Url</value>
+  </data>
+  <data name="ExcelMergingPOST_ShowJsonDataByFlexGrid" xml:space="preserve">
+    <value>Show Json Data by FlexGrid</value>
+  </data>
+  <data name="ExcelMergingPOST_ShowXMLData" xml:space="preserve">
+    <value>Show XML Data</value>
+  </data>
+  <data name="ExcelReplaceGET_Parameters" xml:space="preserve">
+    <value>Parameters</value>
+  </data>
+  <data name="ExcelReplaceGET_Replace" xml:space="preserve">
+    <value>Replace</value>
+  </data>
+  <data name="ExcelReplaceGET_Parameter" xml:space="preserve">
+    <value>Parameter</value>
+  </data>
+  <data name="ExcelReplaceGET_Value" xml:space="preserve">
+    <value>Value</value>
+  </data>
+  <data name="ExcelReplaceGET_Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="ExcelReplaceGET_ExcelPath" xml:space="preserve">
+    <value>Excel Path</value>
+  </data>
+  <data name="ExcelReplaceGET_ExcelPathText" xml:space="preserve">
+    <value>The excel file name that storage manager can recognize. </value>
+  </data>
+  <data name="ExcelReplaceGET_SheetName" xml:space="preserve">
+    <value>Sheet Name</value>
+  </data>
+  <data name="ExcelReplaceGET_SheetNameText" xml:space="preserve">
+    <value>The sheet name (if not provide, replace in all sheets).</value>
+  </data>
+  <data name="ExcelReplaceGET_Text" xml:space="preserve">
+    <value>Text</value>
+  </data>
+  <data name="ExcelReplaceGET_TextText" xml:space="preserve">
+    <value>The text which is replaced.</value>
+  </data>
+  <data name="ExcelReplaceGET_NewText" xml:space="preserve">
+    <value>New Text</value>
+  </data>
+  <data name="ExcelReplaceGET_NewTextText" xml:space="preserve">
+    <value>The new text to replace.</value>
+  </data>
+  <data name="ExcelReplaceGET_MatchCase" xml:space="preserve">
+    <value>Match Case</value>
+  </data>
+  <data name="ExcelReplaceGET_MatchCaseText" xml:space="preserve">
+    <value>A boolean value indicates whether to search the value with case sensitive.</value>
+  </data>
+  <data name="ExcelReplaceGET_WholeCell" xml:space="preserve">
+    <value>Whole Cell</value>
+  </data>
+  <data name="ExcelReplaceGET_WholeCellText" xml:space="preserve">
+    <value>A boolean value indicates whether to search the value with matching a whole word.</value>
+  </data>
+  <data name="ExcelReplaceGET_RequestUrl" xml:space="preserve">
+    <value>Request Url</value>
+  </data>
+  <data name="ExcelReplaceGET_ResponseData" xml:space="preserve">
+    <value>Response Data</value>
+  </data>
+  <data name="ExcelReplaceGET_ViewFiles" xml:space="preserve">
+    <value>View Files: </value>
+  </data>
+  <data name="ExcelRowsDELETE_Parameters" xml:space="preserve">
+    <value>Parameters</value>
+  </data>
+  <data name="ExcelRowsDELETE_DeleteRow" xml:space="preserve">
+    <value>Delete row</value>
+  </data>
+  <data name="ExcelRowsDELETE_Parameter" xml:space="preserve">
+    <value>Parameter</value>
+  </data>
+  <data name="ExcelRowsDELETE_Value" xml:space="preserve">
+    <value>Value</value>
+  </data>
+  <data name="ExcelRowsDELETE_Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="ExcelRowsDELETE_ExcelPath" xml:space="preserve">
+    <value>Excel Path</value>
+  </data>
+  <data name="ExcelRowsDELETE_ExcelPathText" xml:space="preserve">
+    <value>The excel file name that storage manager can recognize. </value>
+  </data>
+  <data name="ExcelRowsDELETE_SheetName" xml:space="preserve">
+    <value>Sheet Name</value>
+  </data>
+  <data name="ExcelRowsDELETE_SheetNameText" xml:space="preserve">
+    <value>The sheet name.</value>
+  </data>
+  <data name="ExcelRowsDELETE_RowIndexes" xml:space="preserve">
+    <value>Row Indexes</value>
+  </data>
+  <data name="ExcelRowsDELETE_RowIndexesText" xml:space="preserve">
+    <value>the row indexes. format: {num}; {num},{num},...; {num}-{num}. for example: 1,3-5</value>
+  </data>
+  <data name="ExcelRowsDELETE_RequestUrl" xml:space="preserve">
+    <value>Request Url</value>
+  </data>
+  <data name="ExcelRowsDELETE_ResponseData" xml:space="preserve">
+    <value>Response Data</value>
+  </data>
+  <data name="ExcelRowsDELETE_ViewFiles" xml:space="preserve">
+    <value>View Files: </value>
+  </data>
+  <data name="ExcelRowsPOST_Parameters" xml:space="preserve">
+    <value>Parameters</value>
+  </data>
+  <data name="ExcelRowsPOST_AddRows" xml:space="preserve">
+    <value>Add Rows</value>
+  </data>
+  <data name="ExcelRowsPOST_Parameter" xml:space="preserve">
+    <value>Parameter</value>
+  </data>
+  <data name="ExcelRowsPOST_Value" xml:space="preserve">
+    <value>Value</value>
+  </data>
+  <data name="ExcelRowsPOST_Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="ExcelRowsPOST_ExcelPath" xml:space="preserve">
+    <value>Excel Path</value>
+  </data>
+  <data name="ExcelRowsPOST_ExcelPathText" xml:space="preserve">
+    <value>The excel file name that storage manager can recognize. </value>
+  </data>
+  <data name="ExcelRowsPOST_SheetName" xml:space="preserve">
+    <value>Sheet Name</value>
+  </data>
+  <data name="ExcelRowsPOST_SheetNameText" xml:space="preserve">
+    <value>The sheet name.</value>
+  </data>
+  <data name="ExcelRowsPOST_RowIndex" xml:space="preserve">
+    <value>Row Index</value>
+  </data>
+  <data name="ExcelRowsPOST_RowIndexText" xml:space="preserve">
+    <value>The row index.</value>
+  </data>
+  <data name="ExcelRowsPOST_Count" xml:space="preserve">
+    <value>Count</value>
+  </data>
+  <data name="ExcelRowsPOST_CountText" xml:space="preserve">
+    <value>The count of rows.</value>
+  </data>
+  <data name="ExcelRowsPOST_RequestUrl" xml:space="preserve">
+    <value>Request Url</value>
+  </data>
+  <data name="ExcelRowsPOST_ResponseData" xml:space="preserve">
+    <value>Response Data</value>
+  </data>
+  <data name="ExcelRowsPOST_ViewFiles" xml:space="preserve">
+    <value>View Files: </value>
+  </data>
+  <data name="ExcelRowsPUT_Parameters" xml:space="preserve">
+    <value>Parameters</value>
+  </data>
+  <data name="ExcelRowsPUT_UpdateRow" xml:space="preserve">
+    <value>Update row</value>
+  </data>
+  <data name="ExcelRowsPUT_Parameter" xml:space="preserve">
+    <value>Parameter</value>
+  </data>
+  <data name="ExcelRowsPUT_Value" xml:space="preserve">
+    <value>Value</value>
+  </data>
+  <data name="ExcelRowsPUT_Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="ExcelRowsPUT_ExcelPath" xml:space="preserve">
+    <value>Excel Path</value>
+  </data>
+  <data name="ExcelRowsPUT_ExcelPathText" xml:space="preserve">
+    <value>The excel file name that storage manager can recognize.</value>
+  </data>
+  <data name="ExcelRowsPUT_SheetName" xml:space="preserve">
+    <value>Sheet Name</value>
+  </data>
+  <data name="ExcelRowsPUT_SheetNameText" xml:space="preserve">
+    <value>The sheet name.</value>
+  </data>
+  <data name="ExcelRowsPUT_RowIndexes" xml:space="preserve">
+    <value>Row Indexes</value>
+  </data>
+  <data name="ExcelRowsPUT_RowIndexesText" xml:space="preserve">
+    <value>the row indexes. format: {num}; {num},{num},...; {num}-{num}. for example: 1,3-5</value>
+  </data>
+  <data name="ExcelRowsPUT_PropertyName" xml:space="preserve">
+    <value>Property Name</value>
+  </data>
+  <data name="ExcelRowsPUT_PropertyNameText" xml:space="preserve">
+    <value>The property name of row, available properties are "Visible(bool)" and "OutlineLevel(int)"</value>
+  </data>
+  <data name="ExcelRowsPUT_PropertyValue" xml:space="preserve">
+    <value>Property Value</value>
+  </data>
+  <data name="ExcelRowsPUT_PropertyValueText" xml:space="preserve">
+    <value>The property value of row.</value>
+  </data>
+  <data name="ExcelRowsPUT_RequestUrl" xml:space="preserve">
+    <value>Request Url</value>
+  </data>
+  <data name="ExcelRowsPUT_ResponseData" xml:space="preserve">
+    <value>Response Data</value>
+  </data>
+  <data name="ExcelRowsPUT_ViewFiles" xml:space="preserve">
+    <value>View Files: </value>
+  </data>
+  <data name="ExcelSplitGET_Parameters" xml:space="preserve">
+    <value>Parameters</value>
+  </data>
+  <data name="ExcelSplitGET_SplitExcel" xml:space="preserve">
+    <value>Split Excel</value>
+  </data>
+  <data name="ExcelSplitGET_Parameter" xml:space="preserve">
+    <value>Parameter</value>
+  </data>
+  <data name="ExcelSplitGET_Value" xml:space="preserve">
+    <value>Value</value>
+  </data>
+  <data name="ExcelSplitGET_Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="ExcelSplitGET_ExcelPath" xml:space="preserve">
+    <value>Excel Path</value>
+  </data>
+  <data name="ExcelSplitGET_ExcelPathText" xml:space="preserve">
+    <value>The excel file name that storage manager can recognize. </value>
+  </data>
+  <data name="ExcelSplitGET_OutputPath" xml:space="preserve">
+    <value>Output Path</value>
+  </data>
+  <data name="ExcelSplitGET_OutputPathText" xml:space="preserve">
+    <value>The output path in storage(if not provide, the default output path same as source).</value>
+  </data>
+  <data name="ExcelSplitGET_OutputNames" xml:space="preserve">
+    <value>Output Names</value>
+  </data>
+  <data name="ExcelSplitGET_OutputNamesText" xml:space="preserve">
+    <value>The output file names (if not provide, the output file names will be generated automatically).</value>
+  </data>
+  <data name="ExcelSplitGET_RequestUrl" xml:space="preserve">
+    <value>Request Url</value>
+  </data>
+  <data name="ExcelSplitGET_ResponseData" xml:space="preserve">
+    <value>Response Data</value>
+  </data>
+  <data name="ExcelSplitGET_ViewFiles" xml:space="preserve">
+    <value>View Files: </value>
+  </data>
+</root>

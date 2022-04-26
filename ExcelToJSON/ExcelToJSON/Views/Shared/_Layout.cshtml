@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title - @Html.Raw(Resources.ExcelToJSON._Layout_text6)</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="@Url.Content("~/Content/favicon/apple-touch-icon.png")">
+    <link rel="icon" type="image/png" href="@Url.Content("~/Content/favicon/favicon-32x32.png")" sizes="32x32">
+    <link rel="icon" type="image/png" href="@Url.Content("~/Content/favicon/favicon-16x16.png")" sizes="16x16">
+    <link rel="manifest" href="@Url.Content("~/Content/favicon/manifest.json")">
+    <link rel="mask-icon" href="@Url.Content("~/Content/favicon/safari-pinned-tab.svg")" color="#503b75">
+
+    <!-- Google Tag Manager -->
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-WT462SJ');
+    </script>
+    <!-- End Google Tag Manager -->
+  
+    @Styles.Render("~/BootStrapCss")   
+    @Styles.Render("~/Content/appcss")
+    @RenderSection("Styles", false)
+	@Styles.Render("~/Content/css/explorer")
+    <script src="~/Scripts/jquery.js"></script>   
+    
+    @RenderSection("Scripts", false)  
+	@Html.C1().Scripts().Basic()
+  @Html.C1().Styles()
+	@Scripts.Render("~/bundles/explorer")
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WT462SJ"
+                height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <div class="hide">
+        @Html.Partial("_SiteNav", true)
+    </div>
+    <header>
+        <div class="hamburger-nav-btn narrow-screen"><span class="icon-bars"></span></div>
+        <a class="logo-container" href="@Html.Raw(Resources.ExcelToJSON._Layout_Text4)" target="_blank">
+            <i class="gcicon-product-c1"></i>@Html.Raw(Resources.ExcelToJSON._Layout_Text1)
+        </a>
+        <div class="task-bar">
+            <span class="semi-bold narrow-screen">@Html.Raw(Resources.ExcelToJSON._Layout_Text2)</span>
+            <span class="semi-bold wide-screen">@Html.Raw(Resources.ExcelToJSON._Layout_Text3)</span>
+            @Html.Partial("_SiteNav", false)
+        </div>
+    </header>
+    <div class="main-content">
+        @RenderBody()
+    </div>
+    <footer>
+        <a href="http://www.grapecity.com/">
+            <i class="gcicon-logo-gc-horiz"></i>
+        </a>
+        <p>© @DateTime.Now.Year @Html.Raw(Resources.ExcelToJSON._Layout_Text0)</p>
+
+        @{
+            var url = Request.Url;
+            var urlStr = url.OriginalString.Substring(0, url.OriginalString.Length - (url.Query == null ? 0 : url.Query.Length));
+        }
+        <a href="http://www.facebook.com/sharer.php?u=@urlStr" target="_blank">
+            <img src="~/Content/css/images/icons/32/picons36.png" alt="facebook" />
+        </a>
+        <a href="http://twitter.com/share?text=Have you seen this? C1Studio MVC Edition Controls&url=@urlStr" target="_blank">
+            <img src="~/Content/css/images/icons/32/picons33.png" alt="Twitter" />
+        </a>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,71 @@
+@using WebApiExplorer.Models
+@{
+    ImageExportOptions optionsModel = ViewBag.Options;
+    ViewBag.DemoSettings = true;
+}
+
+<div id="@(optionsModel.ControlId)"></div>
+<select id="fitTypeMenu">
+    <option value="0" selected="selected">Linear</option>
+    <option value="1">Exponential</option>
+    <option value="2">Logarithmic</option>
+    <option value="3">Power</option>
+    <option value="4">Fourier</option>
+    <option value="5">Polynomial</option>
+    <option value="6">MinX</option>
+    <option value="7">MinY</option>
+    <option value="8">MaxX</option>
+    <option value="9">MaxY</option>
+    <option value="10">AverageX</option>
+    <option value="11">AverageY</option>
+</select>
+
+@section Settings{
+    @Html.Partial("_ImageExportOptions", optionsModel)
+}
+
+<script>
+    var trendLineChart = new wijmo.chart.FlexChart('#@(optionsModel.ControlId)'),
+        fitTypeMenu = new wijmo.input.Menu('#fitTypeMenu'),
+        trendLine;
+
+    // initialize FlexChart's properties
+    trendLineChart.initialize({
+        itemsSource: appData,
+        bindingX: 'x',
+        series: [{
+            name: 'Origin',
+            binding: 'y',
+            chartType: wijmo.chart.ChartType.Scatter
+        }]
+    });
+
+    //create TrendLine
+    trendLine = new wijmo.chart.analytics.TrendLine();
+    trendLine.name = 'Trend Line';
+    trendLine.binding = 'y';
+    trendLine.sampleCount = 100;
+    trendLineChart.series.push(trendLine);
+
+    // update the menus' headers
+    updateMenuHeader();
+
+    fitTypeMenu.selectedIndexChanged.addHandler(function () {
+        if (fitTypeMenu.selectedValue) {
+            // update TrendLine's fitType
+            trendLine.fitType = parseInt(fitTypeMenu.selectedValue);
+
+            // update menu header
+            updateMenuHeader();
+        }
+    });
+
+    // helper function for Menu headers
+    function updateMenuHeader() {
+        fitTypeMenu.header = '<b>@(Resources.Wijmo5FlexChart.TrendLine_FitType)</b>: ' + fitTypeMenu.text;
+    }
+</script>
+
+@section Description{
+    @Html.Raw(Resources.Wijmo5FlexChart.TrendLine_Text0)
+}

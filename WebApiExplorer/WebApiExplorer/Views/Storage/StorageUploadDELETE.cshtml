@@ -1,0 +1,76 @@
+@model WebApiExplorer.Models.ControlsClass.Function
+
+<div class="settings-panel-content">
+    <div style="float:left;width:100%">
+        <div style="float:left"><h4>@Html.Raw(Resources.Storage.StorageUploadPOST_Parameters)</h4></div>
+        <div style="float:right">
+            <button style="margin-top:3px;padding: 4px;" class="btn btn-danger" id="delete-button"
+                    onclick="storageDelete('@Model.FunctionName', '@(System.Configuration.ConfigurationManager.AppSettings["WebAPIService"])');">
+                @Html.Raw(Resources.Storage.StorageUploadDELETE_DELETE)
+            </button>
+        </div>
+    </div>
+    <div>
+        <div class="settings-panel storage-delete">
+            <div class="param-item">
+                <label class="param-lable parameter"><b>@Html.Raw(Resources.Storage.StorageUploadPOST_Parameter)</b></label>
+                <label class="param-lable value"><b>@Html.Raw(Resources.Storage.StorageUploadPOST_Value)</b></label>
+                <label class="param-lable description"><b>@Html.Raw(Resources.Storage.StorageUploadPOST_Description)</b></label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Resources.Storage.StorageUploadPOST_Path)</label>
+                <select class="param-value value" name="delete-path" onchange="deletePathChange()">             
+                    <option value="ExcelRoot/UploadFiles">ExcelRoot/UploadFiles/test.xlsx</option>
+                    <option value="DropBox/C1WebApi">DropBox/C1WebApi/test.xlsx</option>
+                </select>
+                <div id="delete-description">
+                    <label class="param-lable description">@Html.Raw(Resources.Storage.StorageUploadPOST_PathText)</label>
+                    <label class="param-lable description hidden">@Html.Raw(Resources.Storage.StorageUploadPOST_PathTextDropBox)</label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="@(Model.FunctionName)result" class="content-panel-result">
+    <h4>@Html.Raw(Resources.Storage.StorageUploadPOST_RequestUrl)</h4>
+    <div id="@(Model.FunctionName)url" class="content-panel-result-url">
+        <pre>
+        </pre>
+    </div>
+    <h4 class="content-json-data">@Html.Raw(Resources.Storage.StorageUploadPOST_ResponseData)</h4>
+    <div id="@(Model.FunctionName)showdata" class="result-content-data" style="height:auto">
+        <pre style="max-height:200px">
+        </pre>
+    </div>
+</div>
+
+<script>
+    function deletePathChange() {
+        var sltIndex = $(".storage-delete .param-value[name=delete-path]").prop('selectedIndex');
+        $($("div#delete-description").find("label")).addClass("hidden")
+        $($("div#delete-description").find("label")[sltIndex]).removeClass("hidden")
+    }
+
+    function storageDelete(id, url) {
+        var path = $(".storage-delete .param-value[name=delete-path]").val();
+        var fullUrl = url + "api/storage/" + path;
+        fullUrl = fullUrl + '/?subpath=test.xlsx';
+        $("#@(Model.FunctionName)url pre").text(fullUrl);
+        $.ajax({
+            url: fullUrl,
+            type: 'DELETE',
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function (data, success, obj) {
+                $("#@(Model.FunctionName)showdata pre").text(JSON.stringify(data, null, 4));
+                $("#@(Model.FunctionName)result").show();
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                $("#@(Model.FunctionName)showdata pre").text(thrownError); 
+                $("#@(Model.FunctionName)result").show();
+            }
+        });
+    }
+</script>
+

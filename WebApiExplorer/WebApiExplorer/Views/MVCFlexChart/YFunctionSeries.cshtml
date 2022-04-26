@@ -1,0 +1,30 @@
+@{
+    ImageExportOptions optionsModel = ViewBag.Options;
+    ViewBag.DemoSettings = true;
+}
+
+<div id="@(optionsModel.ControlId)"></div>
+
+@section Settings{
+    @Html.Partial("_ImageExportOptions", optionsModel)
+}
+
+<script>
+    // create yFuncSeriesChart
+    var yFuncSeriesChart = new wijmo.chart.FlexChart('#@(optionsModel.ControlId)');
+
+    //create YFunctionSeries
+    var yFuncSeries = new wijmo.chart.analytics.YFunctionSeries();
+    yFuncSeries.name = 'YFuncSeries';
+    yFuncSeries.min = -10;
+    yFuncSeries.max = 10;
+    yFuncSeries.sampleCount = 300;
+    yFuncSeries.func = function (value) {
+        return Math.sin(4 * value) * Math.cos(3 * value);
+    };
+    yFuncSeriesChart.series.push(yFuncSeries);
+</script>
+
+@section Description{
+    @Html.Raw(Resources.MVCFlexChart.YFunctionSeries_Text0)
+}

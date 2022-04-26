@@ -1,0 +1,4 @@
+﻿C1.Web.Api.LicenseDetector, C1.Web.Api
+C1.Web.Api.Report.LicenseDetector, C1.Web.Api.Report
+C1.Web.Api.DataEngine.LicenseDetector, C1.Web.Api.DataEngine
+C1.Web.Api.Pdf.LicenseDetector, C1.Web.Api.Pdf

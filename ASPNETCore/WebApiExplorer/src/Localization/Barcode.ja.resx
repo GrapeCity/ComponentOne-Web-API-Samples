@@ -1,0 +1,500 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+		Microsoft ResX Schema
+
+		Version 1.3
+
+		The primary goals of this format is to allow a simple XML format 
+		that is mostly human readable. The generation and parsing of the 
+		various data types are done through the TypeConverter classes 
+		associated with the data types.
+
+		Example:
+
+		... ado.net/XML headers & schema ...
+		<resheader name="resmimetype">text/microsoft-resx</resheader>
+		<resheader name="version">1.3</resheader>
+		<resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+		<resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+		<data name="Name1">this is my long string</data>
+		<data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+		<data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+			[base64 mime encoded serialized .NET Framework object]
+		</data>
+		<data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+			[base64 mime encoded string representing a byte array form of the .NET Framework object]
+		</data>
+
+		There are any number of "resheader" rows that contain simple 
+		name/value pairs.
+
+		Each data row contains a name, and value. The row also contains a 
+		type or mimetype. Type corresponds to a .NET class that support 
+		text/value conversion through the TypeConverter architecture. 
+		Classes that don't support this are serialized and stored with the 
+		mimetype set.
+
+		The mimetype is used for serialized objects, and tells the 
+		ResXResourceReader how to depersist the object. This is currently not 
+		extensible. For a given mimetype the value must be set accordingly:
+
+		Note - application/x-microsoft.net.object.binary.base64 is the format 
+		that the ResXResourceWriter will generate, however the reader can 
+		read any of the formats listed below.
+
+		mimetype: application/x-microsoft.net.object.binary.base64
+		value   : The object must be serialized with 
+			: System.Serialization.Formatters.Binary.BinaryFormatter
+			: and then encoded with base64 encoding.
+
+		mimetype: application/x-microsoft.net.object.soap.base64
+		value   : The object must be serialized with 
+			: System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+			: and then encoded with base64 encoding.
+
+		mimetype: application/x-microsoft.net.object.bytearray.base64
+		value   : The object must be serialized into a byte array 
+			: using a System.ComponentModel.TypeConverter
+			: and then encoded with base64 encoding.
+	-->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>1.3</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="BarcodeGenerating_Parameters" xml:space="preserve">
+    <value>パラメータ</value>
+    <comment>Parameters</comment>
+  </data>
+  <data name="BarcodeGenerating_GenerateBarcode" xml:space="preserve">
+    <value>バーコードの生成</value>
+    <comment>Generate Barcode</comment>
+  </data>
+  <data name="BarcodeGenerating_BacisSettings" xml:space="preserve">
+    <value>基本設定</value>
+    <comment>Bacis Settings</comment>
+  </data>
+  <data name="BarcodeGenerating_Parameter" xml:space="preserve">
+    <value>パラメータ</value>
+    <comment>Parameter</comment>
+  </data>
+  <data name="BarcodeGenerating_Value" xml:space="preserve">
+    <value>値</value>
+    <comment>Value</comment>
+  </data>
+  <data name="BarcodeGenerating_Description" xml:space="preserve">
+    <value>説明</value>
+    <comment>Description</comment>
+  </data>
+  <data name="BarcodeGenerating_BacisType" xml:space="preserve">
+    <value>Type</value>
+    <comment>Type</comment>
+  </data>
+  <data name="BarcodeGenerating_BacisTypeDesc" xml:space="preserve">
+    <value>バーコード画像のファイルタイプ。</value>
+    <comment>The file type of the barcode image.</comment>
+  </data>
+  <data name="BarcodeGenerating_BacisText" xml:space="preserve">
+    <value>Text</value>
+    <comment>Text</comment>
+  </data>
+  <data name="BarcodeGenerating_BacisTextDesc" xml:space="preserve">
+    <value>バーコード画像としてエンコードされる値。</value>
+    <comment>The value that is encoded as a barcode image.</comment>
+  </data>
+  <data name="BarcodeGenerating_BacisCodeType" xml:space="preserve">
+    <value>CodeType</value>
+    <comment>CodeType</comment>
+  </data>
+  <data name="BarcodeGenerating_BacisCodeTypeDesc" xml:space="preserve">
+    <value>バーコード画像の生成時に使用するエンコーディングのタイプ。</value>
+    <comment>The type of encoding to use when generating the barcode image.</comment>
+  </data>
+  <data name="BarcodeGenerating_BacisBackColor" xml:space="preserve">
+    <value>BackColor</value>
+    <comment>BackColor</comment>
+  </data>
+  <data name="BarcodeGenerating_BacisBackColorDesc" xml:space="preserve">
+    <value>バーコード画像の背景色を取得または設定します。</value>
+    <comment>Gets or sets the background color for the barcode image.</comment>
+  </data>
+  <data name="BarcodeGenerating_BacisForeColor" xml:space="preserve">
+    <value>ForeColor</value>
+    <comment>ForeColor</comment>
+  </data>
+  <data name="BarcodeGenerating_BacisForeColorDesc" xml:space="preserve">
+    <value>バーコード画像の前景色を取得または設定します。</value>
+    <comment>Gets or sets the foreground color for the barcode image.</comment>
+  </data>
+  <data name="BarcodeGenerating_BacisCaptionPosition" xml:space="preserve">
+    <value>CaptionPosition</value>
+    <comment>CaptionPosition</comment>
+  </data>
+  <data name="BarcodeGenerating_BacisCaptionPositionDesc" xml:space="preserve">
+    <value>バーコードシンボルに対するバーコードキャプションの相対的な位置。</value>
+    <comment>Barcode caption position relative to the barcode symbol.</comment>
+  </data>
+  <data name="BarcodeGenerating_BacisCaptionAlignment" xml:space="preserve">
+    <value>CaptionAlignment</value>
+    <comment>CaptionAlignment</comment>
+  </data>
+  <data name="BarcodeGenerating_BacisCaptionAlignmentDesc" xml:space="preserve">
+    <value>バーコードに対するバーコードキャプションの相対的な配置。</value>
+    <comment>Barcode caption alignment relative to the barcode.</comment>
+  </data>
+  <data name="BarcodeGenerating_BacisCheckSumEnabled" xml:space="preserve">
+    <value>CheckSumEnabled</value>
+    <comment>CheckSumEnabled</comment>
+  </data>
+  <data name="BarcodeGenerating_BacisCheckSumEnabledDesc" xml:space="preserve">
+    <value>適切な場合にバーコードのチェックサムを計算してバーコードに含めるかどうかを示す値を取得または設定します。</value>
+    <comment>Gets or sets a value indicating whether a checksum of the barcode will be computed and included in the barcode when applicable.</comment>
+  </data>
+  <data name="BarcodeGenerating_QRCodeSettings" xml:space="preserve">
+    <value>QRCode の設定</value>
+    <comment>QRCode Settings</comment>
+  </data>
+  <data name="BarcodeGenerating_QRCodeModel" xml:space="preserve">
+    <value>Model</value>
+    <comment>Model</comment>
+  </data>
+  <data name="BarcodeGenerating_QRCodeModelDesc" xml:space="preserve">
+    <value>QRCode のモデルを取得または設定します。</value>
+    <comment>Gets or sets the QRCode model.</comment>
+  </data>
+  <data name="BarcodeGenerating_QRCodeErrorLevel" xml:space="preserve">
+    <value>ErrorLevel</value>
+    <comment>ErrorLevel</comment>
+  </data>
+  <data name="BarcodeGenerating_QRCodeErrorLevelDesc" xml:space="preserve">
+    <value>バーコードのエラー修正レベルを取得または設定します。</value>
+    <comment>Gets or sets the error correction level for the barcode.</comment>
+  </data>
+  <data name="BarcodeGenerating_QRCodeVersion" xml:space="preserve">
+    <value>Version</value>
+    <comment>Version</comment>
+  </data>
+  <data name="BarcodeGenerating_QRCodeVersionDesc" xml:space="preserve">
+    <value>QRCode のバージョンを取得または設定します。Model プロパティが Model1 に設定されている場合は 1 ～ 14 の値を、Model2 の場合は 1 ～ 40 の値を指定してください。-1 が指定された場合は、この値に最適なバージョンが自動的に決定されます。</value>
+    <comment>Gets or sets the QRCode version. Specify any value between 1 and 14 when the Model property is set to Model1 and 1 to 40 for Model2. When -1 is specified, the version most suited to the value is automatically determined.</comment>
+  </data>
+  <data name="BarcodeGenerating_QRCodeMask" xml:space="preserve">
+    <value>Mask</value>
+    <comment>Mask</comment>
+  </data>
+  <data name="BarcodeGenerating_QRCodeMaskDesc" xml:space="preserve">
+    <value>バーコードのマスクに使用されるパターンを取得または設定します。</value>
+    <comment>Gets or sets the pattern used for the barcode masking.</comment>
+  </data>
+  <data name="BarcodeGenerating_QRCodeConnectionNumber" xml:space="preserve">
+    <value>ConnectionNumber</value>
+    <comment>ConnectionNumber</comment>
+  </data>
+  <data name="BarcodeGenerating_QRCodeConnectionNumberDesc" xml:space="preserve">
+    <value>バーコードの連結番号を取得または設定します。</value>
+    <comment>Gets or sets the connection number for the barcode.</comment>
+  </data>
+  <data name="BarcodeGenerating_QRCodeConnection" xml:space="preserve">
+    <value>Connection</value>
+    <comment>Connection</comment>
+  </data>
+  <data name="BarcodeGenerating_QRCodeConnectionDesc" xml:space="preserve">
+    <value>バーコードに連結を使用するかどうかを取得または設定します。</value>
+    <comment>Gets or sets whether connection is used for the barcode.</comment>
+  </data>
+  <data name="BarcodeGenerating_PDF417Settings" xml:space="preserve">
+    <value>PDF417 の設定</value>
+    <comment>PDF417 Settings</comment>
+  </data>
+  <data name="BarcodeGenerating_PDF417Column" xml:space="preserve">
+    <value>Column</value>
+    <comment>Column</comment>
+  </data>
+  <data name="BarcodeGenerating_PDF417ColumnDesc" xml:space="preserve">
+    <value>バーコードの列番号を取得または設定します。</value>
+    <comment>Gets or sets columns number for the barcode.</comment>
+  </data>
+  <data name="BarcodeGenerating_PDF417Row" xml:space="preserve">
+    <value>Row</value>
+    <comment>Row</comment>
+  </data>
+  <data name="BarcodeGenerating_PDF417Desc" xml:space="preserve">
+    <value>バーコードの行番号を取得または設定します。</value>
+    <comment>Gets or sets row numbers for the barcode.</comment>
+  </data>
+  <data name="BarcodeGenerating_PDF417ErrorLevel" xml:space="preserve">
+    <value>ErrorLevel</value>
+    <comment>ErrorLevel</comment>
+  </data>
+  <data name="BarcodeGenerating_PDF417ErrorLevelDesc" xml:space="preserve">
+    <value>バーコードのエラー修正レベルを取得または設定します。</value>
+    <comment>Gets or sets the error correction level for the barcode.</comment>
+  </data>
+  <data name="BarcodeGenerating_PDF417Type" xml:space="preserve">
+    <value>Type</value>
+    <comment>Type</comment>
+  </data>
+  <data name="BarcodeGenerating_PDF417TypeDesc" xml:space="preserve">
+    <value>PDF417 バーコードのタイプを取得または設定します。</value>
+    <comment>Gets or set the PDF417 barcode's type.</comment>
+  </data>
+  <data name="BarcodeGenerating_Code49Settings" xml:space="preserve">
+    <value>Code49 の設定</value>
+    <comment>Code49 Settings</comment>
+  </data>
+  <data name="BarcodeGenerating_Code49Group" xml:space="preserve">
+    <value>Group</value>
+    <comment>Group</comment>
+  </data>
+  <data name="BarcodeGenerating_Code49GroupDesc" xml:space="preserve">
+    <value>グループ番号を取得または設定します。</value>
+    <comment>Gets or sets groups number.</comment>
+  </data>
+  <data name="BarcodeGenerating_Code49Grouping" xml:space="preserve">
+    <value>Grouping</value>
+    <comment>Grouping</comment>
+  </data>
+  <data name="BarcodeGenerating_Code49GroupingDesc" xml:space="preserve">
+    <value>バーコードにグループが設定されるかどうかを示す値を取得または設定します。</value>
+    <comment>Gets or sets a value indicating whether grouping is set for the barcode.</comment>
+  </data>
+  <data name="BarcodeGenerating_RssExpandedStackedSettings" xml:space="preserve">
+    <value>RssExpandedStacked の設定</value>
+    <comment>RssExpandedStacked Settings</comment>
+  </data>
+  <data name="BarcodeGenerating_RssExpandedStackedRowCount" xml:space="preserve">
+    <value>RowCount</value>
+    <comment>RowCount</comment>
+  </data>
+  <data name="BarcodeGenerating_RssExpandedStackedRowCountDesc" xml:space="preserve">
+    <value>スタックする行の数を取得または設定します。</value>
+    <comment>Gets or sets the number of stacked rows.</comment>
+  </data>
+  <data name="BarcodeGenerating_MicroPDF417Settings" xml:space="preserve">
+    <value>MicroPDF417 の設定</value>
+    <comment>MicroPDF417 Settings</comment>
+  </data>
+  <data name="BarcodeGenerating_MicroPDF417CompactionMode" xml:space="preserve">
+    <value>CompactionMode</value>
+    <comment>CompactionMode</comment>
+  </data>
+  <data name="BarcodeGenerating_MicroPDF417CompactionModeDesc" xml:space="preserve">
+    <value>CompactionMode を取得または設定します。</value>
+    <comment>Gets or sets the CompactionMode.</comment>
+  </data>
+  <data name="BarcodeGenerating_MicroPDF417FileID" xml:space="preserve">
+    <value>FileID</value>
+    <comment>FileID</comment>
+  </data>
+  <data name="BarcodeGenerating_MicroPDF417FileIDDesc" xml:space="preserve">
+    <value>構造的連接シンボルのファイル ID を取得または設定します。</value>
+    <comment>Gets or sets the file id of structured append symbol.</comment>
+  </data>
+  <data name="BarcodeGenerating_MicroPDF417SegmentCount" xml:space="preserve">
+    <value>SegmentCount</value>
+    <comment>SegmentCount</comment>
+  </data>
+  <data name="BarcodeGenerating_MicroPDF417SegmentCountDesc" xml:space="preserve">
+    <value>構造的連接シンボルのセグメント数を取得または設定します。</value>
+    <comment>Gets or sets the segment count of structured append symbol.</comment>
+  </data>
+  <data name="BarcodeGenerating_MicroPDF417SegmentIndex" xml:space="preserve">
+    <value>SegmentIndex</value>
+    <comment>SegmentIndex</comment>
+  </data>
+  <data name="BarcodeGenerating_MicroPDF417SegmentIndexDesc" xml:space="preserve">
+    <value>構造的連接シンボルのセグメントインデックスを取得または設定します。</value>
+    <comment>Gets or sets the segment index of structured append symbol.</comment>
+  </data>
+  <data name="BarcodeGenerating_MicroPDF417Version" xml:space="preserve">
+    <value>Version</value>
+    <comment>Version</comment>
+  </data>
+  <data name="BarcodeGenerating_MicroPDF417VersionDesc" xml:space="preserve">
+    <value>シンボルのバージョンを取得または設定します。</value>
+    <comment>Gets or sets the symbol version.</comment>
+  </data>
+  <data name="BarcodeGenerating_Code25IntlvSettings" xml:space="preserve">
+    <value>Code25intlv の設定</value>
+    <comment>Code25intlv Settings</comment>
+  </data>
+  <data name="BarcodeGenerating_Code25IntlvLineStroke" xml:space="preserve">
+    <value>LineStroke</value>
+    <comment>LineStroke</comment>
+  </data>
+  <data name="BarcodeGenerating_Code25IntlvLineStrokeDesc" xml:space="preserve">
+    <value>ベアラバーの色。</value>
+    <comment>The color of bearer bar.</comment>
+  </data>
+  <data name="BarcodeGenerating_Code25IntlvBearBar" xml:space="preserve">
+    <value>BearBar</value>
+    <comment>BearBar</comment>
+  </data>
+  <data name="BarcodeGenerating_Code25IntlvBearBarDesc" xml:space="preserve">
+    <value>ITF バーコードにベアラバーを表示するかどうか。</value>
+    <comment>Whether or not to display bearer bar to ITF barcode.</comment>
+  </data>
+  <data name="BarcodeGenerating_Code25IntlvLineStrokeThickness" xml:space="preserve">
+    <value>LineStrokeThickness</value>
+    <comment>LineStrokeThickness</comment>
+  </data>
+  <data name="BarcodeGenerating_Code25IntlvLineStrokeThicknessDesc" xml:space="preserve">
+    <value>ベアラバーの線幅。</value>
+    <comment>The line width of bearer bar.</comment>
+  </data>
+  <data name="BarcodeGenerating_GS1CompositeSettings" xml:space="preserve">
+    <value>GS1Composite の設定</value>
+    <comment>GS1Composite Settings</comment>
+  </data>
+  <data name="BarcodeGenerating_GS1CompositeType" xml:space="preserve">
+    <value>Type</value>
+    <comment>Type</comment>
+  </data>
+  <data name="BarcodeGenerating_GS1CompositeTypeDesc" xml:space="preserve">
+    <value>合成シンボルタイプを取得または設定します。</value>
+    <comment>Gets or sets the composite symbol type.</comment>
+  </data>
+  <data name="BarcodeGenerating_GS1CompositeValue" xml:space="preserve">
+    <value>Value</value>
+    <comment>Value</comment>
+  </data>
+  <data name="BarcodeGenerating_GS1CompositeValueDesc" xml:space="preserve">
+    <value>CCA または CCB 文字データを取得または設定します。</value>
+    <comment>Gets or sets the CCA or CCB character data.</comment>
+  </data>
+  <data name="BarcodeGenerating_Ean128Fnc1Settings" xml:space="preserve">
+    <value>Ean128Fnc1 の設定</value>
+    <comment>Ean128Fnc1 Settings</comment>
+  </data>
+  <data name="BarcodeGenerating_Ean128Fnc1BarAdjust" xml:space="preserve">
+    <value>BarAdjust</value>
+    <comment>BarAdjust</comment>
+  </data>
+  <data name="BarcodeGenerating_Ean128Fnc1BarAdjustDesc" xml:space="preserve">
+    <value>ドット単位の調整サイズを取得または設定します。</value>
+    <comment>Gets or sets the adjustment size by dot.</comment>
+  </data>
+  <data name="BarcodeGenerating_Ean128Fnc1Dpi" xml:space="preserve">
+    <value>Dpi</value>
+    <comment>Dpi</comment>
+  </data>
+  <data name="BarcodeGenerating_Ean128Fnc1DpiDesc" xml:space="preserve">
+    <value>プリンタの解像度を取得または設定します。</value>
+    <comment>Gets or sets the resolution of the printer.</comment>
+  </data>
+  <data name="BarcodeGenerating_Ean128Fnc1ModuleSize" xml:space="preserve">
+    <value>ModuleSize</value>
+    <comment>ModuleSize</comment>
+  </data>
+  <data name="BarcodeGenerating_Ean128Fnc1ModuleSizeDesc" xml:space="preserve">
+    <value>バーコードモジュールの水平方向のサイズを取得または設定します。</value>
+    <comment>Gets or sets the horizontal size of the barcode module.</comment>
+  </data>
+  <data name="BarcodeGenerating_DataMatrixSettings" xml:space="preserve">
+    <value>DataMatrix の設定</value>
+    <comment>DataMatrix Settings</comment>
+  </data>
+  <data name="BarcodeGenerating_DataMatrixEccMode" xml:space="preserve">
+    <value>EccMode</value>
+    <comment>EccMode</comment>
+  </data>
+  <data name="BarcodeGenerating_DataMatrixEccModeDesc" xml:space="preserve">
+    <value>ECC モードを取得または設定します。</value>
+    <comment>Gets or sets the ECC mode.</comment>
+  </data>
+  <data name="BarcodeGenerating_DataMatrixEcc200SymbolSize" xml:space="preserve">
+    <value>Ecc200SymbolSize</value>
+    <comment>Ecc200SymbolSize</comment>
+  </data>
+  <data name="BarcodeGenerating_DataMatrixEcc200SymbolSizeDesc" xml:space="preserve">
+    <value>ECC200 シンボルのサイズを取得または設定します。</value>
+    <comment>Gets or sets the size of the ECC200 symbol.</comment>
+  </data>
+  <data name="BarcodeGenerating_DataMatrixEcc200EncodingMode" xml:space="preserve">
+    <value>Ecc200EncodingMode</value>
+    <comment>Ecc200EncodingMode</comment>
+  </data>
+  <data name="BarcodeGenerating_DataMatrixEcc200EncodingModeDesc" xml:space="preserve">
+    <value>ECC200 エンコーディングモードを取得または設定します。</value>
+    <comment>Gets or sets the ECC200 encoding mode.</comment>
+  </data>
+  <data name="BarcodeGenerating_DataMatrixEcc000_140SymbolSize" xml:space="preserve">
+    <value>Ecc000_140SymbolSize</value>
+    <comment>Ecc000_140SymbolSize</comment>
+  </data>
+  <data name="BarcodeGenerating_DataMatrixEcc000_140SymbolSizeDesc" xml:space="preserve">
+    <value>ECC000-140 シンボルのサイズを取得または設定します。</value>
+    <comment>Gets or sets the size of the ECC000-140 symbol.</comment>
+  </data>
+  <data name="BarcodeGenerating_DataMatrixStructureNumber" xml:space="preserve">
+    <value>StructureNumber</value>
+    <comment>StructureNumber</comment>
+  </data>
+  <data name="BarcodeGenerating_DataMatrixStructureNumberDesc" xml:space="preserve">
+    <value>構造的連接シンボル内の現在のシンボルの構造番号を取得または設定します。</value>
+    <comment>Gets or sets the structure number of current symbol within the structuerd append symbols.</comment>
+  </data>
+  <data name="BarcodeGenerating_DataMatrixStructuredAppend" xml:space="preserve">
+    <value>StructuredAppend</value>
+    <comment>StructuredAppend</comment>
+  </data>
+  <data name="BarcodeGenerating_DataMatrixStructuredAppendDesc" xml:space="preserve">
+    <value>現在のシンボルが構造的連接シンボルの一部かどうかを示す値を取得または設定します。</value>
+    <comment>Gets or sets a value indicating whether the current symbol is part of structured append symbols.</comment>
+  </data>
+  <data name="BarcodeGenerating_DataMatrixFileIdentifier" xml:space="preserve">
+    <value>FileIdentifier</value>
+    <comment>FileIdentifier</comment>
+  </data>
+  <data name="BarcodeGenerating_DataMatrixFileIdentifierDesc" xml:space="preserve">
+    <value>関連する構造的連接シンボルグループのファイル識別子を取得または設定します。</value>
+    <comment>Gets or sets the file identifier of a related group of structured append symbols.</comment>
+  </data>
+  <data name="BarcodeGenerating_RequestUrl" xml:space="preserve">
+    <value>要求 URL</value>
+    <comment>Request Url</comment>
+  </data>
+  <data name="BarcodeGenerating_Barcode" xml:space="preserve">
+    <value>バーコード</value>
+    <comment>Barcode</comment>
+  </data>
+  <data name="BarcodeGenerating_MessageInfo" xml:space="preserve">
+    <value>お使いのブラウザは TIFF 画像をサポートしていません。ダウンロードするには、&lt;a id="downloadLink"&gt;ここをクリック&lt;/a&gt;してください。</value>
+    <comment>Your browser does not support TIFF images, you can click &lt;a id="downloadLink"&gt;here&lt;/a&gt; to download it.</comment>
+  </data>
+</root>

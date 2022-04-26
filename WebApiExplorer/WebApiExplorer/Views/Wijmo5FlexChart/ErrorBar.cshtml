@@ -1,0 +1,158 @@
+@using WebApiExplorer.Models
+@{
+    ImageExportOptions optionsModel = ViewBag.Options;
+    ViewBag.DemoSettings = true;
+}
+
+<div id="@(optionsModel.ControlId)"></div>
+<div>
+    <div class="col-md-6">
+        @Html.Raw(Resources.Wijmo5FlexChart.ErrorBar_Direction)
+        <select id="ebDirection">
+            <option value="0" selected="selected">Both</option>
+            <option value="1">Minus</option>
+            <option value="2">Plus</option>
+        </select>
+    </div>
+    <div class="col-md-6">
+        @Html.Raw(Resources.Wijmo5FlexChart.ErrorBar_ChartType) 
+        <select id="ebChartType">
+            <option value="0" selected="selected">Column</option>
+            <option value="1">Bar</option>
+            <option value="2">Scatter</option>
+            <option value="3">Line</option>
+            <option value="4">LineSymbols</option>
+            <option value="5">Area</option>
+            <option value="9">Spline</option>
+            <option value="10">SplineSymbols</option>
+            <option value="11">SplineArea</option>
+        </select>
+    </div>
+    <div class="col-md-6">
+        @Html.Raw(Resources.Wijmo5FlexChart.ErrorBar_ErrorAmount)
+        <select id="ebErrorAmount">
+            <option value="0" selected="selected">FixedValue</option>
+            <option value="1">Percentage</option>
+            <option value="2">StandardDeviation</option>
+            <option value="3">StandardError</option>
+            <option value="4">Custom</option>
+        </select>
+    </div>
+    <div class="col-md-6">
+        @Html.Raw(Resources.Wijmo5FlexChart.ErrorBar_EndStyle)
+        <select id="ebEndStyle">
+            <option value="0" selected="selected">Cap</option>
+            <option value="1">No Cap</option>
+        </select>
+    </div>
+    <div>
+        <label for="ebRotated">@Html.Raw(Resources.Wijmo5FlexChart.ErrorBar_Rotated)</label>
+        <input id="ebRotated" type="checkbox" />
+    </div>
+</div>
+
+@section Settings{
+    @Html.Partial("_ImageExportOptions", optionsModel)
+}
+
+<script>
+    var errorbarChart = new wijmo.chart.FlexChart('#@(optionsModel.ControlId)'),
+        chartType = new wijmo.input.Menu('#ebChartType'),
+        errorAmount = new wijmo.input.Menu('#ebErrorAmount'),
+        endStyle = new wijmo.input.Menu('#ebEndStyle'),
+        direction = new wijmo.input.Menu('#ebDirection');
+
+    var countries = 'US,Germany,UK,Japan,Italy,Greece,China,France,Russia'.split(','),
+        appData = [];
+    for (var i = 0; i < countries.length; i++) {
+        appData.push({
+            country: countries[i],
+            downloads: getData(),
+            sales: getData()
+        });
+    }
+
+    function getData() {
+        var val = Math.round(Math.random() * 100);
+        return val > 10 ? val : val + 10;
+    }
+
+    //create Box & Whisker series
+    errorbarChart.beginUpdate();
+    errorbarChart.tooltip.content = '{y}';
+
+    errorbarChart.itemsSource = appData;
+    errorbarChart.bindingX = 'country';
+    var errorBar = new wijmo.chart.analytics.ErrorBar();
+    errorBar.binding = 'downloads';
+    errorBar.value = 10;
+    errorbarChart.series.push(errorBar);
+    errorbarChart.endUpdate();
+
+    var ebRotated = document.getElementById('ebRotated');
+    ebRotated.addEventListener('click', function () {
+        errorbarChart.rotated = this.checked;
+        errorbarChart.refresh(true);
+    });
+
+    updateMenuHeader(chartType);
+    chartType.selectedIndexChanged.addHandler(function () {
+        if (chartType.selectedValue) {
+            var val = +chartType.selectedValue;
+            errorbarChart.chartType = val;
+            updateMenuHeader(chartType);
+            errorbarChart.refresh(true);
+        }
+    });
+
+    updateMenuHeader(errorAmount);
+    errorAmount.selectedIndexChanged.addHandler(function () {
+        if (errorAmount.selectedValue) {
+            var val = +errorAmount.selectedValue;
+            errorBar.errorAmount = val;
+            if (val === 0) {
+                errorBar.value = 10;
+            } else if (val === 1) {
+                errorBar.value = 0.1;
+            } else if (val === 2) {
+                errorBar.value = 1;
+            } else if (val === 4) {
+                errorBar.value = {
+                    minus: 5,
+                    plus: 10
+                };
+            }
+            updateMenuHeader(errorAmount);
+            errorbarChart.refresh(true);
+        }
+    });
+
+    updateMenuHeader(endStyle);
+    endStyle.selectedIndexChanged.addHandler(function () {
+        if (endStyle.selectedValue) {
+            var val = +endStyle.selectedValue;
+            errorBar.endStyle = val;
+            updateMenuHeader(endStyle);
+            errorbarChart.refresh(true);
+        }
+    });
+
+    updateMenuHeader(direction);
+    direction.selectedIndexChanged.addHandler(function () {
+        if (direction.selectedValue) {
+            var val = +direction.selectedValue;
+            errorBar.direction = val;
+            updateMenuHeader(direction);
+            errorbarChart.refresh(true);
+        }
+    });
+
+    // helper function for Menu headers
+    function updateMenuHeader(menu) {
+        menu.header = menu.text;
+    }
+</script>
+
+@section Description{
+    @Html.Raw(Resources.Wijmo5FlexChart.ErrorBar_Text0)
+}

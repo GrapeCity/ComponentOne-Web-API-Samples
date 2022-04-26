@@ -1,0 +1,158 @@
+﻿@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+
+<script src="@(Configuration["WebAPIService"])api/visitor/visitor-client.min.js"></script>
+@{
+  ViewBag.DemoDescription = false;
+  var VariablesToDisplay = @Html.Raw(Json.Serialize(ViewBag.VariablesToDisplay));
+}
+@section Styles{
+  <style>
+    .visualize-container {
+      line-height: 30px;
+    }
+
+    .visualize-container {
+      display: flex;
+      flex-flow: row wrap;
+    }
+
+    .grid-col {
+      flex: 1 0 25%;
+      max-width: 25%;
+      word-break: break-all;
+    }
+
+    .danger {
+      color: red;
+    }
+
+    .success {
+      color: #00c1d5;
+    }
+
+    @@media only screen and (max-width: 1000px) {
+      .grid-col {
+        flex-basis: 33.33%;
+        max-width: 33.33%;
+      }
+    }
+
+    @@media only screen and (max-width: 768px) {
+      .grid-col {
+        flex-basis: 50%;
+        max-width: 50%;
+      }
+    }
+
+    @@media only screen and (max-width: 600px) {
+      .grid-col {
+        flex-basis: 100%;
+        max-width: 100%;
+      }
+    }
+  </style>
+}
+
+<h3>
+  @Html.Raw(Visitor.Txt_Variables)
+</h3>
+
+<div class="visualize-container">
+  @foreach (var res in ViewBag.VariablesToDisplay)
+  {
+    <div class="grid-col">
+      <div>
+        <strong>@res.Value</strong>
+      </div>
+      <div id="id-info-@res.Key"></div>
+    </div>
+  }
+</div>
+
+<p id="license-info"></p>
+
+@section Summary{
+  @Html.Raw(Visitor.Description)
+}
+
+
+<script>
+  if (!String.prototype.format) {
+    String.prototype.format = function () {
+      var args = arguments;
+      return this.replace(/{(\d+)}/g, function (match, number) {
+        return typeof args[number] != 'undefined'
+          ? args[number]
+          : match
+          ;
+      });
+    };
+  }
+
+  var templates = {
+    undefined: "<span class=\"danger\"> null </span>",
+    value: "<span class=\"success\"> {0}</span>",
+    date: "<span class=\"success\"> {0}</span>",
+    object_content: "<div style=\"padding-left:{0}px\"> {1}: {2}</div>",
+    object: "<ul>{0}</ul>",
+    na: "<span> n / a </span>",
+  }
+
+  function isISODateString(str) {
+    return /(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d\.\d+([+-][0-2]\d:[0-5]\d|Z))|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d([+-][0-2]\d:[0-5]\d|Z))|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d([+-][0-2]\d:[0-5]\d|Z))/.test(str);
+  }
+
+  function visualizeObject(obj, deep) {
+    deep = deep === undefined ? 0 : deep + 1;
+    if (obj == null) return templates.undefined;
+    if (typeof obj == 'boolean') return templates.value.format(obj ? "true" : "false");
+    if (obj instanceof Date) return templates.value.format(obj.toLocaleString());
+    if (typeof obj == 'object') {
+      const keys = Object.keys(obj);
+      var content = "";
+      for (var i = 0; i < keys.length; i++) {
+        content += templates.object_content.format(deep > 0 ? 30 : 0, keys[i], visualizeObject(obj[keys[i]], deep));
+      }
+      return templates.object.format(content);
+    }
+    if (typeof obj == 'string' && isISODateString(obj)) return templates.value.format(new Date(obj).toLocaleString());
+    if (obj) return templates.value.format(obj);
+    else return templates.na;
+  }
+
+  function render(visitor) {
+    var variables = @VariablesToDisplay;
+    var keys = Object.keys(variables);
+    for (var i = 0; i < keys.length; i++) {
+      var key = keys[i];
+      var ele = document.getElementById("id-info-" + key);
+      if (ele) {
+        ele.innerHTML = visualizeObject(visitor[key]);
+      }
+    }
+    renderIp2LocationLicensing();
+  }
+
+  function isIp2Location() {
+    if (!c1.webapi.VisitorConfig || !c1.webapi.VisitorConfig.SERVER_DATA) return false;
+    var visitorData = c1.webapi.VisitorConfig.SERVER_DATA;
+    if (visitorData) {
+      return visitorData.locationProviderType == 1;
+    }
+    return false;
+  }
+
+  function renderIp2LocationLicensing() {
+    if (!isIp2Location()) return;
+    var ele = document.getElementById("license-info");
+    if (ele) {
+      ele.innerHTML = "<small>This product includes IP2Location LITE data available from <a href=\"https://www.ip2location.com\">https://www.ip2location.com</a> </small>";
+    }
+  }
+
+  window.visitor.getDataAsync(function (data) {
+    render(data);
+  });
+
+</script>

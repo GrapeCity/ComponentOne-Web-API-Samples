@@ -1,0 +1,74 @@
+@model WebApiExplorer.Models.ControlsClass.Function
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+
+<div class="settings-panel-content">
+    <div style="float:left;width:100%">
+        <div style="float:left"><h4>@Html.Raw(Report.ReportInstanceStopPOST_Parameters)</h4></div>
+        <div style="float:right">
+            <button style="margin-top:3px;padding: 4px;" class="btn btn-primary btn-report-instance" disabled="disabled"
+                    onclick="reportInstanceStop('@Model.FunctionName', '@(Configuration["WebAPIService"])');">
+                @Html.Raw(Report.ReportInstanceStopPOST_Stop)
+            </button>
+        </div>
+    </div>
+    <div>
+        <div class="settings-panel report-instance-stop">
+            <div class="param-item">
+                <label class="param-lable parameter"><b>@Html.Raw(Report.ReportInstanceStopPOST_Parameter)</b></label>
+                <label class="param-lable value"><b>@Html.Raw(Report.ReportInstanceStopPOST_Value)</b></label>
+                <label class="param-lable description"><b>@Html.Raw(Report.ReportInstanceStopPOST_Description)</b></label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Report.ReportInstanceStopPOST_ReportFullPath)</label>
+                <span class="param-value-group">
+                    <input type="text" name="reportFullPath" class="param-value" style="width: 100%; margin-bottom: 10px;" disabled="disabled" value="@(Report.ReportInstanceStopPOST_PleaseLoadAReportFirst)" />
+                </span>
+                <label class="param-lable description">@Html.Raw(Report.ReportInstanceStopPOST_ReportFullPathText)</label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Report.ReportInstanceStopPOST_InstanceId)</label>
+                <span class="param-value-group">
+                    <input type="text" name="instanceId" class="param-value" style="width: 100%; margin-bottom: 10px;" disabled="disabled" value="@(Report.ReportInstanceStopPOST_PleaseLoadAReportFirst)" />
+                </span>
+                <label class="param-lable description">@Html.Raw(Report.ReportInstanceStopPOST_InstanceIdText)</label>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="@(Model.FunctionName)result" class="content-panel-result">
+    <h4>@Html.Raw(Report.ReportInstanceStopPOST_Headers)</h4>
+    <div id="@(Model.FunctionName)headers" class="content-panel-result-url">
+        <pre>
+        </pre>
+    </div>
+    <h4 class="content-json-data">@Html.Raw(Report.ReportInstanceStopPOST_ResponseData)</h4>
+    <div id="@(Model.FunctionName)showdata" class="result-content-data" style="height:auto">
+        <pre style="max-height:200px">
+        </pre>
+    </div>
+</div>
+
+<script>
+    function reportInstanceStop(id, url) {
+        var instanceId = $(".report-instance-stop .param-value[name=instanceId]").val();
+        var reportFullPath = $(".report-instance-stop .param-value[name=reportFullPath]").val();
+        var fullUrl = url + "api/report/" + reportFullPath + "/$instances/" + instanceId + "/stop";
+
+        $("#@(Model.FunctionName)headers pre").text("@(Report.ReportInstanceStopPOST_RequestURL)" + fullUrl);
+        $("#@(Model.FunctionName)result").show();
+
+        $.ajax({
+            type: "POST",
+            url: fullUrl,
+            cache: false,
+            success: function (data) {
+                $("#@(Model.FunctionName)showdata pre").text(JSON.stringify(data, null, 4));
+                $(".content-json-data").show();
+            },
+            complete: function (xhr, status) {
+                $("#@(Model.FunctionName)headers pre").append("\r\n@(Report.ReportInstanceStopPOST_StatusCode)" + xhr.status);
+            }
+        });
+    }
+</script>

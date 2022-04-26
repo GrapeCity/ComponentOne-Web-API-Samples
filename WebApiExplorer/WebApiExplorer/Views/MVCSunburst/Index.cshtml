@@ -1,0 +1,25 @@
+@model IEnumerable<HierarchicalData>
+@{
+    ClientSettingsModel settings = ViewBag.DemoSettingsModel;
+    ImageExportOptions optionsModel = ViewBag.Options;
+    ViewBag.DemoSettings = true;
+}
+
+@(Html.C1().Sunburst<HierarchicalData>()
+    .Id(optionsModel.ControlId)
+    .Bind("Year", "Value", Model)
+    .DataLabel(dl => dl.Content("{name}"))
+    .BindingName("Year", "Quarter", "Month"))
+
+@section Settings{
+    @Html.Partial("_ImageExportOptions", optionsModel)
+    <script>
+        function convertPalette(value) {
+            return wijmo.chart.Palettes[value];
+        }
+    </script>
+}
+
+@section Description{
+    @Html.Raw(Resources.MVCSunburst.Index_Text0)
+}

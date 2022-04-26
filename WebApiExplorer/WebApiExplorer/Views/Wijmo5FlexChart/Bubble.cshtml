@@ -1,0 +1,36 @@
+@using WebApiExplorer.Models
+@{
+    ImageExportOptions optionsModel = ViewBag.Options;
+    ViewBag.DemoSettings = true;
+}
+
+<div id="@(optionsModel.ControlId)" ></div>
+
+@section Settings{
+    @Html.Partial("_ImageExportOptions", optionsModel)
+}
+
+<script>
+    var chart = new wijmo.chart.FlexChart('#@(optionsModel.ControlId)');
+
+    chart.initialize({
+        chartType: "Bubble",
+        itemsSource: [],
+        bindingX: 'x',
+        series: [
+            { binding: 'y,size' }
+        ]
+    });
+
+    for (var i = 0; i < 30; i++) {
+        chart.itemsSource.push({
+            x: i,
+            y: Math.random() * 10,
+            size: Math.random() * 100
+        });
+    }
+</script>
+
+@section Description{
+    @Html.Raw(Resources.Wijmo5FlexChart.Bubble_Text0)
+}

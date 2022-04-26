@@ -1,0 +1,119 @@
+﻿<div class="container">
+	<div class="row">
+		<div>
+			<p class="tab-content" style="padding:10px 3px;">
+				<h4>@Html.Raw(Resources.ExcelToJSON.Index_Text16)</h4>
+				<h4>
+					@Html.Raw(Resources.ExcelToJSON.Index_Text17)
+				</h4>
+					<ol>
+						<li><h4>@Html.Raw(Resources.ExcelToJSON.Index_Text18)</h4></li>
+						<li><h4>@Html.Raw(Resources.ExcelToJSON.Index_Text20)</h4></li>
+					</ol>
+					</p>
+			<button class="btn btn-primary" id="btn">@Html.Raw(Resources.ExcelToJSON.Index_Text21)</button>
+			<div id="fetcher" class="col-sm-12" style="display:none;">
+				<span id="status">@Html.Raw(Resources.ExcelToJSON.Index_Text22)</span><br />
+				<div id="gauge"></div><br />
+				<div id="successer" class="alert-success" style="padding:10px 6px;"><b>@Html.Raw(Resources.ExcelToJSON.Index_Text23)<br /></b></div>
+
+			</div>			
+		</div>
+	</div>
+	<div class="row">
+		<div>
+			<div id="jsonContent" style="display:none;height:500px;">
+				<div class="col-sm-12">
+					<h3>@Html.Raw(Resources.ExcelToJSON.Index_Text24)</h3>
+					<div id="grid"></div>
+				</div>
+				<div class="col-sm-12" style="padding:2px;word-break:break-word;overflow-y:auto;height:100%;">
+					<h3>@Html.Raw(Resources.ExcelToJSON.Index_Text25)</h3>
+					<div class="col-sm-12" id="json"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+	<script>
+
+		var _url = "http://10.64.1.32/excelapi";
+		var host = window.location.hostname;
+		if (host == "localhost") {
+			_url = "http://localhost:61712";
+		}
+		var _gauge = new wijmo.gauge.LinearGauge("#gauge", {
+			value: 0
+		})
+		$(function () {
+			$("#btn").click(function () {
+			    convertExcelToJSON(_url + "/api/storage/DropBox/C1WebApi/ExcelToJsonTest/?subpath=files/excel.xlsx", {})
+				document.getElementById("fetcher").style.display = "block";
+				$(this).css("display", "none");
+			})
+
+		})
+		function convertExcelToJSON(cloudUrl, headers) {
+			var request = new XMLHttpRequest();
+			request.onloadstart = function (ev) {
+			    request.responseType = "blob";
+			}
+			request.onload = handleFile;
+			request.open("GET", cloudUrl);
+
+			for (var prop in headers) {
+				request.setRequestHeader(prop, headers[prop]);
+			}
+			request.send();
+		}
+		function handleFile(data) {
+			_updateSuccesser("Data Fetched from Cloud Storage! <br>", 25);
+			UploadBlob((this.response || data), generateGuid() + ".xlsx");
+		}
+		function UploadBlob(blob, fileName) {
+
+		    let excelFile = new Blob([blob], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
+		    excelFile.name = "excel.xlsx";
+		    excelFile.lastModifiedDate = new Date();
+			var formData = new FormData();
+			formData.append("FileName", "excel");
+			formData.append("type", "json");
+			formData.append("WorkbookFile", excelFile, 'excel.xlsx' );
+			$.ajax({
+				url: _url + "/api/excel",
+				type: 'POST',
+				data: formData,
+				cache: false,
+				contentType: false,
+				processData: false,
+				success: function (data, success, obj) {
+				}
+			}).then(function (j) {
+				_updateSuccesser("JSON data is fetched from Blob!<br>", 75);
+				var grid = new wijmo.grid.FlexGrid("#grid");
+				var wb = new wijmo.xlsx.Workbook();
+				wb.sheets.push(j.sheets[0]);
+				_updateSuccesser("JSON data converted to workbook!<br>", 95);
+				wijmo.grid.xlsx.FlexGridXlsxConverter.load(grid, wb, {});
+				document.getElementById("json").innerHTML = JSON.stringify(j);
+				document.getElementById("jsonContent").style.display = "block";
+				_updateSuccesser("Workbook loaded to FlexGrid!<br>", 100);
+				document.getElementById("status").innerHTML = "Data Fetched!";
+			});
+		}
+		function generateGuid() {
+			var result, i, j;
+			result = '';
+			for (j = 0; j < 32; j++) {
+				if (j == 8 || j == 12 || j == 16 || j == 20)
+					result = result + '-';
+				i = Math.floor(Math.random() * 16).toString(16).toUpperCase();
+				result = result + i;
+			}
+			return result;
+		}
+		function _updateSuccesser(content, value) {
+			_gauge.value = value;
+			document.getElementById("successer").innerHTML += content;
+		}
+	</script>

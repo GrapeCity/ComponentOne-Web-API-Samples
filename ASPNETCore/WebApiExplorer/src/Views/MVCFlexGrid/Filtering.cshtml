@@ -1,0 +1,38 @@
+﻿@{
+    GridExportImportOptions optionsModel = ViewBag.Options;
+    ViewBag.DemoSettings = true;
+}
+
+<script>
+    function exportControl() {
+        var exporter = new c1.mvc.ExcelExport(),
+                control = wijmo.Control.getControl("#flexgrid");
+        exporter.requestExport(control, serverUrl + "api/export/excel", {
+            fileName: document.getElementById("exportName").value,
+            type: wijmo.ExportFileType.Xlsx,
+            onlyCurrentPage: onlyCurrentPage
+        });
+    }
+</script>
+
+<c1-flex-grid id="@optionsModel.ControlId" auto-generate-columns="false" class="grid" is-read-only="true">
+    <c1-flex-grid-filter default-filter-type="Both"></c1-flex-grid-filter>
+    <c1-items-source read-action-url="@Url.Action("Filtering_Bind")"></c1-items-source>
+    <c1-flex-grid-column binding="ID" width="*"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Start"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="End"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Country"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Product"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Color"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Amount" format="c"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Amount2" format="c"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Discount" format="p0"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Active"></c1-flex-grid-column>
+</c1-flex-grid>
+
+@section Settings{
+    @await Html.PartialAsync("_FlexGridOptions", optionsModel)
+}
+@section Description{
+    @Html.Raw(MVCFlexGrid.Filtering_Text0)
+}

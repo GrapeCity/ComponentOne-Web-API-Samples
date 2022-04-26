@@ -11,7 +11,7 @@ namespace WebApi.Models
     {
         static PageTemplate()
         {
-            var templateFile = IsJPCulture ? "IntroPageTemplate.ja.html" : "IntroPageTemplate.html";
+            var templateFile = IsJpCulture ? "IntroPageTemplate.ja.html" : "IntroPageTemplate.html";
             PageTemplateFile = new C1FileInfo
             {
                 Directories = new List<string> { "Content" },
@@ -23,15 +23,11 @@ namespace WebApi.Models
 
         private static string _content;
 
-        internal static bool IsJPCulture
+        internal static bool IsJpCulture
         {
             get
             {
-#if NETCOREAPP1_0
-                var culture = System.Globalization.CultureInfo.CurrentCulture;
-#else
                 var culture = System.Threading.Thread.CurrentThread.CurrentCulture;
-#endif
                 return culture.TwoLetterISOLanguageName == "ja";
             }
         }

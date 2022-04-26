@@ -1,0 +1,76 @@
+@model WebApiExplorer.Models.ControlsClass.Function
+
+<div class="settings-panel-content">
+    <div style="float:left;width:100%">
+        <div style="float:left"><h4>@Html.Raw(Resources.Pdf.PdfExportGET_Parameters)</h4></div>
+        <div style="float:right">
+            <button style="margin-top:3px;padding: 4px;" class="btn btn-primary btn-pdf-export"
+                    onclick="pdfExport('@(System.Configuration.ConfigurationManager.AppSettings["WebAPIService"])');">
+                @Html.Raw(Resources.Pdf.PdfExportGET_Export)
+            </button>
+        </div>
+    </div>
+    <div>
+        <div class="settings-panel pdf-export">
+            <div class="param-item">
+                <label class="param-lable parameter"><b>@Html.Raw(Resources.Pdf.PdfExportGET_Parameter)</b></label>
+                <label class="param-lable value"><b>@Html.Raw(Resources.Pdf.PdfExportGET_Value)</b></label>
+                <label class="param-lable description"><b>@Html.Raw(Resources.Pdf.PdfExportGET_Description)</b></label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Resources.Pdf.PdfExportGET_PdfPath)</label>
+                <span class="param-value-group">
+                    <input type="text" readonly="readonly" name="pdfPath" class="param-value" value="PdfRoot/DefaultDocument.pdf" style="width:100%;margin-bottom:10px;" />
+                </span>
+                <label class="param-lable description">@Html.Raw(Resources.Pdf.PdfExportGET_PdfPathText)</label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Resources.Pdf.PdfExportGET_Format)</label>
+                <span class="param-value-group">
+                    <select name="exportFormat" class="param-value" style="width: 100%; margin-bottom: 10px;">
+                        <option value="html" selected="selected">HTML document</option>
+                        <option value="tiff">TIFF images</option>
+                        <option value="bmp">BMP images</option>
+                        <option value="png">PNG images</option>
+                        <option value="jpg">JPEG images</option>
+                        <option value="gif">GIF images</option>
+                    </select>
+                </span>
+                <label class="param-lable description">@Html.Raw(Resources.Pdf.PdfExportGET_FormatText)</label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Resources.Pdf.PdfExportGET_ExportOptions)</label>
+                <span class="param-value-group">
+                    <textarea name="exportOptions" class="param-value" style="width: 100%; height:100px;"></textarea>
+                </span>
+                <label class="param-lable description">@Html.Raw(Resources.Pdf.PdfExportGET_ExportOptionsText)</label>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="@(Model.FunctionName)result" class="content-panel-result">
+    <h4>@Html.Raw(Resources.Pdf.PdfExportGET_Headers)</h4>
+    <div id="@(Model.FunctionName)headers" class="content-panel-result-url">
+        <pre>
+        </pre>
+    </div>
+</div>
+
+<script>
+    var pdfPath = $(".pdf-export .param-value[name=pdfPath]").val();
+    var url = '@(System.Configuration.ConfigurationManager.AppSettings["WebAPIService"])';
+    var select = $('.pdf-export .param-value[name=exportFormat]').empty();
+    updatePdfExportFormats(pdfPath, url, select);
+
+    function pdfExport(url) {
+        var pdfPath = $(".pdf-export .param-value[name=pdfPath]").val();
+        var exportFormat = $(".pdf-export .param-value[name=exportFormat]").val();
+        var exportOptions = $(".pdf-export .param-value[name=exportOptions]").val();
+        var fullUrl = url + "api/pdf/" + pdfPath + "/$pdf/export?format=" + exportFormat + (exportOptions ? "&" + exportOptions : "");
+
+        $("#@(Model.FunctionName)headers pre").text("@(Resources.Pdf.PdfExportGET_RequestURL)" + fullUrl);
+        $("#@(Model.FunctionName)result").show();
+
+        window.open(fullUrl);
+    }
+</script>

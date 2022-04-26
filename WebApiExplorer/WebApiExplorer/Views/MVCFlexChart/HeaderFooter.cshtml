@@ -1,0 +1,22 @@
+@model IEnumerable<FruitSale>
+@{
+    ViewBag.DemoSettings = true;
+    ImageExportOptions optionsModel = ViewBag.Options;
+}
+
+@(Html.C1().FlexChart().Bind("Date", Model).Id(optionsModel.ControlId)
+.ChartType(C1.Web.Mvc.Chart.ChartType.LineSymbols)
+.Series(sers =>
+{
+    sers.Add("Sales").Binding("SalesInChina");
+})
+.Header(Resources.MVCFlexChart.HeaderFooter_Header).Footer(Resources.MVCFlexChart.HeaderFooter_Footer + DateTime.Now.Year).FooterStyle(hs => hs.Halign("right")))
+
+@section Settings{
+    @Html.Partial("_ImageExportOptions", optionsModel)
+}
+
+@section Description{
+    @Html.Raw(Resources.MVCFlexChart.HeaderFooter_Text0)
+}
+

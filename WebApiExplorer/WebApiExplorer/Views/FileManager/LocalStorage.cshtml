@@ -1,0 +1,21 @@
+﻿@section Styles{
+    <style>
+        .popover {
+            display: block;
+        }
+    </style>
+}
+
+@(Html.C1().FileManager().Id("FileManager")
+    .HostUrl(System.Configuration.ConfigurationManager.AppSettings["WebAPIService"])
+    .RootFolder("LocalDocuments")
+    .CloudType(CloudTypes.LocalStorage)
+)
+
+@section Summary{
+    <p>@Html.Raw(Resources.FileManager.Index_Text1)</p>
+}
+
+@section Description{
+    @Html.Raw(Resources.FileManager.Index_Text0)
+}

@@ -1,0 +1,27 @@
+﻿@{
+    ClientSettingsModel demoSettingsModel = ViewBag.DemoSettingsModel;
+    GridExportImportOptions optionsModel = ViewBag.Options;
+    ViewBag.DemoSettings = true;
+}
+
+<c1-flex-grid id="@optionsModel.ControlId" auto-generate-columns="false" class="grid" is-read-only="true" frozen-columns="1" frozen-rows="2">
+    <c1-items-source read-action-url="@Url.Action("FrozenCells_Bind")"></c1-items-source>
+    <c1-flex-grid-column binding="ID"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Start" format="MMM d yy"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="End" format="HH:mm"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Country"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Product"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Color"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Amount" format="c"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Amount2" format="c"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Discount" format="p0"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Active"></c1-flex-grid-column>
+</c1-flex-grid>
+
+@section Settings{
+    @await Html.PartialAsync("_FlexGridOptions", optionsModel)
+}
+
+@section Description{
+    @Html.Raw(MVCFlexGrid.FrozenCells_Text0)
+}

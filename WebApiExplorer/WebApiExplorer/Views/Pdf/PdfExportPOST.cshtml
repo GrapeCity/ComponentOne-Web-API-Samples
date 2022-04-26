@@ -1,0 +1,76 @@
+@model WebApiExplorer.Models.ControlsClass.Function
+
+<div class="settings-panel-content">
+    <div style="float:left;width:100%">
+        <div style="float:left"><h4>@Html.Raw(Resources.Pdf.PdfExportPOST_Parameters)</h4></div>
+        <div style="float:right">
+            <button style="margin-top:3px;padding: 4px;" class="btn btn-primary btn-pdf-export"
+                    onclick="pdfExportPost('@Model.FunctionName','@(System.Configuration.ConfigurationManager.AppSettings["WebAPIService"])');">
+                @Html.Raw(Resources.Pdf.PdfExportPOST_Export)
+            </button>
+        </div>
+    </div>
+    <div>
+        <div class="settings-panel pdf-export-post">
+            <div class="param-item">
+                <label class="param-lable parameter"><b>@Html.Raw(Resources.Pdf.PdfExportPOST_Parameter)</b></label>
+                <label class="param-lable value"><b>@Html.Raw(Resources.Pdf.PdfExportPOST_Value)</b></label>
+                <label class="param-lable description"><b>@Html.Raw(Resources.Pdf.PdfExportPOST_Description)</b></label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Resources.Pdf.PdfExportPOST_PdfPath)</label>
+                <span class="param-value-group">
+                    <input type="text" readonly="readonly" name="pdfPath" class="param-value" value="PdfRoot/DefaultDocument.pdf" style="width:100%;margin-bottom:10px;" />
+                </span>
+                <label class="param-lable description">@Html.Raw(Resources.Pdf.PdfExportPOST_PdfPathText)</label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Resources.Pdf.PdfExportPOST_Format)</label>
+                <span class="param-value-group">
+                    <select name="exportFormat" class="param-value" style="width: 100%; margin-bottom: 10px;">
+                        <option value="html" selected="selected">HTML document</option>
+                        <option value="tiff">TIFF images</option>
+                        <option value="bmp">BMP images</option>
+                        <option value="png">PNG images</option>
+                        <option value="jpg">JPEG images</option>
+                        <option value="gif">GIF images</option>
+                    </select>
+                </span>
+                <label class="param-lable description">@Html.Raw(Resources.Pdf.PdfExportPOST_FormatText)</label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Resources.Pdf.PdfExportPOST_ExportOptions)</label>
+                <span class="param-value-group">
+                    <textarea name="exportOptions" class="param-value" style="width: 100%; height:100px;"></textarea>
+                </span>
+                <label class="param-lable description">@Html.Raw(Resources.Pdf.PdfExportPOST_ExportOptionsText)</label>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="@(Model.FunctionName)result" class="content-panel-result">
+    <h4>@Html.Raw(Resources.Pdf.PdfExportPOST_Headers)</h4>
+    <div id="@(Model.FunctionName)headers" class="content-panel-result-url">
+        <pre>
+        </pre>
+    </div>
+</div>
+
+<script>
+    var pdfPath = $(".pdf-export-post .param-value[name=pdfPath]").val();
+    var url = '@(System.Configuration.ConfigurationManager.AppSettings["WebAPIService"])';
+    var select = $('.pdf-export-post .param-value[name=exportFormat]').empty();
+    updatePdfExportFormats(pdfPath, url, select);
+
+    function pdfExportPost(id, url) {
+        var pdfPath = $(".pdf-export-post .param-value[name=pdfPath]").val();
+        var exportFormat = $(".pdf-export-post .param-value[name=exportFormat]").val();
+        var exportOptions = $(".pdf-export-post .param-value[name=exportOptions]").val();
+        var fullUrl = url + "api/pdf/" + pdfPath + "/$pdf/export";
+
+        $("#@(Model.FunctionName)headers pre").text("@(Resources.Pdf.PdfExportPOST_RequestURL)" + fullUrl);
+        $("#@(Model.FunctionName)result").show();
+
+        formPostWithOptions(id, fullUrl, "format=" + exportFormat + (exportOptions ? "&" + exportOptions : ""));
+    }
+</script>

@@ -1,0 +1,121 @@
+@model WebApiExplorer.Models.GridExportImportOptions
+@{
+    var controllerName = ViewContext.Controller.ValueProvider.GetValue("controller").RawValue.ToString();
+    var isMVCControl = controllerName.StartsWith("MVC");
+    var exporter = isMVCControl ? "c1.mvc.grid.ExcelExporter" : "wijmo.grid.ExcelExporter";
+    var importer = "wijmo.grid.ExcelImporter";
+    var title = string.Empty;
+    if (Model.NeedExport)
+    {
+        title = Resources.Resource.FlexGridOptions_Export;
+    }
+    if (Model.NeedImport)
+    {
+        if (string.IsNullOrEmpty(title))
+        {
+            title = Resources.Resource.FlexGridOptions_Import;
+        }
+        else
+        {
+            title = Resources.Resource.FlexGridOptions_ExportImport;
+        }
+    }
+}
+
+<script>
+    var format = "Xlsx", onlyCurrentPage = @(Convert.ToString(Model.OnlyCurrentPage == true ? true : false).ToLower()),
+        includeColumnHeaders = @(Convert.ToString(Model.IncludeColumnHeaders == true ? true : false).ToLower()),
+        serverUrl = '@(System.Configuration.ConfigurationManager.AppSettings["WebAPIService"])';
+
+    function onlyCurrentPageChanged(arg) {
+        onlyCurrentPage = arg;
+        wijmo.Control.getControl("#onlyCurrentPageMenu").header = "@(Resources.Resource.FlexGridOptions_OnlyCurrentPage) <b>" + (arg ? "True" : "False") +"</b>";
+    }
+
+    function includeColumnHeadersChanged(arg) {
+        var headerText = arg ? "True" : "False";
+        includeColumnHeaders = arg;
+        wijmo.Control.getControl("#includeColumnHeadersMenu").header = "@(Resources.Resource.FlexGridOptions_IncludeColumnHeaders) <b>" + (arg ? "True" : "False") +"</b>";
+    }
+
+    function exportControl@(Model.ControlId)() {
+        var exporter = new @(exporter)(),
+            control = wijmo.Control.getControl("#@(Model.ControlId)");
+        exporter.requestExport(control, serverUrl + "api/export/excel", {
+            fileName: document.getElementById("exportName").value,
+            type: format,
+            onlyCurrentPage: onlyCurrentPage,
+            includeColumnHeaders: includeColumnHeaders
+        });
+    }
+
+    function importControl@(Model.ControlId)() {
+        var file = document.getElementById("fileinput").files[0],
+            exporter;
+        if (!file) {
+            return;
+        }
+        exporter = new @(importer)();
+        if (@isMVCControl.ToString().ToLower()) {
+            grid = wijmo.Control.getControl("#@(Model.ControlId)");
+    }
+
+    exporter.requestImport(grid, serverUrl + "api/import/excel", file, includeColumnHeaders);
+    };
+
+    function exportFormatChanged(arg) {
+        format = arg;
+        wijmo.Control.getControl("#exportFormat").header = "@(Resources.Resource.FlexGridOptions_ExportFormat) <b>" + arg.toUpperCase() + "</b>";
+    }
+</script>
+<div>
+
+</div>
+<br/>
+<div>
+    <div class="export-panel">
+        <div class="export-panel-title">
+            @title
+        </div>
+        <div class="export-panel-content">
+        @if (Model.OnlyCurrentPage != null)
+        {
+            @Html.C1().Menu().Id("onlyCurrentPageMenu").Header(Resources.Resource.FlexGridOptions_OnlyCurrentPage + " <b>" + (Model.OnlyCurrentPage == true ? "True" : "False") +"</b>").Command("onlyCurrentPageChanged").MenuItems(items =>
+            {
+                items.Add("True", true);
+                items.Add("False", false);
+            }
+            )
+        }
+        @if (Model.IncludeColumnHeaders != null)
+        { 
+            @Html.C1().Menu().Id("includeColumnHeadersMenu").Header(Resources.Resource.FlexGridOptions_IncludeColumnHeaders + " <b>" + (Model.IncludeColumnHeaders == true ? "True" : "False") +"</b>").Command("includeColumnHeadersChanged").MenuItems(items =>
+            {
+                items.Add("True", true);
+                items.Add("False", false);
+            }
+            )
+        }
+        @if(Model.NeedExport)
+        {
+            @Html.C1().Menu().Id("exportFormat").Header(Resources.Resource.FlexGridOptions_ExportFormat + " <b>XLSX</b>").Command("exportFormatChanged").MenuItems(items =>
+            {
+                items.Add("XLSX", "Xlsx");
+                items.Add("XLS", "Xls");
+                items.Add("CSV", "Csv");
+            }
+            )
+            <span>@Html.Raw(Resources.Resource.FlexGridOptions_ExportName) </span><input id="exportName" type="text" class ="input-control" value="export"/>
+            <button class="btn btn-primary" onclick="exportControl@(Model.ControlId)()">@Html.Raw(Resources.Resource.FlexGridOptions_ExportText)</button>
+        }
+        @if (Model.NeedExport && Model.NeedImport) {
+            @:&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
+        }
+        @if (Model.NeedImport)
+        {
+            <input type="file" id="fileinput" class="btn" style="height:auto;"/>
+            <button class="btn btn-primary" onclick="importControl@(Model.ControlId)()">@Html.Raw(Resources.Resource.FlexGridOptions_ImportText)</button>
+        }
+        </div>
+    </div>
+</div>

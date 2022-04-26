@@ -1,0 +1,41 @@
+﻿@{
+    GridExportImportOptions optionsModel = ViewBag.Options;
+    ViewBag.DemoSettings = true;
+}
+
+<script>
+    function itemFormatter(panel, r, c, cell) {
+
+        // validate CellType and if correct column
+        if (wijmo.grid.CellType.Cell === panel.cellType &&
+            'Amount' === panel.columns[c].binding) {
+
+            // get the cell's data
+            var cellData = panel.getCellData(r, c);
+
+            // set cell's foreground color
+            cell.style.color = getAmountColor(cellData);
+        }
+    }
+
+    // get the color used to display an amount
+    function getAmountColor(amount) {
+        return amount < 1500 ? 'red' : amount < 3000 ? 'black' : 'green';
+    }
+</script>
+
+<c1-flex-grid id="@optionsModel.ControlId" auto-generate-columns="false" class="grid" is-read-only="true" allow-resizing="None" item-formatter="itemFormatter">
+    <c1-items-source read-action-url="@Url.Action("ConditionalStyling_Bind")"></c1-items-source>
+    <c1-flex-grid-column binding="ID"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Country"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Product"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Amount" format="c" width="*" align="center"></c1-flex-grid-column>
+</c1-flex-grid>
+
+@section Settings{
+    @await Html.PartialAsync("_FlexGridOptions", optionsModel)
+}
+
+@section Description{
+    @Html.Raw(MVCFlexGrid.ConditionalStyling_Text0)
+}

@@ -1,0 +1,21 @@
+@using WebApiExplorer.Models
+@model IEnumerable<Sale>
+
+@{
+    GridExportImportOptions optionsModel = ViewBag.Options;
+    ViewBag.DemoSettings = true;
+}
+
+@(Html.C1().FlexGrid<Sale>().Id(optionsModel.ControlId)
+    .Bind(bl => bl.InitialItemsCount(100).Bind(Model))
+    .IsReadOnly(true)
+    .CssClass("grid")
+)
+
+@section Settings{
+    @Html.Partial("_FlexGridOptions", optionsModel)
+}
+
+@section Description{
+    <p>@Html.Raw(Resources.MVCFlexGrid.VirtualScrolling_Text0)</p>
+}

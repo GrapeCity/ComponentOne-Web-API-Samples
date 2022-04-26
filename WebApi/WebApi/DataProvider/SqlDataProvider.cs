@@ -1,7 +1,9 @@
 ﻿using C1.Web.Api.Data;
+using System;
 using System.Collections;
 using System.Collections.Specialized;
 using System.Data;
+using System.Data.SqlClient;
 using System.Data.SQLite;
 
 namespace WebApi

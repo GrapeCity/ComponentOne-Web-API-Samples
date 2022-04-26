@@ -1,0 +1,45 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+		<TargetFramework>net6.0-windows</TargetFramework>
+    <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
+    <DefineConstants>$(DefineConstants);NETCORE31</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DefineConstants>TRACE;NETCORE;NETCORE31</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DefineConstants>TRACE;NETCORE;NETCORE31</DefineConstants>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.WindowsDesktop.App" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="GCDTLicenses.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="C1.AspNetCore.Api" Version="3.0.20221.313" />
+    <PackageReference Include="C1.AspNetCore.Api.BarCode" Version="3.0.20221.313" />
+    <PackageReference Include="C1.AspNetCore.Api.Cloud" Version="3.0.20221.313" />
+    <PackageReference Include="C1.AspNetCore.Api.DataEngine" Version="3.0.20221.313" />
+    <PackageReference Include="C1.AspNetCore.Api.Document" Version="3.0.20221.313" />
+    <PackageReference Include="C1.AspNetCore.Api.Excel" Version="3.0.20221.313" />
+    <PackageReference Include="C1.AspNetCore.Api.Pdf" Version="3.0.20221.313" />
+    <PackageReference Include="C1.AspNetCore.Api.Visitor" Version="3.0.20221.313" />
+    <PackageReference Include="C1.AspNetCore.Api.Report" Version="3.0.20221.313" />
+    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.WebApiCompatShim" Version="2.2.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.12" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="5.0.5" />
+    <PackageReference Include="System.Data.SQLite" Version="1.0.114.4" />
+  </ItemGroup>
+
+</Project>

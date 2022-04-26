@@ -32,9 +32,8 @@ namespace WebApi.Controllers
         {
             var c1APIIntroduction = new C1APIIntroduction();
             c1APIIntroduction.Name = "Barcode";
-            c1APIIntroduction.Abstract = "Barcode";
-            c1APIIntroduction.Abstract = "<p>" + Localization.Resource.Barcode_Text1 + "</p>"
-                + "<p>" + Localization.Resource.Barcode_Text2 + "</p>";
+            c1APIIntroduction.Abstract = "<p>"+ Resources.Resource.Barcode_Text1 + "</p>"
+                + "<p>" + Resources.Resource.Barcode_Text2 + "</p>";
             return c1APIIntroduction;
         }
     }

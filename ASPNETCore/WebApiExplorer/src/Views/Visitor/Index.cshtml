@@ -1,0 +1,149 @@
+﻿@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+
+@{
+  ViewBag.DemoDescription = false;
+  var Resources = @Html.Raw(Json.Serialize(ViewBag.Resources));
+}
+
+<script src="@(Configuration["WebAPIService"])api/visitor/visitor-client.min.js"></script>
+
+<style>
+  #visualize-container {
+    line-height: 30px;
+  }
+
+    #visualize-container li {
+      padding-left: 20px;
+      list-style-type: square;
+      list-style-position: inside;
+    }
+
+  .grid-col {
+    flex: 1 0 25%;
+    max-width: 25%;
+    word-break: break-all;
+  }
+</style>
+
+<h4>
+  @Html.Raw(Visitor.Txt_Overview)
+</h4>
+<div id="visualize-container"></div>
+<p id="license-info"></p>
+
+
+@section Summary{
+  @Html.Raw(Visitor.Description)
+}
+
+
+
+<script>
+  var resources = @Resources;
+  var browsingTimeIntervalID;
+
+  if (!String.prototype.format) {
+    String.prototype.format = function () {
+      var args = arguments;
+      return this.replace(/{(\d+)}/g, function (match, number) {
+        return typeof args[number] != 'undefined'
+          ? args[number]
+          : match
+          ;
+      });
+    };
+  }
+
+  function getWelcomeMessage(visitor) {
+    if (!visitor || !visitor.firstSession) return "";
+    let isFirstEnter = visitor.firstSession.visits == 1;
+    if (isFirstEnter) {
+      return resources.welcome_message;
+    } else {
+       return resources.visits_time.format(visitor.firstSession.visits);
+    }
+  }
+  function getIPAddressMessage(visitor) {
+    return "{0} {1}.".format(resources.ip_address, visitor.ip.address);
+  }
+  function getLocationMessage(visitor) {
+    return visitor.geo.countryName ? resources.location_info.format(visitor.geo.cityName + " " + visitor.geo.countryName) : resources.no_location_found;
+  }
+
+  function getDeviceMessage(visitor) {
+    return resources.device_info.format(visitor.browser.name, visitor.browser.version, visitor.os.name, visitor.os.version, visitor.os.platform);
+  }
+
+  function getFistVisitMessage(visitor) {
+    return resources.landed_time.format(timeAgo(new Date(visitor.firstSession.start))) + ((visitor.firstSession.visits == 1) ? "" : (" " + resources.last_visit.format(timeAgo(new Date(visitor.firstSession.prev_visit)))));
+  }
+
+  function getCurrentSessionTime(visitor) {
+    return resources.browsing_time;
+  }
+
+  function timeAgo(fromDate, toDate) {
+    if (!fromDate) return;
+    var minutesDiff = Math.floor(((toDate ? toDate.getTime() : Date.now()) - fromDate.getTime()) / (60*1000));
+    var hoursDiff = Math.floor(minutesDiff / 60);
+    var daysDiff = Math.floor(minutesDiff / (60 * 24));
+    var monthsDiff = Math.floor(minutesDiff / (60 * 24 * 30));
+    var yearsDiff = Math.floor(minutesDiff / (60 * 24 * 30 * 12));
+    var displayTemplate = "{0} {1}";
+    if (yearsDiff >= 1) return displayTemplate.format(yearsDiff, resources.time_years_ago);
+    if (monthsDiff >= 1) return displayTemplate.format(monthsDiff, resources.time_months_ago );
+    if (daysDiff >= 1) return displayTemplate.format(daysDiff, resources.time_days_ago );
+    if (hoursDiff >= 1) return displayTemplate.format(hoursDiff, resources.time_hours_ago );
+    if (minutesDiff >= 1) return displayTemplate.format(minutesDiff, resources.time_minutes_ago );
+    return resources.time_just_now;
+  }
+
+  function render(visitor) {
+    var content = "";
+    content += "<h3>{0}</h3>".format(getWelcomeMessage(visitor));
+    content += "<p>{0}</p>".format(resources.visitor_shown);
+    content += "<ul>";
+    content += "<li>{0}</li>".format(getIPAddressMessage(visitor));
+    content += "<li>{0}</li>".format(getLocationMessage(visitor));
+    content += "<li>{0}</li>".format(getDeviceMessage(visitor));
+    content += "<li>{0}</li>".format(getFistVisitMessage(visitor));
+    content += "<li>{0} <span id=\"browsing_time\"></span></li>".format(getCurrentSessionTime(visitor));
+    content += "<li><a href=\"/Visitor/AvailableVariables\">{0} ..</a></li>".format(resources.txt_much_more);
+    content += "</ul>";
+
+    document.getElementById("visualize-container").innerHTML = content;
+
+    if (visitor) {
+      browsingTimeIntervalID = setInterval(function () {
+        var browsingTimeEle = document.getElementById("browsing_time");
+        if (visitor && browsingTimeEle) {
+          browsingTimeEle.innerText = Math.floor((Date.now() - new Date(visitor.session.start).getTime()) / 1000) + " s";
+        } else {
+          clearInterval(browsingTimeIntervalID);
+        }
+      }, 1000);
+    };
+    renderIp2LocationLicensing();
+  }
+
+  function isIp2Location() {
+    if (!c1.webapi.VisitorConfig || !c1.webapi.VisitorConfig.SERVER_DATA) return false;
+    var visitorData = c1.webapi.VisitorConfig.SERVER_DATA;
+    if (visitorData) {
+      return visitorData.locationProviderType == 1;
+    }
+    return false;
+  }
+
+  function renderIp2LocationLicensing() {
+    if (!isIp2Location()) return;
+    var ele = document.getElementById("license-info");
+    if (ele) {
+      ele.innerHTML = "<small>This product includes IP2Location LITE data available from <a href=\"https://www.ip2location.com\">https://www.ip2location.com</a> </small>";
+    }
+  }
+  window.visitor.getDataAsync(function (data) {
+    render(data);
+  });
+</script>

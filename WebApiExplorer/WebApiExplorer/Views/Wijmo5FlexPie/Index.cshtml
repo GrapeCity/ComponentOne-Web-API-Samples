@@ -1,0 +1,49 @@
+@using WebApiExplorer.Models
+@{
+    ClientSettingsModel settings = ViewBag.DemoSettingsModel;
+    ImageExportOptions optionsModel = ViewBag.Options;
+    ViewBag.DemoSettings = true;
+}
+
+<div id="@(optionsModel.ControlId)" ></div>
+@section Settings{
+    @Html.Partial("_ImageExportOptions", optionsModel)
+}
+<script>
+    var chart = new wijmo.chart.FlexPie('#@(optionsModel.ControlId)');
+
+    chart.beginUpdate();
+    chart.binding = 'value';
+    chart.bindingName = 'name';
+    chart.itemsSource = getData();
+    chart.innerRadius = 0;
+    chart.offset = 0;
+    chart.startAngle = 0;
+    chart.reversed = false;
+    chart.palette = wijmo.chart.Palettes["standard"];
+    chart.dataLabel.content = "{value}";
+    chart.dataLabel.position = "None";
+    chart.endUpdate();
+
+    function getData() {
+        var data = [],
+            names = ['Oranges', 'Apples', 'Pears', 'Bananas', 'Pineapples'];
+
+        // populate itemsSource
+        for (var i = 0; i < names.length; i++) {
+            data.push({
+                name: names[i],
+                value: Math.round(Math.random() * 100)
+            });
+        }
+        return data;
+    }
+
+    function convertPalette(value) {
+        return wijmo.chart.Palettes[value];
+    }
+</script>
+
+@section Description{
+    @Html.Raw(Resources.Wijmo5FlexPie.Index_Text0)
+}

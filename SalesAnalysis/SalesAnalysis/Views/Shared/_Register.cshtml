@@ -1,0 +1,20 @@
+﻿@model RegisterBindingModel
+@using (Html.BeginForm())
+{
+@Html.LabelFor(m => m.Email)
+@Html.EditorFor(m => m.Email, new { htmlAttributes = new { @class = "form-control" }})
+@Html.ValidationMessageFor(m => m.Email, null, new { @class= "text-danger" }, "div")
+
+@Html.LabelFor(m => m.Password)
+@Html.EditorFor(m => m.Password, new { htmlAttributes = new { @class = "form-control" } })
+@Html.ValidationMessageFor(m => m.Password, null, new { @class = "text-danger" }, "div")
+
+@Html.LabelFor(m => m.ConfirmPassword)
+@Html.EditorFor(m => m.ConfirmPassword, new { htmlAttributes = new { @class = "form-control" } })
+@Html.ValidationMessageFor(m => m.ConfirmPassword, null, new { @class = "text-danger" }, "div")
+
+@Html.LabelFor(m => m.Role)
+@Html.DropDownListFor(m=>m.Role, Model.Roles.Select(r=>new SelectListItem { Text=r, Value = r}), new { @class = "form-control" })
+<br />
+<input type="button" value="@Html.Raw(Resources.Resource.Index_Register)" onclick="registerEx()" class="form-control" />
+}

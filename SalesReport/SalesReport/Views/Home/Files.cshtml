@@ -1,0 +1,12 @@
+﻿<div class="toolbar">
+    <button id="upBtn" class="btn" onclick="folderUp()"><span class="glyphicon glyphicon-arrow-up"></span><span>@Html.Raw(Resources.Resource.Files_UpFolder)</span></button>
+    <button id="refreshBtn" class="btn" onclick="folderRefresh()"><span class="glyphicon glyphicon-refresh"></span><span>@Html.Raw(Resources.Resource.Files_Refresh)</span></button>
+    <span class="address">
+        <span class="glyphicon glyphicon-folder-open"></span>
+        <span>@Html.Raw(Resources.Resource.Files_Folder)</span>
+        <span id="folder"></span>
+    </span>
+</div>
+<div id="catalogItems" class="catalog-items">
+</div>
+@section scripts{<script src="~/Scripts/files.js"></script>}

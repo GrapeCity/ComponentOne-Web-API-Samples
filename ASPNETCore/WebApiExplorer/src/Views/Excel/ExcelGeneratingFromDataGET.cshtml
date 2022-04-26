@@ -1,0 +1,160 @@
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+
+<div class="settings-panel-content">
+    <div style="float:left;width:100%">
+        <div style="float:left"><h4>@Html.Raw(Excel.ExcelGeneratingFromDataGET_Parameters)</h4></div>
+        <div style="float:right">
+            <button style="margin-top:3px;padding: 4px;" class="btn btn-primary"
+                    onclick="generateExcelGet_@(Model.FunctionName)('@Model.FunctionName', '@(Configuration["WebAPIService"] + Model.FunctionUrl.Substring(1))');">
+                @Html.Raw(Excel.ExcelGeneratingFromDataGET_GenerateExcel)
+            </button>
+        </div>
+    </div>
+    <div>
+        <div class="settings-panel">
+            <div class="param-item">
+                <label class="param-lable parameter"><b>@Html.Raw(Excel.ExcelGeneratingFromDataGET_Parameter)</b></label>
+                <label class="param-lable value"><b>@Html.Raw(Excel.ExcelGeneratingFromDataGET_Value)</b></label>
+                <label class="param-lable description"><b>@Html.Raw(Excel.ExcelGeneratingFromDataGET_Description)</b></label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Excel.ExcelGeneratingFromDataGET_FileName)</label>
+                <input class="param-value value" type="text" name="FileName" value="excel" />
+                <label class="param-lable description">@Html.Raw(Excel.ExcelGeneratingFromDataGET_FileNameDesc)</label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Excel.ExcelGeneratingFromDataGET_TemplateFileName)</label>
+                <select class="param-value value" name="TemplateFileName" onchange="bindingDataTableSource(this);">
+                    <option value=""></option>
+                    <option value="ExcelRoot\Templates\SalesTemplate.xlsx">SalesTemplate.xlsx</option>
+                    <option value="ExcelRoot\Templates\OrdersTemplate.xlsx">OrdersTemplate.xlsx</option>
+                    <option value="ExcelRoot\Templates\ProductsTemplate.xlsx">ProductsTemplate.xlsx</option>
+                    <option value="ExcelRoot\Templates\ShippersTemplate.xlsx">ShippersTemplate.xlsx</option>
+                </select>
+                <label class="param-lable description">@Html.Raw(Excel.ExcelGeneratingFromDataGET_TemplateFileNameText)</label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Excel.ExcelGeneratingFromDataGET_Type)</label>
+                <select class="param-value value" name="type">
+                    <option value="json">json</option>
+                    <option selected="selected" value="xlsx">xlsx</option>
+                    <option value="csv">csv</option>
+                    <option value="xml">xml</option>
+                </select>
+                <label class="param-lable description">@Html.Raw(Excel.ExcelGeneratingFromDataGET_TypeText)</label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Excel.ExcelGeneratingFromDataGET_DataName)</label>
+                <select class="param-value value" onchange="dataNameChanged(this)" id="dataname">
+                    <option value="none" selected="selected">@Html.Raw(Excel.ExcelGeneratingFromDataGET_DataName_None)</option>
+                    <optgroup label="@Html.Raw(Excel.ExcelGeneratingFromDataGET_DataName_DataCollection)" id="optgroup-DataCollection">
+                        <option value="Sales" dataname="Sales" tablename="Sales" id="optgroup-DataCollection-Sales">Sales</option>
+                        <option value="Orders" dataname="Orders" tablename="Orders" id="optgroup-DataCollection-Orders">Orders</option>
+                    </optgroup>
+                    <optgroup label="@Html.Raw(Excel.ExcelGeneratingFromDataGET_DataName_TableFromNwindDatabase)" id="optgroup-TableFromNwindDatabase">
+                        <option value="Products" dataname="Nwind" tablename="Products" id="optgroup-TableFromNwindDatabase-Products">Products</option>
+                        <option value="Shippers" dataname="Nwind" tablename="Shippers" id="optgroup-TableFromNwindDatabase-Shippers">Shippers</option>
+                    </optgroup>
+                </select>
+                <input type="hidden" name="dataname" class="param-value" />
+                <input type="hidden" name="tablename" class="param-value" />
+                <label class="param-lable description">
+                    @Html.Raw(Excel.ExcelGeneratingFromDataGET_DataNameText)
+                </label>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="@(Model.FunctionName)result" class="content-panel-result content-panel-result-grid">
+    <h4>@Html.Raw(Excel.ExcelGeneratingFromDataGET_RequestUrl)</h4>
+    <div id="@(Model.FunctionName)url" class="content-panel-result-url">
+        <pre>
+        </pre>
+    </div>
+    <h4 class="content-json-data">@Html.Raw(Excel.ExcelGeneratingFromDataGET_ShowJsonDataByFlexGrid)</h4>
+    <div id="@(Model.FunctionName)showdata" class="result-content-data">
+    </div>
+    <h4 class="content-json-xml">@Html.Raw(Excel.ExcelGeneratingFromDataGET_ShowXMLData)</h4>
+    <pre class="result-content-xml">
+    </pre>
+</div>
+
+<script>
+
+    function generateExcelGet_@(Model.FunctionName)(id, url) {
+        includeColumnHeaders = true;
+        var fullUrl = showResult(id, url);
+        formGet(id, fullUrl);
+    }
+
+    function dataNameChanged(select) {
+        var selectedOption = select.querySelector("option:checked");
+
+        var tableNameInput = document.querySelector('[name=tablename]');
+        tableNameInput.value = selectedOption.getAttribute('tablename');
+
+        var dataNameInput = document.querySelector('[name=dataname]');
+        dataNameInput.value = selectedOption.getAttribute('dataname');
+    }
+
+    var dataSource = {
+        'SalesTemplate.xlsx': {'optgroup-DataCollection':['optgroup-DataCollection-Sales'] } ,
+        'OrdersTemplate.xlsx': {'optgroup-DataCollection':['optgroup-DataCollection-Orders'] },
+        'ProductsTemplate.xlsx': { 'optgroup-TableFromNwindDatabase': ['optgroup-TableFromNwindDatabase-Products']},
+        'ShippersTemplate.xlsx': { 'optgroup-TableFromNwindDatabase':['optgroup-TableFromNwindDatabase-Shippers']}
+    }
+
+    function bindingDataTableSource(select) {
+
+        var templateName =select.options[select.selectedIndex].text;
+
+        hideAllDataSource();
+
+        if (!templateName) {
+            showAllDataSource();
+
+        } else {
+            showDataSource(function (element) { element.style.display = ''; }, templateName);
+            var group = dataSource[templateName];
+            for (var key in group) {
+
+                var selectedText = document.getElementById(dataSource[templateName][key][0]).text;
+
+                var dataNameElement = document.getElementById('dataname');
+                dataNameElement.value = selectedText;
+                dataNameChanged(dataNameElement);
+                break;
+            }
+        }
+
+        function showDataSource(setter, template) {
+
+            var sourceGroup = dataSource[template];
+
+            for (var group in sourceGroup) {
+
+                setter(document.getElementById(group));
+
+                var sourceList = sourceGroup[group];
+                for (var i = 0; i < sourceList.length; i++) {
+                    setter(document.getElementById(sourceList[i]));
+                }
+            }
+        }
+
+        function showAllDataSource() {
+            scanDataSource(function (element) { element.style.display = '' });
+        }
+
+        function hideAllDataSource() {
+            scanDataSource(function (element) { element.style.display = 'none' });
+        }
+
+        function scanDataSource(setter) {
+            for (var key in dataSource) {
+                showDataSource(setter, key);
+            }
+        }
+    }
+</script>

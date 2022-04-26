@@ -1,0 +1,46 @@
+@using WebApiExplorer.Models
+@{
+    GridExportImportOptions optionsModel = ViewBag.Options;
+    ViewBag.DemoSettings = true;
+}
+
+<div id="@(optionsModel.ControlId)" style="height:300px"></div>
+
+@section Settings{
+    @Html.Partial("_FlexGridOptions", optionsModel)
+}
+<script>
+    var grid = new wijmo.grid.FlexGrid('#@(optionsModel.ControlId)');
+    grid.initialize({
+        autoGenerateColumns: false,
+        columns: [
+            { header: 'Id', binding: 'id' },
+            { header: 'Date', binding: 'date', format: 'MMM/dd/yyyy' },
+            { header: 'Country', binding: 'country' },
+            { header: 'Sales', binding: 'sales', width: '*' }
+        ],
+        itemsSource: getGridData(100),
+        allowResizing: 'None'
+    });
+    grid.itemFormatter = function (panel, r, c, cell) {
+
+        // validate CellType and if correct column
+        if (wijmo.grid.CellType.Cell === panel.cellType &&
+            'sales' === panel.columns[c].binding) {
+
+            // get the cell's data
+            var cellData = panel.getCellData(r, c);
+
+            // set cell's foreground color
+            cell.style.color = getAmountColor(cellData);
+        }
+    };
+
+    // get the color used to display an amount
+    function getAmountColor(amount) {
+        return amount < 3000 ? 'red' : amount < 6000 ? 'black' : 'green';
+    }
+</script>
+@section Description{
+    @Html.Raw(Resources.Wijmo5FlexGrid.ConditionalStyling_Text0)
+}

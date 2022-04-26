@@ -1,0 +1,27 @@
+﻿@{
+    var controllerName = ViewContext.RouteData.Values["controller"].ToString();
+    var actionName = ViewContext.RouteData.Values["action"].ToString();
+
+    ControlPageGroup group = ControlsClass.GetControlPageGroup(controllerName);
+    IEnumerable<ControlPage> pages = group.Pages;
+    ViewBag.CurrentPageIndex = group.GetSelectedPageIndex(actionName);
+
+    foreach (var page in pages)
+    {
+        page.Path = Url.Action(page.Name, controllerName).ToString();
+    }
+}
+
+<script id="navTemplate" type="text/template">
+    <a href="{{Path}}">
+        <span>{{Text}}</span>
+        <span class="right-icon"></span>
+    </a>
+</script>
+
+<h4 class="semi-bold wide-screen">@Html.Raw(Resource.ControlsNav_Features)</h4>
+
+<c1-list-box id="controlNav" class="page-nav wide-screen" selected-index="@ViewBag.CurrentPageIndex">
+    <c1-items-source source-collection="@pages"></c1-items-source>
+    <c1-input-item-template id="navTemplate"></c1-input-item-template>
+</c1-list-box>

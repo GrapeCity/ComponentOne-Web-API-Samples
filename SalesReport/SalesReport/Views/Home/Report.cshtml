@@ -1,0 +1,15 @@
+﻿@{
+    var path = Request.QueryString["path"];
+    var parts = path.Split('/');
+    var reportName = parts[parts.Length - 1];
+    var reportPath = string.Join("/", parts.Take(parts.Length - 1));
+    var folerPath = string.Join("/", parts.Take(parts.Length - 2));
+}
+<div class="main-content">
+    <a href="@Url.Action("Files", new { folder = folerPath })" class="btn">
+        <span class="glyphicon glyphicon-arrow-left"></span>
+        <span>@Html.Raw(Resources.Resource.Report_BackToFolder)</span>
+    </a>
+    <span>@path</span>
+</div>
+@(Html.C1().ReportViewer().Id("reportViewer").Width("auto").Height("800px").ReportName(reportName).FilePath(reportPath))

@@ -1,0 +1,48 @@
+@using WebApiExplorer.Models
+@using C1.Web.Mvc.Grid
+@model IEnumerable<Sale>
+@{
+    GridExportImportOptions optionsModel = ViewBag.Options;
+    ViewBag.DemoSettings = true;
+}
+
+<script>
+
+    function exportControl() {
+        var exporter = new c1.mvc.ExcelExport(),
+                control = wijmo.Control.getControl("#flexgrid");
+        exporter.requestExport(control, serverUrl + "api/export/excel", {
+            fileName: document.getElementById("exportName").value,
+            type: wijmo.ExportFileType.Xlsx,
+            onlyCurrentPage: onlyCurrentPage
+        });
+    }
+</script>
+@(Html.C1().FlexGrid<Sale>()
+    .Id(optionsModel.ControlId)
+    .AutoGenerateColumns(false)
+    .Bind(Model)
+    .CssClass("grid")
+    .IsReadOnly(true)
+    .Columns(bl =>
+    {
+        bl.Add(cb => cb.Binding("ID").Width("*"));
+        bl.Add(cb => cb.Binding("Start"));
+        bl.Add(cb => cb.Binding("End"));
+        bl.Add(cb => cb.Binding("Country"));
+        bl.Add(cb => cb.Binding("Product"));
+        bl.Add(cb => cb.Binding("Color"));
+        bl.Add(cb => cb.Binding("Amount").Format("c"));
+        bl.Add(cb => cb.Binding("Amount2").Format("c"));
+        bl.Add(cb => cb.Binding("Discount").Format("p0"));
+        bl.Add(cb => cb.Binding("Active"));
+    })
+    .Filterable(f => f.DefaultFilterType(FilterType.Both))
+)
+
+@section Settings{
+    @Html.Partial("_FlexGridOptions", optionsModel)
+}
+@section Description{
+    @Html.Raw(Resources.MVCFlexGrid.Filtering_Text0)
+}

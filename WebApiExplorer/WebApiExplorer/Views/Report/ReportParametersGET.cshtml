@@ -1,0 +1,87 @@
+@model WebApiExplorer.Models.ControlsClass.Function
+
+<div class="settings-panel-content">
+    <div style="float:left;width:100%">
+        <div style="float:left"><h4>@Html.Raw(Resources.Report.ReportParametersGET_Parameters)</h4></div>
+        <div style="float:right">
+            <button style="margin-top:3px;padding: 4px;" class="btn btn-primary btn-report-parameters" disabled="disabled"
+                    onclick="reportGetParameters('@Model.FunctionName', '@(System.Configuration.ConfigurationManager.AppSettings["WebAPIService"])');">
+                @Html.Raw(Resources.Report.ReportParametersGET_GetParameters)
+            </button>
+        </div>
+    </div>
+    <div>
+        <div class="settings-panel report-parameters">
+            <div class="param-item">
+                <label class="param-lable parameter"><b>@Html.Raw(Resources.Report.ReportParametersGET_Parameter)</b></label>
+                <label class="param-lable value"><b>@Html.Raw(Resources.Report.ReportParametersGET_Value)</b></label>
+                <label class="param-lable description"><b>@Html.Raw(Resources.Report.ReportParametersGET_Description)</b></label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Resources.Report.ReportParametersGET_FolderPath)</label>
+                <span class="param-value-group">
+                    <select name="folderPath" class="param-value" onchange="parameters_FolderPathChange($(this).val())" style=" width: 100%; margin-bottom: 10px;">
+                        <option value="none" selected="selected">@Html.Raw(Resources.Report.ReportParametersGET_FolderPath_None)</option>
+                        <option value="ReportsRoot/FlexCommonTasks/FlexCommonTasks.flxr">FlexCommonTasks.flxr</option>
+                        <option value="c1ssrs/AdventureWorks">AdventureWorks (SSRS)</option>
+                    </select>
+                </span>
+                <label class="param-lable description">@Html.Raw(Resources.Report.ReportParametersGET_FolderPathText)</label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Resources.Report.ReportParametersGET_ReportName)</label>
+                <span class="param-value-group">
+                    <select name="reportName" class="param-value" style="width: 100%; margin-bottom: 10px;">
+                    </select>
+                </span>
+                <label class="param-lable description">@Html.Raw(Resources.Report.ReportParametersGET_ReportNameText)</label>
+            </div>
+       </div>
+    </div>
+</div>
+<div id="@(Model.FunctionName)result" class="content-panel-result">
+    <h4>@Html.Raw(Resources.Report.ReportParametersGET_Headers)</h4>
+    <div id="@(Model.FunctionName)headers" class="content-panel-result-url">
+        <pre>
+        </pre>
+    </div>
+    <h4 class="content-json-data">@Html.Raw(Resources.Report.ReportParametersGET_ResponseData)</h4>
+    <div id="@(Model.FunctionName)showdata" class="result-content-data" style="height:auto">
+        <pre style="max-height:200px">
+        </pre>
+    </div>
+</div>
+
+<script>
+    function reportGetParameters(id, url) {
+        var folderPath = $(".report-parameters .param-value[name=folderPath]").val();
+        var reportName = $(".report-parameters .param-value[name=reportName]").val();
+        var fullUrl = url + "api/report/" + folderPath + "/" + reportName + "/$report/parameters";
+
+        $("#@(Model.FunctionName)headers pre").text("@(Resources.Report.ReportParametersGET_RequestURL)" + fullUrl);
+        $("#@(Model.FunctionName)result").show();
+
+        $.ajax({
+            type: "GET",
+            url: fullUrl,
+            cache: false,
+            success: function (data) {
+                $("#@(Model.FunctionName)showdata pre").text(JSON.stringify(data, null, 4));
+                $(".content-json-data").show();
+            },
+            complete: function (xhr, status) {
+                $("#@(Model.FunctionName)headers pre").append("\r\n@(Resources.Report.ReportParametersGET_StatusCode)" + xhr.status);
+            }
+        });
+    }
+
+    function parameters_FolderPathChange(folderPath) {
+        var url = '@(System.Configuration.ConfigurationManager.AppSettings["WebAPIService"])';
+        var select = $('.report-parameters .param-value[name=reportName]').empty();
+        $("button.btn-report-parameters").attr("disabled", folderPath === "none");
+
+        if (folderPath !== "none") {
+            updateReportNames(folderPath, url, select);
+        }
+    }
+</script>

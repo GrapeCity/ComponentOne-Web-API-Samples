@@ -1,0 +1,45 @@
+@{
+    ClientSettingsModel settings = ViewBag.DemoSettingsModel;
+    ImageExportOptions optionsModel = ViewBag.Options;
+    ViewBag.DemoSettings = true;
+}
+
+<div id="@(optionsModel.ControlId)"></div>
+
+<script>
+    // create controls
+    var chart = new wijmo.chart.radar.FlexRadar('#@(optionsModel.ControlId)');
+    // initialize FlexRadar's properties
+    chart.initialize({
+        itemsSource: getFlexRadarData(),
+        bindingX: 'country',
+        chartType: wijmo.chart.radar.RadarChartType.Column,
+        series: [
+            { name: 'Sales', binding: 'sales' },
+            { name: 'Downloads', binding: 'downloads' }
+        ]
+    });
+
+    function getFlexRadarData() {
+        var data = [],
+            countries = 'US,Germany,UK,Japan,Italy,Greece'.split(',');
+
+        // populate itemsSource
+        for (var i = 0; i < countries.length; i++) {
+            data.push({
+                country: countries[i],
+                downloads: Math.ceil(Math.random() * 80) + 20,
+                sales: Math.ceil(Math.random() * 80) + 20
+            });
+        }
+        return data;
+    }
+</script>
+
+@section Settings{
+    @Html.Partial("_ImageExportOptions", optionsModel)
+}
+
+@section Description{
+    @Html.Raw(Resources.Wijmo5FlexRadar.Index_Text0)
+}

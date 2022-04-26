@@ -1,0 +1,28 @@
+﻿@section scripts{
+    <script>
+        var serviceRoot = '@Url.Content("~/api/dataengine/")';
+    </script>
+    <script src="~/Scripts/analysis.js"></script>
+}
+
+@{ 
+    var tables = (IEnumerable<string>)ViewBag.Tables;
+}
+
+@Html.C1().PivotEngine().Id("engine")
+<div class="col-sm-4 col-md-4">
+    <h4>Tables:</h4>
+    @Html.C1().ListBox().Bind(tables).Id("tableList").Width("100%")
+    <h4>Fields:</h4>
+    @Html.C1().PivotPanel().ItemsSourceId("engine")
+</div>
+<div class="col-sm-8 col-md-8">
+    <ul class="nav nav-tabs">
+        <li class="active"><a data-toggle="tab" href="#grid">@Html.Raw(Resources.Resource.Analysis_PivotGrid)</a></li>
+        <li><a data-toggle="tab" href="#chart">@Html.Raw(Resources.Resource.Analysis_PivotChart)</a></li>
+    </ul>
+    <div class="tab-content">
+        @Html.C1().PivotGrid().Id("grid").ItemsSourceId("engine").CssClass("tab-pane fade in active").Height(500)
+        @Html.C1().PivotChart().Id("chart").ItemsSourceId("engine").CssClass("tab-pane fade")
+    </div>
+</div>

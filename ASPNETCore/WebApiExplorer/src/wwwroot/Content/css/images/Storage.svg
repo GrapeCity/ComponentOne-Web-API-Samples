@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22">
+  <g id="Storage" transform="translate(-1.1 -1)">
+    <g id="Group_10" data-name="Group 10">
+      <path id="Path_19" data-name="Path 19" d="M8.1,13v9h1v1h1V22h4v1h1V22h1V9h-8Zm7.11,8H8.99V18h6.22v3Zm0-4H8.99V14h6.22v3Zm0-7v3H8.99V10Z" fill="#07ccff"/>
+      <path id="Path_20" data-name="Path 20" d="M20,9.11A6.737,6.737,0,0,0,20.1,8,7,7,0,0,0,6.39,6.01,5.5,5.5,0,0,0,6.6,17V16a4.5,4.5,0,0,1-.17-8.99l.72-.03.2-.69A6,6,0,0,1,19.1,8a6.756,6.756,0,0,1-.08.95l-.15.92.91.21a3,3,0,1,1-2.18,5.51V16.7a3.936,3.936,0,0,0,1.5.3A4,4,0,0,0,20,9.11Z" fill="#07ccff"/>
+      <circle id="Ellipse_5" data-name="Ellipse 5" cx="0.5" cy="0.5" r="0.5" transform="translate(13.6 11)" fill="#07ccff"/>
+      <circle id="Ellipse_6" data-name="Ellipse 6" cx="0.5" cy="0.5" r="0.5" transform="translate(13.6 15)" fill="#07ccff"/>
+      <circle id="Ellipse_7" data-name="Ellipse 7" cx="0.5" cy="0.5" r="0.5" transform="translate(13.6 19)" fill="#07ccff"/>
+    </g>
+  </g>
+</svg>

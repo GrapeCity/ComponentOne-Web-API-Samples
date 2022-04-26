@@ -1,0 +1,28 @@
+@model List<FinanceData>
+@{
+    ViewBag.DemoSettings = true;
+    ClientSettingsModel demoSettingsModel = ViewBag.DemoSettingsModel;
+    ImageExportOptions optionsModel = ViewBag.Options;
+}
+<script type="text/javascript">
+    var tooltipContent = function (ht) {
+        var item = ht.series.collectionView.items[ht.pointIndex];
+        return '@Resources.MVCFlexChart.FinancialChart_Date' + wijmo.Globalize.format(ht.x, 'MMM-dd') + '<br/>' +
+                    '@Resources.MVCFlexChart.FinancialChart_High' + item.High.toFixed() + '<br/>' +
+                    '@Resources.MVCFlexChart.FinancialChart_Low' + item.Low.toFixed() + '<br/>' +
+                    '@Resources.MVCFlexChart.FinancialChart_Open' + item.Open.toFixed() + '<br/>' +
+                    '@Resources.MVCFlexChart.FinancialChart_Close' + item.Close.toFixed();
+    };
+</script>
+@(Html.C1().FlexChart().Id(optionsModel.ControlId).ChartType(C1.Web.Mvc.Chart.ChartType.Candlestick).Bind("X", Model).Series(sers =>
+    {
+        sers.Add().Binding("High,Low,Open,Close");
+    }).SymbolSize(4).AxisX(x => x.Format("MMM-dd")).Tooltip(tt => tt.Content("tooltipContent")))
+
+@section Settings{
+    @Html.Partial("_ImageExportOptions", optionsModel)
+}
+
+@section Description{
+    @Html.Raw(Resources.MVCFlexChart.FinancialChart_Text0)
+}

@@ -1,0 +1,23 @@
+@using WebApiExplorer.Models
+@model IEnumerable<Sale>
+@{
+    GridExportImportOptions exportOptionsModel = ViewBag.Options;
+    ControlOptions optionsModel = ViewBag.DemoOptions;
+    ViewBag.DemoSettings = true;
+}
+
+@(Html.C1().FlexGrid<Sale>().Id(exportOptionsModel.ControlId).Height(300)
+    .Bind(Model)
+    .IsReadOnly(true)
+    .PageSize(Convert.ToInt32(optionsModel.Options["PageSize"].CurrentValue))
+)
+@(Html.C1().Pager().Owner(exportOptionsModel.ControlId))
+
+@section Settings{
+    @Html.Partial("_OptionsMenu", optionsModel)
+    @Html.Partial("_FlexGridOptions", exportOptionsModel)
+}
+
+@section Description{
+    <p>@Html.Raw(Resources.MVCFlexGrid.Paging_Text0)</p>
+}

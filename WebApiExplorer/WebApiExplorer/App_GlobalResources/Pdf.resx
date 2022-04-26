@@ -1,0 +1,385 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+		Microsoft ResX Schema
+
+		Version 1.3
+
+		The primary goals of this format is to allow a simple XML format 
+		that is mostly human readable. The generation and parsing of the 
+		various data types are done through the TypeConverter classes 
+		associated with the data types.
+
+		Example:
+
+		... ado.net/XML headers & schema ...
+		<resheader name="resmimetype">text/microsoft-resx</resheader>
+		<resheader name="version">1.3</resheader>
+		<resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+		<resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+		<data name="Name1">this is my long string</data>
+		<data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+		<data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+			[base64 mime encoded serialized .NET Framework object]
+		</data>
+		<data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+			[base64 mime encoded string representing a byte array form of the .NET Framework object]
+		</data>
+
+		There are any number of "resheader" rows that contain simple 
+		name/value pairs.
+
+		Each data row contains a name, and value. The row also contains a 
+		type or mimetype. Type corresponds to a .NET class that support 
+		text/value conversion through the TypeConverter architecture. 
+		Classes that don't support this are serialized and stored with the 
+		mimetype set.
+
+		The mimetype is used for serialized objects, and tells the 
+		ResXResourceReader how to depersist the object. This is currently not 
+		extensible. For a given mimetype the value must be set accordingly:
+
+		Note - application/x-microsoft.net.object.binary.base64 is the format 
+		that the ResXResourceWriter will generate, however the reader can 
+		read any of the formats listed below.
+
+		mimetype: application/x-microsoft.net.object.binary.base64
+		value   : The object must be serialized with 
+			: System.Serialization.Formatters.Binary.BinaryFormatter
+			: and then encoded with base64 encoding.
+
+		mimetype: application/x-microsoft.net.object.soap.base64
+		value   : The object must be serialized with 
+			: System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+			: and then encoded with base64 encoding.
+
+		mimetype: application/x-microsoft.net.object.bytearray.base64
+		value   : The object must be serialized into a byte array 
+			: using a System.ComponentModel.TypeConverter
+			: and then encoded with base64 encoding.
+	-->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>1.3</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="PdfExportGET_Parameters" xml:space="preserve">
+    <value>Parameters</value>
+  </data>
+  <data name="PdfExportGET_Export" xml:space="preserve">
+    <value>Export</value>
+  </data>
+  <data name="PdfExportGET_Parameter" xml:space="preserve">
+    <value>Parameter</value>
+  </data>
+  <data name="PdfExportGET_Value" xml:space="preserve">
+    <value>Value</value>
+  </data>
+  <data name="PdfExportGET_Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="PdfExportGET_PdfPath" xml:space="preserve">
+    <value>Pdf Path</value>
+  </data>
+  <data name="PdfExportGET_PdfPathText" xml:space="preserve">
+    <value>The pdf file that storage manager can recognize.</value>
+  </data>
+  <data name="PdfExportGET_Format" xml:space="preserve">
+    <value>Format</value>
+  </data>
+  <data name="PdfExportGET_FormatText" xml:space="preserve">
+    <value>The supported formats, please see the response of &lt;strong&gt;SupportedFormats&lt;/strong&gt; action.</value>
+  </data>
+  <data name="PdfExportGET_ExportOptions" xml:space="preserve">
+    <value>Export Options</value>
+  </data>
+  <data name="PdfExportGET_ExportOptionsText" xml:space="preserve">
+    <value>The export options, please see the response of &lt;strong&gt;SupportedFormats&lt;/strong&gt; action. E.g:&lt;br /&gt; outputRange=1&amp;amp;... </value>
+  </data>
+  <data name="PdfExportGET_Headers" xml:space="preserve">
+    <value>Headers</value>
+  </data>
+  <data name="PdfExportPOST_Parameters" xml:space="preserve">
+    <value>Parameters</value>
+  </data>
+  <data name="PdfExportPOST_Export" xml:space="preserve">
+    <value>Export</value>
+  </data>
+  <data name="PdfExportPOST_Parameter" xml:space="preserve">
+    <value>Parameter</value>
+  </data>
+  <data name="PdfExportPOST_Value" xml:space="preserve">
+    <value>Value</value>
+  </data>
+  <data name="PdfExportPOST_Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="PdfExportPOST_PdfPath" xml:space="preserve">
+    <value>Pdf Path</value>
+  </data>
+  <data name="PdfExportPOST_PdfPathText" xml:space="preserve">
+    <value>The pdf file that storage manager can recognize.</value>
+  </data>
+  <data name="PdfExportPOST_Format" xml:space="preserve">
+    <value>Format</value>
+  </data>
+  <data name="PdfExportPOST_FormatText" xml:space="preserve">
+    <value>The supported formats, please see the response of &lt;strong&gt;SupportedFormats&lt;/strong&gt; action.</value>
+  </data>
+  <data name="PdfExportPOST_ExportOptions" xml:space="preserve">
+    <value>Export Options</value>
+  </data>
+  <data name="PdfExportPOST_ExportOptionsText" xml:space="preserve">
+    <value>The export options, please see the response of &lt;strong&gt;SupportedFormats&lt;/strong&gt; action. E.g:&lt;br /&gt; outputRange=1&amp;amp;... </value>
+  </data>
+  <data name="PdfExportPOST_Headers" xml:space="preserve">
+    <value>Headers</value>
+  </data>
+  <data name="PdfFeaturesGET_Parameters" xml:space="preserve">
+    <value>Parameters</value>
+  </data>
+  <data name="PdfFeaturesGET_GetFeatures" xml:space="preserve">
+    <value>Get Features</value>
+  </data>
+  <data name="PdfFeaturesGET_Parameter" xml:space="preserve">
+    <value>Parameter</value>
+  </data>
+  <data name="PdfFeaturesGET_Value" xml:space="preserve">
+    <value>Value</value>
+  </data>
+  <data name="PdfFeaturesGET_Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="PdfFeaturesGET_PdfPath" xml:space="preserve">
+    <value>Pdf Path</value>
+  </data>
+  <data name="PdfFeaturesGET_PdfPathText" xml:space="preserve">
+    <value>The pdf file that storage manager can recognize.</value>
+  </data>
+  <data name="PdfFeaturesGET_Headers" xml:space="preserve">
+    <value>Headers</value>
+  </data>
+  <data name="PdfFeaturesGET_ResponseData" xml:space="preserve">
+    <value>Response Data</value>
+  </data>
+  <data name="PdfInfoGET_Parameters" xml:space="preserve">
+    <value>Parameters</value>
+  </data>
+  <data name="PdfInfoGET_GetInfo" xml:space="preserve">
+    <value>Get Info</value>
+  </data>
+  <data name="PdfInfoGET_Parameter" xml:space="preserve">
+    <value>Parameter</value>
+  </data>
+  <data name="PdfInfoGET_Value" xml:space="preserve">
+    <value>Value</value>
+  </data>
+  <data name="PdfInfoGET_Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="PdfInfoGET_PdfPath" xml:space="preserve">
+    <value>Pdf Path</value>
+  </data>
+  <data name="PdfInfoGET_PdfPathText" xml:space="preserve">
+    <value>The pdf file that storage manager can recognize.</value>
+  </data>
+  <data name="PdfInfoGET_Headers" xml:space="preserve">
+    <value>Headers</value>
+  </data>
+  <data name="PdfInfoGET_ResponseData" xml:space="preserve">
+    <value>Response Data</value>
+  </data>
+  <data name="PdfSearchGET_Parameters" xml:space="preserve">
+    <value>Parameters</value>
+  </data>
+  <data name="PdfSearchGET_Search" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="PdfSearchGET_Parameter" xml:space="preserve">
+    <value>Parameter</value>
+  </data>
+  <data name="PdfSearchGET_Value" xml:space="preserve">
+    <value>Value</value>
+  </data>
+  <data name="PdfSearchGET_Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="PdfSearchGET_PdfPath" xml:space="preserve">
+    <value>Pdf Path</value>
+  </data>
+  <data name="PdfSearchGET_PdfPathText" xml:space="preserve">
+    <value>The pdf file that storage manager can recognize.</value>
+  </data>
+  <data name="PdfSearchGET_StartPageIndex" xml:space="preserve">
+    <value>Start Page Index</value>
+  </data>
+  <data name="PdfSearchGET_StartPageIndexText" xml:space="preserve">
+    <value>0-based index of the first page to search.</value>
+  </data>
+  <data name="PdfSearchGET_SearchScope" xml:space="preserve">
+    <value>Search Scope</value>
+  </data>
+  <data name="PdfSearchGET_SearchScope_WholeDocument" xml:space="preserve">
+    <value>The whole document</value>
+  </data>
+  <data name="PdfSearchGET_SearchScope_EndOfDocument" xml:space="preserve">
+    <value>To the end of the document</value>
+  </data>
+  <data name="PdfSearchGET_SearchScope_FirstOccurrence" xml:space="preserve">
+    <value>Till the first occurrence is found</value>
+  </data>
+  <data name="PdfSearchGET_SearchScope_SinglePage" xml:space="preserve">
+    <value>Within the specified page only</value>
+  </data>
+  <data name="PdfSearchGET_SearchScopeText" xml:space="preserve">
+    <value>The search scope.</value>
+  </data>
+  <data name="PdfSearchGET_SearchText" xml:space="preserve">
+    <value>Search Text</value>
+  </data>
+  <data name="PdfSearchGET_SearchTextText" xml:space="preserve">
+    <value>The value which is used to search.</value>
+  </data>
+  <data name="PdfSearchGET_MatchCase" xml:space="preserve">
+    <value>Match Case</value>
+  </data>
+  <data name="PdfSearchGET_MatchCaseText" xml:space="preserve">
+    <value>A boolean value indicates if search the value with case sensitive.</value>
+  </data>
+  <data name="PdfSearchGET_WholeWord" xml:space="preserve">
+    <value>Whole Word</value>
+  </data>
+  <data name="PdfSearchGET_WholeWordText" xml:space="preserve">
+    <value>A boolean value indicates if search the value with matching a whole word.</value>
+  </data>
+  <data name="PdfSearchGET_Headers" xml:space="preserve">
+    <value>Headers</value>
+  </data>
+  <data name="PdfSearchGET_ResponseData" xml:space="preserve">
+    <value>Response Data</value>
+  </data>
+  <data name="PdfStatusGET_Parameters" xml:space="preserve">
+    <value>Parameters</value>
+  </data>
+  <data name="PdfStatusGET_GetStatus" xml:space="preserve">
+    <value>Get Status</value>
+  </data>
+  <data name="PdfStatusGET_Parameter" xml:space="preserve">
+    <value>Parameter</value>
+  </data>
+  <data name="PdfStatusGET_Value" xml:space="preserve">
+    <value>Value</value>
+  </data>
+  <data name="PdfStatusGET_Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="PdfStatusGET_PdfPath" xml:space="preserve">
+    <value>Pdf Path</value>
+  </data>
+  <data name="PdfStatusGET_PdfPathText" xml:space="preserve">
+    <value>The pdf file that storage manager can recognize.</value>
+  </data>
+  <data name="PdfStatusGET_Headers" xml:space="preserve">
+    <value>Headers</value>
+  </data>
+  <data name="PdfStatusGET_ResponseData" xml:space="preserve">
+    <value>Response Data</value>
+  </data>
+  <data name="PdfSupportedFormatsGET_Parameters" xml:space="preserve">
+    <value>Parameters</value>
+  </data>
+  <data name="PdfSupportedFormatsGET_GetSupportedFormats" xml:space="preserve">
+    <value>Get Supported Formats</value>
+  </data>
+  <data name="PdfSupportedFormatsGET_Parameter" xml:space="preserve">
+    <value>Parameter</value>
+  </data>
+  <data name="PdfSupportedFormatsGET_Value" xml:space="preserve">
+    <value>Value</value>
+  </data>
+  <data name="PdfSupportedFormatsGET_Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="PdfSupportedFormatsGET_PdfPath" xml:space="preserve">
+    <value>Pdf Path</value>
+  </data>
+  <data name="PdfSupportedFormatsGET_PdfPathText" xml:space="preserve">
+    <value>The pdf file that storage manager can recognize.</value>
+  </data>
+  <data name="PdfSupportedFormatsGET_Headers" xml:space="preserve">
+    <value>Headers</value>
+  </data>
+  <data name="PdfSupportedFormatsGET_ResponseData" xml:space="preserve">
+    <value>Response Data</value>
+  </data>
+  <data name="PdfExportGET_RequestURL" xml:space="preserve">
+    <value>Request URL: </value>
+  </data>
+  <data name="PdfExportPOST_RequestURL" xml:space="preserve">
+    <value>Request URL: </value>
+  </data>
+  <data name="PdfFeaturesGET_StatusCode" xml:space="preserve">
+    <value>Status Code: </value>
+  </data>
+  <data name="PdfFeaturesGET_RequestURL" xml:space="preserve">
+    <value>Request URL: </value>
+  </data>
+  <data name="PdfInfoGET_RequestURL" xml:space="preserve">
+    <value>Request URL: </value>
+  </data>
+  <data name="PdfInfoGET_StatusCode" xml:space="preserve">
+    <value>Status Code: </value>
+  </data>
+  <data name="PdfSearchGET_RequestURL" xml:space="preserve">
+    <value>Request URL: </value>
+  </data>
+  <data name="PdfSearchGET_StatusCode" xml:space="preserve">
+    <value>Status Code: </value>
+  </data>
+  <data name="PdfStatusGET_RequestURL" xml:space="preserve">
+    <value>Request URL: </value>
+  </data>
+  <data name="PdfStatusGET_StatusCode" xml:space="preserve">
+    <value>Status Code: </value>
+  </data>
+  <data name="PdfSupportedFormatsGET_RequestURL" xml:space="preserve">
+    <value>Request URL: </value>
+  </data>
+  <data name="PdfSupportedFormatsGET_StatusCode" xml:space="preserve">
+    <value>Status Code: </value>
+  </data>
+</root>

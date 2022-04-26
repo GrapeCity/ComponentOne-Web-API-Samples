@@ -1,0 +1,219 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Description" xml:space="preserve">
+    <value>.NET Core Visitor Web APIは、IP、地理的位置、言語、参照サイト、セッション、オペレーティングシステム、デバイス、ブラウザーなどのユーザーデータを収集します。 Web開発者が個々のユーザー向けにコンテンツをカスタマイズする時に便利です。</value>
+  </data>
+  <data name="No_Location_Found" xml:space="preserve">
+    <value>IPアドレスに基づく位置情報はありません</value>
+  </data>
+  <data name="Template_Browsing_Time" xml:space="preserve">
+    <value>このサイトを閲覧しています</value>
+  </data>
+  <data name="Template_Device_Info" xml:space="preserve">
+    <value>デバイスは{2} {3} {4}ビットで{0}バージョン{1}を実行しています</value>
+  </data>
+  <data name="Template_Ip_Address" xml:space="preserve">
+    <value>あなたのIPアドレスは</value>
+  </data>
+  <data name="Template_Landed_Time" xml:space="preserve">
+    <value>{0}にこのサイトに訪問しました。</value>
+  </data>
+  <data name="Template_Last_Visit" xml:space="preserve">
+    <value>最後にアクセスしてから{0}になりました</value>
+  </data>
+  <data name="Template_Location_Info" xml:space="preserve">
+    <value>あなたは{0}から来ました</value>
+  </data>
+  <data name="Template_Visitor_Shown" xml:space="preserve">
+    <value>VisitorAPIは次のことがわかります。</value>
+  </data>
+  <data name="Template_Visits_Time" xml:space="preserve">
+    <value>このサイトに{0}回アクセスしました。 またお会いできて嬉しいです！</value>
+  </data>
+  <data name="Time_Days_Ago" xml:space="preserve">
+    <value>日前</value>
+  </data>
+  <data name="Time_Hours_Ago" xml:space="preserve">
+    <value>時間前</value>
+  </data>
+  <data name="Time_Just_Now" xml:space="preserve">
+    <value>ちょうど今</value>
+  </data>
+  <data name="Time_Minutes_Ago" xml:space="preserve">
+    <value>数分前</value>
+  </data>
+  <data name="Time_Months_Ago" xml:space="preserve">
+    <value>数か月前</value>
+  </data>
+  <data name="Time_Years_Ago" xml:space="preserve">
+    <value>数年前</value>
+  </data>
+  <data name="Txt_Much_More" xml:space="preserve">
+    <value>その他</value>
+  </data>
+  <data name="Txt_Overview" xml:space="preserve">
+    <value>訪問者の概要</value>
+  </data>
+  <data name="Txt_Title_Browser" xml:space="preserve">
+    <value>ウェブブラウザ</value>
+  </data>
+  <data name="Txt_Title_Device" xml:space="preserve">
+    <value>（モバイル）機器</value>
+  </data>
+  <data name="Txt_Title_First_Session" xml:space="preserve">
+    <value>最初のセッション</value>
+  </data>
+  <data name="Txt_Title_Geo" xml:space="preserve">
+    <value>地理上の位置</value>
+  </data>
+  <data name="Txt_Title_Ip" xml:space="preserve">
+    <value>IPアドレス</value>
+  </data>
+  <data name="Txt_Title_Locale" xml:space="preserve">
+    <value>言語/ロケール</value>
+  </data>
+  <data name="Txt_Title_Os" xml:space="preserve">
+    <value>オペレーティング・システム</value>
+  </data>
+  <data name="Txt_Title_Session" xml:space="preserve">
+    <value>現在のセッション</value>
+  </data>
+  <data name="Txt_Variables" xml:space="preserve">
+    <value>利用可能な変数</value>
+  </data>
+  <data name="Welcome_Message" xml:space="preserve">
+    <value>訪問者APIへようこそ！</value>
+  </data>
+  <data name="Txt_Title_VisitorId" xml:space="preserve">
+    <value>ユーザー ID</value>
+  </data>
+  <data name="Txt_Title_Unique_VisitorId" xml:space="preserve">
+    <value>一意のユーザー ID</value>
+  </data>
+  <data name="Txt_Title_Visitor_Visit_Histories" xml:space="preserve">
+    <value>閲覧履歴</value>
+  </data>
+  <data name="Template_Total_Visits_Time" xml:space="preserve">
+    <value>{0}回このサイトを訪問しています。</value>
+  </data>
+  <data name="Txt_Visit_Date" xml:space="preserve">
+    <value>最終訪問日</value>
+  </data>
+</root>

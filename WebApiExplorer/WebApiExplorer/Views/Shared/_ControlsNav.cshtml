@@ -1,0 +1,34 @@
+@using WebApiExplorer.Models
+@{
+    var controllerName = ViewContext.Controller.ValueProvider.GetValue("controller").RawValue.ToString();
+    var actionName = ViewContext.Controller.ValueProvider.GetValue("action").RawValue.ToString();
+
+    ControlPageGroup group = ControlsClass.GetControlPageGroup(controllerName);
+    IEnumerable<ControlPage> pages = group.Pages;
+    ViewBag.CurrentPageIndex = group.GetSelectedPageIndex(actionName);
+
+    foreach(var page in pages)
+    {
+        page.Path = Url.Action(page.Name, controllerName).ToString();
+    }
+}
+
+<script id="navTemplate" type="text/template">
+    <a href="{{Path}}">
+        <span>{{Text}}</span>
+        <span class="right-icon"></span>
+    </a>
+</script>
+
+<h4 class="semi-bold wide-screen">@Html.Raw(Resources.Resource.ControlsNav_Features)</h4>
+@(Html.C1().ListBox().Id("controlNav").CssClass("page-nav wide-screen")
+    .Bind(pages)
+    .ItemTemplateId("navTemplate")
+)
+
+<script type="text/javascript">
+    c1.documentReady(function () {
+        var index = @ViewBag.CurrentPageIndex
+        wijmo.Control.getControl("#controlNav").selectedIndex = index;
+    });
+</script>

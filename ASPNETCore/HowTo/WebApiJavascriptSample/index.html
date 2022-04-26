@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>C1 WebAPI DEMO</title>
+
+    <base href="/">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="https://www.grapecity.com/favicon/favicon-32x32.png">
+
+    <style>
+        .container {
+            padding: 16px;
+            border: solid 1px black;
+            display: inline-block;
+            margin: auto;
+            line-height: 2em;
+        }
+
+        label {
+            width: 160px;
+            display: inline-block;
+        }
+
+        select {
+            width: 200px;
+        }
+
+        h3 {
+            text-align: center
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h3>Web App to call C1 Web API</h3>
+
+        <form action="https://www.grapecity.com/componentone/demos/aspnet/5/C1WebAPI/latest/api/excel" method="GET">
+            <hr>
+            <label for="fileName">File Name:</label>
+            <input type="text" id="fileName" name="fileName" value="Excel" style="width: 200px"/>
+            <br />
+            <label for="fileFormat">File Format:</label>
+            <select name="type">
+                <option value="json">json</option>
+                <option selected="selected" value="xlsx">xlsx</option>
+                <option value="csv">csv</option>
+                <option value="xml">xml</option>
+            </select>
+            <br />
+            <label for="DataFileName">Data FileName:</label>
+            <!-- <input type="text" id="dataFileName" name="DataFileName" value="ExcelRoot\\10rowsdata.xml" /> -->
+            <select name="DataFileName">
+                <option value="ExcelRoot\\10rowsdata.xml">10rowsdata.xml</option>
+            </select>
+
+            <br />
+            <label for="TemplateFileName">Template FileName:</label>
+            <select name="TemplateFileName">
+                <option value=""></option>
+                <option value="ExcelRoot\Templates\XmlDataTemplate.xlsx" selected="selected">XmlDataTemplate.xlsx
+                </option>
+            </select>
+            <br>
+            <hr>
+            <input type="submit" value="Generate Excel" />
+        </form>
+    </div>
+</body>
+
+</html>

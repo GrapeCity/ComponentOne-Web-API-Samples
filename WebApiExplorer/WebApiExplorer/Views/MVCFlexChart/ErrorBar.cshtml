@@ -1,0 +1,48 @@
+@model IEnumerable<PopulationByCountry>
+@{
+    ImageExportOptions optionsModel = ViewBag.Options;
+    ViewBag.DemoSettings = true;
+}
+<script>
+
+    function setProperty(control, property, value) {
+        control.series.forEach(function (serie) {
+            serie[property] = value;
+        });
+    }
+
+    function customChangeDirection(control, value) {
+        setProperty(control, 'direction', value);
+    }
+
+    function customChangeErrorAmount(control, value) {
+        setProperty(control, 'errorAmount', value);
+    }
+
+    function customChangeValue(control, value) {
+        setProperty(control, 'value', value);
+    }
+
+    function customChangeEndStyle(control, value) {
+        setProperty(control, 'endStyle', value);
+    }
+
+</script>
+
+@(Html.C1().FlexChart().Height(300)
+    .Id(optionsModel.ControlId)
+    .Bind("Country", "Population", Model)
+    .Series(ser =>
+    {
+        ser.AddErrorBar().Name("Population").Value(50)
+            .ErrorBarStyle(errorBarStyle => errorBarStyle.Fill("#e6e6e6").Stroke("#918254").StrokeWidth(2));
+    })
+)
+
+@section Settings{
+    @Html.Partial("_ImageExportOptions", optionsModel)
+}
+
+@section Description{
+    @Html.Raw(Resources.MVCFlexChart.ErrorBar_Text0)
+}

@@ -1,0 +1,154 @@
+@model WebApiExplorer.Models.ControlsClass.Function
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+
+<div class="settings-panel-content">
+    <div style="float:left;width:100%">
+        <div style="float:left"><h4>@Html.Raw(Report.ReportInstancesPOST_Parameters)</h4></div>
+        <div style="float:right">
+            <button style="margin-top:3px;padding: 4px;" class="btn btn-primary btn-report-instances-post" disabled="disabled"
+                    onclick="reportInstancesPost('@Model.FunctionName', '@(Configuration["WebAPIService"])');">
+                @Html.Raw(Report.ReportInstancesPOST_LoadReport)
+            </button>
+        </div>
+    </div>
+    <div>
+        <div class="settings-panel report-instances-post">
+            <div class="param-item">
+                <label class="param-lable parameter"><b>@Html.Raw(Report.ReportInstancesPOST_Parameter)</b></label>
+                <label class="param-lable value"><b>@Html.Raw(Report.ReportInstancesPOST_Value)</b></label>
+                <label class="param-lable description"><b>@Html.Raw(Report.ReportInstancesPOST_Description)</b></label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Report.ReportInstancesPOST_FolderPath)</label>
+                <span class="param-value-group">
+                    <select name="folderPath" class="param-value" onchange="reportInstancesPost_FolderPathChange($(this).val())" style="width: 100%; margin-bottom: 10px;">
+                        <option value="none" selected="selected">@Html.Raw(Report.ReportInstancesPOST_FolderPath_None)</option>
+                        <option value="ReportsRoot/FlexCommonTasks/FlexCommonTasks.flxr">FlexCommonTasks.flxr</option>
+                        <option value="c1ssrs/AdventureWorks">AdventureWorks (SSRS)</option>
+                    </select>
+                </span>
+                <label class="param-lable description">@Html.Raw(Report.ReportInstancesPOST_FolderPathText)</label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Report.ReportInstancesPOST_ReportName)</label>
+                <span class="param-value-group">
+                    <select name="reportName" class="param-value" onchange="reportInstancesPost_ReportNameChange($(this).val())" style="width: 100%; margin-bottom: 10px;">
+                    </select>
+                </span>
+                <label class="param-lable description">@Html.Raw(Report.ReportInstancesPOST_ReportNameText)</label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Report.ReportInstancesPOST_ReportParameters)</label>
+                <span class="param-value-group">
+                    <textarea name="reportParameters" class="param-value prefix-name" style="width: 100%; height:100px;"></textarea>
+                </span>
+                <label class="param-lable description">@Html.Raw(Report.ReportInstancesPOST_ReportParametersText)</label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Report.ReportInstancesPOST_ReportPageSettings)</label>
+                <span class="param-value-group">
+                    <textarea name="reportPageSettings" class="param-value" style="width: 100%; height:100px;"></textarea>
+                </span>
+                <label class="param-lable description">
+                    @Html.Raw(Report.ReportInstancesPOST_ReportPageSettingsText)
+                </label>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="@(Model.FunctionName)result" class="content-panel-result">
+    <h4>@Html.Raw(Report.ReportInstancesPOST_Headers)</h4>
+    <div id="@(Model.FunctionName)headers" class="content-panel-result-url">
+        <pre>
+        </pre>
+    </div>
+    <h4 class="content-json-data">@Html.Raw(Report.ReportInstancesPOST_ResponseData)</h4>
+    <div id="@(Model.FunctionName)showdata" class="result-content-data" style="height:auto">
+        <pre style="max-height:200px">
+        </pre>
+    </div>
+</div>
+
+<script>
+    function reportInstancesPost(id, url) {
+        var folderPath = $(".report-instances-post .param-value[name=folderPath]").val();
+        var reportName = $(".report-instances-post .param-value[name=reportName]").val();
+        var reportParameters = $(".report-instances-post .param-value[name=reportParameters]").val();
+        var reportPageSettings = $(".report-instances-post .param-value[name=reportPageSettings]").val();
+        var fullUrl = url + "api/report/" + folderPath + "/" + reportName + "/$instances";
+        var options = (reportParameters ? reportParameters : "") +
+            (reportPageSettings ? (reportParameters ? "&" : "") + reportPageSettings : "");
+
+        $("#@(Model.FunctionName)headers pre").text("@(Report.ReportInstancesPOST_RequestURL)" + fullUrl);
+        $("#@(Model.FunctionName)result").show();
+
+        var select = $('.report-instance-export .param-value[name=exportFormat]');
+        select.empty();
+
+        $.ajax({
+            type: "POST",
+            url: fullUrl,
+            data: options,
+            cache: false,
+            success: function (data) {
+                $("button.btn-report-instance").attr("disabled", false);
+                $("button.btn-report-instance-rendered").attr("disabled", true);
+                $("span.span-report-instance-rendered").show();
+                $(".param-value[name=instanceId]").val(data.id);
+                var reportFullPath = folderPath + "/" + reportName;
+                $(".param-value[name=reportFullPath]").val(reportFullPath);
+                $("#@(Model.FunctionName)showdata pre").text(JSON.stringify(data, null, 4));
+                $(".content-json-data").show();
+                updateReportInstanceExportFormats(reportFullPath, data.id, url, select);
+            },
+            complete: function (xhr, status) {
+                $("#@(Model.FunctionName)headers pre").append("\r\n@(Report.ReportInstancesPOST_StatusCode)" + xhr.status);
+            }
+        });
+    }
+
+    function reportInstancesPost_FolderPathChange(folderPath) {
+        var url = '@(Configuration["WebAPIService"])';
+        var select = $('.report-instances-post .param-value[name=reportName]').empty();
+        $("button.btn-report-instances-post").attr("disabled", folderPath === "none");
+
+        if (folderPath !== "none") {
+            updateReportNames(folderPath, url, select);
+        }
+
+        $("textarea.param-value[name=actionString]").attr("disabled", folderPath !== "c1ssrs/AdventureWorks");
+    }
+
+    function reportInstancesPost_ReportNameChange(reportName) {
+        $('.report-instances-post .param-value[name=exportFileName]').val(reportName);
+        var reportParametersPrefixValue = "", reportParametersValue = "", parameterNameValue = "";
+        if (reportName.indexOf("MultiValue DataBound Parameters") >= 0) {
+            reportParametersPrefixValue = "parameters.pCategory=1";
+            reportParametersValue = "pCategory=1";
+            parameterNameValue = "pCategory";
+        }
+        $('.param-value[name=reportParameters]').val(reportParametersValue);
+        $('.prefix-name.param-value[name=reportParameters]').val(reportParametersPrefixValue);
+        $('.@Model.GroupName.Replace(' ', '_') .param-value[name=parameterName]').val(parameterNameValue);
+        $('.@Model.GroupName.Replace(' ', '_') .param-value[name=exportFileName]').val(reportName);
+
+        var bookmarkName = "";
+        if (reportName.indexOf("Report Navigation") >= 0) {
+            bookmarkName = "@@FLXR@4";
+        }
+        $('.@Model.GroupName.Replace(' ', '_') .param-value[name=bookmarkName]').val(bookmarkName);
+
+        var searchText = "";
+        if (reportName.indexOf("Simple List") >= 0) {
+            searchText = "Steven Buchanan";
+        }
+        $('.@Model.GroupName.Replace(' ', '_') .param-value[name=searchText]').val(searchText);
+
+        var actionString = "";
+        if (reportName.indexOf("Product Line Sales") >= 0) {
+            actionString = "actionString=77u%2FPD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48TFQgcmVmPSIxIiB0eXBlPSJMVCI%2BPERBIHR5cGU9IlNTUlNTQSI%2BPFNJRD4zM2lUMDwvU0lEPjxEPkFzY2VuZGluZzwvRD48L0RBPjwvTFQ%2B";
+        }
+        $('.@Model.GroupName.Replace(' ', '_') .param-value[name=actionString]').val(actionString);
+    }
+</script>

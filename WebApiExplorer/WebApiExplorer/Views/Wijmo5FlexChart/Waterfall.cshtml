@@ -1,0 +1,118 @@
+@using WebApiExplorer.Models
+@{
+    ImageExportOptions optionsModel = ViewBag.Options;
+    ViewBag.DemoSettings = true;
+}
+
+<div id="@(optionsModel.ControlId)"></div>
+<div>
+    <div class="col-md-6">
+        <label>
+            <input id="relativeData" type="checkbox"> @Html.Raw(Resources.Wijmo5FlexChart.Waterfall_IsRelativeData)
+        </label>
+    </div>
+    <div class="col-md-6">
+        <label>
+            <input id="connectorLines" type="checkbox"> @Html.Raw(Resources.Wijmo5FlexChart.Waterfall_ShowConnectorLines)
+        </label>
+    </div>
+    <div class="col-md-6">
+        <label>
+            <input id="showTotal" type="checkbox"> @Html.Raw(Resources.Wijmo5FlexChart.Waterfall_ShowTotal)
+        </label>
+    </div>
+    <div class="col-md-6">
+        <label>
+            <input id="showIntermediateTotal" type="checkbox"> @Html.Raw(Resources.Wijmo5FlexChart.Waterfall_ShowIntermediateTotal)
+        </label>
+    </div>
+</div>
+
+@section Settings{
+    @Html.Partial("_ImageExportOptions", optionsModel)
+}
+
+<script>
+    var waterfallChart = new wijmo.chart.FlexChart('#@(optionsModel.ControlId)'),
+        relativeData = document.getElementById('relativeData'),
+        connectorLines = document.getElementById('connectorLines'),
+        showTotal = document.getElementById('showTotal'),
+        showIntermediateTotal = document.getElementById('showIntermediateTotal');
+
+    // populate itemsSource
+    var names = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+        data = [];
+    for (var i = 0, len = names.length; i < len; i++) {
+        data.push({
+            name: names[i],
+            value: Math.round((0.5 - Math.random()) * 1000)
+        });
+    }
+    waterfallChart.itemsSource = data;
+    waterfallChart.binding = 'value';
+    waterfallChart.bindingX = 'name';
+
+    //create Waterfall series
+    var waterfall = new wijmo.chart.analytics.Waterfall();
+    waterfall.relativeData = false;
+    waterfall.connectorLines = false;
+    waterfall.showTotal = false;
+    waterfall.start = 1000;
+    waterfall.showIntermediateTotal = false;
+    waterfall.intermediateTotalPositions = [3, 6, 9, 12];
+    waterfall.intermediateTotalLabels = ['Q1', 'Q2', 'Q3', 'Q4'];
+    waterfall.name = 'Increase,Decrease,Total';
+    waterfall.styles = {
+        connectorLines: {
+            stroke: '#333',
+            'stroke-dasharray': '5 5'
+        },
+        start: {
+            fill: '#7dc7ed'
+        },
+        falling: {
+            fill: '#dd2714',
+            stroke: '#a52714'
+        },
+        rising: {
+            fill: '#0f9d58',
+            stroke: '#0f9d58'
+        },
+        intermediateTotal: {
+            fill: '#7dc7ed'
+        },
+        total: {
+            fill: '#7dc7ed'
+        }
+    };
+    waterfallChart.series.push(waterfall);
+    waterfallChart.tooltip.content = function (ht) {
+        if (ht) {
+            return '<b>' + ht.x + '</b><br/>value: ' + ht.y;
+        }
+    }
+
+    // relativeData - initialize checkbox properties
+    relativeData.addEventListener('change', function () {
+        waterfall.relativeData = this.checked;
+    });
+
+    // connectorLines - initialize checkbox properties
+    connectorLines.addEventListener('change', function () {
+        waterfall.connectorLines = this.checked;
+    });
+
+    // showTotal - initialize checkbox properties
+    showTotal.addEventListener('change', function () {
+        waterfall.showTotal = this.checked;
+    });
+
+    // showIntermediateTotal - initialize checkbox properties
+    showIntermediateTotal.addEventListener('change', function () {
+        waterfall.showIntermediateTotal = this.checked;
+    });
+</script>
+
+@section Description{
+    @Html.Raw(Resources.Wijmo5FlexChart.Waterfall_Text0)
+}

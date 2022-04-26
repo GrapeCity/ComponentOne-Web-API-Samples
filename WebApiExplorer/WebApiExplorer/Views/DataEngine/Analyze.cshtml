@@ -1,0 +1,119 @@
+@model WebApiExplorer.Models.ControlsClass.Function
+
+<div class="settings-panel-content">
+    <div style="float:left;width:100%">
+        <div style="float:left"><h4>@Html.Raw(Resources.DataEngine.Analyze_Parameters)</h4></div>
+        <div style="float:right">
+            <button style="margin-top:3px;padding: 4px;" class="btn btn-primary btn-analyze" disabled="disabled"
+                    onclick="analyze();">
+                @Html.Raw(Resources.DataEngine.Analyze_Analyze)
+            </button>
+        </div>
+    </div>
+    <div>
+        <div class="settings-panel analyze">
+            <div class="param-item">
+                <label class="param-lable parameter"><b>@Html.Raw(Resources.DataEngine.Analyze_Parameter)</b></label>
+                <label class="param-lable value"><b>@Html.Raw(Resources.DataEngine.Analyze_Value)</b></label>
+                <label class="param-lable description"><b>@Html.Raw(Resources.DataEngine.Analyze_Description)</b></label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Resources.DataEngine.Analyze_DataSource)</label>
+                <span class="param-value-group">
+                    <select name="dataSourceKey" class="param-value" onchange="analyze_DataChanged()" style=" width: 100%; margin-bottom: 10px;">
+                        <option value="none" selected="selected">@Html.Raw(Resources.DataEngine.Analyze_DataSource_None)</option>
+                        <option value="complex10">@Html.Raw(Resources.DataEngine.Analyze_DataSource_Complex10)</option>
+                        <option value="complex50">@Html.Raw(Resources.DataEngine.Analyze_DataSource_Complex50)</option>
+                        <option value="complex100">@Html.Raw(Resources.DataEngine.Analyze_DataSource_Complex100)</option>
+                        <option value="dataset10">@Html.Raw(Resources.DataEngine.Analyze_DataSource_Dataset10)</option>
+                        <option value="dataset50">@Html.Raw(Resources.DataEngine.Analyze_DataSource_Dataset50)</option>
+                        <option value="dataset100">@Html.Raw(Resources.DataEngine.Analyze_DataSource_Dataset100)</option>
+                        <option value="cube">@Html.Raw(Resources.DataEngine.Analyze_DataSource_Cube)</option>
+                    </select>
+                </span>
+                <label class="param-lable description">@Html.Raw(Resources.DataEngine.Analyze_DataSourceDesc)</label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Resources.DataEngine.Analyze_ViewDefinition)</label>
+                <span class="param-value-group">
+                    <textarea name="view" class="param-value" style="width: 100%; height:100px;" oninput="analyze_SettingChanged()"></textarea>
+                </span>
+                <label class="param-lable description">
+                    @Html.Raw(Resources.DataEngine.Analyze_ViewDefinitionDesc)
+                </label>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="@(Model.FunctionName)result" class="content-panel-result">
+    <h4>@Html.Raw(Resources.DataEngine.Analyze_Headers)</h4>
+    <div id="@(Model.FunctionName)headers" class="content-panel-result-url">
+        <pre>
+        </pre>
+    </div>
+    <h4 class="content-json-data">@Html.Raw(Resources.DataEngine.Analyze_ResponseData)</h4>
+    <div id="@(Model.FunctionName)showdata" class="result-content-data" style="height:auto">
+        <pre style="max-height:200px">
+        </pre>
+    </div>
+</div>
+
+<script>
+    function analyze() {
+        var dataSourceKey = $(".analyze .param-value[name=dataSourceKey]").val();
+        var viewDefinition = $(".analyze .param-value[name=view]").val();
+        var fullUrl = '@(System.Configuration.ConfigurationManager.AppSettings["WebAPIService"])'
+            + "api/dataengine/" + dataSourceKey + "/analyses";
+        var postData = JSON.stringify({ view: viewDefinition });
+
+        $("#@(Model.FunctionName)headers pre").text("@(Resources.DataEngine.Analyze_RequestURL)" + fullUrl);
+        $("#@(Model.FunctionName)result").show();
+
+        $.ajax({
+            type: "POST",
+            url: fullUrl,
+            cache: false,
+            contentType: "application/json",
+            data: postData,
+            success: function (data) {
+                $(".getting-status .param-value[name=token]").val(data.token);
+                $(".getting-status .param-value[name=dataSourceKey]").val(dataSourceKey);
+                $("button.btn-getting-status").attr("disabled", false);
+                $(".analysis .param-value[name=token]").val(data.token);
+                $(".analysis .param-value[name=dataSourceKey]").val(dataSourceKey);
+                $("button.btn-analysis").attr("disabled", false);
+                $(".clear .param-value[name=token]").val(data.token);
+                $(".clear .param-value[name=dataSourceKey]").val(dataSourceKey);
+                $("button.btn-clear").attr("disabled", false);
+                $(".getting-resultdata .param-value[name=token]").val(data.token);
+                $(".getting-resultdata .param-value[name=dataSourceKey]").val(dataSourceKey);
+                $("button.btn-getting-resultdata").attr("disabled", false);
+                $("#@(Model.FunctionName)showdata pre").text(JSON.stringify(data, null, 4));
+                $(".content-json-data").show();
+            },
+            complete: function (xhr, status) {
+                $("#@(Model.FunctionName)headers pre").append("\r\n@(Resources.DataEngine.Analyze_StatusCode)" + xhr.status);
+            }
+        });
+    }
+
+    function analyze_SettingChanged() {
+        var dataSourceKey = $(".analyze .param-value[name=dataSourceKey]").val();
+        var viewDefinition = $(".analyze .param-value[name=view]").val();
+        $("button.btn-analyze").attr("disabled", dataSourceKey === "none" || !viewDefinition);
+    }
+
+    function analyze_DataChanged() {
+        var dataSourceKey = $(".analyze .param-value[name=dataSourceKey]").val();
+        var text;
+        if (dataSourceKey == "cube") {
+            text = "{'fields':[{'header':'Product','subFields':[{'dataType':1,'aggregate':1,'showAs':0,'descending':false,'isContentHtml':false,'binding':'[Product].[Product]','header':'Product','key':'[Product].[Product]'},{'aggregate':1,'showAs':0,'descending':false,'isContentHtml':false,'header':'Stocking','subFields':[{'dataType':1,'aggregate':1,'showAs':0,'descending':false,'isContentHtml':false,'binding':'[Product].[Class]','header':'Class','key':'[Product].[Class]'},{'dataType':1,'aggregate':1,'showAs':0,'descending':false,'isContentHtml':false,'binding':'[Product].[Color]','header':'Color','key':'[Product].[Color]'}]}]},{'header':'Internet Sales','subFields':[{'dataType':2,'format':'n0','aggregate':1,'showAs':0,'descending':false,'isContentHtml':false,'binding':'[Measures].[Internet Sales Amount]','header':'Internet Sales Amount','key':'[Measures].[Internet Sales Amount]'},{'dataType':2,'format':'n0','aggregate':1,'showAs':0,'descending':false,'isContentHtml':false,'binding':'[Measures].[Internet Order Quantity]','header':'Internet Order Quantity','key':'[Measures].[Internet Order Quantity]'},{'dataType':2,'format':'n0','aggregate':1,'showAs':0,'descending':false,'isContentHtml':false,'binding':'[Measures].[Internet Gross Profit]','header':'Internet Gross Profit','key':'[Measures].[Internet Gross Profit]'}]}],'rowFields':{'items':['[Product].[Product]']},'columnFields':{'items':['[Product].[Color]']},'filterFields':{'items':[]},'valueFields':{'items':['[Measures].[Internet Sales Amount]']}}";
+        } else if (dataSourceKey == "none") {
+            text = "";
+        } else {
+            text = "{fields:[{'binding':'Active','dataType':3},{'binding':'Country','dataType':1},{'binding':'Date','dataType':4},{'binding':'Discount','dataType':2},{'binding':'Downloads','dataType':2},{'binding':'ID','dataType':2},{'binding':'Product','dataType':1},{'binding':'Sales','dataType':2}],rowFields:{items:['Product']},columnFields:{items:['Country']},valueFields:{items:['Sales']}}";
+        }
+        $(".analyze .param-value[name=view]").val(text);
+        analyze_SettingChanged();
+    }
+</script>

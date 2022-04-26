@@ -1,0 +1,1171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C994A556-6289-48EB-A8C3-F0F425BFE189}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WebApiExplorer</RootNamespace>
+    <AssemblyName>WebApiExplorer</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+    <Use64BitIISExpress />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="C1.Web.Mvc">
+      <HintPath>..\packages\C1.Web.Mvc.4.5.20221.333\lib\net45\C1.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="C1.Web.Mvc.Olap">
+      <HintPath>..\packages\C1.Web.Mvc.Olap.4.5.20221.333\lib\net45\C1.Web.Mvc.Olap.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.3.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.3.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.SQLite, Version=1.0.113.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.113.3\lib\net451\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.EF6, Version=1.0.113.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.EF6.1.0.113.0\lib\net451\System.Data.SQLite.EF6.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.Linq, Version=1.0.113.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Linq.1.0.113.0\lib\net451\System.Data.SQLite.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http.Extensions, Version=2.2.22.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.22\lib\net45\System.Net.Http.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives, Version=4.2.22.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.22\lib\net45\System.Net.Http.Primitives.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Providers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Providers.Core.2.0.0\lib\net40\System.Web.Providers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_GlobalResources\Barcode.designer.cs">
+      <DependentUpon>Barcode.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Barcode.ja.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Barcode.ja.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\DataEngine.designer.cs">
+      <DependentUpon>DataEngine.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\DataEngine.ja.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataEngine.ja.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Excel.designer.cs">
+      <DependentUpon>Excel.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Excel.ja.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Excel.ja.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\FileManager.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FileManager.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\FileManager.ja.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FileManager.ja.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Home.designer.cs">
+      <DependentUpon>Home.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Home.ja.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Home.ja.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\MVCBulletGraph.designer.cs">
+      <DependentUpon>MVCBulletGraph.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\MVCBulletGraph.ja.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MVCBulletGraph.ja.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\MVCFlexChart.designer.cs">
+      <DependentUpon>MVCFlexChart.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\MVCFlexChart.ja.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MVCFlexChart.ja.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\MVCFlexGrid.designer.cs">
+      <DependentUpon>MVCFlexGrid.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\MVCFlexGrid.ja.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MVCFlexGrid.ja.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\MVCFlexPie.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MVCFlexPie.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\MVCFlexPie.ja.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MVCFlexPie.ja.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\MVCFlexRadar.designer.cs">
+      <DependentUpon>MVCFlexRadar.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\MVCFlexRadar.ja.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MVCFlexRadar.ja.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\MVCLinearGauge.designer.cs">
+      <DependentUpon>MVCLinearGauge.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\MVCLinearGauge.ja.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MVCLinearGauge.ja.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\MVCOlap.designer.cs">
+      <DependentUpon>MVCOlap.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\MVCOlap.ja.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MVCOlap.ja.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\MVCRadialGauge.designer.cs">
+      <DependentUpon>MVCRadialGauge.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\MVCRadialGauge.ja.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MVCRadialGauge.ja.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\MVCSunburst.designer.cs">
+      <DependentUpon>MVCSunburst.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\MVCSunburst.ja.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MVCSunburst.ja.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\MVCTreeMap.designer.cs">
+      <DependentUpon>MVCTreeMap.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\MVCTreeMap.ja.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MVCTreeMap.ja.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Pdf.designer.cs">
+      <DependentUpon>Pdf.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Pdf.ja.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Pdf.ja.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Report.designer.cs">
+      <DependentUpon>Report.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Report.ja.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Report.ja.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Resource.ja.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.ja.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Storage.designer.cs">
+      <DependentUpon>Storage.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Storage.ja.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Storage.ja.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Wijmo5BulletGraph.designer.cs">
+      <DependentUpon>Wijmo5BulletGraph.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Wijmo5BulletGraph.ja.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Wijmo5BulletGraph.ja.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Wijmo5FlexChart.designer.cs">
+      <DependentUpon>Wijmo5FlexChart.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Wijmo5FlexChart.ja.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Wijmo5FlexChart.ja.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Wijmo5FlexGrid.designer.cs">
+      <DependentUpon>Wijmo5FlexGrid.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Wijmo5FlexGrid.ja.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Wijmo5FlexGrid.ja.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Wijmo5FlexPie.designer.cs">
+      <DependentUpon>Wijmo5FlexPie.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Wijmo5FlexPie.ja.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Wijmo5FlexPie.ja.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Wijmo5FlexRadar.designer.cs">
+      <DependentUpon>Wijmo5FlexRadar.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Wijmo5FlexRadar.ja.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Wijmo5FlexRadar.ja.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Wijmo5LinearGauge.designer.cs">
+      <DependentUpon>Wijmo5LinearGauge.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Wijmo5LinearGauge.ja.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Wijmo5LinearGauge.ja.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Wijmo5Olap.designer.cs">
+      <DependentUpon>Wijmo5Olap.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Wijmo5Olap.ja.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Wijmo5Olap.ja.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Wijmo5RadialGauge.designer.cs">
+      <DependentUpon>Wijmo5RadialGauge.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Wijmo5RadialGauge.ja.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Wijmo5RadialGauge.ja.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Wijmo5Sunburst.designer.cs">
+      <DependentUpon>Wijmo5Sunburst.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Wijmo5Sunburst.ja.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Wijmo5Sunburst.ja.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Wijmo5TreeMap.designer.cs">
+      <DependentUpon>Wijmo5TreeMap.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Resource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Wijmo5TreeMap.ja.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Wijmo5TreeMap.ja.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\FileManager\IndexController.cs" />
+    <Compile Include="Controllers\FileManager\LocalStorageController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MVCBulletGraph\IndexController.cs" />
+    <Compile Include="Controllers\MVCFlexChart\BoxWhiskerController.cs" />
+    <Compile Include="Controllers\MVCFlexChart\BubbleController.cs" />
+    <Compile Include="Controllers\MVCFlexChart\ErrorBarController.cs" />
+    <Compile Include="Controllers\MVCFlexChart\FinancialChartController.cs" />
+    <Compile Include="Controllers\MVCFlexChart\HeaderFooterController.cs" />
+    <Compile Include="Controllers\MVCFlexChart\IndexController.cs" />
+    <Compile Include="Controllers\MVCFlexChart\LabelsController.cs" />
+    <Compile Include="Controllers\MVCFlexChart\MovingAverageController.cs" />
+    <Compile Include="Controllers\MVCFlexChart\ParametricFunctionSeriesController.cs" />
+    <Compile Include="Controllers\MVCFlexChart\TrendLineController.cs" />
+    <Compile Include="Controllers\MVCFlexChart\WaterfallController.cs" />
+    <Compile Include="Controllers\MVCFlexChart\YFunctionSeriesController.cs" />
+    <Compile Include="Controllers\MVCFlexGrid\ConditionalStylingController.cs" />
+    <Compile Include="Controllers\MVCFlexGrid\DisableServerReadController.cs" />
+    <Compile Include="Controllers\MVCFlexGrid\FilteringController.cs" />
+    <Compile Include="Controllers\MVCFlexGrid\FrozenCellsController.cs" />
+    <Compile Include="Controllers\MVCFlexGrid\GroupingController.cs" />
+    <Compile Include="Controllers\MVCFlexGrid\IndexController.cs" />
+    <Compile Include="Controllers\MVCFlexGrid\PagingController.cs" />
+    <Compile Include="Controllers\MVCFlexGrid\RemoteBindController.cs" />
+    <Compile Include="Controllers\MVCFlexGrid\TreeViewController.cs" />
+    <Compile Include="Controllers\MVCFlexGrid\VirtualScrollingController.cs" />
+    <Compile Include="Controllers\MVCFlexPie\IndexController.cs" />
+    <Compile Include="Controllers\MVCFlexPie\SelectionController.cs" />
+    <Compile Include="Controllers\MVCTreeMap\IndexController.cs" />
+    <Compile Include="Controllers\Wijmo5FlexRadar\IndexController.cs" />
+    <Compile Include="Controllers\MVCLinearGauge\IndexController.cs" />
+    <Compile Include="Controllers\MVCOlap\IndexController.cs" />
+    <Compile Include="Controllers\MVCRadialGauge\IndexController.cs" />
+    <Compile Include="Controllers\MVCFlexRadar\IndexController.cs" />
+    <Compile Include="Controllers\Wijmo5BulletGraph\IndexController.cs" />
+    <Compile Include="Controllers\Wijmo5FlexChart\MovingAverageController.cs" />
+    <Compile Include="Controllers\Wijmo5FlexChart\YFunctionSeriesController.cs" />
+    <Compile Include="Controllers\Wijmo5FlexChart\ParametricFunctionSeriesController.cs" />
+    <Compile Include="Controllers\Wijmo5FlexChart\BoxWhiskerController.cs" />
+    <Compile Include="Controllers\Wijmo5FlexChart\ErrorBarController.cs" />
+    <Compile Include="Controllers\Wijmo5FlexChart\WaterfallController.cs" />
+    <Compile Include="Controllers\Wijmo5FlexChart\TrendLineController.cs" />
+    <Compile Include="Controllers\Wijmo5FlexChart\BubbleController.cs" />
+    <Compile Include="Controllers\Wijmo5FlexChart\FinancialChartController.cs" />
+    <Compile Include="Controllers\Wijmo5FlexChart\HeaderFooterController.cs" />
+    <Compile Include="Controllers\Wijmo5FlexChart\IndexController.cs" />
+    <Compile Include="Controllers\Wijmo5FlexChart\LabelsController.cs" />
+    <Compile Include="Controllers\Wijmo5FlexGrid\ConditionalStylingController.cs" />
+    <Compile Include="Controllers\Wijmo5FlexGrid\FilteringController.cs" />
+    <Compile Include="Controllers\Wijmo5FlexGrid\FrozenCellsController.cs" />
+    <Compile Include="Controllers\Wijmo5FlexGrid\GroupingController.cs" />
+    <Compile Include="Controllers\Wijmo5FlexGrid\HierarchicalDataController.cs" />
+    <Compile Include="Controllers\Wijmo5FlexGrid\IndexController.cs" />
+    <Compile Include="Controllers\Wijmo5FlexGrid\PagingController.cs" />
+    <Compile Include="Controllers\MVCSunburst\IndexController.cs" />
+    <Compile Include="Controllers\Wijmo5Sunburst\IndexController.cs" />
+    <Compile Include="Controllers\Wijmo5FlexPie\IndexController.cs" />
+    <Compile Include="Controllers\Wijmo5LinearGauge\IndexController.cs" />
+    <Compile Include="Controllers\Wijmo5Olap\IndexController.cs" />
+    <Compile Include="Controllers\Wijmo5RadialGauge\IndexController.cs" />
+    <Compile Include="Controllers\Wijmo5TreeMap\IndexController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\C1NWind.Context.cs">
+    </Compile>
+    <Compile Include="Models\ChartOptions.cs" />
+    <Compile Include="Models\Cities.cs" />
+    <Compile Include="Models\ClientSettingsModel.cs" />
+    <Compile Include="Models\ControlOptions.cs" />
+    <Compile Include="Models\ControlsClass.cs" />
+    <Compile Include="Models\Countries.cs" />
+    <Compile Include="Models\Customer.cs">
+    </Compile>
+    <Compile Include="Models\CustomerOrder.cs" />
+    <Compile Include="Models\Dot.cs" />
+    <Compile Include="Models\FinanceData.cs" />
+    <Compile Include="Models\Fruit.cs" />
+    <Compile Include="Models\GridExportImportOptions.cs" />
+    <Compile Include="Models\HierarchicalData.cs" />
+    <Compile Include="Models\ImageExportOptions.cs" />
+    <Compile Include="Models\MathPoint.cs" />
+    <Compile Include="Models\NamedColor.cs" />
+    <Compile Include="Models\OlapData.cs" />
+    <Compile Include="Models\Order.cs">
+    </Compile>
+    <Compile Include="Models\PopulationByCountry.cs" />
+    <Compile Include="Models\Products.cs" />
+    <Compile Include="Models\ProductSales.cs" />
+    <Compile Include="Models\Sale.cs" />
+    <Compile Include="Models\SalesAnalysis.cs" />
+    <Compile Include="Models\Supplier.cs">
+    </Compile>
+    <Compile Include="Models\Theme.cs" />
+    <Compile Include="Models\ThingSale.cs" />
+    <Compile Include="Models\TreeItem.cs" />
+    <Compile Include="Models\WaterfallData.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\ControlPages.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Content\css\bootstrap\css\bootstrap.css" />
+    <Content Include="Content\css\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\css\gcicons.css" />
+    <Content Include="Content\css\gcicons.ja.css" />
+    <Content Include="Content\css\home.css" />
+    <Content Include="Content\css\explorer.css" />
+    <Content Include="Content\css\images\Barcode.svg" />
+    <Content Include="Content\css\images\DataEngine.svg" />
+    <Content Include="Content\css\images\Excel.svg" />
+    <Content Include="Content\css\images\FileManager.svg" />
+    <Content Include="Content\css\images\Icon-Minus.png" />
+    <Content Include="Content\css\images\Icon-Plus.png" />
+    <Content Include="Content\css\images\icons\32\picons33.png" />
+    <Content Include="Content\css\images\icons\32\picons36.png" />
+    <Content Include="Content\css\images\Image.svg" />
+    <Content Include="Content\css\images\Pdf.svg" />
+    <Content Include="Content\css\images\Report.svg" />
+    <Content Include="Content\css\images\Storage.svg" />
+    <Content Include="Content\css\Site.css" />
+    <Content Include="Content\css\SyntaxHighlighter\shCore.css" />
+    <Content Include="Content\css\SyntaxHighlighter\shCoreEclipse.css" />
+    <Content Include="Content\favicon\android-chrome-192x192.png" />
+    <Content Include="Content\favicon\android-chrome-256x256.png" />
+    <Content Include="Content\favicon\apple-touch-icon.png" />
+    <Content Include="Content\favicon\favicon-16x16.png" />
+    <Content Include="Content\favicon\favicon-32x32.png" />
+    <Content Include="Content\favicon\safari-pinned-tab.svg" />
+    <Content Include="Content\images\excelWorkSheets.PNG" />
+    <Content Include="Content\images\flexchart_sample.png" />
+    <Content Include="Content\images\flexgrid_sample.png" />
+    <Content Include="Content\images\flexpie_sample.png" />
+    <Content Include="Content\images\gauge_sample.png" />
+    <Content Include="Content\images\input_sample.png" />
+    <Content Include="Content\images\room.png" />
+    <Content Include="Global.asax" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\ControlLayout.js" />
+    <Content Include="Scripts\DataEngine\common.js" />
+    <Content Include="Scripts\DataEngine\wijmo5Olap.js" />
+    <Content Include="Scripts\explorer.js" />
+    <Content Include="Scripts\flexGrid.js" />
+    <Content Include="Scripts\jquery.js" />
+    <Content Include="Scripts\Layout.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\MultiLevelMenu.js" />
+    <Content Include="Scripts\SyntaxHighlighter\shBrushCSharp.js" />
+    <Content Include="Scripts\SyntaxHighlighter\shBrushJScript.js" />
+    <Content Include="Scripts\SyntaxHighlighter\shBrushXml.js" />
+    <Content Include="Scripts\SyntaxHighlighter\shCore.js" />
+    <Content Include="Scripts\tabs.js" />
+    <Content Include="Scripts\wijmo.io\webapiclient.min.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Views\Barcode\BarcodeGenerating.cshtml" />
+    <Content Include="Views\DataEngine\Analysis.cshtml" />
+    <Content Include="Views\DataEngine\Analyze.cshtml" />
+    <Content Include="Views\DataEngine\Clear.cshtml" />
+    <Content Include="Views\DataEngine\Detail.cshtml" />
+    <Content Include="Views\DataEngine\Fields.cshtml" />
+    <Content Include="Views\DataEngine\RawData.cshtml" />
+    <Content Include="Views\DataEngine\Result.cshtml" />
+    <Content Include="Views\DataEngine\Status.cshtml" />
+    <Content Include="Views\DataEngine\UniqueValues.cshtml" />
+    <Content Include="Views\Excel\ExcelColumnsDELETE.cshtml" />
+    <Content Include="Views\Excel\ExcelColumnsPOST.cshtml" />
+    <Content Include="Views\Excel\ExcelColumnsPUT.cshtml" />
+    <Content Include="Views\Excel\ExcelFindGET.cshtml" />
+    <Content Include="Views\Excel\ExcelGeneratingConvertFormatGET.cshtml" />
+    <Content Include="Views\Excel\ExcelGeneratingConvertFormatPOST.cshtml" />
+    <Content Include="Views\Excel\ExcelGeneratingFromDataGET.cshtml" />
+    <Content Include="Views\Excel\ExcelGeneratingFromJSONPOST.cshtml" />
+    <Content Include="Views\Excel\ExcelGeneratingFromWorkbookPOST.cshtml" />
+    <Content Include="Views\Excel\ExcelGeneratingFromXMLGET.cshtml" />
+    <Content Include="Views\Excel\ExcelGeneratingFromXMLPOST.cshtml" />
+    <Content Include="Views\Excel\ExcelMergingGET.cshtml" />
+    <Content Include="Views\Excel\ExcelMergingPOST.cshtml" />
+    <Content Include="Views\Excel\ExcelReplaceGET.cshtml" />
+    <Content Include="Views\Excel\ExcelRowsDELETE.cshtml" />
+    <Content Include="Views\Excel\ExcelRowsPOST.cshtml" />
+    <Content Include="Views\Excel\ExcelRowsPUT.cshtml" />
+    <Content Include="Views\Excel\ExcelSplitGET.cshtml" />
+    <Content Include="Views\MVCBulletGraph\Index.cshtml" />
+    <Content Include="Views\MVCFlexChart\Bubble.cshtml" />
+    <Content Include="Views\MVCFlexChart\FinancialChart.cshtml" />
+    <Content Include="Views\MVCFlexChart\HeaderFooter.cshtml" />
+    <Content Include="Views\MVCFlexChart\Index.cshtml" />
+    <Content Include="Views\MVCFlexChart\Labels.cshtml" />
+    <Content Include="Views\MVCFlexGrid\ConditionalStyling.cshtml" />
+    <Content Include="Views\MVCFlexGrid\DisableServerRead.cshtml" />
+    <Content Include="Views\MVCFlexGrid\Filtering.cshtml" />
+    <Content Include="Views\MVCFlexGrid\FrozenCells.cshtml" />
+    <Content Include="Views\MVCFlexGrid\Grouping.cshtml" />
+    <Content Include="Views\MVCFlexGrid\Index.cshtml" />
+    <Content Include="Views\MVCFlexGrid\Paging.cshtml" />
+    <Content Include="Views\MVCFlexGrid\RemoteBind.cshtml" />
+    <Content Include="Views\MVCFlexGrid\TreeView.cshtml" />
+    <Content Include="Views\MVCFlexGrid\VirtualScrolling.cshtml" />
+    <Content Include="Views\MVCFlexPie\Index.cshtml" />
+    <Content Include="Views\MVCLinearGauge\Index.cshtml" />
+    <Content Include="Views\MVCOlap\Index.cshtml" />
+    <Content Include="Views\MVCRadialGauge\Index.cshtml" />
+    <Content Include="Views\Pdf\PdfExportGET.cshtml" />
+    <Content Include="Views\Pdf\PdfStatusGET.cshtml" />
+    <Content Include="Views\Pdf\PdfSupportedFormatsGET.cshtml" />
+    <Content Include="Views\Report\ReportInstanceBookmarkGET.cshtml" />
+    <Content Include="Views\Report\ReportInstanceDELETE.cshtml" />
+    <Content Include="Views\Report\ReportInstanceExportGET.cshtml" />
+    <Content Include="Views\Report\ReportInstanceOutlinesGET.cshtml" />
+    <Content Include="Views\Report\ReportInstancePageSettingsPUT.cshtml" />
+    <Content Include="Views\Report\ReportInstanceParametersGET.cshtml" />
+    <Content Include="Views\Report\ReportInstanceParametersPUT.cshtml" />
+    <Content Include="Views\Report\ReportInstanceRenderPOST.cshtml" />
+    <Content Include="Views\Report\ReportInstanceSearchGET.cshtml" />
+    <Content Include="Views\Report\ReportInstanceStatusGET.cshtml" />
+    <Content Include="Views\Report\ReportInstanceStopPOST.cshtml" />
+    <Content Include="Views\Report\ReportInstanceSupportedFormatsGET.cshtml" />
+    <Content Include="Views\Report\ReportExportGET.cshtml" />
+    <Content Include="Views\Report\ReportInstancesPOST.cshtml" />
+    <Content Include="Views\Report\ReportParametersGET.cshtml" />
+    <Content Include="Views\Report\ReportsGET.cshtml" />
+    <Content Include="Views\Report\ReportSupportedFormatsGET.cshtml" />
+    <Content Include="Views\Storage\StorageUploadPOST.cshtml" />
+    <Content Include="Views\Wijmo5BulletGraph\Index.cshtml" />
+    <Content Include="Views\Wijmo5FlexChart\Bubble.cshtml" />
+    <Content Include="Views\Wijmo5FlexChart\FinancialChart.cshtml" />
+    <Content Include="Views\Wijmo5FlexChart\HeaderFooter.cshtml" />
+    <Content Include="Views\Wijmo5FlexChart\Index.cshtml" />
+    <Content Include="Views\Wijmo5FlexChart\Labels.cshtml" />
+    <Content Include="Views\Wijmo5FlexGrid\ConditionalStyling.cshtml" />
+    <Content Include="Views\Wijmo5FlexGrid\Filtering.cshtml" />
+    <Content Include="Views\Wijmo5FlexGrid\FrozenCells.cshtml" />
+    <Content Include="Views\Wijmo5FlexGrid\Grouping.cshtml" />
+    <Content Include="Views\Wijmo5FlexGrid\HierarchicalData.cshtml" />
+    <Content Include="Views\Wijmo5FlexGrid\Index.cshtml" />
+    <Content Include="Views\Wijmo5FlexGrid\Paging.cshtml" />
+    <Content Include="Views\Wijmo5FlexPie\Index.cshtml" />
+    <Content Include="Views\Wijmo5LinearGauge\Index.cshtml" />
+    <Content Include="Views\Wijmo5Olap\Index.cshtml" />
+    <Content Include="Views\Wijmo5RadialGauge\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Resource.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\MVCRadialGauge.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>MVCRadialGauge.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Wijmo5FlexPie.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Wijmo5FlexPie.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Wijmo5FlexRadar.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Wijmo5FlexRadar.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Wijmo5LinearGauge.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Wijmo5LinearGauge.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Wijmo5Olap.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Wijmo5Olap.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Wijmo5RadialGauge.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Wijmo5RadialGauge.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Wijmo5Sunburst.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Wijmo5Sunburst.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Wijmo5TreeMap.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Wijmo5TreeMap.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Barcode.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Barcode.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\DataEngine.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>DataEngine.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Excel.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Excel.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Home.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Home.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\MVCBulletGraph.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>MVCBulletGraph.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\MVCFlexChart.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>MVCFlexChart.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\MVCFlexGrid.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>MVCFlexGrid.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\MVCFlexRadar.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>MVCFlexRadar.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\MVCLinearGauge.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>MVCLinearGauge.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\MVCOlap.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>MVCOlap.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\MVCSunburst.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>MVCSunburst.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\MVCTreeMap.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>MVCTreeMap.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Pdf.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Pdf.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Report.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Report.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Storage.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Storage.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Wijmo5BulletGraph.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Wijmo5BulletGraph.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Wijmo5FlexChart.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Wijmo5FlexChart.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Wijmo5FlexGrid.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Wijmo5FlexGrid.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Barcode.ja.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Barcode.ja.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\DataEngine.ja.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>DataEngine.ja.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Excel.ja.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Excel.ja.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Home.ja.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Home.ja.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\MVCBulletGraph.ja.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>MVCBulletGraph.ja.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\MVCFlexChart.ja.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>MVCFlexChart.ja.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\MVCFlexGrid.ja.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>MVCFlexGrid.ja.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\MVCFlexRadar.ja.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>MVCFlexRadar.ja.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\MVCLinearGauge.ja.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>MVCLinearGauge.ja.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\MVCOlap.ja.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>MVCOlap.ja.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\MVCRadialGauge.ja.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>MVCRadialGauge.ja.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\MVCSunburst.ja.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>MVCSunburst.ja.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\MVCTreeMap.ja.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>MVCTreeMap.ja.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Pdf.ja.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Pdf.ja.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Report.ja.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Report.ja.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Resource.ja.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Resource.ja.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_GlobalResources\Storage.ja.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Storage.ja.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Wijmo5BulletGraph.ja.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Wijmo5BulletGraph.ja.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Wijmo5FlexChart.ja.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Wijmo5FlexChart.ja.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Wijmo5FlexGrid.ja.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Wijmo5FlexGrid.ja.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Wijmo5FlexPie.ja.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Wijmo5FlexPie.ja.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Wijmo5FlexRadar.ja.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Wijmo5FlexRadar.ja.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Wijmo5LinearGauge.ja.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Wijmo5LinearGauge.ja.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Wijmo5Olap.ja.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Wijmo5Olap.ja.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Wijmo5RadialGauge.ja.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Wijmo5RadialGauge.ja.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Wijmo5Sunburst.ja.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Wijmo5Sunburst.ja.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Wijmo5TreeMap.ja.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Wijmo5TreeMap.ja.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\MVCFlexPie.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>MVCFlexPie.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_GlobalResources\MVCFlexPie.ja.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>MVCFlexPie.ja.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_GlobalResources\FileManager.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>FileManager.Designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\FileManager.ja.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>FileManager.ja.designer.cs</LastGenOutput>
+    </Content>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_ClientSettingsByMenu.cshtml" />
+    <Content Include="Views\Shared\_ControlLayout.cshtml" />
+    <Content Include="Views\Shared\_ControlList.cshtml" />
+    <Content Include="Views\Shared\_ControlsNav.cshtml" />
+    <Content Include="Views\Shared\_DemoSource.cshtml" />
+    <Content Include="Views\Shared\_FlexGridOptions.cshtml" />
+    <Content Include="Views\Shared\_ImageExportOptions.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Shared\_Logger.cshtml" />
+    <Content Include="Views\Shared\_OptionsMenu.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_SiteNav.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\css\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\css\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\css\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\fonts\controls.woff" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_BreadcrumbNav.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Pdf\PdfInfoGET.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Pdf\PdfExportPOST.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Pdf\PdfFeaturesGET.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Pdf\PdfSearchGET.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Report\ReportInfoGET.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Report\ReportPageSettingsGET.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Report\ReportParameterGET.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Report\ReportSupportedFormatGET.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Report\ReportExportPOST.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Report\ReportInstancesGET.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Report\ReportInstanceInfoGET.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Report\ReportInstanceParametersPATCH.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Report\ReportInstanceParameterGET.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Report\ReportInstanceParameterPUT.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Report\ReportInstancePageSettingsGET.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Report\ReportInstancePageSettingsPATCH.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Report\ReportInstanceSupportedFormatGET.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Report\ReportInstanceExportPOST.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Report\ReportInstanceFeaturesGET.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Wijmo5FlexChart\TrendLine.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Wijmo5FlexChart\MovingAverage.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Wijmo5FlexChart\YFunctionSeries.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Wijmo5FlexChart\ParametricFunctionSeries.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Wijmo5FlexChart\BoxWhisker.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Wijmo5FlexChart\Waterfall.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Wijmo5FlexChart\ErrorBar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\MVCFlexChart\YFunctionSeries.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\MVCFlexChart\BoxWhisker.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\MVCFlexChart\ErrorBar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\MVCFlexChart\MovingAverage.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\MVCFlexChart\ParametricFunctionSeries.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\MVCFlexChart\TrendLine.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\MVCFlexChart\Waterfall.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Wijmo5Sunburst\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\MVCSunburst\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\MVCFlexRadar\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Wijmo5FlexRadar\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\favicon\manifest.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\fonts\gcicons.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\MVCTreeMap\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Wijmo5TreeMap\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\fonts\grapecity-dev.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Storage\StorageUploadDELETE.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Storage\StorageUploadLIST.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Data\C1NWind.db" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="TargetFiles\Stub.System.Data.SQLite.Core.NetFramework.targets" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\FileManager\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\FileManager\LocalStorage.cshtml" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>50231</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:50231/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
+  <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">
+    <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=317567." HelpKeyword="BCLBUILD2001" />
+    <Error Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see http://go.microsoft.com/fwlink/?LinkID=317568." HelpKeyword="BCLBUILD2002" />
+  </Target>
+  <Target Name="RemoveBaseIntermediateOutputDirectories" BeforeTargets="PrepareForBuild">
+    <RemoveDir Directories="$(BaseIntermediateOutputPath)" />
+  </Target>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.3.0\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.3.0\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.3.0\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.3.0\build\EntityFramework.targets'))" />
+    <Error Condition="!Exists('..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.113.3\build\net451\Stub.System.Data.SQLite.Core.NetFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.113.3\build\net451\Stub.System.Data.SQLite.Core.NetFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.3.0\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.3.0\build\EntityFramework.targets')" />
+  <Import Project="TargetFiles\Stub.System.Data.SQLite.Core.NetFramework.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

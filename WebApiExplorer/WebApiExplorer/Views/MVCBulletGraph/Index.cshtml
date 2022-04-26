@@ -1,0 +1,40 @@
+@using WebApiExplorer.Models
+@{
+    ClientSettingsModel settings = ViewBag.DemoSettingsModel;
+    ImageExportOptions optionsModel = ViewBag.Options;
+    ViewBag.DemoSettings = true;
+}
+
+@(Html.C1().BulletGraph().Id(optionsModel.ControlId)
+    .Face(fb => fb.Min(0).Max(10))
+    .Pointer(pb => pb.Max(5).Thickness(0.5)).Format("").ShowText(ShowText.All)
+    .Good(2).Bad(6).Target(9)
+    .IsReadOnly(false).Step(0.5)
+    .Width(600).Height(50)
+)
+
+<script>
+    function customChangeDirection(control, value) {
+        control.direction = value;
+        control.invalidate();
+        if (value === "Left" || value === "Right") {
+            control.hostElement.style.width = "600px";
+            wijmo.Control.getControl("#exportWidth").value = 600;
+            control.hostElement.style.height = "50px";
+            wijmo.Control.getControl("#exportHeight").value = 50;
+        } else {
+            control.hostElement.style.width = "50px";
+            wijmo.Control.getControl("#exportWidth").value = 50;
+            control.hostElement.style.height = "600px";
+            wijmo.Control.getControl("#exportHeight").value = 600;
+        }
+    }
+</script>
+
+@section Settings{
+    @Html.Partial("_ImageExportOptions", optionsModel)
+}
+
+@section Description{
+    @Html.Raw(Resources.MVCBulletGraph.Index_Text0)
+}

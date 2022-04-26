@@ -1,0 +1,57 @@
+﻿@{
+    GridExportImportOptions optionsModel = ViewBag.Options;
+    ViewBag.DemoSettings = true;
+}
+
+<div id="@(optionsModel.ControlId)" style="height:300px"></div>
+
+<select id="frozenColumnMenu">
+    <option value=0>0</option>
+    <option value=1 selected>1</option>
+    <option value=2>2</option>
+    <option value=3>3</option>
+    <option value=4>4</option>
+</select>
+
+<select id="frozenRowMenu">
+    <option value=0>0</option>
+    <option value=1>1</option>
+    <option value=2 selected>2</option>
+    <option value=3>3</option>
+    <option value=4>4</option>
+</select>
+
+@section Settings{
+    @await Html.PartialAsync("_FlexGridOptions", optionsModel)
+}
+<script>
+    var grid = new wijmo.grid.FlexGrid('#@(optionsModel.ControlId)'), fcMenu = new wijmo.input.Menu('#frozenColumnMenu'), frMenu = new wijmo.input.Menu('#frozenRowMenu');
+    initializeFlexGrid(grid);
+    grid.frozenColumns = 1;
+    grid.frozenRows = 2;
+
+    fcMenu.itemClicked.addHandler(function (sender) {
+        grid.frozenColumns = parseInt(sender.selectedValue);
+        updateFCMenuHeader();
+    });
+
+    frMenu.itemClicked.addHandler(function (sender) {
+        grid.frozenRows = parseInt(sender.selectedValue);
+        updateFRMenuHeader();
+    });
+
+    updateFCMenuHeader();
+    updateFRMenuHeader();
+
+    function updateFCMenuHeader() {
+        fcMenu.header = '<b>@(Wijmo5FlexGrid.FrozenCells_FrozenColumns)</b> ' + fcMenu.text;
+    }
+
+    function updateFRMenuHeader() {
+        frMenu.header = '<b>@(Wijmo5FlexGrid.FrozenCells_FrozenRows)</b> ' + frMenu.text;
+    }
+
+</script>
+@section Description{
+    @Html.Raw(Wijmo5FlexGrid.FrozenCells_Text0)
+}

@@ -53,7 +53,7 @@ namespace WebApi.Models
                     foreach (var functionGroup in controlCat.Elements("FunctionGroup"))
                     {
                         var functionGroupName = functionGroup.Attribute("name").Value;
-                        var functionGroupNameJa = functionGroup.Attribute("name.ja")?.Value;
+                        var functionGroupNameJa = functionGroup.Attribute("name.ja") == null ? null : functionGroup.Attribute("name.ja").Value;
                         var controlGroups = new List<ControlGroup>();
                         foreach (var controlGroup in functionGroup.Elements("ControlGroup"))
                         {
@@ -101,7 +101,7 @@ namespace WebApi.Models
                             var functionMethod = function.Attribute("method").Value;
                             var functionUrl = function.Attribute("url").Value;
                             var functionDescription = function.Attribute("description").Value;
-                            var functionDescriptionJa = function.Attribute("description.ja")?.Value;
+                            var functionDescriptionJa = function.Attribute("description.ja") == null ? null : function.Attribute("description.ja").Value;
                             var responseSchema = function.Attribute("responseschema").Value;
                             var functionUsage = function.Attribute("usage").Value;
                             var statuses = new List<FunctionStatus>();
@@ -248,7 +248,7 @@ namespace WebApi.Models
         {
             get
             {
-                return PageTemplate.IsJPCulture ? FunctionGroupNameJp ?? FunctionGroupNameEn : FunctionGroupNameEn;
+                return PageTemplate.IsJpCulture ? FunctionGroupNameJp ?? FunctionGroupNameEn : FunctionGroupNameEn;
             }
         }
     }
@@ -260,11 +260,12 @@ namespace WebApi.Models
         public string FunctionUrl { get; set; }
         internal string FunctionDescriptionEn { get; set; }
         internal string FunctionDescriptionJp { get; set; }
+
         public string FunctionDescription
         {
             get
             {
-                return PageTemplate.IsJPCulture ? FunctionDescriptionJp ?? FunctionDescriptionEn : FunctionDescriptionEn;
+                return PageTemplate.IsJpCulture ? FunctionDescriptionJp ?? FunctionDescriptionEn : FunctionDescriptionEn;
             }
         }
         public string FunctionUsage { get; set; }

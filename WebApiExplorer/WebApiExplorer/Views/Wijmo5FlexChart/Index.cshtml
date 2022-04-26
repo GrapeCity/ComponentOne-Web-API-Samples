@@ -1,0 +1,54 @@
+@using WebApiExplorer.Models
+@{
+    ClientSettingsModel settings = ViewBag.DemoSettingsModel;
+    ImageExportOptions optionsModel = ViewBag.Options;
+    ViewBag.DemoSettings = true;
+}
+
+<div id="@(optionsModel.ControlId)" ></div>
+@section Settings{
+    @Html.Partial("_ImageExportOptions", optionsModel)
+}
+<script>
+    var gettingStartedChart = new wijmo.chart.FlexChart('#@(optionsModel.ControlId)');
+
+    gettingStartedChart.initialize({
+        chartType: "Column",
+        stacking: "None",
+        rotated: false,
+        palette: wijmo.chart.Palettes["standard"],
+        itemsSource: getData(),
+        bindingX: 'country',
+        series: [
+            { name: 'Sales', binding: 'sales' },
+            { name: 'Expenses', binding: 'expenses' },
+            { name: 'Downloads', binding: 'downloads' }
+        ]
+    });
+
+    convertStacking = function (value) {
+        return value === "Stacked 100%" ? "Stacked100pc" : value;
+    };
+    convertPalette = function (value) {
+        return wijmo.chart.Palettes[value];
+    };
+
+    function getData() {
+        var countries = 'US,Germany,UK,Japan,Italy,Greece'.split(','),
+            appData = [];
+
+        for (var i = 0; i < countries.length; i++) {
+            appData.push({
+                country: countries[i],
+                downloads: Math.round(Math.random() * 20000),
+                sales: Math.random() * 10000,
+                expenses: Math.random() * 5000
+            });
+        }
+        return appData;
+    }
+</script>
+
+@section Description{
+    @Html.Raw(Resources.Wijmo5FlexChart.Index_Text0)
+}

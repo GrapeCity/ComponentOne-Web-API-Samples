@@ -1,0 +1,85 @@
+@model WebApiExplorer.Models.ControlsClass.Function
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+
+<div class="settings-panel-content">
+    <div style="float:left;width:100%">
+        <div style="float:left"><h4>@Html.Raw(Report.ReportInstanceExportPOST_Parameters)</h4></div>
+        <div style="float:right">
+            <button style="margin-top:3px;padding: 4px;" class="btn btn-primary btn-report-instance" disabled="disabled"
+                    onclick="reportinstanceExportPost('@Model.FunctionName', '@(Configuration["WebAPIService"])');">
+                @Html.Raw(Report.ReportInstanceExportPOST_Export)
+            </button>
+        </div>
+    </div>
+    <div>
+        <div class="settings-panel report-instance-export post">
+            <div class="param-item">
+                <label class="param-lable parameter"><b>@Html.Raw(Report.ReportInstanceExportPOST_Parameter)</b></label>
+                <label class="param-lable value"><b>@Html.Raw(Report.ReportInstanceExportPOST_Value)</b></label>
+                <label class="param-lable description"><b>@Html.Raw(Report.ReportInstanceExportPOST_Description)</b></label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Report.ReportInstanceExportPOST_ReportFullPath)</label>
+                <span class="param-value-group">
+                    <input type="text" name="reportFullPath" class="param-value" style="width: 100%; margin-bottom: 10px;" disabled="disabled" value="@(Report.ReportInstanceExportPOST_PleaseLoadAReportFirst)" />
+                </span>
+                <label class="param-lable description">@Html.Raw(Report.ReportInstanceExportPOST_ReportFullPathText)</label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Report.ReportInstanceExportPOST_InstanceId)</label>
+                <span class="param-value-group">
+                    <input type="text" name="instanceId" class="param-value" style="width: 100%; margin-bottom: 10px;" disabled="disabled" value="@(Report.ReportInstanceExportPOST_PleaseLoadAReportFirst)" />
+                </span>
+                <label class="param-lable description">@Html.Raw(Report.ReportInstanceExportPOST_InstanceIdText)</label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Report.ReportInstanceExportPOST_Format)</label>
+                <span class="param-value-group">
+                    <select name="exportFormat" class="param-value" style="width: 100%; margin-bottom: 10px;"></select>
+                </span>
+                <label class="param-lable description">@Html.Raw(Report.ReportInstanceExportPOST_FormatText)</label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Report.ReportInstanceExportPOST_ExportFileName)</label>
+                <span class="param-value-group">
+                    <input type="text" name="exportFileName" class="param-value" style="width: 100%; margin-bottom: 10px;" />
+                </span>
+                <label class="param-lable description">@Html.Raw(Report.ReportInstanceExportPOST_ExportFileNameText)</label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Report.ReportInstanceExportPOST_ExportOptions)</label>
+                <span class="param-value-group">
+                    <textarea name="exportOptions" class="param-value" style="width: 100%; height:100px;"></textarea>
+                </span>
+                <label class="param-lable description">@Html.Raw(Report.ReportInstanceExportPOST_ExportOptionsText)</label>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="@(Model.FunctionName)result" class="content-panel-result">
+    <h4>@Html.Raw(Report.ReportInstanceExportPOST_Headers)</h4>
+    <div id="@(Model.FunctionName)headers" class="content-panel-result-url">
+        <pre>
+        </pre>
+    </div>
+</div>
+
+<script>
+    function reportinstanceExportPost(id, url) {
+        var instanceId = $(".report-instance-export.post .param-value[name=instanceId]").val();
+        var exportFormat = $(".report-instance-export.post .param-value[name=exportFormat]").val();
+        var exportFileName = $(".report-instance-export.post .param-value[name=exportFileName]").val();
+        var exportOptions = $(".report-instance-export.post .param-value[name=exportOptions]").val();
+        var reportFullPath = $(".report-instance-export.post .param-value[name=reportFullPath]").val();
+        var fullUrl = url + "api/report/" + reportFullPath + "/$instances/" + instanceId + "/export";
+        var optionsString = "format=" + exportFormat +
+            (exportFileName ? "&exportFileName=" + exportFileName : "") +
+            (exportOptions ? "&" + exportOptions : "");
+
+        $("#@(Model.FunctionName)headers pre").text("@(Report.ReportInstanceExportPOST_RequestURL)" + fullUrl);
+        $("#@(Model.FunctionName)result").show();
+
+        formPostWithOptions(id, fullUrl, optionsString);
+    }
+</script>

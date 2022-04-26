@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+		Microsoft ResX Schema
+
+		Version 1.3
+
+		The primary goals of this format is to allow a simple XML format 
+		that is mostly human readable. The generation and parsing of the 
+		various data types are done through the TypeConverter classes 
+		associated with the data types.
+
+		Example:
+
+		... ado.net/XML headers & schema ...
+		<resheader name="resmimetype">text/microsoft-resx</resheader>
+		<resheader name="version">1.3</resheader>
+		<resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+		<resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+		<data name="Name1">this is my long string</data>
+		<data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+		<data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+			[base64 mime encoded serialized .NET Framework object]
+		</data>
+		<data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+			[base64 mime encoded string representing a byte array form of the .NET Framework object]
+		</data>
+
+		There are any number of "resheader" rows that contain simple 
+		name/value pairs.
+
+		Each data row contains a name, and value. The row also contains a 
+		type or mimetype. Type corresponds to a .NET class that support 
+		text/value conversion through the TypeConverter architecture. 
+		Classes that don't support this are serialized and stored with the 
+		mimetype set.
+
+		The mimetype is used for serialized objects, and tells the 
+		ResXResourceReader how to depersist the object. This is currently not 
+		extensible. For a given mimetype the value must be set accordingly:
+
+		Note - application/x-microsoft.net.object.binary.base64 is the format 
+		that the ResXResourceWriter will generate, however the reader can 
+		read any of the formats listed below.
+
+		mimetype: application/x-microsoft.net.object.binary.base64
+		value   : The object must be serialized with 
+			: System.Serialization.Formatters.Binary.BinaryFormatter
+			: and then encoded with base64 encoding.
+
+		mimetype: application/x-microsoft.net.object.soap.base64
+		value   : The object must be serialized with 
+			: System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+			: and then encoded with base64 encoding.
+
+		mimetype: application/x-microsoft.net.object.bytearray.base64
+		value   : The object must be serialized into a byte array 
+			: using a System.ComponentModel.TypeConverter
+			: and then encoded with base64 encoding.
+	-->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>1.3</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Index_Text0" xml:space="preserve">
+    <value>このサンプルでは、&lt;b&gt;PviotPanel&lt;/b&gt; のフィールドリスト、&lt;b&gt;PivotGrid&lt;/b&gt; に表示された集計データ、一部のセルの詳細な生データなどのすべてのデータが &lt;b&gt;DataEngine&lt;/b&gt; サーバー API から取得されます。
+        必要であればクライアント側のオプションもあります。</value>
+    <comment>In this sample, all the data such as the field list in &lt;b&gt;PviotPanel&lt;/b&gt;, the aggregated data are shown in &lt;b&gt;PivotGrid&lt;/b&gt; and the detail raw data for some cells are fetched from the &lt;b&gt;DataEngine&lt;/b&gt; server api.
+        We also have a client-side option if you prefer.</comment>
+  </data>
+  <data name="Index_Text1" xml:space="preserve">
+    <value>このサンプルの &lt;b&gt;PivotPanel&lt;/b&gt; コントロールは、&lt;b&gt;DataEngine&lt;/b&gt; API を使用して連結されています。
+        また、&lt;b&gt;PivotGrid&lt;/b&gt; コントロールを使用して集計データを表示します。&lt;b&gt;PivotGrid&lt;/b&gt; コントロールでセルをダブルクリックすると、新しいグリッドがポップアップして、そのセルの詳細な生データが表示されます。</value>
+    <comment>In this sample, the &lt;b&gt;PivotPanel&lt;/b&gt; control is bound with the &lt;b&gt;DataEngine&lt;/b&gt; api.
+        And the &lt;b&gt;PivotGrid&lt;/b&gt; control is used to show the aggregated data. When double clicking on some cell in the &lt;b&gt;PivotGrid&lt;/b&gt; control, a new grid will pop up to show the detail raw data for the cell.</comment>
+  </data>
+  <data name="Index_Text2" xml:space="preserve">
+    <value>使用できるフィールドの一覧が &lt;b&gt;PivotPanel&lt;/b&gt; に表示されます。
+        サマリー領域間でフィールドをドラッグして、データサマリー（「ビュー」とも呼ばれる）を
+        生成できます。
+        フィールドのヘッダー、集計関数、フィルタ、書式などを
+        設定することもできます。</value>
+    <comment>A list of available fields will show in the &lt;b&gt;PivotPanel&lt;/b&gt;, and
+        users will be able to drag fields between summary areas to generate data summaries
+        (also known as "views").
+        Users can also configure the fields by setting their headers, summary functions,
+        filters, and formats.</comment>
+  </data>
+  <data name="Index_Text3" xml:space="preserve">
+    <value>&lt;b&gt;PivotPanel&lt;/b&gt; コントロールには、ビューをカスタマイズするためのプロパティが
+        用意されています。次のコントロールを使用して、これらのプロパティの値を変更し、その
+        効果を確認してください。</value>
+    <comment>The &lt;b&gt;PivotPanel&lt;/b&gt; control has properties that allow you to customize
+        the view. Use the controls below to modify the values of these properties
+        and see their effect:</comment>
+  </data>
+  <data name="Index_Dataset" xml:space="preserve">
+    <value>データセット</value>
+    <comment>Dataset</comment>
+  </data>
+  <data name="Index_RowTotals" xml:space="preserve">
+    <value>行の合計</value>
+    <comment>Row totals</comment>
+  </data>
+  <data name="Index_ColumnTotals" xml:space="preserve">
+    <value>列の合計</value>
+    <comment>Column totals</comment>
+  </data>
+  <data name="Index_ShowZeros" xml:space="preserve">
+    <value>ゼロを表示する</value>
+    <comment>Show Zeros</comment>
+  </data>
+</root>

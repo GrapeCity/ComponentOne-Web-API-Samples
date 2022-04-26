@@ -1,0 +1,492 @@
+@{
+    ClientSettingsModel settings = ViewBag.DemoSettingsModel;
+    ImageExportOptions optionsModel = ViewBag.Options;
+    ViewBag.DemoSettings = true;
+}
+
+<style>
+    #breadCrumbs {
+        padding: 5px 10px;
+        margin-bottom: 20px;
+        list-style: none;
+        background-color: #ffffff;
+        border-radius: 4px;
+    }
+
+        #breadCrumbs > li {
+            display: inline-block;
+        }
+
+            #breadCrumbs > li + li:before {
+                padding: 0 5px;
+                color: #ccc;
+                content: "/\00a0";
+            }
+
+        #breadCrumbs > .active {
+            color: #999;
+        }
+</style>
+
+<ol id="breadCrumbs"></ol>
+<div id="@(optionsModel.ControlId)" ></div>
+@section Settings{
+    @Html.Partial("_ImageExportOptions", optionsModel)
+}
+
+<script type="text/javascript">
+    var breadCrumbs = [];
+    var currentItem;
+    var treemap;
+
+    function onRendered() {
+        if (!treemap) {
+            treemap = wijmo.Control.getControl('#@settings.ControlId');
+        }
+
+        if (treemap) {
+            if (currentItem === treemap._currentItem) {
+                return;
+            }
+            currentItem = treemap._currentItem;
+            createBreadCrumbs();
+        }
+    }
+
+    function rollUp(num) {
+        //rollup treemap *num times.
+        for (var i = 0; i < num; i++) {
+            treemap._rollUp();
+        }
+    }
+
+    function createBreadCrumbs() {
+        breadCrumbs = [];
+        resetBreadCrumbs(currentItem);
+        breadCrumbs.reverse();
+        appendBreadCrumbs();
+    }
+
+    function appendBreadCrumbs() {
+        var ol = document.querySelector('#breadCrumbs');
+        ol.innerHTML = '';
+        var len = breadCrumbs.length;
+        breadCrumbs.forEach(function (label, idx) {
+            ol.appendChild(apendBreadCrumb(label, idx !== len - 1, len - idx - 1));
+        });
+    }
+
+    function apendBreadCrumb(label, isAnchor, param) {
+        var li = document.createElement('li');
+        if (isAnchor) {
+            li.className = 'breakcrumb-item';
+            var a = document.createElement('a');
+            a.href = 'javascript:void(0)';
+            a.innerHTML = label;
+            a.addEventListener('click', function (evt) {
+                rollUp(param);
+            });
+            li.appendChild(a);
+        } else {
+            li.className = 'breakcrumb-item active';
+            li.innerHTML = label;
+        }
+        return li;
+    }
+
+    function resetBreadCrumbs(item) {
+        if (item) {
+            breadCrumbs.push(item.label);
+            resetBreadCrumbs(item.parent);
+        } else {
+            breadCrumbs.push('Root');
+        }
+    }
+</script>
+
+<script>
+    // create controls
+    var chart = new wijmo.chart.hierarchical.TreeMap('#@(optionsModel.ControlId)');
+
+    // initialize TreeMap's properties
+    chart.beginUpdate();
+    chart.maxDepth = 2;
+    chart.binding = 'sales';
+    chart.bindingName = 'type';
+    chart.childItemsPath = 'items';
+    chart.itemsSource = getMaxDepthData();
+    chart.dataLabel.position = wijmo.chart.LabelPosition.Center;
+    chart.dataLabel.content = '{name}';
+    chart.rendered.addHandler(onRendered);
+    chart.endUpdate();
+
+    function rand() {
+        return Math.round(Math.random() * 100)
+    };
+
+    function getMaxDepthData() {
+        var data = [{
+            type: 'Music',
+            items: [{
+                type: 'Country',
+                items: [{
+                    type: 'Classic Country',
+                    sales: rand()
+                }, {
+                    type: 'Cowboy Country',
+                    sales: rand()
+                }, {
+                    type: 'Outlaw Country',
+                    sales: rand()
+                }, {
+                    type: 'Western Swing',
+                    sales: rand()
+                }, {
+                    type: 'Roadhouse Country',
+                    sales: rand()
+                }]
+            }, {
+                type: 'Rock',
+                items: [{
+                    type: 'Hard Rock',
+                    sales: rand()
+                }, {
+                    type: 'Blues Rock',
+                    sales: rand()
+                }, {
+                    type: 'Funk Rock',
+                    sales: rand()
+                }, {
+                    type: 'Rap Rock',
+                    sales: rand()
+                }, {
+                    type: 'Guitar Rock',
+                    sales: rand()
+                }, {
+                    type: 'Progressive Rock',
+                    sales: rand()
+                }]
+            }, {
+                type: 'Classical',
+                items: [{
+                    type: 'Symphonies',
+                    sales: rand()
+                }, {
+                    type: 'Chamber Music',
+                    sales: rand()
+                }]
+            }, {
+                type: 'Soundtracks',
+                items: [{
+                    type: 'Movie Soundtracks',
+                    sales: rand()
+                }, {
+                    type: 'Musical Soundtracks',
+                    sales: rand()
+                }]
+            }, {
+                type: 'Jazz',
+                items: [{
+                    type: 'Smooth Jazz',
+                    sales: rand()
+                }, {
+                    type: 'Vocal Jazz',
+                    sales: rand()
+                }, {
+                    type: 'Jazz Fusion',
+                    sales: rand()
+                }, {
+                    type: 'Swing Jazz',
+                    sales: rand()
+                }, {
+                    type: 'Cool Jazz',
+                    sales: rand()
+                }, {
+                    type: 'Traditional Jazz',
+                    sales: rand()
+                }]
+            }, {
+                type: 'Electronic',
+                items: [{
+                    type: 'Electronica',
+                    sales: rand()
+                }, {
+                    type: 'Disco',
+                    sales: rand()
+                }, {
+                    type: 'House',
+                    sales: rand()
+                }]
+            }]
+        }, {
+            type: 'Video',
+            items: [{
+                type: 'Movie',
+                items: [{
+                    type: 'Kid & Family',
+                    sales: rand()
+                }, {
+                    type: 'Action & Adventure',
+                    sales: rand()
+                }, {
+                    type: 'Animation',
+                    sales: rand()
+                }, {
+                    type: 'Comedy',
+                    sales: rand()
+                }, {
+                    type: 'Drama',
+                    sales: rand()
+                }, {
+                    type: 'Romance',
+                    sales: rand()
+                }]
+            }, {
+                type: 'TV',
+                items: [{
+                    type: 'Science Fiction',
+                    sales: rand()
+                }, {
+                    type: 'Documentary',
+                    sales: rand()
+                }, {
+                    type: 'Fantasy',
+                    sales: rand()
+                }, {
+                    type: 'Military & War',
+                    sales: rand()
+                }, {
+                    type: 'Horror',
+                    sales: rand()
+                }]
+            }]
+        }, {
+            type: 'Books',
+            items: [{
+                type: 'Arts & Photography',
+                items: [{
+                    type: 'Architecture',
+                    sales: rand()
+                }, {
+                    type: 'Graphic Design',
+                    sales: rand()
+                }, {
+                    type: 'Drawing',
+                    sales: rand()
+                }, {
+                    type: 'Photography',
+                    sales: rand()
+                }, {
+                    type: 'Performing Arts',
+                    sales: rand()
+                }]
+            }, {
+                type: "Children's Books",
+                items: [{
+                    type: 'Beginning Readers',
+                    sales: rand()
+                }, {
+                    type: 'Board Books',
+                    sales: rand()
+                }, {
+                    type: 'Chapter Books',
+                    sales: rand()
+                }, {
+                    type: 'Coloring Books',
+                    sales: rand()
+                }, {
+                    type: 'Picture Books',
+                    sales: rand()
+                }, {
+                    type: 'Sound Books',
+                    sales: rand()
+                }]
+            }, {
+                type: 'History',
+                items: [{
+                    type: 'Ancient',
+                    sales: rand()
+                }, {
+                    type: 'Medieval',
+                    sales: rand()
+                }, {
+                    type: 'Renaissance',
+                    sales: rand()
+                }]
+            }, {
+                type: 'Mystery',
+                items: [{
+                    type: 'Mystery',
+                    sales: rand()
+                }, {
+                    type: 'Thriller & Suspense',
+                    sales: rand()
+                }]
+            }, {
+                type: 'Romance',
+                items: [{
+                    type: 'Action & Adventure',
+                    sales: rand()
+                }, {
+                    type: 'Holidays',
+                    sales: rand()
+                }, {
+                    type: 'Romantic Comedy',
+                    sales: rand()
+                }, {
+                    type: 'Romantic Suspense',
+                    sales: rand()
+                }, {
+                    type: 'Western',
+                    sales: rand()
+                }, {
+                    type: 'Historical',
+                    sales: rand()
+                }]
+            }, {
+                type: 'Sci-Fi & Fantasy',
+                items: [{
+                    type: 'Fantasy',
+                    sales: rand()
+                }, {
+                    type: 'Gaming',
+                    sales: rand()
+                }, {
+                    type: 'Science Fiction',
+                    sales: rand()
+                }]
+            }]
+        }, {
+            type: 'Electronics',
+            items: [{
+                type: 'Camera',
+                items: [{
+                    type: 'Digital Cameras',
+                    sales: rand()
+                }, {
+                    type: 'Film Photography',
+                    sales: rand()
+                }, {
+                    type: 'Lenses',
+                    sales: rand()
+                }, {
+                    type: 'Video',
+                    sales: rand()
+                }, {
+                    type: 'Accessories',
+                    sales: rand()
+                }]
+            }, {
+                type: 'Headphones',
+                items: [{
+                    type: 'Earbud headphones',
+                    sales: rand()
+                }, {
+                    type: 'Over-ear headphones',
+                    sales: rand()
+                }, {
+                    type: 'On-ear headphones',
+                    sales: rand()
+                }, {
+                    type: 'Bluetooth headphones',
+                    sales: rand()
+                }, {
+                    type: 'Noise-cancelling headphones',
+                    sales: rand()
+                }, {
+                    type: 'Audiophile headphones',
+                    sales: rand()
+                }]
+            }, {
+                type: 'Cell Phones',
+                items: [{
+                    type: 'Cell Phones',
+                    sales: rand()
+                }, {
+                    type: 'Accessories',
+                    items: [{
+                        type: 'Batteries',
+                        sales: rand()
+                    }, {
+                        type: 'Bluetooth Headsets',
+                        sales: rand()
+                    }, {
+                        type: 'Bluetooth Speakers',
+                        sales: rand()
+                    }, {
+                        type: 'Chargers',
+                        sales: rand()
+                    }, {
+                        type: 'Screen Protectors',
+                        sales: rand()
+                    }]
+                }]
+            }, {
+                type: 'Wearable Technology',
+                items: [{
+                    type: 'Activity Trackers',
+                    sales: rand()
+                }, {
+                    type: 'Smart Watches',
+                    sales: rand()
+                }, {
+                    type: 'Sports & GPS Watches',
+                    sales: rand()
+                }, {
+                    type: 'Virtual Reality Headsets',
+                    sales: rand()
+                }, {
+                    type: 'Wearable Cameras',
+                    sales: rand()
+                }, {
+                    type: 'Smart Glasses',
+                    sales: rand()
+                }]
+            }]
+        }, {
+            type: 'Computers & Tablets',
+            items: [{
+                type: 'Desktops',
+                items: [{
+                    type: 'All-in-ones',
+                    sales: rand()
+                }, {
+                    type: 'Minis',
+                    sales: rand()
+                }, {
+                    type: 'Towers',
+                    sales: rand()
+                }]
+            }, {
+                type: 'Laptops',
+                items: [{
+                    type: '2 in 1 laptops',
+                    sales: rand()
+                }, {
+                    type: 'Traditional laptops',
+                    sales: rand()
+                }]
+            }, {
+                type: 'Tablets',
+                items: [{
+                    type: 'iOS',
+                    sales: rand()
+                }, {
+                    type: 'Andriod',
+                    sales: rand()
+                }, {
+                    type: 'Fire os',
+                    sales: rand()
+                }, {
+                    type: 'Windows',
+                    sales: rand()
+                }]
+            }]
+        }];
+        return data;
+    }
+</script>
+
+@section Description{
+    @Html.Raw(Resources.Wijmo5TreeMap.Index_Text0)
+}

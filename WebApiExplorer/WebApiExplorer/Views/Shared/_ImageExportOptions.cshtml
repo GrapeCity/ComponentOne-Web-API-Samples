@@ -1,0 +1,49 @@
+@model WebApiExplorer.Models.ImageExportOptions
+<script>
+    function exportFormatChanged(arg) {
+        exportFormat = arg;
+        wijmo.Control.getControl("#exportFormat").header = arg.toUpperCase();
+    }
+</script>
+<div class="export-panel">
+    <div class="export-panel-title">
+        @Html.Raw(Resources.Resource.ImageExportOptions_Export)
+    </div>
+    <div class="export-panel-content">
+        <span> @Html.Raw(Resources.Resource.ImageExportOptions_ExportFormat) </span>
+        @Html.C1().Menu().Id("exportFormat").Header("PNG").SelectedValue("Png").Command("exportFormatChanged").MenuItems(items =>
+        {
+            items.Add("PNG", "Png");
+            items.Add("JPG", "Jpg");
+            items.Add("BMP", "Bmp");
+            items.Add("TIFF", "Tiff");
+            items.Add("GIF", "Gif");
+        }
+        )
+        <span> @Html.Raw(Resources.Resource.ImageExportOptions_Height) </span>
+            @Html.C1().InputNumber().Id("exportHeight").Format("n0")
+        <span> @Html.Raw(Resources.Resource.ImageExportOptions_Width) </span>
+            @Html.C1().InputNumber().Id("exportWidth").Format("n0")
+        <span> @Resources.MVCLinearGauge.MVCLinearGaugeOptions_ExportName </span><input id="exportName" type="text" class ="input-control" value="export"/>
+        <button class="btn btn-primary" onclick="exportControl@(Model.ControlId)()">@Html.Raw(Resources.Resource.ImageExportOptions_ExportText)</button>
+    </div>
+</div>
+<script>
+    var exportFormat = "Png", serverUrl = '@(System.Configuration.ConfigurationManager.AppSettings["WebAPIService"])',
+        control = wijmo.Control.getControl("#@(Model.ControlId)"), rect = control.hostElement.getBoundingClientRect(), 
+        heightControl = wijmo.Control.getControl("#exportHeight"), widthControl = wijmo.Control.getControl("#exportWidth");
+    heightControl.value = rect.height;
+    widthControl.value = rect.width;
+
+    function exportControl@(Model.ControlId)() {
+        var exporter = new @(Model.Exporter)(),
+                exportHeight = wijmo.Control.getControl("#exportHeight").value,
+                exportWidth = wijmo.Control.getControl("#exportWidth").value;
+        exporter.requestExport(control, serverUrl + "api/export/image", {
+            fileName: document.getElementById("exportName").value,
+            type: exportFormat,
+            height: exportHeight,
+            width: exportWidth
+        });
+    }
+</script>

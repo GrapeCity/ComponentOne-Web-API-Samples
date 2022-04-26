@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="@Url.Content("~/Content/favicon/apple-touch-icon.png")">
+    <link rel="icon" type="image/png" href="@Url.Content("~/Content/favicon/favicon-32x32.png")" sizes="32x32">
+    <link rel="icon" type="image/png" href="@Url.Content("~/Content/favicon/favicon-16x16.png")" sizes="16x16">
+    <link rel="manifest" href="@Url.Content("~/Content/favicon/manifest.json")">
+    <link rel="mask-icon" href="@Url.Content("~/Content/favicon/safari-pinned-tab.svg")" color="#503b75">
+
+    @{
+        Theme.SetCurrentTheme(Context, Context.Request.Query["theme"]);
+        Culture.SetCurrentCulture(Context, Context.Request.Query["culture"]);
+    }
+
+    <link href="~/Content/css/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/css/SyntaxHighlighter/shCore.css" rel="stylesheet" />
+    <link href="~/Content/css/SyntaxHighlighter/shCoreEclipse.css" rel="stylesheet" />
+    <c1-styles theme="@Theme.GetCurrentTheme(Context)" />
+    <link href="~/Content/css/explorer.css" rel="stylesheet" />
+    <link href="@Url.Content(Resource.GcIconsCssPath)" rel="stylesheet" />
+    <link href="~/Content/css/Site.css" rel="stylesheet" />
+    @RenderSection("Styles", false)
+
+
+    <c1-scripts culture="@Culture.GetCurrentCulture(Context)">
+        <c1-basic-scripts />
+        <c1-olap-scripts />
+    </c1-scripts>
+    <script src="~/Scripts/MultiLevelMenu.js"></script>
+    <script src="~/Scripts/Layout.js"></script>
+    <script src="~/Scripts/explorer.js"></script>
+    <script src="~/Scripts/flexGrid.js"></script>
+
+    <script src="~/Scripts/SyntaxHighlighter/shCore.js"></script>
+    <script src="~/Scripts/SyntaxHighlighter/shBrushXml.js"></script>
+    <script src="~/Scripts/SyntaxHighlighter/shBrushJScript.js"></script>
+    <script src="~/Scripts/SyntaxHighlighter/shBrushCSharp.js"></script>
+    @{
+        string webApiClient;
+#if NETCORE31
+        webApiClient = "<script src='/Scripts/wijmo.io/webapiclientCore22.min.js'></script>";
+#else
+        webApiClient = "<script src='/Scripts/wijmo.io/webapiclient.min.js'></script>";
+#endif
+    }
+    @Html.Raw(webApiClient)
+    
+    <script src="~/Scripts/jquery.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    @RenderSection("Head", false)
+    @RenderSection("Scripts", false)
+
+</head>
+<body>
+
+    <div class="hide">
+        @await Html.PartialAsync("_SiteNav", true)
+    </div>
+
+    <header>
+        <div class="hamburger-nav-btn narrow-screen"><span class="icon-bars"></span></div>
+        <a class="logo-container" href="@(Resource.Layout_ProductUrl)" target="_blank">
+            <i class="gcicon-product-c1"></i>@Html.Raw(Resource.Layout_ComponentOne)
+        </a>
+        <div class="task-bar">
+            <span class="semi-bold narrow-screen">@Html.Raw(Resource.Layout_ShortTitle) <span class="wj-glyph-down"></span></span>
+            <span class="semi-bold wide-screen">@Html.Raw(Resource.Layout_LongTitle)</span>
+            @await Html.PartialAsync("_SiteNav", false)
+        </div>
+        @await Html.PartialAsync("_BreadcrumbNav")
+    </header>
+
+    <section class="content controls">
+        <div class="page-content">
+            @RenderBody()
+        </div>
+    </section>
+
+    <footer>
+        <a href="@(Resource.Layout_GrapeCityUrl)">
+            <i class="gcicon-logo-gc-horiz"></i>
+        </a>
+        <p>
+            © @DateTime.Now.Year @Html.Raw(Resource.Layout_License1)<br />
+            @Html.Raw(Resource.Layout_License2)
+        </p>
+        @{
+            var urlStr = string.Format("{0}://{1}{2}", Context.Request.Scheme, Context.Request.Host, Context.Request.Path);
+        }
+        <a href="http://www.facebook.com/sharer.php?u=@urlStr" target="_blank">
+            <img src="~/Content/css/images/icons/32/picons36.png" alt="facebook" />
+        </a>
+        <a href="http://twitter.com/share?text=@Html.Raw(Resource.Layout_TwitterText)&url=@urlStr" target="_blank">
+            <img src="~/Content/css/images/icons/32/picons33.png" alt="Twitter" />
+        </a>
+    </footer>
+</body>
+</html>
+

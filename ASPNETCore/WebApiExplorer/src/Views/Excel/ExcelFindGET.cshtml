@@ -1,0 +1,117 @@
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+
+<div class="settings-panel-content">
+    <div style="float:left;width:100%">
+        <div style="float:left"><h4>@Html.Raw(Excel.ExcelFindGET_Parameters)</h4></div>
+        <div style="float:right">
+            <button style="margin-top:3px;padding: 4px;" class="btn btn-primary"
+                    onclick="findExcelGet('@Model.FunctionName', '@(Configuration["WebAPIService"])');">
+                @Html.Raw(Excel.ExcelFindGET_Find)
+            </button>
+        </div>
+    </div>
+    <div>
+        <div class="settings-panel excel-find">
+            <div class="param-item">
+                <label class="param-lable parameter"><b>@Html.Raw(Excel.ExcelFindGET_Parameter)</b></label>
+                <label class="param-lable value"><b>@Html.Raw(Excel.ExcelFindGET_Value)</b></label>
+                <label class="param-lable description"><b>@Html.Raw(Excel.ExcelFindGET_Description)</b></label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Excel.ExcelFindGET_ExcelPath)</label>
+                <span class="param-value-group">
+                    <select name="excelPath" class="param-value" style="width: 100%">
+                        <option value="ExcelRoot/align.xlsx" selected="selected">align.xlsx</option>
+                        <option value="ExcelRoot/AllFormats.xlsx">AllFormats.xlsx</option>
+                        <option value="ExcelRoot/FlexGrid.xlsx">FlexGrid.xlsx</option>
+                        <option value="ExcelRoot/GAS.xlsx">GAS.xlsx</option>
+                        <option value="ExcelRoot/Grouping.xlsx">Grouping.xlsx</option>
+                        <option value="ExcelRoot/Hierarchical.xlsx">Hierarchical.xlsx</option>
+                        <option value="ExcelRoot/Houston.xlsx">Houston.xlsx</option>
+                        <option value="ExcelRoot/Palette.xlsx">Palette.xlsx</option>
+                        <option value="ExcelRoot/ExcelWithFormula.xlsx">ExcelWithFormula.xlsx</option>
+                        <option value="OneDrive/Documents/align.xlsx">OneDrive/Documents/align.xlsx</option>
+                        <option value="OneDrive/Documents/AllFormats.xlsx">OneDrive/Documents/AllFormats.xlsx</option>
+                        <option value="OneDrive/Documents/FlexGrid.xlsx">OneDrive/Documents/FlexGrid.xlsx</option>
+                        <option value="OneDrive/Documents/GAS.xlsx">OneDrive/Documents/GAS.xlsx</option>
+                        <option value="OneDrive/Documents/Grouping.xlsx">OneDrive/Documents/Grouping.xlsx</option>
+                        <option value="OneDrive/Documents/Hierarchical.xlsx">OneDrive/Documents/Hierarchical.xlsx</option>
+                        <option value="OneDrive/Documents/Houston.xlsx">OneDrive/Documents/Houston.xlsx</option>
+                        <option value="OneDrive/Documents/Palette.xlsx">OneDrive/Documents/Palette.xlsx</option>
+                        <option value="OneDrive/Documents/ExcelWithFormula.xlsx">OneDrive/Documents/ExcelWithFormula.xlsx</option>
+                    </select>
+                </span>
+                <label class="param-lable description">@Html.Raw(Excel.ExcelFindGET_ExcelPathDesc)</label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Excel.ExcelFindGET_SheetName)</label>
+                <input class="param-value value" type="text" name="sheetName" value="" />
+                <label class="param-lable description">@Html.Raw(Excel.ExcelFindGET_SheetNameDesc)</label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Excel.ExcelFindGET_Text)</label>
+                <input class="param-value value" type="text" name="text" />
+                <label class="param-lable description">@Html.Raw(Excel.ExcelFindGET_TextDesc)</label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Excel.ExcelFindGET_MatchCase)</label>
+                <input class="param-value value" type="checkbox" name="matchCase" />
+                <label class="param-lable description">@Html.Raw(Excel.ExcelFindGET_MatchCaseDesc)</label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Excel.ExcelFindGET_WholeCell)</label>
+                <input class="param-value value" type="checkbox" name="wholeCell" />
+                <label class="param-lable description">@Html.Raw(Excel.ExcelFindGET_WholeCellDesc)</label>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="@(Model.FunctionName)result" class="content-panel-result">
+    <h4>@Html.Raw(Excel.ExcelFindGET_RequestUrl)</h4>
+    <div id="@(Model.FunctionName)url" class="content-panel-result-url">
+        <pre>
+        </pre>
+    </div>
+    <h4 class="content-json-data">@Html.Raw(Excel.ExcelFindGET_ResponseData)</h4>
+    <div id="@(Model.FunctionName)showdata" class="result-content-data" style="height:auto">
+        <pre style="max-height:200px">
+        </pre>
+    </div>
+</div>
+
+<script>
+    function findExcelGet(id, url) {
+        var excelPath = $(".excel-find .param-value[name=excelPath]").val();
+        var sheetName = $(".excel-find .param-value[name=sheetName]").val();
+        var text = $(".excel-find .param-value[name=text]").val();
+        var fullUrl = url + "api/excel/" + excelPath;
+
+        if (sheetName) {
+            fullUrl += "/" + sheetName;
+        }
+
+        fullUrl += "/find?text=" + encodeURIComponent(text);
+
+        if ($(".excel-find .param-value[name=matchCase]").is(":checked")) {
+            fullUrl += "&matchcase=true"
+        }
+
+        if ($(".excel-find .param-value[name=wholeCell]").is(":checked")) {
+            fullUrl += "&wholecell=true"
+        }
+
+        $("#@(Model.FunctionName)url pre").text(fullUrl);
+
+        $.ajax({
+            type: "GET",
+            url: fullUrl,
+            cache: false,
+            success: function (data) {
+                $("#@(Model.FunctionName)showdata pre").text(JSON.stringify(data, null, 4));
+                $("#@(Model.FunctionName)result").show();
+                $(".content-json-data").show();
+            }
+        });
+    }
+</script>

@@ -1,0 +1,97 @@
+@model WebApiExplorer.Models.ControlsClass.Function
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+
+<div class="settings-panel-content">
+    <div style="float:left;width:100%">
+        <div style="float:left"><h4>@Html.Raw(Report.ReportSupportedFormatGET_Parameters)</h4></div>
+        <div style="float:right">
+            <button style="margin-top:3px;padding: 4px;" class="btn btn-primary btn-report-supported-format" disabled="disabled"
+                    onclick="reportGetSupportedFormat('@Model.FunctionName', '@(Configuration["WebAPIService"])');">
+                @Html.Raw(Report.ReportSupportedFormatGET_GetSupportedFormat)
+            </button>
+        </div>
+    </div>
+    <div>
+        <div class="settings-panel report-supportedformat">
+            <div class="param-item">
+                <label class="param-lable parameter"><b>@Html.Raw(Report.ReportSupportedFormatGET_Parameter)</b></label>
+                <label class="param-lable value"><b>@Html.Raw(Report.ReportSupportedFormatGET_Value)</b></label>
+                <label class="param-lable description"><b>@Html.Raw(Report.ReportSupportedFormatGET_Description)</b></label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Report.ReportSupportedFormatGET_FolderPath)</label>
+                <span class="param-value-group">
+                    <select name="folderPath" class="param-value" onchange="reportsupportedformat_FolderPathChange($(this).val())" style="width: 100%; margin-bottom: 10px;">
+                        <option value="none" selected="selected">@Html.Raw(Report.ReportSupportedFormatGET_FolderPath_None)</option>
+                        <option value="ReportsRoot/FlexCommonTasks/FlexCommonTasks.flxr">FlexCommonTasks.flxr</option>
+                        <option value="c1ssrs/AdventureWorks">AdventureWorks (SSRS)</option>
+                    </select>
+                </span>
+                <label class="param-lable description">@Html.Raw(Report.ReportSupportedFormatGET_FolderPathText)</label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Report.ReportSupportedFormatGET_ReportName)</label>
+                <span class="param-value-group">
+                    <select name="reportName" class="param-value" style="width: 100%; margin-bottom: 10px;">
+                    </select>
+                </span>
+                <label class="param-lable description">@Html.Raw(Report.ReportSupportedFormatGET_ReportNameText)</label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Report.ReportSupportedFormatGET_SupportedFormatName)</label>
+                <span class="param-value-group">
+                    <input type="text" name="supportedFormatName" value="html" class="param-value" style="width: 100%; margin-bottom: 10px;" />
+                </span>
+                <label class="param-lable description">@Html.Raw(Report.ReportSupportedFormatGET_SupportedFormatNameText)</label>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="@(Model.FunctionName)result" class="content-panel-result">
+    <h4>@Html.Raw(Report.ReportSupportedFormatGET_Headers)</h4>
+    <div id="@(Model.FunctionName)headers" class="content-panel-result-url">
+        <pre>
+        </pre>
+    </div>
+    <h4 class="content-json-data">@Html.Raw(Report.ReportSupportedFormatGET_ResponseData)</h4>
+    <div id="@(Model.FunctionName)showdata" class="result-content-data" style="height:auto">
+        <pre style="max-height:200px">
+        </pre>
+    </div>
+</div>
+
+<script>
+    function reportGetSupportedFormat(id, url) {
+        var folderPath = $(".report-supportedformat .param-value[name=folderPath]").val();
+        var reportName = $(".report-supportedformat .param-value[name=reportName]").val();
+        var formatName = $(".report-supportedformat .param-value[name=supportedFormatName]").val();
+        var fullUrl = url + "api/report/" + folderPath + "/" + reportName + "/$report/supportedformats/" + formatName;
+
+        $("#@(Model.FunctionName)headers pre").text("@(Report.ReportSupportedFormatGET_RequestURL)" + fullUrl);
+        $("#@(Model.FunctionName)result").show();
+
+        $.ajax({
+            type: "GET",
+            url: fullUrl,
+            cache: false,
+            success: function (data) {
+                $("#@(Model.FunctionName)showdata pre").text(JSON.stringify(data, null, 4));
+                $(".content-json-data").show();
+            },
+            complete: function (xhr, status) {
+                $("#@(Model.FunctionName)headers pre").append("\r\n@(Report.ReportSupportedFormatGET_StatusCode)" + xhr.status);
+            }
+        });
+    }
+
+    function reportsupportedformat_FolderPathChange(folderPath) {
+        var url = '@(Configuration["WebAPIService"])';
+        var select = $('.report-supportedformat .param-value[name=reportName]').empty();
+        $("button.btn-report-supported-format").attr("disabled", folderPath === "none");
+
+        if (folderPath !== "none") {
+            updateReportNames(folderPath, url, select);
+        }
+    }
+</script>

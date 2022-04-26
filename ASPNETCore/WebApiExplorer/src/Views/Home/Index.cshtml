@@ -1,0 +1,29 @@
+﻿@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/Content/css/home.css" rel="stylesheet" />
+
+<div class="col-md-12">
+    <div class="title-container">
+        <span class="title">
+            @Html.Raw(HomeRes.Index_Title)
+        </span>
+        <p>@Html.Raw(HomeRes.Index_Text0)</p>
+    </div>
+
+    <div class="ui-helper-clearfix content-panel">
+        @await Html.PartialAsync("_ControlList")
+    </div>
+
+</div>
+
+<script>
+    $(document).ready(function () {
+        $(".functionHead").click(function () {
+            $(this).find(".sub-title div").toggleClass("expand-icon");
+            $(this).find(".sub-title").toggleClass("sub-title-expand");
+        });
+    });
+</script>

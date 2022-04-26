@@ -1,0 +1,118 @@
+@model IEnumerable<ThingSale>
+@{
+    ClientSettingsModel settings = ViewBag.DemoSettingsModel;
+    ImageExportOptions optionsModel = ViewBag.Options;
+    ViewBag.DemoSettings = true;
+}
+
+<style>
+    #breadCrumbs {
+        padding: 5px 10px;
+        margin-bottom: 20px;
+        list-style: none;
+        background-color: #ffffff;
+        border-radius: 4px;
+    }
+
+        #breadCrumbs > li {
+            display: inline-block;
+        }
+
+            #breadCrumbs > li + li:before {
+                padding: 0 5px;
+                color: #ccc;
+                content: "/\00a0";
+            }
+
+        #breadCrumbs > .active {
+            color: #999;
+        }
+</style>
+
+<script type="text/javascript">
+    var breadCrumbs = [];
+    var currentItem;
+    var treemap;
+
+    function onRendered() {
+        if (!treemap) {
+            treemap = wijmo.Control.getControl('#@settings.ControlId');
+        }
+
+        if (treemap) {
+            if (currentItem === treemap._currentItem) {
+                return;
+            }
+            currentItem = treemap._currentItem;
+            createBreadCrumbs();
+        }
+    }
+
+    function rollUp(num) {
+        //rollup treemap *num times.
+        for (var i = 0; i < num; i++) {
+            treemap._rollUp();
+        }
+    }
+
+    function createBreadCrumbs() {
+        breadCrumbs = [];
+        resetBreadCrumbs(currentItem);
+        breadCrumbs.reverse();
+        appendBreadCrumbs();
+    }
+
+    function appendBreadCrumbs() {
+        var ol = document.querySelector('#breadCrumbs');
+        ol.innerHTML = '';
+        var len = breadCrumbs.length;
+        breadCrumbs.forEach(function (label, idx) {
+            ol.appendChild(apendBreadCrumb(label, idx !== len - 1, len - idx - 1));
+        });
+    }
+
+    function apendBreadCrumb(label, isAnchor, param) {
+        var li = document.createElement('li');
+        if (isAnchor) {
+            li.className = 'breakcrumb-item';
+            var a = document.createElement('a');
+            a.href = 'javascript:void(0)';
+            a.innerHTML = label;
+            a.addEventListener('click', function (evt) {
+                rollUp(param);
+            });
+            li.appendChild(a);
+        } else {
+            li.className = 'breakcrumb-item active';
+            li.innerHTML = label;
+        }
+        return li;
+    }
+
+    function resetBreadCrumbs(item) {
+        if (item) {
+            breadCrumbs.push(item.label);
+            resetBreadCrumbs(item.parent);
+        } else {
+            breadCrumbs.push('Root');
+        }
+    }
+</script>
+
+<ol id="breadCrumbs"></ol>
+@(Html.C1().TreeMap().Id(settings.ControlId)
+    .Binding("Sales")
+    .BindingName("Category")
+    .ChildItemsPath("Items")
+    .Bind(Model)
+    .MaxDepth((int)settings.DefaultValues["MaxDepth"])
+    .DataLabel(dlb => dlb.Position(C1.Web.Mvc.Chart.LabelPosition.Center).Content("{name}"))
+    .OnClientRendered("onRendered"))
+
+@section Settings{
+    @Html.Partial("_ImageExportOptions", optionsModel)
+}
+
+@section Description{
+    @Html.Raw(Resources.MVCTreeMap.Index_Text0)
+}

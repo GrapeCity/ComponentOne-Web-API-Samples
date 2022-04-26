@@ -1,0 +1,39 @@
+﻿<Window x:Class="WebApiWPFSample.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WebApiWPFSample"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="480" Width="800">
+
+  <Grid Height="480">
+	<TextBlock FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,13,0,0">WindowForm call C1 Web API</TextBlock>
+	<Rectangle Stroke="Black" Margin="90,88,90,71"/>
+
+	<Label x:Name="lbFileName" Content="File Name" HorizontalAlignment="Left" Margin="136,128,0,0" VerticalAlignment="Top"/>
+	<TextBox x:Name="tbFileName" HorizontalAlignment="Left" Margin="267,128,0,0" Text="Excel" TextWrapping="Wrap" VerticalAlignment="Top" Width="366" Height="26" FontSize="16"/>
+
+	<Label x:Name="lbFileFormat" Content="File Format" HorizontalAlignment="Left" Margin="136,177,0,0" VerticalAlignment="Top"/>
+
+        <Label x:Name="lbDataFileName" Content="Data File Name" HorizontalAlignment="Left" Margin="136,224,0,0" VerticalAlignment="Top"/>
+
+	<Label x:Name="lbTemplateFile" Content="Template File Name" HorizontalAlignment="Left" Margin="136,273,0,0" VerticalAlignment="Top"/>
+
+	<Button x:Name="btnGenerate" Content="Generate" HorizontalAlignment="Left" Margin="136,333,0,0" VerticalAlignment="Top" Height="44" Width="188" Click="GenerateExcelFile"/>
+	
+    <ComboBox x:Name="cbTemplateFileName" HorizontalAlignment="Left" Margin="267,273,0,0" VerticalAlignment="Top" Width="366" Height="26">
+	  <ComboBoxItem></ComboBoxItem>
+      <ComboBoxItem IsSelected="True" Content="ExcelRoot\\Templates\\XmlDataTemplate.xlsx"></ComboBoxItem>
+	</ComboBox>
+	<ComboBox x:Name="cbDataFileName" HorizontalAlignment="Left" Margin="267,224,0,0" VerticalAlignment="Top" Width="366" Height="26">
+	  <ComboBoxItem IsSelected="True" Content="ExcelRoot\\10rowsdata.xml"/>
+	</ComboBox>
+	<ComboBox x:Name="cbFileFormat" HorizontalAlignment="Left" Margin="267,177,0,0" VerticalAlignment="Top" Width="366" Height="26">
+	  <ComboBoxItem IsSelected="True" Content="xlsx"/>
+	  <ComboBoxItem Content="json"/>
+	  <ComboBoxItem Content="csv"/>
+	  <ComboBoxItem Content="xml"/>
+	</ComboBox>
+  </Grid>
+</Window>

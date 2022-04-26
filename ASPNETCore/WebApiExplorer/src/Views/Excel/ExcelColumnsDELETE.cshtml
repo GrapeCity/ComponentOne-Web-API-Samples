@@ -1,0 +1,87 @@
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+
+<div class="settings-panel-content">
+    <div style="float:left;width:100%">
+        <div style="float:left"><h4>@Html.Raw(Excel.ExcelColumnsDELETE_Parameters)</h4></div>
+        <div style="float:right">
+            <button style="margin-top:3px;padding: 4px;" class="btn btn-primary"
+                    onclick="excelDeleteColumn('@Model.FunctionName', '@(Configuration["WebAPIService"])');">
+                @Html.Raw(Excel.ExcelColumnsDELETE_DeleteColumn)
+            </button>
+        </div>
+    </div>
+    <div>
+        <div class="settings-panel excel-deletecolumn">
+            <div class="param-item">
+                <label class="param-lable parameter"><b>@Html.Raw(Excel.ExcelColumnsDELETE_Parameter)</b></label>
+                <label class="param-lable value"><b>@Html.Raw(Excel.ExcelColumnsDELETE_Value)</b></label>
+                <label class="param-lable description"><b>@Html.Raw(Excel.ExcelColumnsDELETE_Description)</b></label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Excel.ExcelColumnsDELETE_ExcelPath)</label>
+                <span class="param-value-group">
+                    <select name="excelPath" class="param-value" style="width: 100%">
+                        <option value="ExcelRoot/align.xlsx" selected="selected">align.xlsx</option>
+                        <option value="ExcelRoot/AllFormats.xlsx">AllFormats.xlsx</option>
+                        <option value="ExcelRoot/FlexGrid.xlsx">FlexGrid.xlsx</option>
+                        <option value="ExcelRoot/GAS.xlsx">GAS.xlsx</option>
+                        <option value="ExcelRoot/Grouping.xlsx">Grouping.xlsx</option>
+                        <option value="ExcelRoot/Hierarchical.xlsx">Hierarchical.xlsx</option>
+                        <option value="ExcelRoot/Houston.xlsx">Houston.xlsx</option>
+                        <option value="ExcelRoot/Palette.xlsx">Palette.xlsx</option>
+                        <option value="ExcelRoot/ExcelWithFormula.xlsx">ExcelWithFormula.xlsx</option>
+                    </select>
+                </span>
+                <label class="param-lable description">@Html.Raw(Excel.ExcelColumnsDELETE_ExcelPathDesc)</label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Excel.ExcelColumnsDELETE_SheetName)</label>
+                <input class="param-value value" type="text" name="sheetName" value="Sheet1" />
+                <label class="param-lable description">@Html.Raw(Excel.ExcelColumnsDELETE_SheetNameDesc)</label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Excel.ExcelColumnsDELETE_ColumnIndexes)</label>
+                <input class="param-value value" type="text" name="columnIndexes" value="0" />
+                <label class="param-lable description">@Html.Raw(Excel.ExcelColumnsDELETE_ColumnIndexesDesc)</label>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="@(Model.FunctionName)result" class="content-panel-result">
+    <h4>@Html.Raw(Excel.ExcelColumnsDELETE_RequestUrl)</h4>
+    <div id="@(Model.FunctionName)url" class="content-panel-result-url">
+        <pre>
+        </pre>
+    </div>
+    <h4 class="content-json-data">@Html.Raw(Excel.ExcelColumnsDELETE_ResponseData)</h4>
+    <div id="@(Model.FunctionName)showdata" class="result-content-data" style="height:auto">
+        <pre style="max-height:200px">
+        </pre>
+        <span>@Html.Raw(Excel.ExcelColumnsDELETE_ViewFiles)</span><span class="viewfiles"></span>
+    </div>
+</div>
+
+<script>
+    function excelDeleteColumn(id, url) {
+        var excelPath = $(".excel-deletecolumn .param-value[name=excelPath]").val();
+        var sheetName = $(".excel-deletecolumn .param-value[name=sheetName]").val();
+        var columnIndexes = $(".excel-deletecolumn .param-value[name=columnIndexes]").val();
+        var count = $(".excel-deletecolumn .param-value[name=count]").val();
+        var fullUrl = url + "api/excel/" + excelPath + "/" + sheetName + "/columns/" + columnIndexes;
+
+        $("#@(Model.FunctionName)url pre").text(fullUrl);
+
+        $.ajax({
+            type: "DELETE",
+            url: fullUrl,
+            cache: false,
+            success: function (data) {
+                $("#@(Model.FunctionName)showdata pre").text(JSON.stringify(data, null, 4));
+                $("#@(Model.FunctionName)result").show();
+                $(".content-json-data").show();
+                updateViewFilesLink("#@(Model.FunctionName)showdata span.viewfiles", url, [excelPath]);
+            }
+        });
+    }
+</script>

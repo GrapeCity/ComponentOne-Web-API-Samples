@@ -1,0 +1,523 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{05DDB5E3-A862-4126-B6DD-7DD1C4BBF157}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WebApi</RootNamespace>
+    <AssemblyName>WebApi</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <TargetFrameworkProfile />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AWSSDK.Core, Version=3.3.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604, processorArchitecture=MSIL">
+      <HintPath>..\packages\AWSSDK.Core.3.3.31.4\lib\net45\AWSSDK.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="AWSSDK.S3, Version=3.3.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604, processorArchitecture=MSIL">
+      <HintPath>..\packages\AWSSDK.S3.3.3.31.12\lib\net45\AWSSDK.S3.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="C1.C1Excel.4.5.2">
+      <HintPath>..\packages\C1.C1Excel.4.5.20221.548\lib\net452\C1.C1Excel.4.5.2.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="C1.C1Pdf.4.5.2">
+      <HintPath>..\packages\C1.C1Pdf.4.5.20221.548\lib\net452\C1.C1Pdf.4.5.2.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="C1.C1Word.4.5.2">
+      <HintPath>..\packages\C1.C1Word.4.5.20221.548\lib\net452\C1.C1Word.4.5.2.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="C1.C1Zip.4.5.2">
+      <HintPath>..\packages\C1.C1Zip.4.5.20221.548\lib\net452\C1.C1Zip.4.5.2.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="C1.DataEngine">
+      <HintPath>..\packages\C1.DataEngine.5.0.20213.237\lib\net452\C1.DataEngine.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="C1.PivotEngine">
+      <HintPath>..\packages\C1.PivotEngine.5.0.20213.237\lib\net452\C1.PivotEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AnalysisServices.AdomdClient, Version=19.22.0.1, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AnalysisServices.AdomdClient.retail.amd64.19.22.0.1\lib\net45\Microsoft.AnalysisServices.AdomdClient.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AnalysisServices.SPClient.Interfaces, Version=19.22.0.1, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AnalysisServices.AdomdClient.retail.amd64.19.22.0.1\lib\net45\Microsoft.AnalysisServices.SPClient.Interfaces.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="C1.Web.Api">
+      <HintPath>..\packages\C1.Web.Api.4.5.20221.313\lib\net45\C1.Web.Api.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="C1.Web.Api.BarCode">
+      <HintPath>..\packages\C1.Web.Api.BarCode.4.5.20221.313\lib\net45\C1.Web.Api.BarCode.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="C1.Web.Api.Cloud">
+      <HintPath>..\packages\C1.Web.Api.Cloud.4.5.20221.313\lib\net45\C1.Web.Api.Cloud.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="C1.Web.Api.DataEngine">
+      <HintPath>..\packages\C1.Web.Api.DataEngine.4.5.20221.313\lib\net45\C1.Web.Api.DataEngine.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="C1.Web.Api.Document">
+      <HintPath>..\packages\C1.Web.Api.Document.4.5.20221.313\lib\net45\C1.Web.Api.Document.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="C1.Web.Api.Excel">
+      <HintPath>..\packages\C1.Web.Api.Excel.4.5.20221.313\lib\net45\C1.Web.Api.Excel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="C1.Web.Api.Image">
+      <HintPath>..\packages\C1.Web.Api.Image.4.5.20221.313\lib\net45\C1.Web.Api.Image.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="C1.Web.Api.Pdf">
+      <HintPath>..\packages\C1.Web.Api.Pdf.4.5.20221.313\lib\net45\C1.Web.Api.Pdf.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="C1.Web.Api.Report">
+      <HintPath>..\packages\C1.Web.Api.Report.4.5.20221.313\lib\net45\C1.Web.Api.Report.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="C1.Win.4.5.2">
+      <HintPath>..\packages\C1.Win.4.5.20221.548\lib\net452\C1.Win.4.5.2.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="C1.Win.BarCode.4.5.2">
+      <HintPath>..\packages\C1.Win.BarCode.4.5.20221.548\lib\net452\C1.Win.BarCode.4.5.2.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="C1.Win.Bitmap.4.5.2">
+      <HintPath>..\packages\C1.Win.Bitmap.4.5.20221.548\lib\net452\C1.Win.Bitmap.4.5.2.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="C1.Win.C1Chart.4.5.2">
+      <HintPath>..\packages\C1.Win.C1Chart.4.5.20221.548\lib\net452\C1.Win.C1Chart.4.5.2.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="C1.Win.C1Chart3D.4.5.2">
+      <HintPath>..\packages\C1.Win.C1Chart.4.5.20221.548\lib\net452\C1.Win.C1Chart3D.4.5.2.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="C1.Win.C1Document.4.5.2">
+      <HintPath>..\packages\C1.Win.C1Document.4.5.20221.548\lib\net452\C1.Win.C1Document.4.5.2.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="C1.Win.C1DX.4.5.2">
+      <HintPath>..\packages\C1.Win.C1DX.4.5.20221.548\lib\net452\C1.Win.C1DX.4.5.2.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="C1.Win.FlexChart.4.5.2">
+      <HintPath>..\packages\C1.Win.FlexChart.4.5.20221.548\lib\net452\C1.Win.FlexChart.4.5.2.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="C1.Win.FlexChart.Extended.4.5.2">
+      <HintPath>..\packages\C1.Win.FlexChart.4.5.20221.548\lib\net452\C1.Win.FlexChart.Extended.4.5.2.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="C1.Win.FlexReport.4.5.2">
+      <HintPath>..\packages\C1.Win.FlexReport.4.5.20221.548\lib\net452\C1.Win.FlexReport.4.5.2.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="C1.Win.FlexReport.CustomFields.4.5.2">
+      <HintPath>..\packages\C1.Win.FlexReport.4.5.20221.548\lib\net452\C1.Win.FlexReport.CustomFields.4.5.2.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="C1.Win.ImportServices.4.5.2">
+      <HintPath>..\packages\C1.Win.C1Document.4.5.20221.548\lib\net452\C1.Win.ImportServices.4.5.2.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Dropbox.Api, Version=4.0.0.0, Culture=neutral, PublicKeyToken=310f0e82fbb45d01, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dropbox.Api.4.9.3\lib\net45\Dropbox.Api.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Google.Apis, Version=1.25.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.1.25.0\lib\net45\Google.Apis.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Google.Apis.Auth, Version=1.25.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Auth.1.25.0\lib\net45\Google.Apis.Auth.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Google.Apis.Auth.PlatformServices, Version=1.25.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Auth.1.25.0\lib\net45\Google.Apis.Auth.PlatformServices.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Google.Apis.Core, Version=1.25.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Core.1.25.0\lib\net45\Google.Apis.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Google.Apis.Drive.v3, Version=1.25.0.862, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Drive.v3.1.25.0.862\lib\net45\Google.Apis.Drive.v3.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Google.Apis.PlatformServices, Version=1.25.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.1.25.0\lib\net45\Google.Apis.PlatformServices.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Data.Edm, Version=5.8.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.Edm.5.8.2\lib\net40\Microsoft.Data.Edm.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Data.OData, Version=5.8.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.OData.5.8.2\lib\net40\Microsoft.Data.OData.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Data.Services.Client, Version=5.8.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.Services.Client.5.8.2\lib\net40\Microsoft.Data.Services.Client.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.SQLite, Version=1.0.114.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.114.0\lib\net451\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.EF6, Version=1.0.114.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.EF6.1.0.114.0\lib\net451\System.Data.SQLite.EF6.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.Linq, Version=1.0.114.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Linq.1.0.114.0\lib\net451\System.Data.SQLite.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Spatial, Version=5.8.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Spatial.5.8.2\lib\net40\System.Spatial.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Owin, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Cors, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Cors.3.0.1\lib\net45\Microsoft.Owin.Cors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Cors, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Cors.5.0.0\lib\net45\System.Web.Cors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.Owin, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Owin.5.2.3\lib\net45\System.Web.Http.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WebDriver, Version=2.45.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Selenium.WebDriver.2.45.0\lib\net40\WebDriver.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WebDriver.Support, Version=2.45.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Selenium.Support.2.45.0\lib\net40\WebDriver.Support.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\packages\PhantomJS.2.0.0\tools\phantomjs\phantomjs.exe">
+      <Link>phantomjs.exe</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\ControlPages.xml" />
+    <Content Include="Content\CSS\gcicons.css" />
+    <Content Include="Content\CSS\gcicons.ja.css" />
+    <Content Include="Content\CSS\page.css" />
+    <Content Include="Content\CSS\wijmo.min.css" />
+    <Content Include="Content\favicon\android-chrome-192x192.png" />
+    <Content Include="Content\favicon\android-chrome-256x256.png" />
+    <Content Include="Content\favicon\apple-touch-icon.png" />
+    <Content Include="Content\favicon\favicon-16x16.png" />
+    <Content Include="Content\favicon\favicon-32x32.png" />
+    <Content Include="Content\favicon\safari-pinned-tab.svg" />
+    <Content Include="Content\IntroPageTemplate.ja.html" />
+    <Content Include="Content\IntroPageTemplate.html" />
+    <Content Include="Content\PdfInfos.xml" />
+    <Content Include="Content\ReportInfos.xml" />
+    <Content Include="Content\Scripts\jquery.js" />
+    <Content Include="Content\Scripts\Layout.js" />
+    <Content Include="Content\Scripts\MultiLevelMenu.js" />
+    <Content Include="Content\Scripts\wijmo.grid.min.js" />
+    <Content Include="Content\Scripts\wijmo.min.js" />
+    <Content Include="Content\SsrsReportInfos.xml" />
+    <Content Include="default.ja.html" />
+    <Content Include="ExcelRoot\align.xls" />
+    <Content Include="ExcelRoot\AllFormats.xls" />
+    <Content Include="ExcelRoot\FlexGrid.xlsx" />
+    <Content Include="ExcelRoot\GAS.xls" />
+    <Content Include="ExcelRoot\Grouping.xlsx" />
+    <Content Include="ExcelRoot\Hierarchical.xlsx" />
+    <Content Include="ExcelRoot\Houston.xlsx" />
+    <Content Include="ExcelRoot\Palette.xls" />
+    <Content Include="ExcelRoot\ExcelWithFormula.xls" />
+    <Content Include="ExcelRoot\10RowsData.xml" />
+    <Content Include="ExcelRoot\Templates\OrdersTemplate.xlsx" />
+    <Content Include="ExcelRoot\Templates\ProductsTemplate.xlsx" />
+    <Content Include="ExcelRoot\Templates\SalesTemplate.xlsx" />
+    <Content Include="ExcelRoot\Templates\JSONDataTemplate.xlsx" />
+    <Content Include="ExcelRoot\Templates\XmlDataTemplate.xlsx" />
+    <Content Include="ReportsRoot\Controls\ComplexExpressions.flxr" />
+    <Content Include="ReportsRoot\DataBinding\MultiDataSource.flxr" />
+    <Content Include="ReportsRoot\DataBinding\Nwind.flxr" />
+    <Content Include="ReportsRoot\DataBinding\StoredProcedure.flxr" />
+    <Content Include="ReportsRoot\DataCalculations\Aggregates.flxr" />
+    <Content Include="ReportsRoot\DataCalculations\CalculatedFields.flxr" />
+    <Content Include="ReportsRoot\DataCalculations\GroupPageCounts.flxr" />
+    <Content Include="ReportsRoot\DataCalculations\RunningSums.flxr" />
+    <Content Include="ReportsRoot\DataManipulation\CascadingParameters.flxr" />
+    <Content Include="ReportsRoot\DataManipulation\MultivalueParameters.flxr" />
+    <Content Include="ReportsRoot\DataManipulation\Parameters.flxr" />
+    <Content Include="ReportsRoot\DataManipulation\Sorting.flxr" />
+    <Content Include="ReportsRoot\EnterpriseReports\EmployeeExpReport.flxr" />
+    <Content Include="ReportsRoot\EnterpriseReports\MarketingProjectPlan.flxr" />
+    <Content Include="ReportsRoot\EnterpriseReports\MonthlyProjectExpenseTracking.flxr" />
+    <Content Include="ReportsRoot\EnterpriseReports\OrganizationChart.flxr" />
+    <Content Include="ReportsRoot\FinancialReports\BalanceSheet.flxr" />
+    <Content Include="ReportsRoot\FinancialReports\InventoryManagementReport.flxr" />
+    <Content Include="ReportsRoot\FinancialReports\MonthlyBudget.flxr" />
+    <Content Include="ReportsRoot\FlexCommonTasks\FlexCommonTasks.flxr" />
+    <Content Include="ReportsRoot\MedicalReports\BloodTestReport.flxr" />
+    <Content Include="ReportsRoot\MedicalReports\FoodAllergyTest.flxr" />
+    <Content Include="ReportsRoot\MedicalReports\MedicalReport.flxr" />
+    <Content Include="ReportsRoot\MiscReports\CrossTab.flxr" />
+    <Content Include="ReportsRoot\MiscReports\MailMerge.flxr" />
+    <Content Include="ReportsRoot\MiscReports\PriceComparison.flxr" />
+    <Content Include="ReportsRoot\TelecomReports\TelephoneBillReport.flxr" />
+    <Content Include="Content\fonts\controls.woff" />
+    <Content Include="PdfRoot\DefaultDocument.pdf" />
+    <Content Include="Content\fonts\gcicons.ttf" />
+    <Content Include="Content\favicon\manifest.json" />
+    <Content Include="Content\fonts\grapecity-dev.ttf" />
+    <Content Include="ExcelRoot\Templates\ShippersTemplate.xlsx" />
+    <Content Include="App_Data\C1NWind.db" />
+    <Content Include="App_Data\Database1.db" />
+    <Content Include="App_Data\Database2.db" />
+    <Content Include="App_Data\Database3.db" />
+    <Content Include="LocalDocuments\LocalExcel\Bug history.xlsx" />
+    <Content Include="LocalDocuments\LocalExcel\group.xlsx" />
+    <Content Include="LocalDocuments\LocalExcel\OrderManagement.xlsx" />
+    <Content Include="LocalDocuments\LocalExcel\Sales.xlsx" />
+    <Content Include="LocalDocuments\LocalImages\screenshot.png" />
+    <Content Include="LocalDocuments\LocalPdfs\Annualreport.pdf" />
+    <None Include="Properties\PublishProfiles\WebAPI.pubxml" />
+    <Content Include="TargetFiles\Stub.System.Data.SQLite.Core.NetFramework.targets" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Resource.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_GlobalResources\Resource.ja.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Resource.ja.designer.cs</LastGenOutput>
+    </Content>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="default.html" />
+    <Content Include="ReportsRoot\Controls\AllCharts.flxr" />
+    <Content Include="ReportsRoot\Controls\BarcodeProductLabels.flxr" />
+    <Content Include="ReportsRoot\Controls\BarcodeShippingLabels.flxr" />
+    <Content Include="ReportsRoot\Controls\BoundImages.flxr" />
+    <Content Include="ReportsRoot\Controls\Charts.flxr" />
+    <Content Include="ReportsRoot\Controls\CheckBox.flxr" />
+    <Content Include="ReportsRoot\Controls\ColumnarSubreports.flxr" />
+    <Content Include="ReportsRoot\Controls\ComplexText.flxr" />
+    <Content Include="ReportsRoot\Controls\NewCharts.flxr" />
+    <Content Include="ReportsRoot\Controls\PageHeadersInSubreports.flxr" />
+    <Content Include="ReportsRoot\Controls\ParagraphField.flxr" />
+    <Content Include="ReportsRoot\Controls\RTFField.flxr" />
+    <Content Include="ReportsRoot\Controls\Shapes.flxr" />
+    <Content Include="ReportsRoot\Controls\UnboundImages.flxr" />
+    <Content Include="ReportsRoot\Formatting\AlternateBackground.flxr" />
+    <Content Include="ReportsRoot\Formatting\ConditionalFormatting.flxr" />
+    <Content Include="ReportsRoot\Formatting\Watermark.flxr" />
+    <Content Include="ReportsRoot\Layout\ContinuedHeaders.flxr" />
+    <Content Include="ReportsRoot\Layout\CustomPaperSize.flxr" />
+    <Content Include="ReportsRoot\Layout\DynamicPH.flxr" />
+    <Content Include="ReportsRoot\Layout\ForcePageBreaks.flxr" />
+    <Content Include="ReportsRoot\Layout\Gutter.flxr" />
+    <Content Include="ReportsRoot\Layout\Layout.flxr" />
+    <Content Include="ReportsRoot\Layout\SubSections.flxr" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="resources\webapi.png" />
+    <Content Include="styles\app.css" />
+    <Content Include="styles\bootstrap.min.css" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_GlobalResources\Resource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Resource.ja.designer.cs">
+      <DependentUpon>Resource.ja.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Controllers\C1BarcodeController.cs" />
+    <Compile Include="Controllers\C1Controller.cs" />
+    <Compile Include="Controllers\C1ExcelController.cs" />
+    <Compile Include="Controllers\C1ReportController.cs" />
+    <Compile Include="Controllers\HTMLMediaTypeFormatter.cs" />
+    <Compile Include="CustomDirectRouteProvider.cs" />
+    <Compile Include="DataProvider\SqlDataProvider.cs" />
+    <Compile Include="Models\C1FileInfo.cs" />
+    <Compile Include="Models\ControlsClass.cs" />
+    <Compile Include="Models\CustomerOrder.cs" />
+    <Compile Include="Models\Documents.cs" />
+    <Compile Include="Models\PageTemplate.cs" />
+    <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\Sale.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReportsControllerTypeResolver.cs" />
+    <Compile Include="Startup.cs" />
+    <Compile Include="StorageProvider\AppBuilderUseExtensions.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Content\Images\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\packages\AWSSDK.S3.3.3.31.12\analyzers\dotnet\cs\AWSSDK.S3.CodeAnalysis.dll" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>16410</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:16410/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+    <Error Condition="!Exists('..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.114.0\build\net451\Stub.System.Data.SQLite.Core.NetFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.114.0\build\net451\Stub.System.Data.SQLite.Core.NetFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <Import Project="TargetFiles\Stub.System.Data.SQLite.Core.NetFramework.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

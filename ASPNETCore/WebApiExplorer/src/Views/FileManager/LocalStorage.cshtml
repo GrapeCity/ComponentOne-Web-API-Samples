@@ -1,0 +1,21 @@
+﻿@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+
+@section Styles{
+    <style>
+        .popover {
+            display: block;
+        }
+    </style>
+}
+
+<c1-file-manager id="FileManager" host-url="@Configuration["WebAPIService"]" root-folder="ExcelRoot/LocalDocuments" cloud-type="LocalStorage">
+</c1-file-manager>
+
+@section Summary{
+    <p>@Html.Raw(FileManager.Index_Text1)</p>
+}
+
+@section Description{
+    @Html.Raw(FileManager.Index_Text0)
+}

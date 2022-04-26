@@ -1,0 +1,86 @@
+@using WebApiExplorer.Models
+@{
+    ImageExportOptions optionsModel = ViewBag.Options;
+    ViewBag.DemoSettings = true;
+}
+
+<div id="@(optionsModel.ControlId)" ></div>
+<select id="typeMenu">
+    <option value="0" selected="selected">Column</option>
+    <option value="2">Scatter</option>
+    <option value="3">Line</option>
+    <option value="4">LineSymbols</option>
+    <option value="5">Area</option>
+    <option value="9">Spline</option>
+    <option value="10">SplineSymbols</option>
+    <option value="11">SplineArea</option>
+</select>
+<select id="positionMenu">
+    <option value="2" selected="selected">Top</option>
+    <option value="0">None</option>
+    <option value="4">Bottom</option>
+    <option value="1">Left</option>
+    <option value="3">Right</option>
+    <option value="5">Center</option>
+</select>
+<select id="borderMenu">
+    <option value= 0 selected="selected">False</option>
+    <option value= 1>True</option>
+</select>
+@section Settings{
+    @Html.Partial("_ImageExportOptions", optionsModel)
+}
+
+<script>
+    var chart = new wijmo.chart.FlexChart('#@(optionsModel.ControlId)'), names = ['c1', 'c2', 'c3', 'c4', 'c5'],
+        typeMenu = new wijmo.input.Menu('#typeMenu'),
+        positionMenu = new wijmo.input.Menu('#positionMenu'),
+        borderMenu = new wijmo.input.Menu('#borderMenu');
+
+    chart.initialize({
+        itemsSource: [],
+        bindingX: 'name',
+        dataLabel: { content: "{y}" },
+        series: [
+            { name: "March", binding: 'mar' },
+            { name: "April", binding: 'apr' },
+            { name: "May", binding: 'may' },
+        ]
+    });
+
+    for (var i = 0; i < names.length; i++) {
+        chart.itemsSource.push({
+            name: names[i],
+            mar: Math.random() * 3,
+            apr: Math.random() * 10,
+            may: Math.random() * 5
+        });
+    }
+
+    updateMenuHeader();
+
+    typeMenu.itemClicked.addHandler(function (sender) {
+        chart.chartType = parseInt(typeMenu.selectedValue);
+        updateMenuHeader();
+    });
+
+    positionMenu.itemClicked.addHandler(function (sender) {
+        chart.dataLabel.position = parseInt(positionMenu.selectedValue);
+        updateMenuHeader();
+    });
+
+    borderMenu.itemClicked.addHandler(function (sender) {
+        chart.dataLabel.border = Boolean(parseInt(borderMenu.selectedValue));
+        updateMenuHeader();
+    });
+
+    function updateMenuHeader() {
+        typeMenu.header = '<b>@(Resources.Wijmo5FlexChart.Labels_ChartType)</b> ' + typeMenu.text;
+        positionMenu.header = '<b>@(Resources.Wijmo5FlexChart.Labels_LabelPosition)</b> ' + positionMenu.text;
+        borderMenu.header = '<b>@(Resources.Wijmo5FlexChart.Labels_LabelsBorder)</b> ' + borderMenu.text;
+    }
+</script>
+
+@section Description{
+    @Html.Raw(Resources.Wijmo5FlexChart.Labels_Text0)
+}

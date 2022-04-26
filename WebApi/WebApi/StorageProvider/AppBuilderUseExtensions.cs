@@ -1,6 +1,6 @@
 ﻿using WebApi;
 
-namespace Microsoft.AspNetCore.Builder
+namespace Owin
 {
     public static class AppBuilderUseExtensions
     {

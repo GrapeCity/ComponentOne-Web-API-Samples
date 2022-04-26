@@ -1,0 +1,196 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+		Microsoft ResX Schema
+
+		Version 1.3
+
+		The primary goals of this format is to allow a simple XML format 
+		that is mostly human readable. The generation and parsing of the 
+		various data types are done through the TypeConverter classes 
+		associated with the data types.
+
+		Example:
+
+		... ado.net/XML headers & schema ...
+		<resheader name="resmimetype">text/microsoft-resx</resheader>
+		<resheader name="version">1.3</resheader>
+		<resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+		<resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+		<data name="Name1">this is my long string</data>
+		<data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+		<data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+			[base64 mime encoded serialized .NET Framework object]
+		</data>
+		<data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+			[base64 mime encoded string representing a byte array form of the .NET Framework object]
+		</data>
+
+		There are any number of "resheader" rows that contain simple 
+		name/value pairs.
+
+		Each data row contains a name, and value. The row also contains a 
+		type or mimetype. Type corresponds to a .NET class that support 
+		text/value conversion through the TypeConverter architecture. 
+		Classes that don't support this are serialized and stored with the 
+		mimetype set.
+
+		The mimetype is used for serialized objects, and tells the 
+		ResXResourceReader how to depersist the object. This is currently not 
+		extensible. For a given mimetype the value must be set accordingly:
+
+		Note - application/x-microsoft.net.object.binary.base64 is the format 
+		that the ResXResourceWriter will generate, however the reader can 
+		read any of the formats listed below.
+
+		mimetype: application/x-microsoft.net.object.binary.base64
+		value   : The object must be serialized with 
+			: System.Serialization.Formatters.Binary.BinaryFormatter
+			: and then encoded with base64 encoding.
+
+		mimetype: application/x-microsoft.net.object.soap.base64
+		value   : The object must be serialized with 
+			: System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+			: and then encoded with base64 encoding.
+
+		mimetype: application/x-microsoft.net.object.bytearray.base64
+		value   : The object must be serialized into a byte array 
+			: using a System.ComponentModel.TypeConverter
+			: and then encoded with base64 encoding.
+	-->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>1.3</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="BoxWhisker_Text0" xml:space="preserve">
+    <value>このサンプルでは、MVC FlexChart 箱ひげ図系列を画像ファイルにエクスポートする方法を示します。</value>
+    <comment>This sample demonstrates how to export a MVC FlexChart Box and Whisker series to image file.</comment>
+  </data>
+  <data name="Bubble_Text0" xml:space="preserve">
+    <value>このサンプルでは、MVC バブル FlexChart を画像ファイルにエクスポートする方法を示します。</value>
+    <comment>This sample demonstrates how to export a MVC bubble FlexChart to image file.</comment>
+  </data>
+  <data name="ErrorBar_Text0" xml:space="preserve">
+    <value>このサンプルでは、MVC FlexChart ErrorBar 系列を画像ファイルにエクスポートする方法を示します。</value>
+    <comment>This sample demonstrates how to export a MVC FlexChart ErrorBar series to image file.</comment>
+  </data>
+  <data name="FinancialChart_Text0" xml:space="preserve">
+    <value>このサンプルでは、MVC Financial FlexChart を画像ファイルにエクスポートする方法を示します。</value>
+    <comment>This sample demonstrates how to export a MVC Financial FlexChart to image file.</comment>
+  </data>
+  <data name="FinancialChart_Date" xml:space="preserve">
+    <value>日付：</value>
+    <comment>Date: </comment>
+  </data>
+  <data name="FinancialChart_High" xml:space="preserve">
+    <value>高値：</value>
+    <comment>High: </comment>
+  </data>
+  <data name="FinancialChart_Low" xml:space="preserve">
+    <value>安値：</value>
+    <comment>Low: </comment>
+  </data>
+  <data name="FinancialChart_Open" xml:space="preserve">
+    <value>始値：</value>
+    <comment>Open: </comment>
+  </data>
+  <data name="FinancialChart_Close" xml:space="preserve">
+    <value>終値：</value>
+    <comment>Close: </comment>
+  </data>
+  <data name="HeaderFooter_Text0" xml:space="preserve">
+    <value>このサンプルは、ヘッダー/フッターが付いた MVC FlexChart を画像ファイルにエクスポートする方法を示します。</value>
+    <comment>This sample demonstrates how to export a MVC FlexChart with header and footer to image file.</comment>
+  </data>
+  <data name="HeaderFooter_Header" xml:space="preserve">
+    <value>中国での 3 か月間の売上</value>
+    <comment>Sales In China In 3 Months</comment>
+  </data>
+  <data name="HeaderFooter_Footer" xml:space="preserve">
+    <value>フッター (c) </value>
+    <comment>Footer (c) </comment>
+  </data>
+  <data name="Index_Text0" xml:space="preserve">
+    <value>このサンプルでは、MVC FlexChart を画像ファイルにエクスポートする方法を示します。</value>
+    <comment>This sample demonstrates how to export a MVC FlexChart to image file.</comment>
+  </data>
+  <data name="Labels_Text0" xml:space="preserve">
+    <value>このサンプルは、さまざまなラベルが付いた MVC FlexChart を画像ファイルにエクスポートする方法を示します。</value>
+    <comment>This sample demonstrates how to export a MVC FlexChart with different labels to image file.</comment>
+  </data>
+  <data name="MovingAverage_Text0" xml:space="preserve">
+    <value>このサンプルでは、MVC FlexChart MovingAverage 系列を画像ファイルにエクスポートする方法を示します。</value>
+    <comment>This sample demonstrates how to export a MVC FlexChart MovingAverage series to image file.</comment>
+  </data>
+  <data name="ParametricFunctionSeries_Text0" xml:space="preserve">
+    <value>このサンプルでは、MVC FlexChart ParametricFunctionSeries を画像ファイルにエクスポートする方法を示します。</value>
+    <comment>This sample demonstrates how to export a MVC FlexChart ParametricFunctionSeries to image file.</comment>
+  </data>
+  <data name="TrendLine_Text0" xml:space="preserve">
+    <value>このサンプルでは、MVC FlexChart TrendLine 系列を画像ファイルにエクスポートする方法を示します。</value>
+    <comment>This sample demonstrates how to export a MVC FlexChart TrendLine series to image file.</comment>
+  </data>
+  <data name="TrendLine_ShowEquation" xml:space="preserve">
+    <value>式の表示：</value>
+    <comment>Show Equation:</comment>
+  </data>
+  <data name="TrendLine_Order" xml:space="preserve">
+    <value>Order：</value>
+    <comment>Order:</comment>
+  </data>
+  <data name="Waterfall_Text0" xml:space="preserve">
+    <value>このサンプルでは、MVC FlexChart Waterfall 系列を画像ファイルにエクスポートする方法を示します。</value>
+    <comment>This sample demonstrates how to export a MVC FlexChart Waterfall series to image file.</comment>
+  </data>
+  <data name="YFunctionSeries_Text0" xml:space="preserve">
+    <value>このサンプルでは、MVC FlexChart YFunctionSeries を画像ファイルにエクスポートする方法を示します。</value>
+    <comment>This sample demonstrates how to export a MVC FlexChart YFunctionSeries to image file.</comment>
+  </data>
+  <data name="MovingAverage_Period" xml:space="preserve">
+    <value>期間：</value>
+    <comment>Period:</comment>
+  </data>
+  <data name="Error_ErrorAmount" xml:space="preserve">
+    <value>エラー：</value>
+    <comment>ErrorAmount</comment>
+  </data>
+  <data name="Error_Value" xml:space="preserve">
+    <value>エラー値：</value>
+    <comment>Value</comment>
+  </data>
+</root>

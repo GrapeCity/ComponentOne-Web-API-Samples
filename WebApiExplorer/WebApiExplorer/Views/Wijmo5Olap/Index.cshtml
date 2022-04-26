@@ -1,0 +1,45 @@
+@using WebApiExplorer.Models
+@{
+    ViewBag.Title = "DataEngine";
+    ViewBag.HideFeatures = true;
+    ViewBag.DemoDescription = false;
+}
+
+@section Head{
+    <script type="text/javascript">
+        window["webAPIService"] = '@(System.Configuration.ConfigurationManager.AppSettings["WebAPIService"])' + 'api/dataengine';
+    </script>
+    <script src="~/Scripts/DataEngine/common.js" type="text/javascript"></script>
+    <script src="~/Scripts/DataEngine/wijmo5Olap.js" type="text/javascript"></script>
+}
+
+<div class="title-container">
+    <p>@Html.Raw(Resources.Wijmo5Olap.Index_Text0)</p>
+    <p>@Html.Raw(Resources.Wijmo5Olap.Index_Text1)</p>
+    <p>@Html.Raw(Resources.Wijmo5Olap.Index_Text2)</p>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-4 col-md-4">
+            <div id="pivotPanel"></div>
+        </div>
+        <div class="col-sm-8 col-md-8">
+            <div id="pivotGrid"></div>
+        </div>
+    </div>
+</div>
+
+<div class="col-lg-12 ui-helper-clearfix content-panel" style="margin-top:20px">
+    <p>@Html.Raw(Resources.Wijmo5Olap.Index_Text3)</p>
+    <dl class="dl-horizontal">
+        <dt>@Html.Raw(Resources.Wijmo5Olap.Index_Dataset)</dt>
+        <dd><div id="cmbDataSets"></div></dd>
+        <dt>@Html.Raw(Resources.Wijmo5Olap.Index_RowTotals)</dt>
+        <dd><div id="cmbRowTotals"></div></dd>
+        <dt>@Html.Raw(Resources.Wijmo5Olap.Index_ColumnTotals)</dt>
+        <dd><div id="cmbColTotals"></div></dd>
+        <dt>@Html.Raw(Resources.Wijmo5Olap.Index_ShowZeros)</dt>
+        <dd><input id="chkShowZeros" type="checkbox" onclick="chkShowZeros_CheckedChanged()" /></dd>
+    </dl>
+</div>

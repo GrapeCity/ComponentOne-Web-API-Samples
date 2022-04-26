@@ -1,0 +1,77 @@
+@using WebApiExplorer.Models
+@{
+    ImageExportOptions optionsModel = ViewBag.Options;
+    ViewBag.DemoSettings = true;
+}
+
+<div id="@(optionsModel.ControlId)"></div>
+<select id="typeMenu">
+    <option value="0" selected="selected">Simple</option>
+    <option value="1">Weighted</option>
+    <option value="2">Exponential</option>
+    <option value="3">Triangular</option>
+</select>
+<b>@Html.Raw(Resources.Wijmo5FlexChart.MovingAverage_Period)</b> <input id="periodInput" type="text" />
+
+@section Settings{
+    @Html.Partial("_ImageExportOptions", optionsModel)
+}
+
+<script>
+    var movingAverageChart = new wijmo.chart.FlexChart('#@(optionsModel.ControlId)'),
+        typeMenu = new wijmo.input.Menu('#typeMenu'),
+        periodInput = new wijmo.input.InputNumber('#periodInput'),
+        movingAverage;
+
+    //set inputnumber
+    periodInput.value = 2;
+    periodInput.min = 2;
+    periodInput.max = 29;
+    periodInput.step = 1;
+    periodInput.format = "n0";
+
+    // initialize FlexChart's properties
+    movingAverageChart.initialize({
+        itemsSource: getData(40),
+        bindingX: 'x',
+        series: [{
+            name: 'Origin',
+            binding: 'y',
+            chartType: wijmo.chart.ChartType.Scatter
+        }]
+    });
+
+    //create MovingAverage
+    movingAverage = new wijmo.chart.analytics.MovingAverage();
+    movingAverage.name = 'MA';
+    movingAverage.binding = 'y';
+    movingAverage.sampleCount = 100;
+    movingAverageChart.series.push(movingAverage);
+
+    // update the menus' headers
+    updateMenuHeader();
+
+    typeMenu.selectedIndexChanged.addHandler(function () {
+        if (typeMenu.selectedValue) {
+            // update MovingAverage's type
+            movingAverage.type = parseInt(typeMenu.selectedValue);
+
+            // update menu header
+            updateMenuHeader();
+        }
+    });
+
+    periodInput.valueChanged.addHandler(function () {
+        // update MovingAverage's period
+        movingAverage.period = periodInput.value;
+    });
+
+    // helper function for Menu headers
+    function updateMenuHeader() {
+        typeMenu.header = '<b>@(Resources.Wijmo5FlexChart.MovingAverage_Type)</b>: ' + typeMenu.text;
+    }
+</script>
+
+@section Description{
+    @Html.Raw(Resources.Wijmo5FlexChart.MovingAverage_Text0)
+}

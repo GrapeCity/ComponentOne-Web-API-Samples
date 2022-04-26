@@ -1,0 +1,70 @@
+﻿@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+
+<div class="settings-panel-content">
+    <div style="float:left;width:100%">
+        <div style="float:left"><h4>@Html.Raw(Storage.StorageUploadPOST_Parameters)</h4></div>
+        <div style="float:right">
+            <button style="margin-top:3px;padding: 4px;width: 60px;" class="btn btn-primary" id="list-button"
+                    onclick="storageList('@Model.FunctionName', '@(Configuration["WebAPIService"])');">
+                @Html.Raw(Storage.StorageUploadLIST_LIST)
+            </button>
+        </div>
+    </div>
+    <div>
+        <div class="settings-panel storage-list">
+            <div class="param-item">
+                <label class="param-lable parameter"><b>@Html.Raw(Storage.StorageUploadPOST_Parameter)</b></label>
+                <label class="param-lable value"><b>@Html.Raw(Storage.StorageUploadPOST_Value)</b></label>
+                <label class="param-lable description"><b>@Html.Raw(Storage.StorageUploadPOST_Description)</b></label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Storage.StorageUploadPOST_Path)</label>
+                <select class="param-value value" name="list-path" onchange="listPathChange()">
+                    <option value="DropBox/C1WebApi/test1">DropBox/C1WebApi/test1</option>
+                </select>
+                <div id="list-description">
+                    <label class="param-lable description">@Html.Raw(Storage.StorageUploadPOST_PathTextDropBox)</label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="@(Model.FunctionName)result" class="content-panel-result">
+    <h4>@Html.Raw(Storage.StorageUploadPOST_RequestUrl)</h4>
+    <div id="@(Model.FunctionName)url" class="content-panel-result-url">
+        <pre>
+        </pre>
+    </div>
+    <h4 class="content-json-data">@Html.Raw(Storage.StorageUploadPOST_ResponseData)</h4>
+    <div id="@(Model.FunctionName)showdata" class="result-content-data" style="height:auto">
+        <pre style="max-height:200px">
+        </pre>
+    </div>
+</div>
+
+<script>
+	function listPathChange() {
+    	var sltIndex = $(".storage-list .param-value[name=list-path]").prop('selectedIndex');
+        $($("div#list-description").find("label")).addClass("hidden")
+        $($("div#list-description").find("label")[sltIndex]).removeClass("hidden")
+    }
+
+    function storageList(id, url) {
+    	var path = $(".storage-list .param-value[name=list-path]").val();
+        var fullUrl = url + "api/storage/List/" + path;
+        $("#@(Model.FunctionName)url pre").text(fullUrl);
+        $.ajax({
+            url: fullUrl,
+            type: 'GET',
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function (data, success, obj) {
+                $("#@(Model.FunctionName)showdata pre").text(JSON.stringify(data, null, 4));
+                $("#@(Model.FunctionName)result").show();
+            }
+        });
+    }
+</script>
+

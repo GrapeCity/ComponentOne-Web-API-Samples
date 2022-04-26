@@ -1,0 +1,79 @@
+@model WebApiExplorer.Models.ControlsClass.Function
+
+<div class="settings-panel-content">
+    <div style="float:left;width:100%">
+        <div style="float:left"><h4>@Html.Raw(Resources.DataEngine.Fields_Parameters)</h4></div>
+        <div style="float:right">
+            <button style="margin-top:3px;padding: 4px;" class="btn btn-primary btn-getting-fields" disabled="disabled"
+                    onclick="getFields();">
+                @Html.Raw(Resources.DataEngine.Fields_GetFields)
+            </button>
+        </div>
+    </div>
+    <div>
+        <div class="settings-panel getting-fields">
+            <div class="param-item">
+                <label class="param-lable parameter"><b>@Html.Raw(Resources.DataEngine.Fields_Parameter)</b></label>
+                <label class="param-lable value"><b>@Html.Raw(Resources.DataEngine.Fields_Value)</b></label>
+                <label class="param-lable description"><b>@Html.Raw(Resources.DataEngine.Fields_Description)</b></label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Resources.DataEngine.Fields_DataSource)</label>
+                <span class="param-value-group">
+                    <select name="dataSourceKey" class="param-value" onchange="gettingFields_SettingChanged()" style=" width: 100%; margin-bottom: 10px;">
+                        <option value="none" selected>@Html.Raw(Resources.DataEngine.Fields_DataSource_None)</option>
+                        <option value="complex10">@Html.Raw(Resources.DataEngine.Fields_DataSource_Complex10)</option>
+                        <option value="complex50">@Html.Raw(Resources.DataEngine.Fields_DataSource_Complex50)</option>
+                        <option value="complex100">@Html.Raw(Resources.DataEngine.Fields_DataSource_Complex100)</option>
+                        <option value="dataset10">@Html.Raw(Resources.DataEngine.Fields_DataSource_Dataset10)</option>
+                        <option value="dataset50">@Html.Raw(Resources.DataEngine.Fields_DataSource_Dataset50)</option>
+                        <option value="dataset100">@Html.Raw(Resources.DataEngine.Fields_DataSource_Dataset100)</option>
+                        <option value="cube">@Html.Raw(Resources.DataEngine.Fields_DataSource_Cube)</option>
+                    </select>
+                </span>
+                <label class="param-lable description">@Html.Raw(Resources.DataEngine.Fields_DataSourceDesc)</label>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="@(Model.FunctionName)result" class="content-panel-result">
+    <h4>@Html.Raw(Resources.DataEngine.Fields_Headers)</h4>
+    <div id="@(Model.FunctionName)headers" class="content-panel-result-url">
+        <pre>
+        </pre>
+    </div>
+    <h4 class="content-json-data">@Html.Raw(Resources.DataEngine.Fields_ResponseData)</h4>
+    <div id="@(Model.FunctionName)showdata" class="result-content-data" style="height:auto">
+        <pre style="max-height:200px">
+        </pre>
+    </div>
+</div>
+
+<script>
+    function getFields() {
+        var dataSourceKey = $(".getting-fields .param-value[name=dataSourceKey]").val();
+        var fullUrl = '@(System.Configuration.ConfigurationManager.AppSettings["WebAPIService"])'
+            + "api/dataengine/" + dataSourceKey + "/fields";
+
+        $("#@(Model.FunctionName)headers pre").text("@(Resources.DataEngine.Fields_RequestURL)" + fullUrl);
+        $("#@(Model.FunctionName)result").show();
+
+        $.ajax({
+            type: "GET",
+            url: fullUrl,
+            cache: false,
+            success: function (data) {
+                $("#@(Model.FunctionName)showdata pre").text(JSON.stringify(data, null, 4));
+                $(".content-json-data").show();
+            },
+            complete: function (xhr, status) {
+                $("#@(Model.FunctionName)headers pre").append("\r\n@(Resources.DataEngine.Fields_StatusCode)" + xhr.status);
+            }
+        });
+    }
+
+    function gettingFields_SettingChanged() {
+        var dataSourceKey = $(".getting-fields .param-value[name=dataSourceKey]").val();
+        $("button.btn-getting-fields").attr("disabled", dataSourceKey === "none");
+    }
+</script>

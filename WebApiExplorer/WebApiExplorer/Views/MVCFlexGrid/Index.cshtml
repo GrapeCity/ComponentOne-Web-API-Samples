@@ -1,0 +1,54 @@
+@using WebApiExplorer.Models
+@using C1.Web.Mvc.Grid
+@model IEnumerable<Sale>
+@{
+    ControlOptions optionsModel = ViewBag.DemoOptions;
+    GridExportImportOptions exportOptionsModel = ViewBag.Options;
+    ViewBag.DemoSettings = true;
+}
+
+<script>
+    function collectingQueryData(sender, e) {
+        if (e.extraRequestData == null) {
+            e.extraRequestData = {};
+        }
+
+        @foreach (var menuName in optionsModel.Options.Keys.Select(ControlOptions.ToOptionName))
+        {
+        <text>
+        e.extraRequestData["@(menuName)"] = '@(optionsModel.Options[menuName].CurrentValue)';
+        </text>
+        }
+    }
+</script>
+
+@(Html.C1().FlexGrid<Sale>()
+    .Id(exportOptionsModel.ControlId)
+    .AutoGenerateColumns(false)
+    .SortingType((AllowSorting)Enum.Parse(typeof(AllowSorting), optionsModel.Options["Allow Sorting"].CurrentValue))
+    .SelectionMode((SelectionMode)Enum.Parse(typeof(SelectionMode), optionsModel.Options["Selection"].CurrentValue))
+    .Bind(bl => bl.DisableServerRead(true).Bind(Model).OnClientQueryData("collectingQueryData"))
+    .CssClass("grid")
+    .IsReadOnly(true)
+    .Columns(bl =>
+    {
+        bl.Add(cb => cb.Binding("ID").Visible(string.Compare(optionsModel.Options["Column Visibility"].CurrentValue, "Show", true) == 0));
+        bl.Add(cb => cb.Binding("Start").Format(optionsModel.Options["Formatting"].CurrentValue == "On" ? "MMM d yy" : ""));
+        bl.Add(cb => cb.Binding("End").Format(optionsModel.Options["Formatting"].CurrentValue == "On" ? "HH:mm" : ""));
+        bl.Add(cb => cb.Binding("Country").Width(optionsModel.Options["Column Resize"].CurrentValue));
+        bl.Add(cb => cb.Binding("Product"));
+        bl.Add(cb => cb.Binding("Color"));
+        bl.Add(cb => cb.Binding("Amount").Format("c"));
+        bl.Add(cb => cb.Binding("Amount2").Format("c"));
+        bl.Add(cb => cb.Binding("Discount").Format("p0"));
+        bl.Add(cb => cb.Binding("Active"));
+    })
+)
+
+@section Settings{
+    @Html.Partial("_OptionsMenu", optionsModel)
+    @Html.Partial("_FlexGridOptions", exportOptionsModel)
+}
+@section Description{
+    @Html.Raw(Resources.MVCFlexGrid.Index_Text0)
+}

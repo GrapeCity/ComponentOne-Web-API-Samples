@@ -1,0 +1,53 @@
+@using WebApiExplorer.Models
+@using C1.Web.Mvc.Grid
+@model IEnumerable<Sale>
+@{
+    ClientSettingsModel demoSettingsModel = ViewBag.DemoSettingsModel;
+    GridExportImportOptions optionsModel = ViewBag.Options;
+    ViewBag.DemoSettings = true;
+}
+
+<script>
+    function itemFormatter(panel, r, c, cell) {
+
+        // validate CellType and if correct column
+        if (wijmo.grid.CellType.Cell === panel.cellType &&
+            'Amount' === panel.columns[c].binding) {
+
+            // get the cell's data
+            var cellData = panel.getCellData(r, c);
+
+            // set cell's foreground color
+            cell.style.color = getAmountColor(cellData);
+        }
+    }
+
+    // get the color used to display an amount
+    function getAmountColor(amount) {
+        return amount < 1500 ? 'red' : amount < 3000 ? 'black' : 'green';
+    }
+</script>
+
+@(Html.C1().FlexGrid<Sale>().Id(optionsModel.ControlId)
+    .AutoGenerateColumns(false)
+    .IsReadOnly(true)
+    .Bind(Model)
+    .CssClass("grid")
+    .AllowResizing(AllowResizing.None)
+    .ItemFormatter("itemFormatter")
+    .Columns(columns =>
+    {
+        columns.Add(column => column.Binding("ID"));
+        columns.Add(column => column.Binding("Country"));
+        columns.Add(column => column.Binding("Product"));
+        columns.Add(column => column.Binding("Amount").Format("c").Width("*").Align("center"));
+    })
+)
+
+@section Settings{
+    @Html.Partial("_FlexGridOptions", optionsModel)
+}
+
+@section Description{
+    @Html.Raw(Resources.MVCFlexGrid.ConditionalStyling_Text0)
+}

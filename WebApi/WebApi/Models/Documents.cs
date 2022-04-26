@@ -126,7 +126,7 @@ namespace WebApi.Models
             {
                 var categoryName = category.Attribute("Name").Value;
                 var categoryTitle = category.Attribute("Title").Value;
-                var categoryTitleJa = category.Attribute("Title.ja")?.Value;
+                var categoryTitleJa = category.Attribute("Title.ja").Value;
 
                 var folder = new DocumentItem() { Name = categoryName, TitleEn = categoryTitle, TitleJp = categoryTitleJa, Kind = DocumentItem.DocumentKindFolder };
                 items.Add(folder);
@@ -136,7 +136,7 @@ namespace WebApi.Models
                     var docName = doc.Element("DocumentName").Value;
                     var docPath = doc.Element("DocumentPath").Value;
                     var docTitle = doc.Element("DocumentTitle").Value;
-                    var docTitleJa = doc.Element("DocumentTitle.ja")?.Value;
+                    var docTitleJa = doc.Element("DocumentTitle.ja") == null ? null : doc.Element("DocumentTitle.ja").Value;
 
                     var item = new DocumentItem() { Kind = _itemKind, Name = docName, TitleEn = docTitle, TitleJp = docTitleJa, FullPath = _rootKey + PATH_SLASH + docPath };
                     folder.Children.Add(item);
@@ -171,7 +171,7 @@ namespace WebApi.Models
         {
             get
             {
-                return PageTemplate.IsJPCulture ? TitleJp ?? TitleEn : TitleEn;
+                return PageTemplate.IsJpCulture ? TitleJp ?? TitleEn : TitleEn;
             }
         }
         public string Name { get; set; }
@@ -229,7 +229,7 @@ namespace WebApi.Models
                 {
                     var categoryName = category.Attribute("Name").Value;
                     var categoryText = category.Attribute("Text").Value;
-                    var categoryTextJa = category.Attribute("Text.ja")?.Value;
+                    var categoryTextJa = category.Attribute("Text.ja").Value;
                     var categoryImage = category.Attribute("Image").Value;
 
                     var folder = new DocumentItem() { Kind = DocumentItem.DocumentKindFolder, Name = categoryName, TitleEn = categoryText, TitleJp = categoryTextJa };
@@ -239,7 +239,7 @@ namespace WebApi.Models
                         var reportName = report.Element("ReportName").Value;
                         var fileName = report.Element("FileName").Value;
                         var reportTitle = report.Element("ReportTitle").Value;
-                        var reportTitleJa = report.Element("ReportTitle.ja")?.Value;
+                        var reportTitleJa = report.Element("ReportTitle.ja") == null ? null : report.Element("ReportTitle.ja").Value;
                         var imageName = report.Element("ImageName").Value;
 
                         var file = new DocumentItem() { Kind = DocumentItem.DocumentKindFlexReport, Name = reportName, TitleEn = reportTitle, TitleJp = reportTitleJa, FullPath = REPORTSROOT + Documents.PATH_SLASH + categoryName + Documents.PATH_SLASH + fileName };

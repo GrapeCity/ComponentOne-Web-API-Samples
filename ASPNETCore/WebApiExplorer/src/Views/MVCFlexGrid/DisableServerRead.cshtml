@@ -1,0 +1,21 @@
+﻿@{
+    ControlOptions optionsModel = ViewBag.DemoOptions;
+    GridExportImportOptions exportOptionsModel = ViewBag.Options;
+    ViewBag.DemoSettings = true;
+}
+
+<c1-flex-grid id="@exportOptionsModel.ControlId" auto-generate-columns="true" class="grid" is-read-only="true">
+    <c1-flex-grid-filter></c1-flex-grid-filter>
+    <c1-items-source disable-server-read="@(Convert.ToBoolean(optionsModel.Options["Disable Server Read"].CurrentValue))"
+                     initial-items-count="10"
+                     read-action-url="@Url.Action("DisableServerRead_Bind")"></c1-items-source>
+</c1-flex-grid>
+
+@section Settings{
+    <p>@await Html.PartialAsync("_OptionsMenu", optionsModel)</p>
+    <p>@await Html.PartialAsync("_FlexGridOptions", exportOptionsModel)</p>
+}
+
+@section Description{
+    @Html.Raw(MVCFlexGrid.DisableServerRead_Text0)
+}

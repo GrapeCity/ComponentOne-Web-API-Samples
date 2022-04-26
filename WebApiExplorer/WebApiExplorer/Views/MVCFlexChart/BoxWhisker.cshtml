@@ -1,0 +1,70 @@
+@model IEnumerable<SalesAnalysis>
+@{
+    ImageExportOptions optionsModel = ViewBag.Options;
+    ViewBag.DemoSettings = true;
+}
+
+@(Html.C1().FlexChart()
+    .Id(optionsModel.ControlId).Height(300)
+    .Bind("Country", "Downloads", Model)
+    .Series(ser =>
+    {
+        ser.AddBoxWhisker().Name("Downloads");
+        ser.AddBoxWhisker().Binding("Sales").Name("Sales");
+        ser.AddBoxWhisker().Binding("Queries").Name("Queries");
+    })
+)
+
+<script>
+
+    function setProperty(control, property, value) {
+        control.series.forEach(function (serie) {
+            serie[property] = value;
+        });
+    }
+
+    function customChangeGroupWidth(control, value) {
+        setProperty(control, 'groupWidth', value);
+    }
+
+    function customChangeGapWidth(control, value) {
+        setProperty(control, 'gapWidth', value);
+    }
+
+    function customChangeShowMeanLine(control, value) {
+        setProperty(control, 'showMeanLine', value);
+    }
+
+    function customChangeShowMeanMarker(control, value) {
+        setProperty(control, 'showMeanMarker', value);
+    }
+
+    function customChangeShowInnerPoints(control, value) {
+        setProperty(control, 'showInnerPoints', value);
+    }
+
+    function customChangeShowOutliers(control, value) {
+        setProperty(control, 'showOutliers', value);
+    }
+
+    function customChangeRotated(control, value) {
+        control.rotated = value;
+    }
+
+    function customChangeShowLabel(control, value) {
+        control.dataLabel.content = value ? '{y}' : '';
+    }
+
+    function customChangeQuartileCalculation(control, value) {
+        setProperty(control, 'quartileCalculation', value);
+    }
+
+</script>
+
+@section Settings{
+    @Html.Partial("_ImageExportOptions", optionsModel)
+}
+
+@section Description{
+    @Html.Raw(Resources.MVCFlexChart.BoxWhisker_Text0)
+}

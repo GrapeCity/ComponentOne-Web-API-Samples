@@ -1,0 +1,140 @@
+@model WebApiExplorer.Models.ControlsClass.Function
+
+<div class="settings-panel-content">
+    <div style="float:left;width:100%">
+        <div style="float:left"><h4>@Html.Raw(Resources.Report.ReportExportPOST_Parameters)</h4></div>
+        <div style="float:right">
+            <button style="margin-top:3px;padding: 4px;" class="btn btn-primary btn-report-export-post" disabled="disabled"
+                    onclick="reportExportPost('@Model.FunctionName', '@(System.Configuration.ConfigurationManager.AppSettings["WebAPIService"])');">
+                @Html.Raw(Resources.Report.ReportExportPOST_Export)
+            </button>
+        </div>
+    </div>
+    <div>
+        <div class="settings-panel report-export-post">
+            <div class="param-item">
+                <label class="param-lable parameter"><b>@Html.Raw(Resources.Report.ReportExportPOST_Parameter)</b></label>
+                <label class="param-lable value"><b>@Html.Raw(Resources.Report.ReportExportPOST_Value)</b></label>
+                <label class="param-lable description"><b>@Html.Raw(Resources.Report.ReportExportPOST_Description)</b></label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Resources.Report.ReportExportPOST_FolderPath)</label>
+                <span class="param-value-group">
+                    <select name="folderPath" class="param-value" onchange="exportpost_FolderPathChange($(this).val())" style="width: 100%; margin-bottom: 10px;">
+                        <option value="none" selected="selected">@Html.Raw(Resources.Report.ReportExportPOST_FolderPath_None)</option>
+                        <option value="ReportsRoot/FlexCommonTasks/FlexCommonTasks.flxr">FlexCommonTasks.flxr</option>
+                        <option value="c1ssrs/AdventureWorks">AdventureWorks (SSRS)</option>
+                    </select>
+                </span>
+                <label class="param-lable description">@Html.Raw(Resources.Report.ReportExportPOST_FolderPathText)</label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Resources.Report.ReportExportPOST_ReportName)</label>
+                <span class="param-value-group">
+                    <select name="reportName" class="param-value" onchange="exportpost_ReportNameChange($(this).val())" style="width: 100%; margin-bottom: 10px;"></select>
+                </span>
+                <label class="param-lable description">@Html.Raw(Resources.Report.ReportExportPOST_ReportNameText)</label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Resources.Report.ReportExportPOST_Format)</label>
+                <span class="param-value-group">
+                    <select name="exportFormat" class="param-value" style="width: 100%; margin-bottom: 10px;">
+                    </select>
+                </span>
+                <label class="param-lable description">@Html.Raw(Resources.Report.ReportExportPOST_FormatText)</label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Resources.Report.ReportExportPOST_ExportFileName)</label>
+                <span class="param-value-group">
+                    <input type="text" name="exportFileName" class="param-value" style="width: 100%; margin-bottom: 10px;" />
+                </span>
+                <label class="param-lable description">@Html.Raw(Resources.Report.ReportExportPOST_ExportFileNameText)</label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Resources.Report.ReportExportPOST_ReportParameters)</label>
+                <span class="param-value-group">
+                    <textarea name="reportParameters" class="param-value" style="width: 100%; height:100px;"></textarea>
+                </span>
+                <label class="param-lable description">@Html.Raw(Resources.Report.ReportExportPOST_ReportParametersText)</label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Resources.Report.ReportExportPOST_ExportOptions)</label>
+                <span class="param-value-group">
+                    <textarea name="exportOptions" class="param-value" style="width: 100%; height:100px;"></textarea>
+                </span>
+                <label class="param-lable description">@Html.Raw(Resources.Report.ReportExportPOST_ExportOptionsText)</label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Resources.Report.ReportExportPOST_ReportPageSettings)</label>
+                <span class="param-value-group">
+                    <textarea name="reportPageSettings" class="param-value" style="width: 100%; height:100px;"></textarea>
+                </span>
+                <label class="param-lable description">
+                    @Html.Raw(Resources.Report.ReportExportPOST_ReportPageSettingsText)
+                </label>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="@(Model.FunctionName)result" class="content-panel-result">
+    <h4>@Html.Raw(Resources.Report.ReportExportPOST_Headers)</h4>
+    <div id="@(Model.FunctionName)headers" class="content-panel-result-url">
+        <pre>
+        </pre>
+    </div>
+</div>
+
+<script>
+    function reportExportPost(id, url) {
+        var folderPath = $(".report-export-post .param-value[name=folderPath]").val();
+        var reportName = $(".report-export-post .param-value[name=reportName]").val();
+        var exportFormat = $(".report-export-post .param-value[name=exportFormat]").val();
+        var exportFileName = $(".report-export-post .param-value[name=exportFileName]").val();
+        var exportOptions = $(".report-export-post .param-value[name=exportOptions]").val();
+        var reportParameters = $(".report-export-post .param-value[name=reportParameters]").val();
+        var reportPageSettings = $(".report-export-post .param-value[name=reportPageSettings]").val();
+        var fullUrl = url + "api/report/" + folderPath + "/" + reportName + "/$report/export";
+        var optionsString = "exportOptions.format=" + exportFormat +
+            (exportFileName ? "&exportFileName=" + exportFileName : "") +
+            (reportParameters ? "&" + reportParameters : "") +
+            (exportOptions ? "&" + exportOptions : "") +
+            (reportPageSettings ? "&" + reportPageSettings : "");
+
+        $("#@(Model.FunctionName)headers pre").text("@(Resources.Report.ReportExportPOST_RequestURL)" + fullUrl);
+        $("#@(Model.FunctionName)result").show();
+
+        formPostWithOptions(id, fullUrl, optionsString);
+    }
+
+    function exportpost_FolderPathChange(folderPath) {
+        var url = '@(System.Configuration.ConfigurationManager.AppSettings["WebAPIService"])';
+        var select = $('.report-export-post .param-value[name=reportName]').empty();
+        $("button.btn-report-export-post").attr("disabled", folderPath === "none");
+        $('.report-export .param-value[name=exportFormat]').empty();
+
+        if (folderPath !== "none") {
+            updateReportNames(folderPath, url, select);
+        }
+    }
+
+    function exportpost_ReportNameChange(reportName) {
+        var folderPath = $('.report-export-post .param-value[name=folderPath]').val();
+        var url = '@(System.Configuration.ConfigurationManager.AppSettings["WebAPIService"])';
+        var select = $('.report-export-post .param-value[name=exportFormat]').empty();
+        updateReportExportFormats(folderPath, reportName, url, select);
+        $('.report-export-post .param-value[name=exportFileName]').val(reportName);
+        var reportParameters = "";
+        if (reportName.indexOf("MultiValue DataBound Parameters") >= 0) {
+            reportParameters = "parameters.pCategory=1";
+        } else if (reportName.indexOf("Cascading Parameters") >= 0) {
+          reportParameters = "parameters.pCustomers=MORGK";
+        } else if (reportName.indexOf("Subreports and Charts") >= 0) {
+          reportParameters = "parameters.pYear=2014";
+        } else if (reportName.indexOf("Side By Side Subreports") >= 0) {
+          reportParameters = "parameters.pLeftCategories=SALOO&parameters.pLeftBrands=Audi&parameters.pRightCategories=SALOO&parameters.pRightBrands=Audi";
+        } else if (reportName.indexOf("Cars Report") >= 0) {
+          reportParameters = "parameters.pCategories=SALOO&parameters.pBrands=Audi";
+        }
+        $('.report-export-post .param-value[name=reportParameters]').val(reportParameters);
+    }
+</script>

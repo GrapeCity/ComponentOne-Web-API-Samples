@@ -1,0 +1,84 @@
+@model WebApiExplorer.Models.ControlsClass.Function
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+
+<div class="settings-panel-content">
+    <div style="float:left;width:100%">
+        <div style="float:left"><h4>@Html.Raw(Report.ReportInstanceBookmarkGET_Parameters)</h4></div>
+        <div style="float:right;text-align:right;">
+            <button style="margin-top:3px;padding: 4px" class="btn btn-primary btn-report-instance-rendered" disabled="disabled"
+                    onclick="reportinstanceGetBookmark('@Model.FunctionName', '@(Configuration["WebAPIService"])');">
+                @Html.Raw(Report.ReportInstanceBookmarkGET_GetBookmark)
+            </button>
+            <br />
+            <span style="color:red;" class="span-report-instance-rendered">@Html.Raw(Report.ReportInstanceBookmarkGET_RenderRequired)</span>
+        </div>
+    </div>
+    <div>
+        <div class="settings-panel report-instance-bookmark">
+            <div class="param-item">
+                <label class="param-lable parameter"><b>@Html.Raw(Report.ReportInstanceBookmarkGET_Parameter)</b></label>
+                <label class="param-lable value"><b>@Html.Raw(Report.ReportInstanceBookmarkGET_Value)</b></label>
+                <label class="param-lable description"><b>@Html.Raw(Report.ReportInstanceBookmarkGET_Description)</b></label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Report.ReportInstanceBookmarkGET_ReportFullPath)</label>
+                <span class="param-value-group">
+                    <input type="text" name="reportFullPath" class="param-value" style="width: 100%; margin-bottom: 10px;" disabled="disabled" value="@(Report.ReportInstanceBookmarkGET_PleaseLoadAReportFirst)" />
+                </span>
+                <label class="param-lable description">@Html.Raw(Report.ReportInstanceBookmarkGET_ReportFullPathText)</label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Report.ReportInstanceBookmarkGET_InstanceId)</label>
+                <span class="param-value-group">
+                    <input type="text" name="instanceId" class="param-value" style="width: 100%; margin-bottom: 10px;" disabled="disabled" value="@(Report.ReportInstanceBookmarkGET_PleaseLoadAReportFirst)" />
+                </span>
+                <label class="param-lable description">@Html.Raw(Report.ReportInstanceBookmarkGET_InstanceIdText)</label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Report.ReportInstanceBookmarkGET_BookmarkName)</label>
+                <span class="param-value-group">
+                    <input type="text" name="bookmarkName" class="param-value" style="width: 100%; margin-bottom: 10px;" />
+                </span>
+                <label class="param-lable description">@Html.Raw(Report.ReportInstanceBookmarkGET_BookmarkNameText)</label>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="@(Model.FunctionName)result" class="content-panel-result">
+    <h4>@Html.Raw(Report.ReportInstanceBookmarkGET_Headers)</h4>
+    <div id="@(Model.FunctionName)headers" class="content-panel-result-url">
+        <pre>
+        </pre>
+    </div>
+    <h4 class="content-json-data">@Html.Raw(Report.ReportInstanceBookmarkGET_ResponseData)</h4>
+    <div id="@(Model.FunctionName)showdata" class="result-content-data" style="height:auto">
+        <pre style="max-height:200px">
+        </pre>
+    </div>
+</div>
+
+<script>
+    function reportinstanceGetBookmark(id, url) {
+        var instanceId = $(".report-instance-bookmark .param-value[name=instanceId]").val();
+        var reportFullPath = $(".report-instance-bookmark .param-value[name=reportFullPath]").val();
+        var bookmarkName = $(".report-instance-bookmark .param-value[name=bookmarkName]").val();;
+        var fullUrl = url + "api/report/" + reportFullPath + "/$instances/" + instanceId + "/bookmarks/" + bookmarkName;
+
+        $("#@(Model.FunctionName)headers pre").text("@(Report.ReportInstanceBookmarkGET_RequestURL)" + fullUrl);
+        $("#@(Model.FunctionName)result").show();
+
+        $.ajax({
+            type: "GET",
+            url: fullUrl,
+            cache: false,
+            success: function (data) {
+                $("#@(Model.FunctionName)showdata pre").text(JSON.stringify(data, null, 4));
+                $(".content-json-data").show();
+            },
+            complete: function (xhr, status) {
+                $("#@(Model.FunctionName)headers pre").append("\r\n@(Report.ReportInstanceBookmarkGET_StatusCode)" + xhr.status);
+            }
+        });
+    }
+</script>

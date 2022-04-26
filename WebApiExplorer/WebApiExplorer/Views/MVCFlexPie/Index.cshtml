@@ -1,0 +1,23 @@
+﻿@using WebApiExplorer.Models
+@model IEnumerable<CustomerOrder>
+@{
+    ViewBag.DemoSettings = true;
+    ClientSettingsModel demoSettingsModel = ViewBag.DemoSettingsModel;
+    ImageExportOptions optionsModel = ViewBag.Options;
+}
+
+@(Html.C1().FlexPie<CustomerOrder>().Id(optionsModel.ControlId).Header("Sales").Bind("Country", "Count", Model).DataLabel(dl=>dl.Content("{value}")))
+
+@section Settings{
+    @Html.Partial("_ImageExportOptions", optionsModel)
+}
+
+<script>
+    function convertPalette(value) {
+        return wijmo.chart.Palettes[value];
+    }
+</script>
+
+@section Description{
+    @Html.Raw(Resources.MVCFlexPie.Index_Text0)
+}

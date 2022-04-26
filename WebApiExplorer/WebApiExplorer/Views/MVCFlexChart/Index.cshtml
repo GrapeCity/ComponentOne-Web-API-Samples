@@ -1,0 +1,36 @@
+@model IEnumerable<Fruit>
+@{
+    ViewBag.DemoSettings = true;
+    ClientSettingsModel demoSettingsModel = ViewBag.DemoSettingsModel;
+    ImageExportOptions optionsModel = ViewBag.Options;
+}
+
+@(Html.C1().FlexChart().Id(optionsModel.ControlId)
+    .Bind(Model).BindingX("Name").Series(sers =>
+    {
+        sers.Add().Binding("MarPrice").Name("March");
+        sers.Add().Binding("AprPrice").Name("April");
+        sers.Add().Binding("MayPrice").Name("May");
+    })
+)
+
+@section Settings{
+    @Html.Partial("_ImageExportOptions", optionsModel)
+}
+
+<script type="text/javascript">
+    convertStacking = function (value) {
+        return value === "Stacked 100%" ? "Stacked100pc" : value;
+    };
+    convertPalette = function (value) {
+        return wijmo.chart.Palettes[value];
+    };
+    updateGroupWidth = function (control, value) {
+        control.options = { groupWidth: value === "50 pixels" ? 50 : value };
+
+    };
+</script>
+
+@section Description{
+    @Html.Raw(Resources.MVCFlexChart.Index_Text0)
+}

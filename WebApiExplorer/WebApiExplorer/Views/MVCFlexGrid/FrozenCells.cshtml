@@ -1,0 +1,38 @@
+@using WebApiExplorer.Models
+@using C1.Web.Mvc.Grid
+@model IEnumerable<Sale>
+@{
+    ClientSettingsModel demoSettingsModel = ViewBag.DemoSettingsModel;
+    GridExportImportOptions optionsModel = ViewBag.Options;
+    ViewBag.DemoSettings = true;
+}
+
+@(Html.C1().FlexGrid<Sale>().Id(optionsModel.ControlId)
+    .AutoGenerateColumns(false)
+    .IsReadOnly(true)
+    .Bind(Model)
+    .CssClass("grid")
+    .Columns(columns =>
+    {
+        columns.Add(column => column.Binding("ID"));
+        columns.Add(column => column.Binding("Start").Format("MMM d yy"));
+        columns.Add(column => column.Binding("End").Format("HH:mm"));
+        columns.Add(column => column.Binding("Country"));
+        columns.Add(column => column.Binding("Product"));
+        columns.Add(column => column.Binding("Color"));
+        columns.Add(column => column.Binding("Amount").Format("c"));
+        columns.Add(column => column.Binding("Amount2").Format("c"));
+        columns.Add(column => column.Binding("Discount").Format("p0"));
+        columns.Add(column => column.Binding("Active"));
+    })
+    .FrozenColumns(1)
+    .FrozenRows(2)
+)
+
+@section Settings{
+    @Html.Partial("_FlexGridOptions", optionsModel)
+}
+
+@section Description{
+    @Html.Raw(Resources.MVCFlexGrid.FrozenCells_Text0)
+}

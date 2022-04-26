@@ -1,0 +1,80 @@
+@model WebApiExplorer.Models.ControlsClass.Function
+
+<div class="settings-panel-content">
+    <div style="float:left;width:100%">
+        <div style="float:left"><h4>@Html.Raw(Resources.Report.ReportInstanceParameterGET_Parameters)</h4></div>
+        <div style="float:right">
+            <button style="margin-top:3px;padding: 4px;" class="btn btn-primary btn-report-instance" disabled="disabled"
+                    onclick="reportinstanceGetParameter('@Model.FunctionName', '@(System.Configuration.ConfigurationManager.AppSettings["WebAPIService"])');">
+                @Html.Raw(Resources.Report.ReportInstanceParameterGET_GetParameter)
+            </button>
+        </div>
+    </div>
+    <div>
+        <div class="settings-panel report-instance-getparameter">
+            <div class="param-item">
+                <label class="param-lable parameter"><b>@Html.Raw(Resources.Report.ReportInstanceParameterGET_Parameter)</b></label>
+                <label class="param-lable value"><b>@Html.Raw(Resources.Report.ReportInstanceParameterGET_Value)</b></label>
+                <label class="param-lable description"><b>@Html.Raw(Resources.Report.ReportInstanceParameterGET_Description)</b></label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Resources.Report.ReportInstanceParameterGET_ReportFullPath)</label>
+                <span class="param-value-group">
+                    <input type="text" name="reportFullPath" class="param-value" style="width: 100%; margin-bottom: 10px;" disabled="disabled" value="@(Resources.Report.ReportInstanceParameterGET_PleaseLoadAReportFirst)" />
+                </span>
+                <label class="param-lable description">@Html.Raw(Resources.Report.ReportInstanceParameterGET_ReportFullPathText)</label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Resources.Report.ReportInstanceParameterGET_InstanceId)</label>
+                <span class="param-value-group">
+                    <input type="text" name="instanceId" class="param-value" style="width: 100%; margin-bottom: 10px;" disabled="disabled" value="@(Resources.Report.ReportInstanceParameterGET_PleaseLoadAReportFirst)" />
+                </span>
+                <label class="param-lable description">@Html.Raw(Resources.Report.ReportInstanceParameterGET_InstanceIdText)</label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Resources.Report.ReportInstanceParameterGET_ParameterName)</label>
+                <span class="param-value-group">
+                    <input type="text" name="parameterName" class="param-value" value="pCategory" style="width: 100%; margin-bottom: 10px;" />
+                </span>
+                <label class="param-lable description">@Html.Raw(Resources.Report.ReportInstanceParameterGET_ParameterNameText)</label>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="@(Model.FunctionName)result" class="content-panel-result">
+    <h4>@Html.Raw(Resources.Report.ReportInstanceParameterGET_Headers)</h4>
+    <div id="@(Model.FunctionName)headers" class="content-panel-result-url">
+        <pre>
+        </pre>
+    </div>
+    <h4 class="content-json-data">@Html.Raw(Resources.Report.ReportInstanceParameterGET_ResponseData)</h4>
+    <div id="@(Model.FunctionName)showdata" class="result-content-data" style="height:auto">
+        <pre style="max-height:200px">
+        </pre>
+    </div>
+</div>
+
+<script>
+    function reportinstanceGetParameter(id, url) {
+        var instanceId = $(".report-instance-getparameter .param-value[name=instanceId]").val();
+        var reportFullPath = $(".report-instance-getparameter .param-value[name=reportFullPath]").val();
+        var parameterName = $(".report-instance-getparameter .param-value[name=parameterName]").val();
+        var fullUrl = url + "api/report/" + reportFullPath + "/$instances/" + instanceId + "/parameters/" + parameterName;
+
+        $("#@(Model.FunctionName)headers pre").text("@(Resources.Report.ReportInstanceParameterGET_RequestURL)" + fullUrl);
+        $("#@(Model.FunctionName)result").show();
+
+        $.ajax({
+            type: "GET",
+            url: fullUrl,
+            cache: false,
+            success: function (data) {
+                $("#@(Model.FunctionName)showdata pre").text(JSON.stringify(data, null, 4));
+                $(".content-json-data").show();
+            },
+            complete: function (xhr, status) {
+                $("#@(Model.FunctionName)headers pre").append("\r\n@(Resources.Report.ReportInstanceParameterGET_StatusCode)" + xhr.status);
+            }
+        });
+    }
+</script>

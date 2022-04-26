@@ -1,0 +1,122 @@
+@using C1.Web.Mvc.Chart
+@model List<MathPoint>
+@{
+    ImageExportOptions optionsModel = ViewBag.Options;
+    ViewBag.DemoSettings = true;
+    var fitType = Resources.Wijmo5FlexChart.TrendLine_FitType;
+}
+<script>
+    var checkboxShowEquation, fitTypeMenu, orderCon, chart, trendLine, lineMarker;
+
+    c1.documentReady(function () {
+        checkboxShowEquation = document.getElementById('checkboxShowEquation');
+        fitTypeMenu = wijmo.Control.getControl('#fitTypeMenu');
+        orderCon = document.getElementById('orderCon');
+        chart = wijmo.Control.getControl('#@(optionsModel.ControlId)');
+        if (chart) {
+            trendLine = chart.series[1];
+            lineMarker = c1.getExtender(chart, 'LineMarker');
+        }
+    });
+
+    function itemClicked(arg) {
+        if (!fitTypeMenu || !chart || !trendLine) {
+            return;
+        }
+        fitTypeMenu.header = '@fitType: <b>' + arg + '</b>';
+
+        if (orderCon) {
+            if (arg === 'Fourier' || arg === 'Polynomial') {
+                orderCon.style.display = '';
+            } else {
+                orderCon.style.display = 'none';
+            }
+        }
+
+        chart.beginUpdate();
+        trendLine.fitType = arg;
+        chart.endUpdate();
+    }
+
+    function orderChanged(host) {
+        if (!checkValue(host)) {
+            return;
+        }
+
+        if (!chart || !trendLine) {
+            return;
+        }
+
+        chart.beginUpdate();
+        trendLine.order = host.value;
+        chart.endUpdate();
+    }
+
+    function getContent() {
+        if (!chart || !trendLine || !trendLine.getEquation) {
+            return 'TrendLine';
+        }
+        return trendLine.getEquation();
+    }
+
+    function showEquation() {
+        if (lineMarker) {
+            lineMarker.isVisible = checkboxShowEquation.checked;
+        }
+    }
+
+    function checkValue(number) {
+        return number.value >= number.min && number.value <= number.max;
+    }
+</script>
+@(Html.C1().FlexChart().Id(optionsModel.ControlId).Height(300)
+.Bind("X", Model)
+.AxisY(ay => ay.Min(0).Max(100))
+.Legend(Position.Right)
+.LegendToggle(true)
+.Series(ss =>
+{
+    ss.Add(ChartType.Scatter, "Base Data").Binding("Y");
+    ss.AddTrendLine("Trend Line").Binding("Y").SampleCount(100).TrendLineOrder(4);
+})
+.AddLineMarker(lm => lm.Id("LineMarker").Lines(LineMarkerLines.None).Interaction(LineMarkerInteraction.None).Content("getContent")))
+
+
+@section Settings{
+    <div class="container-fluid well">
+        <div class="row">
+            <div class="col-sm-3 col-xs-12">
+                <label id="labelShowEquation" for="checkboxShowEquation">@Html.Raw(Resources.MVCFlexChart.TrendLine_ShowEquation)</label>
+                <input type="checkbox" id="checkboxShowEquation" onchange="showEquation()" checked="checked" />
+            </div>
+            <div class="col-sm-4 col-xs-12">
+                @(Html.C1().Menu().Id("fitTypeMenu").Header(fitType + ": <b>Linear</b>")
+                .Command("itemClicked")
+                .MenuItems(items =>
+                {
+                    items.Add("Linear", "Linear");
+                    items.Add("Exponential", "Exponential");
+                    items.Add("Logarithmic", "Logarithmic");
+                    items.Add("Power", "Power");
+                    items.Add("Fourier", "Fourier");
+                    items.Add("Polynomial", "Polynomial");
+                    items.Add("MinX", "MinX");
+                    items.Add("MinY", "MinY");
+                    items.Add("MaxX", "MaxX");
+                    items.Add("MaxY", "MaxY");
+                    items.Add("AverageX", "AverageX");
+                    items.Add("AverageY", "AverageY");
+                }))
+            </div>
+            <div id="orderCon" class="col-sm-5 col-xs-12" style="display: none">
+                <label id="labelOrder" class="order" for="orderInput">@Html.Raw(Resources.MVCFlexChart.TrendLine_Order)</label>
+                @(Html.C1().InputNumber().Id("orderInput").Value(4).Step(1).Format("n0").Min(1).Max(9).OnClientValueChanged("orderChanged"))
+            </div>
+        </div>
+    </div>
+    @Html.Partial("_ImageExportOptions", optionsModel)
+}
+
+@section Description{
+    @Html.Raw(Resources.MVCFlexChart.TrendLine_Text0)
+}

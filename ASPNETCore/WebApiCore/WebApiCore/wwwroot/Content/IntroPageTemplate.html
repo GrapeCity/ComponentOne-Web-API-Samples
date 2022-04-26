@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>C1 @Name Services</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="../Content/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="../Content/favicon/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../Content/favicon/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="../Content/favicon/manifest.json">
+    <link rel="mask-icon" href="../Content/favicon/safari-pinned-tab.svg" color="#503b75">
+    <link href="../styles/bootstrap.min.css" rel="stylesheet" />
+    <link href="../Content/css/wijmo.min.css" rel="stylesheet" />
+    <link href="../Content/css/page.css" rel="stylesheet" />
+    <link href="../Content/css/gcicons.css" rel="stylesheet" />
+    <script src="../Content/Scripts/wijmo.min.js"></script>
+    <script src="../Content/Scripts/wijmo.grid.min.js"></script>
+    <script src="../Content/Scripts/jquery.js"></script>
+    <script src="../Content/Scripts/MultiLevelMenu.js"></script>
+    <script src="../Content/Scripts/Layout.js"></script>
+</head>
+<body>
+    <div class="hide">
+        <ul class="site-nav narrow-screen">
+            <li>
+                <a href="https://www.grapecity.com/en/webapi/" target="_blank">About</a>
+            </li>
+            <li>
+                <a href="http://supportone.componentone.com/login" target="_blank">Support</a>
+            </li>
+            <li>
+                <a href="https://www.grapecity.com/en/pricing" target="_blank">Pricing</a>
+            </li>
+            <li class="bold">
+                <a href="https://www.grapecity.com/en/download/componentone-studio" target="_blank">FREE TRIAL</a>
+            </li>
+        </ul>
+    </div>
+    <header>
+        <div class="hamburger-nav-btn narrow-screen"><span class="icon-bars"></span></div>
+        <a class="logo-container" href="https://www.grapecity.com/en/webapi/" target="_blank">
+            <i class="gcicon-product-c1"></i>ComponentOne
+        </a>
+        <div class="task-bar">
+            <span class="semi-bold">C1 @Name Services</span>
+            <ul class="site-nav wide-screen">
+                <li>
+                    <a href="https://www.grapecity.com/en/webapi/" target="_blank">About</a>
+                </li>
+                <li>
+                    <a href="http://supportone.componentone.com/login" target="_blank">Support</a>
+                </li>
+                <li>
+                    <a href="https://www.grapecity.com/en/pricing" target="_blank">Pricing</a>
+                </li>
+                <li class="bold">
+                    <a href="https://www.grapecity.com/en/download/componentone-studio" target="_blank">FREE TRIAL</a>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <section class="content controls">
+        <div class="page-content">
+            <div style="padding:20px">
+                <div class="abstract">
+                    @Abstract
+                </div>
+                <div class="detailList">
+                    @DetailList
+                </div>
+                <div class="services">
+                    <h4>Services</h4>
+                    <p>The service list provided as below:</p>
+                    <div class="serviceList">
+                        <div id="serviceTree"></div>
+                        @ServiceList
+                    </div>
+                    <p>Please refer to <a href="https://www.grapecity.com/componentone/demos/aspnet/5/webapiexplorer">the WebApiExplorer sample</a> for detail.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <a href="http://www.grapecity.com/">
+            <i class="gcicon-logo-gc-horiz"></i>
+        </a>
+        <p>
+            © <span id="crYear"></span> GrapeCity, Inc. All Rights Reserved.<br />
+            All product and company names here in may be trademarks of their respective owners.
+        </p>
+    </footer>
+</body>
+</html>

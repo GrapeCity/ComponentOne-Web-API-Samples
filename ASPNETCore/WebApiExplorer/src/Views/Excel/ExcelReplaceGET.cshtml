@@ -1,0 +1,116 @@
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+
+<div class="settings-panel-content">
+    <div style="float:left;width:100%">
+        <div style="float:left"><h4>@Html.Raw(Excel.ExcelReplaceGET_Parameters)</h4></div>
+        <div style="float:right">
+            <button style="margin-top:3px;padding: 4px;" class="btn btn-primary"
+                    onclick="replaceExcelGet('@Model.FunctionName', '@(Configuration["WebAPIService"])');">
+                @Html.Raw(Excel.ExcelReplaceGET_Replace)
+            </button>
+        </div>
+    </div>
+    <div>
+        <div class="settings-panel excel-replace">
+            <div class="param-item">
+                <label class="param-lable parameter"><b>@Html.Raw(Excel.ExcelReplaceGET_Parameter)</b></label>
+                <label class="param-lable value"><b>@Html.Raw(Excel.ExcelReplaceGET_Value)</b></label>
+                <label class="param-lable description"><b>@Html.Raw(Excel.ExcelReplaceGET_Description)</b></label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Excel.ExcelReplaceGET_ExcelPath)</label>
+                <span class="param-value-group">
+                    <select name="excelPath" class="param-value" style="width: 100%">
+                        <option value="ExcelRoot/align.xlsx" selected="selected">align.xlsx</option>
+                        <option value="ExcelRoot/AllFormats.xlsx">AllFormats.xlsx</option>
+                        <option value="ExcelRoot/FlexGrid.xlsx">FlexGrid.xlsx</option>
+                        <option value="ExcelRoot/GAS.xlsx">GAS.xlsx</option>
+                        <option value="ExcelRoot/Grouping.xlsx">Grouping.xlsx</option>
+                        <option value="ExcelRoot/Hierarchical.xlsx">Hierarchical.xlsx</option>
+                        <option value="ExcelRoot/Houston.xlsx">Houston.xlsx</option>
+                        <option value="ExcelRoot/Palette.xlsx">Palette.xlsx</option>
+                        <option value="ExcelRoot/ExcelWithFormula.xlsx">ExcelWithFormula.xlsx</option>
+                    </select>
+                </span>
+                <label class="param-lable description">@Html.Raw(Excel.ExcelReplaceGET_ExcelPathText)</label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Excel.ExcelReplaceGET_SheetName)</label>
+                <input class="param-value value" type="text" name="sheetName" value="" />
+                <label class="param-lable description">@Html.Raw(Excel.ExcelReplaceGET_SheetNameText)</label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Excel.ExcelReplaceGET_Text)</label>
+                <input class="param-value value" type="text" name="text" />
+                <label class="param-lable description">@Html.Raw(Excel.ExcelReplaceGET_TextText)</label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Excel.ExcelReplaceGET_NewText)</label>
+                <input class="param-value value" type="text" name="newText" />
+                <label class="param-lable description">@Html.Raw(Excel.ExcelReplaceGET_NewTextText)</label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Excel.ExcelReplaceGET_MatchCase)</label>
+                <input class="param-value value" type="checkbox" name="matchCase" />
+                <label class="param-lable description">@Html.Raw(Excel.ExcelReplaceGET_MatchCaseText)</label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Excel.ExcelReplaceGET_WholeCell)</label>
+                <input class="param-value value" type="checkbox" name="wholeCell" />
+                <label class="param-lable description">@Html.Raw(Excel.ExcelReplaceGET_WholeCellText)</label>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="@(Model.FunctionName)result" class="content-panel-result">
+    <h4>@Html.Raw(Excel.ExcelReplaceGET_RequestUrl)</h4>
+    <div id="@(Model.FunctionName)url" class="content-panel-result-url">
+        <pre>
+        </pre>
+    </div>
+    <h4 class="content-json-data">@Html.Raw(Excel.ExcelReplaceGET_ResponseData)</h4>
+    <div id="@(Model.FunctionName)showdata" class="result-content-data" style="height:auto">
+        <pre style="max-height:200px">
+        </pre>
+        <span>@Html.Raw(Excel.ExcelReplaceGET_ViewFiles)</span><span class="viewfiles"></span>
+    </div>
+</div>
+
+<script>
+    function replaceExcelGet(id, url) {
+        var excelPath = $(".excel-replace .param-value[name=excelPath]").val();
+        var sheetName = $(".excel-replace .param-value[name=sheetName]").val();
+        var text = $(".excel-replace .param-value[name=text]").val();
+        var newText = $(".excel-replace .param-value[name=newText]").val();
+        var fullUrl = url + "api/excel/" + excelPath;
+
+        if (sheetName) {
+            fullUrl += "/" + sheetName;
+        }
+
+        fullUrl += "/replace?text=" + encodeURIComponent(text) + "&newtext=" + encodeURIComponent(newText);
+
+        if ($(".excel-replace .param-value[name=matchCase]").is(":checked")) {
+            fullUrl += "&matchcase=true"
+        }
+
+        if ($(".excel-replace .param-value[name=wholeCell]").is(":checked")) {
+            fullUrl += "&wholecell=true"
+        }
+
+        $("#@(Model.FunctionName)url pre").text(fullUrl);
+
+        $.ajax({
+            type: "GET",
+            url: fullUrl,
+            cache: false,
+            success: function (data) {
+                $("#@(Model.FunctionName)showdata pre").text(JSON.stringify(data, null, 4));
+                $("#@(Model.FunctionName)result").show();
+                $(".content-json-data").show();
+                updateViewFilesLink("#@(Model.FunctionName)showdata span.viewfiles", url, [excelPath]);
+            }
+        });
+    }
+</script>

@@ -1,0 +1,92 @@
+@model WebApiExplorer.Models.ControlsClass.Function
+
+<div class="settings-panel-content">
+    <div style="float:left;width:100%">
+        <div style="float:left"><h4>@Html.Raw(Resources.Excel.ExcelColumnsPOST_Parameters)</h4></div>
+        <div style="float:right">
+            <button style="margin-top:3px;padding: 4px;" class="btn btn-primary"
+                    onclick="excelAddColumn('@Model.FunctionName', '@(System.Configuration.ConfigurationManager.AppSettings["WebAPIService"])');">
+                @Html.Raw(Resources.Excel.ExcelColumnsPOST_AddColumns)
+            </button>
+        </div>
+    </div>
+    <div>
+        <div class="settings-panel excel-addcolumn">
+            <div class="param-item">
+                <label class="param-lable parameter"><b>@Html.Raw(Resources.Excel.ExcelColumnsPOST_Parameter)</b></label>
+                <label class="param-lable value"><b>@Html.Raw(Resources.Excel.ExcelColumnsPOST_Value)</b></label>
+                <label class="param-lable description"><b>@Html.Raw(Resources.Excel.ExcelColumnsPOST_Description)</b></label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Resources.Excel.ExcelColumnsPOST_ExcelPath)</label>
+                <span class="param-value-group">
+                    <select name="excelPath" class="param-value" style="width: 100%">
+                        <option value="ExcelRoot/align.xls" selected="selected">align.xls</option>
+                        <option value="ExcelRoot/AllFormats.xls">AllFormats.xls</option>
+                        <option value="ExcelRoot/FlexGrid.xlsx">FlexGrid.xlsx</option>
+                        <option value="ExcelRoot/GAS.xls">GAS.xls</option>
+                        <option value="ExcelRoot/Grouping.xlsx">Grouping.xlsx</option>
+                        <option value="ExcelRoot/Hierarchical.xlsx">Hierarchical.xlsx</option>
+                        <option value="ExcelRoot/Houston.xlsx">Houston.xlsx</option>
+                        <option value="ExcelRoot/Palette.xls">Palette.xls</option>
+                        <option value="ExcelRoot/ExcelWithFormula.xls">ExcelWithFormula.xls</option>
+                    </select>
+                </span>
+                <label class="param-lable description">@Html.Raw(Resources.Excel.ExcelColumnsPOST_ExcelPathDesc)</label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Resources.Excel.ExcelColumnsPOST_SheetName)</label>
+                <input class="param-value value" type="text" name="sheetName" value="Sheet1" />
+                <label class="param-lable description">@Html.Raw(Resources.Excel.ExcelColumnsPOST_SheetNameDesc)</label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Resources.Excel.ExcelColumnsPOST_ColumnIndex)</label>
+                <input class="param-value value" type="text" name="columnIndex" value="0" />
+                <label class="param-lable description">@Html.Raw(Resources.Excel.ExcelColumnsPOST_ColumnIndexDesc)</label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Resources.Excel.ExcelColumnsPOST_Count)</label>
+                <input class="param-value value" type="text" name="count" value="1" />
+                <label class="param-lable description">@Html.Raw(Resources.Excel.ExcelColumnsPOST_CountDesc)</label>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="@(Model.FunctionName)result" class="content-panel-result">
+    <h4>@Html.Raw(Resources.Excel.ExcelColumnsPOST_RequestUrl)</h4>
+    <div id="@(Model.FunctionName)url" class="content-panel-result-url">
+        <pre>
+        </pre>
+    </div>
+    <h4 class="content-json-data">@Html.Raw(Resources.Excel.ExcelColumnsPOST_ResponseData)</h4>
+    <div id="@(Model.FunctionName)showdata" class="result-content-data" style="height:auto">
+        <pre style="max-height:200px">
+        </pre>
+        <span>@Html.Raw(Resources.Excel.ExcelColumnsPOST_ViewFiles)</span><span class="viewfiles"></span>
+    </div>
+</div>
+
+<script>
+    function excelAddColumn(id, url) {
+        var excelPath = $(".excel-addcolumn .param-value[name=excelPath]").val();
+        var sheetName = $(".excel-addcolumn .param-value[name=sheetName]").val();
+        var columnIndex = $(".excel-addcolumn .param-value[name=columnIndex]").val();
+        var count = $(".excel-addcolumn .param-value[name=count]").val();
+        var fullUrl = url + "api/excel/" + excelPath + "/" + sheetName + "/columns/" + columnIndex;
+
+        $("#@(Model.FunctionName)url pre").text(fullUrl);
+
+        $.ajax({
+            type: "POST",
+            url: fullUrl,
+            data: "count=" + count,
+            cache: false,
+            success: function (data) {
+                $("#@(Model.FunctionName)showdata pre").text(JSON.stringify(data, null, 4));
+                $("#@(Model.FunctionName)result").show();
+                $(".content-json-data").show();
+                updateViewFilesLink("#@(Model.FunctionName)showdata span.viewfiles", url, [excelPath]);
+            }
+        });
+    }
+</script>

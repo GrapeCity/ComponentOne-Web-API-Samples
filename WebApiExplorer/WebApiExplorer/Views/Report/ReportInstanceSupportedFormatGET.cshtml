@@ -1,0 +1,80 @@
+@model WebApiExplorer.Models.ControlsClass.Function
+
+<div class="settings-panel-content">
+    <div style="float:left;width:100%">
+        <div style="float:left"><h4>@Html.Raw(Resources.Report.ReportInstanceSupportedFormatGET_Parameters)</h4></div>
+        <div style="float:right">
+            <button style="margin-top:3px;padding: 4px;" class="btn btn-primary btn-report-instance btn-report-supported-format" disabled="disabled"
+                    onclick="reportinstanceGetSupportedFormat('@Model.FunctionName', '@(System.Configuration.ConfigurationManager.AppSettings["WebAPIService"])');">
+                @Html.Raw(Resources.Report.ReportInstanceSupportedFormatGET_GetSupportedFormat)
+            </button>
+        </div>
+    </div>
+    <div>
+        <div class="settings-panel report-instance-supportedformat">
+            <div class="param-item">
+                <label class="param-lable parameter"><b>@Html.Raw(Resources.Report.ReportInstanceSupportedFormatGET_Parameter)</b></label>
+                <label class="param-lable value"><b>@Html.Raw(Resources.Report.ReportInstanceSupportedFormatGET_Value)</b></label>
+                <label class="param-lable description"><b>@Html.Raw(Resources.Report.ReportInstanceSupportedFormatGET_Description)</b></label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Resources.Report.ReportInstanceSupportedFormatGET_ReportFullPath)</label>
+                <span class="param-value-group">
+                    <input type="text" name="reportFullPath" class="param-value" style="width: 100%; margin-bottom: 10px;" disabled="disabled" value="@(Resources.Report.ReportInstanceSupportedFormatGET_PleaseLoadAReportFirst)" />
+                </span>
+                <label class="param-lable description">@Html.Raw(Resources.Report.ReportInstanceSupportedFormatGET_ReportFullPathText)</label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Resources.Report.ReportInstanceSupportedFormatGET_InstanceId)</label>
+                <span class="param-value-group">
+                    <input type="text" name="instanceId" class="param-value" style="width: 100%; margin-bottom: 10px;" disabled="disabled" value="@(Resources.Report.ReportInstanceSupportedFormatGET_PleaseLoadAReportFirst)" />
+                </span>
+                <label class="param-lable description">@Html.Raw(Resources.Report.ReportInstanceSupportedFormatGET_InstanceIdText)</label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Resources.Report.ReportInstanceSupportedFormatGET_SupportedFormatName)</label>
+                <span class="param-value-group">
+                    <input type="text" name="supportedFormatName" class="param-value" value="html" style="width: 100%; margin-bottom: 10px;" />
+                </span>
+                <label class="param-lable description">@Html.Raw(Resources.Report.ReportInstanceSupportedFormatGET_SupportedFormatNameText)</label>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="@(Model.FunctionName)result" class="content-panel-result">
+    <h4>@Html.Raw(Resources.Report.ReportInstanceSupportedFormatGET_Headers)</h4>
+    <div id="@(Model.FunctionName)headers" class="content-panel-result-url">
+        <pre>
+        </pre>
+    </div>
+    <h4 class="content-json-data">@Html.Raw(Resources.Report.ReportInstanceSupportedFormatGET_ResponseData)</h4>
+    <div id="@(Model.FunctionName)showdata" class="result-content-data" style="height:auto">
+        <pre style="max-height:200px">
+        </pre>
+    </div>
+</div>
+
+<script>
+    function reportinstanceGetSupportedFormat(id, url) {
+        var instanceId = $(".report-instance-supportedformat .param-value[name=instanceId]").val();
+        var reportFullPath = $(".report-instance-supportedformat .param-value[name=reportFullPath]").val();
+        var formatName = $(".report-instance-supportedformat .param-value[name=supportedFormatName]").val();
+        var fullUrl = url + "api/report/" + reportFullPath + "/$instances/" + instanceId + "/supportedformats/" + formatName;
+
+        $("#@(Model.FunctionName)headers pre").text("@(Resources.Report.ReportInstanceSupportedFormatGET_RequestURL)" + fullUrl);
+        $("#@(Model.FunctionName)result").show();
+
+        $.ajax({
+            type: "GET",
+            url: fullUrl,
+            cache: false,
+            success: function (data) {
+                $("#@(Model.FunctionName)showdata pre").text(JSON.stringify(data, null, 4));
+                $(".content-json-data").show();
+            },
+            complete: function (xhr, status) {
+                $("#@(Model.FunctionName)headers pre").append("\r\n@(Resources.Report.ReportInstanceSupportedFormatGET_StatusCode)" + xhr.status);
+            }
+        });
+    }
+</script>

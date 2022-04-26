@@ -1,0 +1,24 @@
+@using C1.Web.Mvc.Chart
+@{
+    ImageExportOptions optionsModel = ViewBag.Options;
+    ViewBag.DemoSettings = true;
+}
+
+<script type="text/javascript">
+function yFunc(value) {
+    return Math.sin(4 * value) * Math.cos(3 * value);
+}
+</script>
+@(Html.C1().FlexChart().Legend(Position.Right).Id(optionsModel.ControlId).Height(300)
+.Series(ses =>
+{
+    ses.AddYFunctionSeries("YFunctionSeries").Min(-10).Max(10).SampleCount(300).Func("yFunc");
+}))
+
+@section Settings{
+    @Html.Partial("_ImageExportOptions", optionsModel)
+}
+
+@section Description{
+    @Html.Raw(Resources.Wijmo5FlexChart.YFunctionSeries_Text0)
+}

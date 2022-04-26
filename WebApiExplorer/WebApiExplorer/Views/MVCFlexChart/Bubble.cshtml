@@ -1,0 +1,18 @@
+@model IEnumerable<Dot>
+@{
+    ViewBag.DemoSettings = true;
+    ImageExportOptions optionsModel = ViewBag.Options;
+}
+
+@(Html.C1().FlexChart().Id(optionsModel.ControlId).Height(300).ChartType(C1.Web.Mvc.Chart.ChartType.Bubble).Bind("X", Model).Series(sers =>
+    {
+        sers.Add().Binding("Y,Size");
+    }))
+
+@section Settings{
+    @Html.Partial("_ImageExportOptions", optionsModel)
+}
+
+@section Description{
+    @Html.Raw(Resources.MVCFlexChart.Bubble_Text0)
+}

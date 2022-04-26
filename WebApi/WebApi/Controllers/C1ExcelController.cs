@@ -30,9 +30,9 @@ namespace WebApi.Controllers
         {
             var c1APIIntroduction = new C1APIIntroduction();
             c1APIIntroduction.Name = "Excel";
-            c1APIIntroduction.Abstract = "<p>" + Localization.Resource.Excel_Text1 + "</p>"
-                + "<p>" + Localization.Resource.Excel_Text2 + "</p>"
-                + "<p>" + Localization.Resource.Excel_Text3 + "</p>";
+            c1APIIntroduction.Abstract = "<p>"+ Resources.Resource.Excel_Text1 + "</p>"
+                + "<p>" + Resources.Resource.Excel_Text2 + "</p>"
+                + "<p>" + Resources.Resource.Excel_Text3 + "</p>";
             return c1APIIntroduction;
         }
     }

@@ -1,0 +1,64 @@
+@model WebApiExplorer.Models.ControlsClass.Function
+
+<div class="settings-panel-content">
+    <div style="float:left;width:100%">
+        <div style="float:left"><h4>@Html.Raw(Resources.Pdf.PdfStatusGET_Parameters)</h4></div>
+        <div style="float:right">
+            <button style="margin-top:3px;padding: 4px;" class="btn btn-primary btn-get-pdf-status"
+                    onclick="pdfGetStatus('@(System.Configuration.ConfigurationManager.AppSettings["WebAPIService"])');">
+                @Html.Raw(Resources.Pdf.PdfStatusGET_GetStatus)
+            </button>
+        </div>
+    </div>
+    <div>
+        <div class="settings-panel pdf-status">
+            <div class="param-item">
+                <label class="param-lable parameter"><b>@Html.Raw(Resources.Pdf.PdfStatusGET_Parameter)</b></label>
+                <label class="param-lable value"><b>@Html.Raw(Resources.Pdf.PdfStatusGET_Value)</b></label>
+                <label class="param-lable description"><b>@Html.Raw(Resources.Pdf.PdfStatusGET_Description)</b></label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Resources.Pdf.PdfStatusGET_PdfPath)</label>
+                <span class="param-value-group">
+                    <input type="text" readonly="readonly" name="pdfPath" class="param-value" value="PdfRoot/DefaultDocument.pdf" style="width:100%;margin-bottom:10px;" />
+                </span>
+                <label class="param-lable description">@Html.Raw(Resources.Pdf.PdfStatusGET_PdfPathText)</label>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="@(Model.FunctionName)result" class="content-panel-result">
+    <h4>@Html.Raw(Resources.Pdf.PdfStatusGET_Headers)</h4>
+    <div id="@(Model.FunctionName)headers" class="content-panel-result-url">
+        <pre>
+        </pre>
+    </div>
+    <h4 class="content-json-data">@Html.Raw(Resources.Pdf.PdfStatusGET_ResponseData)</h4>
+    <div id="@(Model.FunctionName)showdata" class="result-content-data" style="height:auto">
+        <pre style="max-height:200px">
+        </pre>
+    </div>
+</div>
+
+<script>
+    function pdfGetStatus(url) {
+        var pdfPath = $(".pdf-status .param-value[name=pdfPath]").val();
+        var fullUrl = url + "api/pdf/" + pdfPath + "/$pdf/status";
+
+        $("#@(Model.FunctionName)headers pre").text("@(Resources.Pdf.PdfStatusGET_RequestURL)" + fullUrl);
+        $("#@(Model.FunctionName)result").show();
+
+        $.ajax({
+            type: "GET",
+            url: fullUrl,
+            cache: false,
+            success: function (data) {
+                $("#@(Model.FunctionName)showdata pre").text(JSON.stringify(data, null, 4));
+                $(".content-json-data").show();
+            },
+            complete: function (xhr, status) {
+                $("#@(Model.FunctionName)headers pre").append("\r\n@(Resources.Pdf.PdfStatusGET_StatusCode)" + xhr.status);
+            }
+        });
+    }
+</script>

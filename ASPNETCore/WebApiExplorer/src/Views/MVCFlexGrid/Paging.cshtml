@@ -1,0 +1,24 @@
+﻿@{
+    GridExportImportOptions exportOptionsModel = ViewBag.Options;
+    ControlOptions optionsModel = ViewBag.DemoOptions;
+    ViewBag.DemoSettings = true;
+}
+
+<c1-items-source id="collectionViewService" read-action-url="@Url.Action("Paging_Bind")"
+                 page-size="@Convert.ToInt32(optionsModel.Options["PageSize"].CurrentValue)"></c1-items-source>
+<c1-pager owner="collectionViewService"></c1-pager>
+
+<c1-flex-grid height="300px" id="@exportOptionsModel.ControlId" class="customGrid"
+              is-read-only="true" items-source-id="collectionViewService">
+</c1-flex-grid>
+
+<c1-pager owner="@exportOptionsModel.ControlId"></c1-pager>
+
+@section Settings{
+    @await Html.PartialAsync("_OptionsMenu", optionsModel)
+    @await Html.PartialAsync("_FlexGridOptions", exportOptionsModel)
+}
+
+@section Description{
+    <p>@Html.Raw(MVCFlexGrid.Paging_Text0)</p>
+}

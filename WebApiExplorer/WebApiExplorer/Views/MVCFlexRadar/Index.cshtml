@@ -1,0 +1,31 @@
+@model IEnumerable<ProductSales>
+@using C1.Web.Mvc.Chart
+@{
+    ClientSettingsModel settings = ViewBag.DemoSettingsModel;
+    ImageExportOptions optionsModel = ViewBag.Options;
+    ViewBag.DemoSettings = true;
+}
+
+@(Html.C1().FlexRadar().Id(optionsModel.ControlId)
+    .Bind("Country", "Downloads", Model)
+    .ChartType(RadarChartType.Column)
+    .DataLabel(label =>
+    {
+        label.Content("{y}");
+    })
+    .Series(ser =>
+    {
+        ser.Add().Name("Downloads");
+        ser.Add().Binding("Sales").Name("Sales");
+    })
+    .Legend(Position.Top)
+    .Width("500px")
+    .Height("400px")
+)
+@section Settings{
+    @Html.Partial("_ImageExportOptions", optionsModel)
+}
+
+@section Description{
+    @Html.Raw(Resources.MVCFlexRadar.Index_Text0)
+}

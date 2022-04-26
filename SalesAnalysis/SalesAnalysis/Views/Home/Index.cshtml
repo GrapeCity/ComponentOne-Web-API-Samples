@@ -1,0 +1,76 @@
+﻿<div class="main-content">
+    <div class="col-md-2"></div>
+    <div class="col-md-4">
+        <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#loginPanel">@Html.Raw(Resources.Resource.Index_Login)</a></li>
+            <li><a data-toggle="tab" href="#registerPanel">@Html.Raw(Resources.Resource.Index_Register)</a></li>
+        </ul>
+        <div class="tab-content user-tab-content">
+            <div id="loginPanel" class="tab-pane fade in active">
+                <label>@Html.Raw(Resources.Resource.Index_Email)</label><br/>
+                @(Html.C1().ComboBox().Id("loginEmail").IsEditable(true).Width("100%")
+                .Bind(LoginUser.DefinedUsers).SelectedValuePath("Email").DisplayMemberPath("Display"))
+                <br />
+                <label>Password</label> <input id="loginPassword" type="password" class="form-control" /><br />
+                <input type="button" value="Login" onclick="loginEx('@Url.Action("Analysis", "home")')" class="form-control" />
+            </div>
+            <div id="registerPanel" class="tab-pane fade">
+                @Html.Partial("_Register", new RegisterBindingModel())
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        @Html.Raw(Resources.Resource.Index_Content)
+    </div>
+    <div class="col-md-2"></div>
+</div>
+@section scripts
+{
+@Scripts.Render("~/bundles/jqueryval")
+<script>
+    $(function () {
+        var $loginPassword = $('#loginPassword'),
+            loginEmail = wijmo.Control.getControl('#loginEmail'),
+            update = function(){
+                var text = '';
+                if(loginEmail.selectedIndex != -1){
+                    text = loginEmail.collectionView.currentItem.Password;
+                }
+
+                $loginPassword.val(text)
+            };
+
+        loginEmail.selectedIndexChanged.addHandler(update);
+        update();
+    });
+
+    function registerEx() {
+        var email = $("#Email").val();
+        var password = $("#Password").val();
+        var confirmPassword = $("#ConfirmPassword").val();
+        var role = $("#Role").val();
+        showMsg("Registering, please wait.");
+        register({
+            Email: email,
+            Password: password,
+            ConfirmPassword: confirmPassword,
+            Role: role
+        }, function () {
+            showMsg("Successfully registered. Please Login.", true);
+        }, function (xhr) {
+            showMsg(xhr, true);
+        });
+    }
+
+    function loginEx(successUrl) {
+        var loginEmail = wijmo.Control.getControl("#loginEmail");
+        showMsg("Logging in, please wait.");
+        login({
+            username: loginEmail.selectedValue || loginEmail.text,
+            password: $("#loginPassword").val()
+        }, successUrl, function (xhr) {
+            showMsg(xhr, true);
+        });
+    }
+</script>
+}

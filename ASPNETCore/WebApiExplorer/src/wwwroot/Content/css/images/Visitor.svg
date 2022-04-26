@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="22" height="19.93" viewBox="0 0 22 19.93">
+  <g id="Visitor" transform="translate(-1 -2)">
+    <g id="Group_16" data-name="Group 16">
+      <path id="Path_29" data-name="Path 29" d="M4,16.84c-.01.19.11.16.22.16H6.5c.75,0,1.51-.01,2.26,0,.18,0,.26-.03.23-.24a3.211,3.211,0,0,0-.75-1.83,2.159,2.159,0,0,0-2.17-.8A2.868,2.868,0,0,0,4,16.84Z" fill="#810cce"/>
+      <path id="Path_30" data-name="Path 30" d="M8,12.48a1.5,1.5,0,1,0-1.49,1.44A1.477,1.477,0,0,0,8,12.48Z" fill="#810cce"/>
+      <path id="Path_31" data-name="Path 31" d="M14,2H10V9h4ZM12,5a1,1,0,1,1,1-1A1,1,0,0,1,12,5Z" fill="#810cce"/>
+      <rect id="Rectangle_22" data-name="Rectangle 22" width="10" height="1" transform="translate(10 12)" fill="#810cce"/>
+      <rect id="Rectangle_23" data-name="Rectangle 23" width="10" height="1" transform="translate(10 14)" fill="#810cce"/>
+      <rect id="Rectangle_24" data-name="Rectangle 24" width="5" height="1" transform="translate(10 16)" fill="#810cce"/>
+      <path id="Path_32" data-name="Path 32" d="M15,6V7h7V20.93H2V7H9V6H1V21.93H23V6Z" fill="#810cce"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,129 @@
+@model WebApiExplorer.Models.ControlsClass.Function
+
+<div class="settings-panel-content">
+    <div style="float:left;width:100%">
+        <div style="float:left"><h4>@Html.Raw(Resources.Excel.ExcelGeneratingFromJSONPOST_Parameters)</h4></div>
+        <div style="float:right">
+            <button style="margin-top:3px;padding: 4px;" class="btn btn-primary"
+                    onclick="generateExcelPost_@(Model.FunctionName)('@Model.FunctionName', '@(System.Configuration.ConfigurationManager.AppSettings["WebAPIService"] + Model.FunctionUrl.Substring(1))');">
+                @Html.Raw(Resources.Excel.ExcelGeneratingFromJSONPOST_GenerateExcel)
+            </button>
+        </div>
+    </div>
+    <div>
+        <div class="settings-panel">
+            <div class="param-item">
+                <label class="param-lable parameter"><b>@Html.Raw(Resources.Excel.ExcelGeneratingFromJSONPOST_Parameter)</b></label>
+                <label class="param-lable value"><b>@Html.Raw(Resources.Excel.ExcelGeneratingFromJSONPOST_Value)</b></label>
+                <label class="param-lable description"><b>@Html.Raw(Resources.Excel.ExcelGeneratingFromJSONPOST_Description)</b></label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Resources.Excel.ExcelGeneratingFromJSONPOST_FileName)</label>
+                <input class="param-value value" type="text" name="FileName" value="excel" />
+                <label class="param-lable description">@Html.Raw(Resources.Excel.ExcelGeneratingFromJSONPOST_FileNameText)</label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Resources.Excel.ExcelGeneratingFromJSONPOST_TemplateFileName)</label>
+                <select class="param-value value" name="TemplateFileName">
+                    <option value=""></option>
+                    <option value="ExcelRoot\Templates\JSONDataTemplate.xlsx" selected="selected">JSONDataTemplate.xlsx</option>
+                </select>
+                <label class="param-lable description">@Html.Raw(Resources.Excel.ExcelGeneratingFromJSONPOST_TemplateFileNameText)</label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Resources.Excel.ExcelGeneratingFromJSONPOST_Type)</label>
+                <select class="param-value value" name="type">
+                    <option value="json">json</option>
+                    <option selected="selected" value="xlsx">xlsx</option>
+                    <option value="xls">xls</option>
+                    <option value="csv">csv</option>
+                    <option value="xml">xml</option>
+                </select>
+                <label class="param-lable description">@Html.Raw(Resources.Excel.ExcelGeneratingFromJSONPOST_TypeText)</label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Resources.Excel.ExcelGeneratingFromJSONPOST_Data)</label>
+                <textarea id="jsonData" class="param-value value" wrap="off" name="data"></textarea>
+                <label class="param-lable description">@Html.Raw(Resources.Excel.ExcelGeneratingFromJSONPOST_DataText)</label>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="@(Model.FunctionName)result" class="content-panel-result content-panel-result-grid">
+    <h4>@Html.Raw(Resources.Excel.ExcelGeneratingFromJSONPOST_RequestUrl)</h4>
+    <div id="@(Model.FunctionName)url" class="content-panel-result-url">
+        <pre>
+        </pre>
+    </div>
+    <h4 class="content-json-data">@Html.Raw(Resources.Excel.ExcelGeneratingFromJSONPOST_ShowJsonDataByFlexGrid)</h4>
+    <div id="@(Model.FunctionName)showdata" class="result-content-data">
+    </div>
+    <h4 class="content-json-xml">@Html.Raw(Resources.Excel.ExcelGeneratingFromJSONPOST_ShowXMLData)</h4>
+    <pre class="result-content-xml">
+    </pre>
+</div>
+
+<script>
+    var jsonDataStr =
+'[\r' +
+'    {\r' +
+'        "id": 0,\r' +
+'        "date": "2015-06-24T16:00:00.000Z",\r' +
+'        "time": "2015-08-18T18:50:00.000Z",\r' +
+'        "country": "Japan", "countryMapped": 3,\r' +
+'        "downloads": 436, "sales": 4314.523264765739,\r' +
+'        "expenses": 4330.620157998055,\r' +
+'        "checked": true\r' +
+'    },\r' +
+'    {\r' +
+'        "id": 1,\r' +
+'        "date": "2015-02-28T16:00:00.000Z",\r' +
+'        "time": "2015-05-19T21:01:00.000Z",\r' +
+'        "country": "Italy",\r' +
+'        "countryMapped": 4,\r' +
+'        "downloads": 676,\r' +
+'        "sales": 2558.132621925324,\r' +
+'        "expenses": 1959.2562899924815,\r' +
+'        "checked": false\r' +
+'    },\r' +
+'    {\r' +
+'        "id": 2,\r' +
+'        "date": "2015-07-04T16:00:00.000Z",\r' +
+'        "time": "2015-03-20T02:19:00.000Z",\r' +
+'        "country": "Germany",\r' +
+'        "countryMapped": 1,\r' +
+'        "downloads": 488,\r' +
+'        "sales": 6382.134975865483,\r' +
+'        "expenses": 4719.182880362496,\r' +
+'        "checked": false\r' +
+'    },\r' +
+'    {\r' +
+'        "id": 3,\r' +
+'        "date": "2015-02-08T16:00:00.000Z",\r' +
+'        "time": "2015-10-05T08:52:00.000Z",\r' +
+'        "country": "Italy",\r' +
+'        "countryMapped": 4,\r' +
+'        "downloads": 964,\r' +
+'        "sales": 7840.539840981364,\r' +
+'        "expenses": 375.3066179342568,\r' +
+'        "checked": false\r' +
+'    },\r' +
+'    {\r' +
+'        "id": 4,\r' +
+'        "date": "2015-03-14T16:00:00.000Z",\r' +
+'        "time": "2015-10-04T09:20:00.000Z",\r' +
+'        "country": "Italy",\r' +
+'        "countryMapped": 4,\r' +
+'        "downloads": 706,\r' +
+'        "sales": 6771.57775266096,\r' +
+'        "expenses": 4210.299032274634,\r' +
+'        "checked": false\r' +
+'    }\r' +
+']\r';
+    $("#jsonData").html(jsonDataStr);
+    function generateExcelPost_@(Model.FunctionName)(id, url) {
+        includeColumnHeaders = true;
+        formPost(id, url);
+        showResult(id, url);
+    }
+</script>

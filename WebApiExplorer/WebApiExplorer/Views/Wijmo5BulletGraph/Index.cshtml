@@ -1,0 +1,47 @@
+@using WebApiExplorer.Models
+@{
+    ClientSettingsModel settings = ViewBag.DemoSettingsModel;
+    ImageExportOptions optionsModel = ViewBag.Options;
+    ViewBag.DemoSettings = true;
+}
+
+<div id="@(optionsModel.ControlId)" style="height:50px; width:600px"></div>
+@section Settings{
+    @Html.Partial("_ImageExportOptions", optionsModel)
+}
+<script>
+    var gauge = new wijmo.gauge.BulletGraph("#@(optionsModel.ControlId)"),
+        serverUrl = '@(System.Configuration.ConfigurationManager.AppSettings["WebAPIService"])';
+
+    gauge.value = 5;
+    gauge.max = 10;
+    gauge.min = 0;
+    gauge.format = "";
+    gauge.step = 0.5;
+    gauge.good = 2;
+    gauge.bad = 6;
+    gauge.target = 9;
+    gauge.pointer.thickness = 0.5;
+    gauge.isReadOnly = false;
+    gauge.showText = "All";
+
+    function customChangeDirection(control, value) {
+        control.direction = value;
+        control.invalidate();
+        if (value === "Left" || value === "Right") {
+            control.hostElement.style.width = "600px";
+            wijmo.Control.getControl("#exportWidth").value = 600;
+            control.hostElement.style.height = "50px";
+            wijmo.Control.getControl("#exportHeight").value = 50;
+        } else {
+            control.hostElement.style.width = "50px";
+            wijmo.Control.getControl("#exportWidth").value = 50;
+            control.hostElement.style.height = "600px";
+            wijmo.Control.getControl("#exportHeight").value = 600;
+        }
+    }
+</script>
+
+@section Description{
+    @Html.Raw(Resources.Wijmo5BulletGraph.Index_Text0)
+}

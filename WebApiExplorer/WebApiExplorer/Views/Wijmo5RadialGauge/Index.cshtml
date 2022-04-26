@@ -1,0 +1,46 @@
+@using WebApiExplorer.Models
+@{
+    ClientSettingsModel settings = ViewBag.DemoSettingsModel;
+    ImageExportOptions optionsModel = ViewBag.Options;
+    ViewBag.DemoSettings = true;
+}
+
+<div id="@(optionsModel.ControlId)" style="width:400px; height:200px"></div>
+@section Settings{
+    @Html.Partial("_ImageExportOptions", optionsModel)
+}
+<script>
+    var gauge = new wijmo.gauge.RadialGauge("#@(optionsModel.ControlId)"),
+        lowerRange = new wijmo.gauge.Range(),
+        middleRange = new wijmo.gauge.Range(),
+        upperRange = new wijmo.gauge.Range();
+    gauge.value = 5;
+    gauge.max = 10;
+    gauge.min = 0;
+    gauge.format = "";
+    gauge.step = 0.5;
+    gauge.pointer.thickness = 0.5;
+    gauge.showText = "All";
+    gauge.sweepAngle = 180;
+    gauge.startAngle = 0;
+    gauge.isReadOnly = false;
+
+    // set Range propeties
+    lowerRange.min = 1;
+    lowerRange.max = 2;
+    lowerRange.color = "Red";
+    middleRange.min = 3;
+    middleRange.max = 4;
+    middleRange.color = "Green";
+    upperRange.min = 7;
+    upperRange.max = 10;
+    upperRange.color = "Yellow";
+
+    gauge.ranges.push(lowerRange);
+    gauge.ranges.push(middleRange);
+    gauge.ranges.push(upperRange);
+</script>
+
+@section Description{
+    @Html.Raw(Resources.Wijmo5RadialGauge.Index_Text0)
+}

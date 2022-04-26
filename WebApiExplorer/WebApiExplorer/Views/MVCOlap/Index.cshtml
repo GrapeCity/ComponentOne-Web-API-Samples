@@ -1,0 +1,60 @@
+@using WebApiExplorer.Models
+@using System.Collections
+@{
+    ViewBag.Title = "DataEngine";
+    ViewBag.HideFeatures = true;
+    ViewBag.DemoDescription = false;
+    var webAPIService = System.Configuration.ConfigurationManager.AppSettings["WebAPIService"] + "api/dataengine";
+    var dataSets = (IEnumerable<OlapData>)(ViewBag.DataSets);
+    var showTotals = (IEnumerable<string>)(ViewBag.ShowTotals);
+}
+
+@section Head{
+    <script type="text/javascript">
+        window['webAPIService'] = '@webAPIService';
+    </script>
+    <script src="~/Scripts/DataEngine/common.js" type="text/javascript"></script>
+}
+
+<div class="title-container">
+    <p>@Html.Raw(Resources.MVCOlap.Index_Text0)</p>
+    <p>@Html.Raw(Resources.MVCOlap.Index_Text1)</p>
+    <p>@Html.Raw(Resources.MVCOlap.Index_Text2)</p>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-4 col-md-4">
+            @(Html.C1().PivotPanel().Id("pivotPanel")
+            .BindEngine(eb => eb.BindService(webAPIService + "/complex10")
+                        .ShowRowTotals(ShowTotals.None).ShowColumnTotals(ShowTotals.None).ShowZeros(false)
+                        .RowFields(rfcb => rfcb.Items("Product", "Country"))
+                        .ValueFields(vfcb => vfcb.Items("Sales", "Downloads"))))
+        </div>
+        <div class="col-sm-8 col-md-8">
+            @Html.C1().PivotGrid().Id("pivotGrid").ItemsSourceId("pivotPanel").ShowSelectedHeaders(C1.Web.Mvc.Grid.HeadersVisibility.All)
+        </div>
+    </div>
+</div>
+<div class="col-lg-12 ui-helper-clearfix content-panel" style="margin-top:20px">
+    <p>@Html.Raw(Resources.MVCOlap.Index_Text3)</p>
+    <dl class="dl-horizontal">
+        <dt>@Html.Raw(Resources.MVCOlap.Index_Dataset)</dt>
+        <dd>
+            @(Html.C1().ComboBox().Id("cmbDataSets").Bind(dataSets)
+        .DisplayMemberPath("Name").SelectedValuePath("Value")
+        .OnClientSelectedIndexChanged("cmbDataSets_SelectIndexChanged"))
+        </dd>
+        <dt>@Html.Raw(Resources.MVCOlap.Index_RowTotals)</dt>
+        <dd>
+            @(Html.C1().ComboBox().Id("cmbRowTotals").Bind(showTotals)
+        .OnClientSelectedIndexChanged("cmbRowTotals_SelectIndexChanged"))
+        </dd>
+        <dt>@Html.Raw(Resources.MVCOlap.Index_ColumnTotals)</dt>
+        <dd>
+            @(Html.C1().ComboBox().Id("cmbColTotals").Bind(showTotals)
+        .OnClientSelectedIndexChanged("cmbColTotals_SelectIndexChanged"))
+        </dd>
+        <dt>@Html.Raw(Resources.MVCOlap.Index_ShowZeros)</dt>
+        <dd><input id="chkShowZeros" type="checkbox" onclick="chkShowZeros_CheckedChanged()" /></dd>
+    </dl>
+</div>

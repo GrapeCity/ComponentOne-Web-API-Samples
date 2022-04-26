@@ -1,0 +1,16 @@
+﻿@{
+    GridExportImportOptions optionsModel = ViewBag.Options;
+    ViewBag.DemoSettings = true;
+}
+
+<c1-flex-grid id="@optionsModel.ControlId" is-read-only="true" class="grid">
+    <c1-items-source initial-items-count="100" read-action-url="@Url.Action("VirtualScrolling_Bind")"></c1-items-source>
+</c1-flex-grid>
+
+@section Settings{
+    @await Html.PartialAsync("_FlexGridOptions", optionsModel)
+}
+
+@section Description{
+    <p>@Html.Raw(MVCFlexGrid.VirtualScrolling_Text0)</p>
+}

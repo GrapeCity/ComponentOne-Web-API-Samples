@@ -1,0 +1,63 @@
+@model WebApiExplorer.Models.ControlsClass.Function
+
+<div class="settings-panel-content">
+    <div style="float:left;width:100%">
+        <div style="float:left"><h4>@Html.Raw(Resources.Excel.ExcelGeneratingConvertFormatPOST_Parameters)</h4></div>
+        <div style="float:right">
+            <button style="margin-top:3px;padding: 4px;" class="btn btn-primary"
+                    onclick="generateExcelPost_@(Model.FunctionName)('@Model.FunctionName', '@(System.Configuration.ConfigurationManager.AppSettings["WebAPIService"] + Model.FunctionUrl.Substring(1))');">
+                @Html.Raw(Resources.Excel.ExcelGeneratingConvertFormatPOST_GenerateExcel)
+            </button>
+        </div>
+    </div>
+    <div>
+        <div class="settings-panel">
+            <div class="param-item">
+                <label class="param-lable parameter"><b>@Html.Raw(Resources.Excel.ExcelGeneratingConvertFormatPOST_Parameter)</b></label>
+                <label class="param-lable value"><b>@Html.Raw(Resources.Excel.ExcelGeneratingConvertFormatPOST_Value)</b></label>
+                <label class="param-lable description"><b>@Html.Raw(Resources.Excel.ExcelGeneratingConvertFormatPOST_Description)</b></label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Resources.Excel.ExcelGeneratingConvertFormatPOST_FileName)</label>
+                <input class="param-value value" type="text" name="FileName" value="excel" />
+                <label class="param-lable description">@Html.Raw(Resources.Excel.ExcelGeneratingConvertFormatPOST_FileNameDesc)</label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Resources.Excel.ExcelGeneratingConvertFormatPOST_Type)</label>
+                <select class="param-value value" name="type">
+                    <option value="json">json</option>
+                    <option selected="selected" value="xlsx">xlsx</option>
+                    <option value="xls">xls</option>
+                    <option value="csv">csv</option>
+                    <option value="xml">xml</option>
+                </select>
+                <label class="param-lable description">@Html.Raw(Resources.Excel.ExcelGeneratingConvertFormatPOST_TypeDesc)</label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Resources.Excel.ExcelGeneratingConvertFormatPOST_WorkbookFile)</label>
+                <input id="testfile" class="param-value value" type="file" name="workbookFile" accept=".xlsx, .xls, .csv" />
+                <label class="param-lable description">@Html.Raw(Resources.Excel.ExcelGeneratingConvertFormatPOST_WorkbookFileDesc)</label>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="@(Model.FunctionName)result" class="content-panel-result content-panel-result-grid">
+    <h4>@Html.Raw(Resources.Excel.ExcelGeneratingConvertFormatPOST_RequestUrl)</h4>
+    <div id="@(Model.FunctionName)url" class="content-panel-result-url">
+        <pre>
+        </pre>
+    </div>
+    <h4 class="content-json-data">@Html.Raw(Resources.Excel.ExcelGeneratingConvertFormatPOST_ShowJsonDataByFlexGrid)</h4>
+    <div id="@(Model.FunctionName)showdata" class="result-content-data">
+    </div>
+    <h4 class="content-json-xml">@Html.Raw(Resources.Excel.ExcelGeneratingConvertFormatPOST_ShowXMLData)</h4>
+    <pre class="result-content-xml">
+    </pre>
+</div>
+
+<script>
+    function generateExcelPost_@(Model.FunctionName)(id, url) {
+        formPost(id, url);
+        showResult(id, url);
+    }
+</script>

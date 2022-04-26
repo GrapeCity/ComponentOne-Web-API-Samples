@@ -1,145 +1,101 @@
+﻿using Microsoft.Owin;
+using Microsoft.Owin.Cors;
+using Owin;
+using System;
 using System.Linq;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
+using System.Threading.Tasks;
+using System.Web.Http;
+using System.Web.Http.Dispatcher;
+using System.Collections.Generic;
 using System.IO;
 using WebApi.Models;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Cors.Internal;
-using Microsoft.AspNetCore.Http.Features;
+using System.Configuration;
+using C1.Web.Api.Image;
+using C1.Web.Api.BarCode;
+using C1.Web.Api.Storage;
+using C1.Web.Api.DataEngine;
+using C1.Web.Api.Excel;
+using C1.Web.Api.Report;
+using C1.Web.Api.Pdf;
 using WebApi.Controllers;
-using Microsoft.AspNetCore.Mvc.Controllers;
-using System.Globalization;
-using System.Collections.Generic;
-using Microsoft.AspNetCore.Localization;
-using Google.Apis.Drive.v3;
 using Google.Apis.Auth.OAuth2;
+using System.Web;
 using System.Threading;
-using System.Threading.Tasks;
 using Google.Apis.Util.Store;
-using System;
+using Google.Apis.Drive.v3;
+
+[assembly: OwinStartup(typeof(WebApi.Startup))]
 
 namespace WebApi
 {
+    /// <summary>
+    /// Owin startup class.
+    /// </summary>
     public class Startup
     {
+        private readonly HttpConfiguration config = GlobalConfiguration.Configuration;
         private DateTime _expiry;
-        public Startup(IHostingEnvironment env)
+
+        public void Configuration(IAppBuilder app)
         {
-            Environment = env;
-            var builder = new ConfigurationBuilder()
-                .SetBasePath(env.ContentRootPath)
-                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
-                .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
-                .AddEnvironmentVariables();
-            Configuration = builder.Build();
-        }
+            // CORS supports - does not apply to <form>
+            app.UseCors(CorsOptions.AllowAll);
 
-        public IConfigurationRoot Configuration { get; }
-
-        public static IHostingEnvironment Environment { get; set; }
-        // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
-        {
-            // Add framework services.
-            services.AddMvc().ConfigureApplicationPartManager(manager =>
-            {
-                var afp = manager.FeatureProviders.First(iafp => iafp.GetType() == typeof(ControllerFeatureProvider));
-                if(afp != null)
-                {
-                    manager.FeatureProviders.Remove(afp);
-                }
-                manager.FeatureProviders.Add(new CustomControllerFeatureProvider());
-            });
-
-            // CORS support
-            services.AddCors(options =>
-            {
-                options.AddPolicy("AllowAll", builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
-            });
-
-            services.Configure<MvcOptions>(options =>
-            {
-                options.Filters.Add(new CorsAuthorizationFilterFactory("AllowAll"));
-            });
-
-            services.Configure<FormOptions>(options => options.ValueLengthLimit = int.MaxValue);
-        }
-
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
-        {
-            loggerFactory.AddConsole(Configuration.GetSection("Logging"));
-            loggerFactory.AddDebug();
-
-            app.UseStaticFiles();
-
-            // do not change the name of defaultCulture
-            var defaultCulture = "en-US";
-            IList<CultureInfo> supportedCultures = new List<CultureInfo>
-            {
-                new CultureInfo(defaultCulture)
-            };
-            app.UseRequestLocalization(new RequestLocalizationOptions
-            {
-                DefaultRequestCulture = new RequestCulture(defaultCulture),
-                SupportedCultures = supportedCultures,
-                SupportedUICultures = supportedCultures
-            });
-
-            app.UseMvc();
+            // Web Api
+            RegisterRoutes(config);
+            app.UseWebApi(config);
 
             // Anything unhandled
             app.Run(context =>
             {
-                var defaultPage = PageTemplate.IsJPCulture ? "/default.ja.html" : "/default.html";
+                var defaultPage = PageTemplate.IsJpCulture ? "/default.ja.html" : "/default.html";
                 context.Response.Redirect(context.Request.PathBase + defaultPage);
                 return Task.FromResult(0);
             });
 
             app.UseStorageProviders()
-                .AddDiskStorage("ExcelRoot", Path.Combine(env.WebRootPath, "ExcelRoot"))
-                .AddDiskStorage("PdfRoot", Path.Combine(env.WebRootPath, "PdfRoot"))
-                .AddDiskStorage("LocalDocuments", Path.Combine(env.WebRootPath, "LocalDocuments"));
+                .AddDiskStorage("ExcelRoot", GetFullRoot("ExcelRoot"))
+                .AddDiskStorage("PdfRoot", GetFullRoot("PdfRoot"))
+                .AddDiskStorage("LocalDocuments", GetFullRoot("LocalDocuments"));
 
-            var ssrsUrl = Configuration["AppSettings:SsrsUrl"];
-            var ssrsUserName = Configuration["AppSettings:SsrsUserName"];
-            var ssrsPassword = Configuration["AppSettings:SsrsPassword"];
+            var ssrsUrl = ConfigurationManager.AppSettings["SsrsUrl"];
+            var ssrsUserName = ConfigurationManager.AppSettings["SsrsUserName"];
+            var ssrsPassword = ConfigurationManager.AppSettings["SsrsPassword"];
             app.UseReportProviders()
-                .AddFlexReportDiskStorage("ReportsRoot", Path.Combine(env.WebRootPath, "ReportsRoot"))
+                .AddFlexReportDiskStorage("ReportsRoot", GetFullRoot("ReportsRoot"))
                 .AddSsrsReportHost("c1ssrs", ssrsUrl, new System.Net.NetworkCredential(ssrsUserName, ssrsPassword));
 
-            var oneDriveAccessToken = Configuration["AppSettings:OneDriveAccessToken"];
-            app.UseStorageProviders().AddOneDriveStorage("OneDrive", oneDriveAccessToken);
-
+      #region Storage registration
             string[] scopes = { DriveService.Scope.Drive };
             string applicationName = "C1WebApi";
 
+            // Ondrive storage
+            var oneDriveAccessToken = ConfigurationManager.AppSettings["OneDriveAccessToken"];
+            app.UseStorageProviders().AddOneDriveStorage("OneDrive", oneDriveAccessToken);
+
             // Azure storage
-            app.UseStorageProviders().AddAzureStorage("Azure", Configuration["AppSettings:AzureStorageConnectionString"]);
+            app.UseStorageProviders().AddAzureStorage("Azure", ConfigurationManager.AppSettings["AzureStorageConnectionString"]);
 
 	    // please uncomment this line when you want to test GoogleDrive service.
             // Google storage
             //app.UseStorageProviders().AddGoogleDriveStorage("GoogleDrive", GetUserCredential(scopes), applicationName);
 
             // Dropbox storage
-            app.UseStorageProviders().AddDropBoxStorage("DropBox", Configuration["AppSettings:DropBoxStorageAccessToken"], applicationName);
+            app.UseStorageProviders().AddDropBoxStorage("DropBox", ConfigurationManager.AppSettings["DropBoxStorageAccessToken"], applicationName);
 
             // AWS storage
-            var aWSAccessToken = Configuration["AppSettings:AWSStorageAccessToken"];
-            var secretKey = Configuration["AppSettings:AWSStorageSecretKey"];
-            var bucketName = Configuration["AppSettings:AWSStorageBucketName"];
+            var aWSAccessToken = ConfigurationManager.AppSettings["AWSStorageAccessToken"];
+            var secretKey = ConfigurationManager.AppSettings["AWSStorageSecretKey"];
+            var bucketName = ConfigurationManager.AppSettings["AWSStorageBucketName"];
             string region = "us-east-1";
             app.UseStorageProviders().AddAWSStorage("AWS", aWSAccessToken, secretKey, bucketName, region);
 
-            app.UseDataProviders()
-                .AddItemsSource("Sales", () => Sale.GetData(10).ToList())
-                .AddItemsSource("Orders", () => CustomerOrder.GetOrderData(20).ToList())
-                .Add("Nwind", new SqlDataProvider(GetConnectionString(env)));
+            #endregion
 
-            var dataPath = Path.Combine(env.WebRootPath, "Data");
+            app.UseDataProviders()
+                      .AddItemsSource("Sales", () => Sale.GetData(10).ToList())
+                      .AddItemsSource("Orders", () => CustomerOrder.GetOrderData(20).ToList())
+                      .Add("Nwind", new SqlDataProvider(ConfigurationManager.ConnectionStrings["Nwind"].ConnectionString));
 
             app.UseDataEngineProviders()
                 .AddDataEngine("complex10", () =>
@@ -161,16 +117,16 @@ namespace WebApi
                     @"Data Source=http://ssrs.componentone.com/OLAP/msmdpump.dll;Provider=msolap;Initial Catalog=AdventureWorksDW2012Multidimensional",
                     "Adventure Works");
 
-            C1Controller.CacheDataEngineDataKey(app);
+            CacheDataEngineDataKey(app);
         }
 
-        private UserCredential GetUserCredential(string[] scopes)
+    private UserCredential GetUserCredential(string[] scopes)
         {
-            UserCredential credential;
-            var rootPath =  Environment.ContentRootPath;
-            using (var fileStream =
-                new FileStream(Path.Combine(rootPath,"credentials.json"), FileMode.Open, FileAccess.Read))
-            {
+          UserCredential credential;
+
+          using (var fileStream =
+              new FileStream(HttpContext.Current.Server.MapPath("credentials.json"), FileMode.Open, FileAccess.Read))
+              {
                 // The file token.json stores the user's access and refresh tokens, and is created
                 // automatically when the authorization flow completes for the first time.
                 string credPath = "token.json";
@@ -179,16 +135,102 @@ namespace WebApi
                     scopes,
                     "user",
                     CancellationToken.None,
-                    new FileDataStore(Path.Combine(rootPath, credPath), true)).Result;
-            }
-            return credential;
+                    new FileDataStore(HttpContext.Current.Server.MapPath(credPath), true)).Result;
+              }
+              return credential;
         }
 
-        private string GetConnectionString(IHostingEnvironment env)
+        private void CacheDataEngineDataKey(IAppBuilder app)
         {
-            var configConnectionString = Configuration["Data:DefaultConnection:ConnectionString"];
-            configConnectionString = configConnectionString.Replace("|DataDirectory|", Path.Combine(env.WebRootPath, "App_Data"));
-            return configConnectionString;
+            var providerManager = app.UseDataEngineProviders();
+            foreach (var key in providerManager.Items.Keys)
+            {
+                C1Controller.DataEngineKeys.Add(new DataEngineKey
+                {
+                    Name = key
+                });
+            }
+        }
+
+        private static string GetFullRoot(string root)
+        {
+            var applicationBase = AppDomain.CurrentDomain.SetupInformation.ApplicationBase;
+            var fullRoot = Path.GetFullPath(Path.Combine(applicationBase, root));
+            if (!fullRoot.EndsWith(Path.DirectorySeparatorChar.ToString(), StringComparison.Ordinal))
+            {
+                // When we do matches in GetFullPath, we want to only match full directory names.
+                fullRoot += Path.DirectorySeparatorChar;
+            }
+            return fullRoot;
+        }
+
+        private static void RegisterRoutes(HttpConfiguration config)
+        {
+            // Use APIs defined in the C1 library
+            config.Services.Replace(typeof(IAssembliesResolver), new CustomAssembliesResolver());
+
+            // Attribute Routes
+            config.MapHttpAttributeRoutes(new CustomDirectRouteProvider());
+
+            // default route
+            config.Routes.MapHttpRoute(
+                name: "DefaultApi",
+                routeTemplate: "api/{controller}/{id}",
+                defaults: new { id = RouteParameter.Optional }
+            );
+
+            config.Services.Replace(typeof(IHttpControllerTypeResolver), new ReportsControllerTypeResolver());
+        }
+    }
+
+    internal class CustomAssembliesResolver : DefaultAssembliesResolver
+    {
+        public override ICollection<System.Reflection.Assembly> GetAssemblies()
+        {
+            var assemblies = base.GetAssemblies();
+            var customControllersAssembly = typeof(ExcelController).Assembly;
+            if (!assemblies.Contains(customControllersAssembly))
+            {
+                assemblies.Add(customControllersAssembly);
+            }
+
+            customControllersAssembly = typeof(ReportController).Assembly;
+            if (!assemblies.Contains(customControllersAssembly))
+            {
+                assemblies.Add(customControllersAssembly);
+            }
+
+            customControllersAssembly = typeof(ImageController).Assembly;
+            if (!assemblies.Contains(customControllersAssembly))
+            {
+                assemblies.Add(customControllersAssembly);
+            }
+
+            customControllersAssembly = typeof(BarCodeController).Assembly;
+            if (!assemblies.Contains(customControllersAssembly))
+            {
+                assemblies.Add(customControllersAssembly);
+            }
+
+            customControllersAssembly = typeof(StorageController).Assembly;
+            if (!assemblies.Contains(customControllersAssembly))
+            {
+                assemblies.Add(customControllersAssembly);
+            }
+
+            customControllersAssembly = typeof(DataEngineController).Assembly;
+            if (!assemblies.Contains(customControllersAssembly))
+            {
+                assemblies.Add(customControllersAssembly);
+            }
+
+            customControllersAssembly = typeof(PdfController).Assembly;
+            if (!assemblies.Contains(customControllersAssembly))
+            {
+                assemblies.Add(customControllersAssembly);
+            }
+
+            return assemblies;
         }
     }
 }

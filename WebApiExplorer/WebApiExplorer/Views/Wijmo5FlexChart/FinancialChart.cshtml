@@ -1,0 +1,49 @@
+@using WebApiExplorer.Models
+@{
+    ClientSettingsModel settings = ViewBag.DemoSettingsModel;
+    ImageExportOptions optionsModel = ViewBag.Options;
+    ViewBag.DemoSettings = true;
+}
+
+<div id="@(optionsModel.ControlId)" ></div>
+
+@section Settings{
+    @Html.Partial("_ImageExportOptions", optionsModel)
+}
+
+<script>
+    var chart = new wijmo.chart.FlexChart('#@(optionsModel.ControlId)');
+
+    chart.initialize({
+        chartType: "Candlestick",
+        itemsSource: [],
+        bindingX: 'x',
+        symbolSize: 6,
+        series: [
+            { binding: 'hi,lo,open,close' }
+        ]
+    });
+
+    var start = new Date(99, 0, 1);
+    for (var i = 0; i < 90; i++) {
+        var q = {};
+
+        q.x = new Date(99, 0, i);
+
+        if (i > 0)
+            q.open = chart.itemsSource[i - 1].close;
+        else
+            q.open = 1000;
+
+        q.hi = q.open + Math.random() * 50;
+        q.lo = q.open - Math.random() * 50;
+
+        q.close = q.lo + Math.random() * (q.hi - q.lo);
+
+        chart.itemsSource.push(q);
+    }
+</script>
+
+@section Description{
+    @Html.Raw(Resources.Wijmo5FlexChart.FinancialChart_Text0)
+}

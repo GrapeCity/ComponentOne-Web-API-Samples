@@ -1,0 +1,26 @@
+@using WebApiExplorer.Models
+@model IEnumerable<Sale>
+
+@{
+    ControlOptions optionsModel = ViewBag.DemoOptions;
+    GridExportImportOptions exportOptionsModel = ViewBag.Options;
+    ViewBag.DemoSettings = true;
+}
+
+@(Html.C1().FlexGrid<Sale>()
+    .AutoGenerateColumns(true)
+    .Id(exportOptionsModel.ControlId)
+    .CssClass("grid")
+    .IsReadOnly(true)
+    .Bind(b => b.DisableServerRead(Convert.ToBoolean(optionsModel.Options["Disable Server Read"].CurrentValue)).InitialItemsCount(10).Bind(Model))
+)
+
+@section Settings{
+    @Html.Partial("_OptionsMenu", optionsModel)
+    <br/>
+    @Html.Partial("_FlexGridOptions", exportOptionsModel)
+}
+
+@section Description{
+    @Html.Raw(Resources.MVCFlexGrid.DisableServerRead_Text0)
+}

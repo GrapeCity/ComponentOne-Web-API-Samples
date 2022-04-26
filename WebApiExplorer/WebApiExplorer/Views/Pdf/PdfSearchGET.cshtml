@@ -1,0 +1,109 @@
+@model WebApiExplorer.Models.ControlsClass.Function
+
+<div class="settings-panel-content">
+    <div style="float:left;width:100%">
+        <div style="float:left"><h4>@Html.Raw(Resources.Pdf.PdfSearchGET_Parameters)</h4></div>
+        <div style="float:right">
+            <button style="margin-top:3px;padding: 4px;" class="btn btn-primary"
+                    onclick="pdfSearch('@(System.Configuration.ConfigurationManager.AppSettings["WebAPIService"])');">
+                @Html.Raw(Resources.Pdf.PdfSearchGET_Search)
+            </button>
+        </div>
+    </div>
+    <div>
+        <div class="settings-panel pdf-search">
+            <div class="param-item">
+                <label class="param-lable parameter"><b>@Html.Raw(Resources.Pdf.PdfSearchGET_Parameter)</b></label>
+                <label class="param-lable value"><b>@Html.Raw(Resources.Pdf.PdfSearchGET_Value)</b></label>
+                <label class="param-lable description"><b>@Html.Raw(Resources.Pdf.PdfSearchGET_Description)</b></label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Resources.Pdf.PdfSearchGET_PdfPath)</label>
+                <span class="param-value-group">
+                    <input type="text" readonly="readonly" name="pdfPath" class="param-value" value="PdfRoot/DefaultDocument.pdf" style="width:100%;margin-bottom:10px;" />
+                </span>
+                <label class="param-lable description">@Html.Raw(Resources.Pdf.PdfSearchGET_PdfPathText)</label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Resources.Pdf.PdfSearchGET_StartPageIndex)</label>
+                <span class="param-value-group">
+                    <input type="text" name="startPageIndex" value="0" class="param-value" style="width: 100%; margin-bottom: 10px;" />
+                </span>
+                <label class="param-lable description">@Html.Raw(Resources.Pdf.PdfSearchGET_StartPageIndexText)</label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Resources.Pdf.PdfSearchGET_SearchScope)</label>
+                <span class="param-value-group">
+                    <select name="scope" class="param-value" style="width: 100%; margin-bottom: 10px;">
+                        <option value="WholeDocument" selected="selected">@Html.Raw(Resources.Pdf.PdfSearchGET_SearchScope_WholeDocument)</option>
+                        <option value="EndOfDocument">@Html.Raw(Resources.Pdf.PdfSearchGET_SearchScope_EndOfDocument)</option>
+                        <option value="FirstOccurrence">@Html.Raw(Resources.Pdf.PdfSearchGET_SearchScope_FirstOccurrence)</option>
+                        <option value="SinglePage">@Html.Raw(Resources.Pdf.PdfSearchGET_SearchScope_SinglePage)</option>
+                    </select>
+                </span>
+                <label class="param-lable description">@Html.Raw(Resources.Pdf.PdfSearchGET_SearchScopeText)</label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Resources.Pdf.PdfSearchGET_SearchText)</label>
+                <span class="param-value-group">
+                    <input type="text" name="searchText" class="param-value" style="width: 100%; margin-bottom: 10px;" />
+                </span>
+                <label class="param-lable description">@Html.Raw(Resources.Pdf.PdfSearchGET_SearchTextText)</label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Resources.Pdf.PdfSearchGET_MatchCase)</label>
+                <span class="param-value-group">
+                    <input type="checkbox" name="matchCase" class="param-value" style="margin-bottom: 10px;" />
+                </span>
+                <label class="param-lable description">@Html.Raw(Resources.Pdf.PdfSearchGET_MatchCaseText)</label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Resources.Pdf.PdfSearchGET_WholeWord)</label>
+                <span class="param-value-group">
+                    <input type="checkbox" name="wholeWord" class="param-value" style="margin-bottom: 10px;" />
+                </span>
+                <label class="param-lable description">@Html.Raw(Resources.Pdf.PdfSearchGET_WholeWordText)</label>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="@(Model.FunctionName)result" class="content-panel-result">
+    <h4>@Html.Raw(Resources.Pdf.PdfSearchGET_Headers)</h4>
+    <div id="@(Model.FunctionName)headers" class="content-panel-result-url">
+        <pre>
+        </pre>
+    </div>
+    <h4 class="content-json-data">@Html.Raw(Resources.Pdf.PdfSearchGET_ResponseData)</h4>
+    <div id="@(Model.FunctionName)showdata" class="result-content-data" style="height:auto">
+        <pre style="max-height:200px">
+        </pre>
+    </div>
+</div>
+
+<script>
+    function pdfSearch(url) {
+        var pdfPath = $(".pdf-search .param-value[name=pdfPath]").val();
+        var startPageIndex = $(".pdf-search .param-value[name=startPageIndex]").val();
+        var scope = $(".pdf-search .param-value[name=scope]").val();
+        var searchText = $(".pdf-search .param-value[name=searchText]").val();
+        var matchCase = $(".pdf-search .param-value[name=matchCase]").is(":checked");
+        var wholeWord = $(".pdf-search .param-value[name=wholeWord]").is(":checked");
+        var fullUrl = url + "api/pdf/" + pdfPath + "/$pdf/search?text=" + searchText + "&matchCase=" + matchCase + "&wholeWord=" + wholeWord + "&startPageIndex=" + startPageIndex + "&scope=" + scope;
+
+        $("#@(Model.FunctionName)headers pre").text("@(Resources.Pdf.PdfSearchGET_RequestURL)" + fullUrl);
+        $("#@(Model.FunctionName)result").show();
+
+        $.ajax({
+            type: "GET",
+            url: fullUrl,
+            cache: false,
+            success: function (data) {
+                $("#@(Model.FunctionName)showdata pre").text(JSON.stringify(data, null, 4));
+                $(".content-json-data").show();
+            },
+            complete: function (xhr, status) {
+                $("#@(Model.FunctionName)headers pre").append("\r\n@(Resources.Pdf.PdfSearchGET_StatusCode)" + xhr.status);
+            }
+        });
+    }
+</script>

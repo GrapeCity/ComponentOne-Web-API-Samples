@@ -1,0 +1,8 @@
+#Visual studio cached folder
+.vs
+
+WebApiCore2.0/obj
+WebApiCore2.0/bin
+
+#Nuget packages
+WebApiCore2.0/packages

@@ -1,0 +1,99 @@
+@model WebApiExplorer.Models.ControlsClass.Function
+
+<div class="settings-panel-content">
+    <div style="float:left;width:100%">
+        <div style="float:left"><h4>@Html.Raw(Resources.Storage.StorageUploadPOST_Parameters)</h4></div>
+        <div style="float:right">
+            <button style="margin-top:3px;padding: 4px;" class="btn btn-primary" id="post-button"
+                    onclick="storageUpload('@Model.FunctionName', '@(System.Configuration.ConfigurationManager.AppSettings["WebAPIService"])');">
+                @Html.Raw(Resources.Storage.StorageUploadPOST_Upload)
+            </button>
+        </div>
+    </div>
+    <div>
+        <div class="settings-panel storage-upload">
+            <div class="param-item">
+                <label class="param-lable parameter"><b>@Html.Raw(Resources.Storage.StorageUploadPOST_Parameter)</b></label>
+                <label class="param-lable value"><b>@Html.Raw(Resources.Storage.StorageUploadPOST_Value)</b></label>
+                <label class="param-lable description"><b>@Html.Raw(Resources.Storage.StorageUploadPOST_Description)</b></label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Resources.Storage.StorageUploadPOST_Path)</label>
+                <select class="param-value value" name="path" onchange="pathChange()">             
+                    <option value="ExcelRoot/UploadFiles">ExcelRoot/UploadFiles/test.xlsx</option>
+                    <option value="DropBox/C1WebApi">DropBox/C1WebApi/test.xlsx</option>
+                </select>
+
+                <div id="path-description">                    
+                        <label class="param-lable description">@Html.Raw(Resources.Storage.StorageUploadPOST_PathText)</label>
+                        <label class="param-lable description hidden">@Html.Raw(Resources.Storage.StorageUploadPOST_PathTextDropBox)</label>
+                </div>
+            </div>
+                <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Resources.Storage.StorageUploadPOST_File)</label>
+                <input class="param-value value" type="file" name="file" accept=".xlsx" />
+                <label class="param-lable description">@Html.Raw(Resources.Storage.StorageUploadPOST_FileText)</label>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="@(Model.FunctionName)result" class="content-panel-result">
+    <h4>@Html.Raw(Resources.Storage.StorageUploadPOST_RequestUrl)</h4>
+    <div id="@(Model.FunctionName)url" class="content-panel-result-url">
+        <pre>
+        </pre>
+    </div>
+    <h4 class="content-json-data">@Html.Raw(Resources.Storage.StorageUploadPOST_ResponseData)</h4>
+    <div id="@(Model.FunctionName)showdata" class="result-content-data" style="height:auto">
+        <pre style="max-height:200px">
+        </pre>
+        <span>View Files: </span><span class="viewfiles"></span>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        if (window.location.href.indexOf("componentone") > -1) {
+            $("#post-button").addClass("disabled");
+            $("#delete-button").addClass("disabled");
+        }
+    });
+
+    function pathChange() {
+        var sltIndex = $(".storage-upload .param-value[name=path]").prop('selectedIndex');
+        $($("div#path-description").find("label")).addClass("hidden");
+        $($("div#path-description").find("label")[sltIndex]).removeClass("hidden");
+    }
+
+    function storageUpload(id, url) {
+        var path = $(".storage-upload .param-value[name=path]").val();
+        var files = $(".storage-upload .param-value[name=file]")[0].files;
+
+        var fullUrl = url + "api/storage/" + path;
+
+        if (files.length > 0) {
+            var data = new FormData();
+            data.append("file", files[0]);
+            fullUrl = fullUrl + '/?subpath=test.xlsx';
+            $("#@(Model.FunctionName)url pre").text(fullUrl);
+            $.ajax({
+                url: fullUrl,
+                type: 'POST',
+                data: data,
+                cache: false,
+                contentType: false,
+                processData: false,
+                success: function (data, success, obj) {
+                    $("#@(Model.FunctionName)showdata pre").text(JSON.stringify(data, null, 4));
+                    $("#@(Model.FunctionName)result").show();
+                	updateViewFilesLink("#@(Model.FunctionName)showdata span.viewfiles", url, [path + '/?subpath=test.xlsx']);
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    $("#@(Model.FunctionName)showdata pre").text(thrownError);
+                    $("#@(Model.FunctionName)result").show();
+                }
+            });
+        }
+    }
+</script>
+

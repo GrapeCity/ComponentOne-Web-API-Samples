@@ -1,0 +1,196 @@
+﻿@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+@{
+    ViewBag.DemoDescription = false;
+}
+@section Styles{
+    <style>
+        #map {
+            height: 450px;
+            width: 100%;
+        }
+
+        #histories-container {
+            max-height: 249px;
+            overflow-y: auto;
+        }
+
+        .history-panel {
+
+            margin-top: 11px;
+
+        }
+
+        .map-panel {
+            margin-top: 11px;
+        }
+    </style>
+}
+
+<h3>
+    @Html.Raw(Visitor.Txt_Title_Unique_VisitorId)
+</h3>
+
+@section Summary{
+    @Html.Raw(Visitor.Description)
+}
+
+<div>
+    <div class="col-md-6 history-panel">
+        <table class="table">
+            <tbody id="current">
+                <tr>
+                    <td id="visits"><span id="visitorId"></span></td>
+                </tr>
+                <tr>
+                    <td id="timer"></td>
+                </tr>
+                <tr>
+                    <td id="totalVisitedTime"></td>
+                </tr>
+
+            </tbody>
+        </table>
+
+        <div class="h4">@Html.Raw(Visitor.Txt_Title_Visitor_Visit_Histories)</div>
+        <div id="histories-container">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>@Html.Raw(Visitor.Txt_Title_VisitorId)</th>
+                        <th>@Html.Raw(Visitor.Txt_Visit_Date)</th>
+                    </tr>
+                </thead>
+                <tbody id="histories">
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    <div class="col-md-6 map-panel">
+        <div id="map"></div>
+    </div>
+</div>
+
+<script src="@(Configuration["WebAPIService"])api/visitor/visitor-client.min.js"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=@(Configuration["GoogleMapApiKey"])"></script>
+<script>
+    window.onload = function () {
+
+        if (!String.prototype.format) {
+            String.prototype.format = function () {
+                var args = arguments;
+                return this.replace(/{(\d+)}/g, function (match, number) {
+                    return typeof args[number] != 'undefined'
+                            ? args[number]
+                            : match;
+                });
+            };
+        }
+
+        window.visitor.getDataAsync(handleGetVisitorDataAsync);
+
+        function createMap(geo) {
+            var position = { lat: geo.latitude, lng: geo.longitude };
+            var map = new google.maps.Map(document.getElementById('map'), { zoom: 14, center: position });
+            var marker = new google.maps.Marker({ position: position, map: map });
+        }
+
+        function handleGetVisitorDataAsync(data) {
+
+            startTimer();
+
+            saveVisitorData(data.visitorId, data.session);
+
+            var visitorIdElement = document.getElementById('visitorId');
+            visitorIdElement.innerHTML = data.visitorId;
+
+            createMap(data.geo);
+
+            bindHistories(data.visitorId);
+        }
+
+        function setTotalVisitedTime(time) {
+            document.getElementById('totalVisitedTime').innerHTML = '@Html.Raw(Visitor.Template_Total_Visits_Time)'.format(time);
+        }
+
+        function saveVisitorData(visitorId, session) {
+            var key = genKey(visitorId);
+
+            var pureItem = {
+                visitorId: visitorId,
+                start: session.start
+            };
+
+            localStorage.setItem(key, JSON.stringify(pureItem));
+
+            function genKey(visitorId) {
+                return 'visitorId-' + visitorId + '-' + new Date().toISOString();
+            }
+        }
+
+        function bindHistories(visitorId) {
+
+            var source = [];
+
+            for (var key in localStorage) {
+                if (matched(key)) {
+                    source.push(JSON.parse(localStorage.getItem(key)));
+                }
+            }
+
+            renderHistories();
+
+            setTotalVisitedTime(source.length);
+
+            function renderHistories() {
+                var table = document.getElementById("histories");
+
+                var sortedSource = source.sort(function (a, b) {
+                    a = new Date(a.start);
+                    b = new Date(b.start);
+                    return a > b ? -1 : a < b ? 1 : 0;
+                });
+
+                for (var i = 0; i < sortedSource.length; i++) {
+                    renderRow(i, sortedSource[i]);
+                }
+
+                function renderRow(index, visitorHistory) {
+                    var row = table.insertRow(index);
+
+                    renderCell(0, visitorHistory.visitorId);
+                    renderCell(1, visitorHistory.start);
+
+                    function renderCell(cellIndex, text) {
+                        var cell = row.insertCell(cellIndex);
+                        cell.innerHTML = text;
+                    }
+                }
+            }
+
+            function matched(key) {
+                return key.indexOf('visitorId-' + visitorId) > -1;
+            }
+        }
+
+        var browsingTimeTemplate = '@Html.Raw(Visitor.Template_Browsing_Time)';
+
+        function startTimer() {
+            var now = 1;
+            setTimerLabel();
+
+            window.setInterval(function  () {
+                now++;
+                setTimerLabel();
+            }, 1000);
+
+            function setTimerLabel()
+            {
+                document.getElementById('timer').innerHTML = browsingTimeTemplate + ' ' + now + '(s)';
+            }
+        }
+    }
+</script>
+
+

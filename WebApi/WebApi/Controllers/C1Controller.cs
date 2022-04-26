@@ -127,10 +127,10 @@ namespace WebApi.Controllers
         {
             var c1APIIntroduction = new C1APIIntroduction();
             c1APIIntroduction.Name = "DataEngine";
-            c1APIIntroduction.Abstract = "<p>" + Localization.Resource.DataEngine_Text1 + "</p>"
-                + "<p>" + Localization.Resource.DataEngine_Text2 + "</p>"
-                + "<h4>" + Localization.Resource.DataEngine_Title1 + "</h4>"
-                + "<p>" + Localization.Resource.DataEngine_Text3 + "</p>";
+            c1APIIntroduction.Abstract = "<p>" + Resources.Resource.DataEngine_Text1 + "</p>"
+                + "<p>" + Resources.Resource.DataEngine_Text2 + "</p>"
+                + "<h4>" + Resources.Resource.DataEngine_Title1 + "</h4>"
+                + "<p>" + Resources.Resource.DataEngine_Text3 + "</p>";
             c1APIIntroduction.Details = PageTemplate.GetTree(DataEngineKeys, "dataSourceTree", "Name", "Children", true);
             return c1APIIntroduction;
         }
@@ -139,8 +139,8 @@ namespace WebApi.Controllers
         {
             var c1APIIntroduction = new C1APIIntroduction();
             c1APIIntroduction.Name = "Image";
-            c1APIIntroduction.Abstract = "<p>" + Localization.Resource.Image_Text1 + "</p>"
-                + "<p>" + Localization.Resource.Image_Text2 + "</p>";
+            c1APIIntroduction.Abstract = "<p>" + Resources.Resource.Image_Text1 + "</p>"
+                + "<p>" + Resources.Resource.Image_Text2 + "</p>";
             return c1APIIntroduction;
         }
 
@@ -148,9 +148,9 @@ namespace WebApi.Controllers
         {
             var c1APIIntroduction = new C1APIIntroduction();
             c1APIIntroduction.Name = "Pdf";
-            c1APIIntroduction.Abstract = "<p>" + Localization.Resource.Pdf_Text1 + "</p>"
-                + "<p>" + Localization.Resource.Pdf_Text2 + "</p>"
-                + "<h4>" + Localization.Resource.PdfFiles + "</h4>";
+            c1APIIntroduction.Abstract = "<p>" + Resources.Resource.Pdf_Text1 + "</p>"
+                + "<p>" + Resources.Resource.Pdf_Text2 + "</p>"
+                + "<h4>" + Resources.Resource.PdfFiles + "</h4>";
             c1APIIntroduction.Details = PageTemplate.GetTree(Documents.Pdfs.Items, "PDFFiles", "Title", "Children", true);
             return c1APIIntroduction;
         }

@@ -1,0 +1,107 @@
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+
+<div class="settings-panel-content">
+    <div style="float:left;width:100%">
+        <div style="float:left"><h4>@Html.Raw(DataEngine.RawData_Parameters)</h4></div>
+        <div style="float:right">
+            <button style="margin-top:3px;padding: 4px;" class="btn btn-primary btn-getting-rawdata" disabled="disabled"
+                    onclick="getRawData();">
+                @Html.Raw(DataEngine.RawData_GetRawData)
+            </button>
+        </div>
+    </div>
+    <div>
+        <div class="settings-panel getting-rawdata">
+            <div class="param-item">
+                <label class="param-lable parameter"><b>@Html.Raw(DataEngine.RawData_Parameter)</b></label>
+                <label class="param-lable value"><b>@Html.Raw(DataEngine.RawData_Value)</b></label>
+                <label class="param-lable description"><b>@Html.Raw(DataEngine.RawData_Description)</b></label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(DataEngine.RawData_DataSource)</label>
+                <span class="param-value-group">
+                    <select name="dataSourceKey" class="param-value" onchange="gettingRawData_DataSourceKeyChanged($(this).val())" style=" width: 100%; margin-bottom: 10px;">
+                        <option value="none" selected="selected">@Html.Raw(DataEngine.RawData_DataSource_None)</option>
+                        <option value="complex10">@Html.Raw(DataEngine.RawData_DataSource_Complex10)</option>
+                        <option value="complex50">@Html.Raw(DataEngine.RawData_DataSource_Complex50)</option>
+                        <option value="complex100">@Html.Raw(DataEngine.RawData_DataSource_Complex100)</option>
+                        <option value="dataset10">@Html.Raw(DataEngine.RawData_DataSource_Dataset10)</option>
+                        <option value="dataset50">@Html.Raw(DataEngine.RawData_DataSource_Dataset50)</option>
+                        <option value="dataset100">@Html.Raw(DataEngine.RawData_DataSource_Dataset100)</option>
+                    </select>
+                </span>
+                <label class="param-lable description">@Html.Raw(DataEngine.RawData_DataSourceDesc)</label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(DataEngine.RawData_Skip)</label>
+                <span class="param-value-group">
+                    <input type="number" name="skip" class="param-value" style="width: 100%;" min="1" />
+                </span>
+                <label class="param-lable description">@Html.Raw(DataEngine.RawData_SkipDesc)</label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(DataEngine.RawData_Top)</label>
+                <span class="param-value-group">
+                    <input type="number" name="top" class="param-value" style="width: 100%;" min="1" value="10" />
+                </span>
+                <label class="param-lable description">@Html.Raw(DataEngine.RawData_TopDesc)</label>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="@(Model.FunctionName)result" class="content-panel-result">
+    <h4>@Html.Raw(DataEngine.RawData_Headers)</h4>
+    <div id="@(Model.FunctionName)headers" class="content-panel-result-url">
+        <pre>
+        </pre>
+    </div>
+    <h4 class="content-json-data">@Html.Raw(DataEngine.RawData_ResponseData)</h4>
+    <div id="@(Model.FunctionName)showdata" class="result-content-data" style="height:auto">
+        <pre style="max-height:200px">
+        </pre>
+    </div>
+</div>
+
+<script>
+    function getRawData() {
+        var dataSourceKey = $(".getting-rawdata .param-value[name=dataSourceKey]").val();
+        var skip = parseInt($(".getting-rawdata .param-value[name=skip]").val());
+        var top = parseInt($(".getting-rawdata .param-value[name=top]").val());
+        var fullUrl = '@(Configuration["WebAPIService"])'
+            + "api/dataengine/" + dataSourceKey;
+
+        if (!isNaN(skip) || !isNaN(top)) {
+            fullUrl = fullUrl + "?";
+            if (!isNaN(skip)) {
+                fullUrl = fullUrl + "skip=" + skip;
+            }
+            if (!isNaN(top)) {
+                if (!isNaN(skip)) {
+                    fullUrl = fullUrl + "&";
+                }
+                fullUrl = fullUrl + "top=" + top;
+            }
+        }
+
+        $("#@(Model.FunctionName)headers pre").text("@(DataEngine.RawData_RequestURL)" + fullUrl);
+        $("#@(Model.FunctionName)result").show();
+
+        $.ajax({
+            type: "GET",
+            url: fullUrl,
+            cache: false,
+            success: function (data) {
+                $("#@(Model.FunctionName)showdata pre").text(JSON.stringify(data, null, 4));
+                $(".content-json-data").show();
+            },
+            complete: function (xhr, status) {
+                $("#@(Model.FunctionName)headers pre").append("\r\n@(DataEngine.RawData_StatusCode)" + xhr.status);
+            }
+        });
+    }
+
+    function gettingRawData_DataSourceKeyChanged(dataSourceKey) {
+        $("button.btn-getting-rawdata").attr("disabled", dataSourceKey === "none");
+    }
+</script>

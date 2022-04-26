@@ -1,0 +1,52 @@
+@using WebApiExplorer.Models
+@{
+    ImageExportOptions optionsModel = ViewBag.Options;
+    ViewBag.DemoSettings = true;
+}
+
+<div id="@(optionsModel.ControlId)" ></div>
+
+@section Settings{
+    @Html.Partial("_ImageExportOptions", optionsModel)
+}
+
+<script>
+    var chart = new wijmo.chart.FlexChart('#@(optionsModel.ControlId)');
+
+    chart.initialize({
+        chartType: "LineSymbols",
+        itemsSource: [],
+        bindingX: 'date',
+        series: [
+            { binding: 'sales' }
+        ]
+    });
+
+    for (var i = 0; i < 12; i++) {
+        chart.itemsSource.push({
+            date: wijmo.Globalize.format(new Date(10, i, 1), 'MMM'),
+            sales: Math.random() * 1000
+        });
+    }
+
+    chart.beginUpdate();
+
+    chart.header = '@(Resources.Wijmo5FlexChart.HeaderFooter_Header)';
+    chart.headerStyle = { fontSize: 36 };
+
+    chart.footer = '@(Resources.Wijmo5FlexChart.HeaderFooter_Footer)' + new Date().getFullYear();
+    chart.footerStyle = { halign: 'right', foreground: 'gray' };
+
+    chart.legend.isVisible = false;
+
+    chart.endUpdate();
+
+    chart.tooltip.content = function (ht) {
+        return 'Month: ' + ht.item.date + '<br/>' + 'Sales: ' + ht.item.sales.toFixed();
+    };
+</script>
+
+@section Description{
+    @Html.Raw(Resources.Wijmo5FlexChart.HeaderFooter_Text0)
+}
+

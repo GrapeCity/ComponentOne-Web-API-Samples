@@ -1,0 +1,59 @@
+@using WebApiExplorer.Models
+@{
+    GridExportImportOptions optionsModel = ViewBag.Options;
+    ViewBag.DemoSettings = true;
+}
+
+<div id="@(optionsModel.ControlId)" style="height:300px"></div>
+<select id="gMenu">
+    <option value="" selected>@Html.Raw(Resources.Wijmo5FlexGrid.Grouping_Groupint_None)</option>
+    <option value="country">Country</option>
+    <option value="sales">Sales</option>
+    <option value="date">Date</option>
+    <option value="country,date">Country and Date</option>
+    <option value="country,sales">Country and Sales</option>
+    <option value="country,date,sales">Country, Date, and Sales</option>
+</select>
+@section Settings{
+    @Html.Partial("_FlexGridOptions", optionsModel)
+}
+<script>
+    var grid = new wijmo.grid.FlexGrid('#@(optionsModel.ControlId)'), filter, menu = new wijmo.input.Menu('#gMenu'), cv;
+    initializeFlexGrid(grid);
+    cv = grid.collectionView;
+    updateMenuHeader();
+    menu.itemClicked.addHandler(function (sender) {
+        var groupBy = sender.selectedValue;
+        cv.groupDescriptions.clear();
+        if (groupBy) {
+            var groupNames = groupBy.split(',');
+            for (var i = 0; i < groupNames.length; i++) {
+                var groupName = groupNames[i];
+                if (groupName == 'date') { // group dates by year
+                    var groupDesc = new wijmo.collections.PropertyGroupDescription(groupName, function (item, prop) {
+                        return item.date.getFullYear();
+                    });
+                    cv.groupDescriptions.push(groupDesc);
+                }
+                else if (groupName == 'sales') { // group amounts in ranges
+                    var groupDesc = new wijmo.collections.PropertyGroupDescription(groupName, function (item, prop) {
+                        return item.amount >= 5000 ? '> 5,000' : item.amount >= 500 ? '500 to 5,000' : '< 500';
+                    });
+                    cv.groupDescriptions.push(groupDesc);
+                }
+                else { // group everything else by value
+                    var groupDesc = new wijmo.collections.PropertyGroupDescription(groupName);
+                    cv.groupDescriptions.push(groupDesc);
+                }
+            }
+        }
+        updateMenuHeader();
+    });
+
+    function updateMenuHeader() {
+        menu.header = '<b>@(Resources.Wijmo5FlexGrid.Grouping_GroupBy)</b> ' + menu.text;
+    }
+</script>
+@section Description{
+    @Html.Raw(Resources.Wijmo5FlexGrid.Grouping_Text0)
+}

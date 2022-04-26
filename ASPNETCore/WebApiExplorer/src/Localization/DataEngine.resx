@@ -1,0 +1,661 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+
+		Version 1.3
+
+		The primary goals of this format is to allow a simple XML format 
+		that is mostly human readable. The generation and parsing of the 
+		various data types are done through the TypeConverter classes 
+		associated with the data types.
+
+		Example:
+
+		... ado.net/XML headers & schema ...
+		<resheader name="resmimetype">text/microsoft-resx</resheader>
+		<resheader name="version">1.3</resheader>
+		<resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+		<resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+		<data name="Name1">this is my long string</data>
+		<data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+		<data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+			[base64 mime encoded serialized .NET Framework object]
+		</data>
+		<data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+			[base64 mime encoded string representing a byte array form of the .NET Framework object]
+		</data>
+
+		There are any number of "resheader" rows that contain simple 
+		name/value pairs.
+
+		Each data row contains a name, and value. The row also contains a 
+		type or mimetype. Type corresponds to a .NET class that support 
+		text/value conversion through the TypeConverter architecture. 
+		Classes that don't support this are serialized and stored with the 
+		mimetype set.
+
+		The mimetype is used for serialized objects, and tells the 
+		ResXResourceReader how to depersist the object. This is currently not 
+		extensible. For a given mimetype the value must be set accordingly:
+
+		Note - application/x-microsoft.net.object.binary.base64 is the format 
+		that the ResXResourceWriter will generate, however the reader can 
+		read any of the formats listed below.
+
+		mimetype: application/x-microsoft.net.object.binary.base64
+		value   : The object must be serialized with 
+			: System.Serialization.Formatters.Binary.BinaryFormatter
+			: and then encoded with base64 encoding.
+
+		mimetype: application/x-microsoft.net.object.soap.base64
+		value   : The object must be serialized with 
+			: System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+			: and then encoded with base64 encoding.
+
+		mimetype: application/x-microsoft.net.object.bytearray.base64
+		value   : The object must be serialized into a byte array 
+			: using a System.ComponentModel.TypeConverter
+			: and then encoded with base64 encoding.
+	-->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>1.3</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Analysis_Parameters" xml:space="preserve">
+    <value>Parameters</value>
+  </data>
+  <data name="Analysis_GetAnalysis" xml:space="preserve">
+    <value>GetAnalysis</value>
+  </data>
+  <data name="Analysis_Parameter" xml:space="preserve">
+    <value>Parameter</value>
+  </data>
+  <data name="Analysis_Value" xml:space="preserve">
+    <value>Value</value>
+  </data>
+  <data name="Analysis_Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="Analysis_DataSource" xml:space="preserve">
+    <value>Data Source</value>
+  </data>
+  <data name="Analysis_DataSourceDesc" xml:space="preserve">
+    <value>The data source to analyze.</value>
+  </data>
+  <data name="Analysis_Token" xml:space="preserve">
+    <value>Token</value>
+  </data>
+  <data name="Analysis_TokenDesc" xml:space="preserve">
+    <value>The token of analysis instance.</value>
+  </data>
+  <data name="Analysis_Headers" xml:space="preserve">
+    <value>Headers</value>
+  </data>
+  <data name="Analysis_ResponseData" xml:space="preserve">
+    <value>Response Data</value>
+  </data>
+  <data name="Analyze_Parameters" xml:space="preserve">
+    <value>Parameters</value>
+  </data>
+  <data name="Analyze_Analyze" xml:space="preserve">
+    <value>Analyze</value>
+  </data>
+  <data name="Analyze_Parameter" xml:space="preserve">
+    <value>Parameter</value>
+  </data>
+  <data name="Analyze_Value" xml:space="preserve">
+    <value>Value</value>
+  </data>
+  <data name="Analyze_Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="Analyze_DataSource" xml:space="preserve">
+    <value>Data Source</value>
+  </data>
+  <data name="Analyze_DataSourceDesc" xml:space="preserve">
+    <value>The data source to analyze.</value>
+  </data>
+  <data name="Analyze_ViewDefinition" xml:space="preserve">
+    <value>View Definition</value>
+  </data>
+  <data name="Analyze_ViewDefinitionDesc" xml:space="preserve">
+    <value>The view definition to analyze. For example:&lt;br /&gt;
+                    &lt;em class="codes"&gt;
+                        {&lt;br /&gt;
+                        &amp;nbsp; fields:[&lt;br /&gt;
+                        &amp;nbsp;&amp;nbsp; {&amp;quot;binding&amp;quot;:&amp;quot;Active&amp;quot;,&amp;quot;dataType&amp;quot;:3},&lt;br /&gt;
+                        &amp;nbsp;&amp;nbsp; {&amp;quot;binding&amp;quot;:&amp;quot;Country&amp;quot;,&amp;quot;dataType&amp;quot;:1},&lt;br /&gt;
+                        &amp;nbsp;&amp;nbsp; {&amp;quot;binding&amp;quot;:&amp;quot;Date&amp;quot;,&amp;quot;dataType&amp;quot;:4},&lt;br /&gt;
+                        &amp;nbsp;&amp;nbsp; {&amp;quot;binding&amp;quot;:&amp;quot;Discount&amp;quot;,&amp;quot;dataType&amp;quot;:2},
+                        &lt;br /&gt;
+                        &amp;nbsp;&amp;nbsp; {&amp;quot;binding&amp;quot;:&amp;quot;Downloads&amp;quot;,&amp;quot;dataType&amp;quot;:2},
+                        &lt;br /&gt;
+                        &amp;nbsp;&amp;nbsp; {&amp;quot;binding&amp;quot;:&amp;quot;ID&amp;quot;,&amp;quot;dataType&amp;quot;:2},
+                        &lt;br /&gt;
+                        &amp;nbsp;&amp;nbsp; {&amp;quot;binding&amp;quot;:&amp;quot;Product&amp;quot;,&amp;quot;dataType&amp;quot;:1},
+                        &lt;br /&gt;
+                        &amp;nbsp;&amp;nbsp; {&amp;quot;binding&amp;quot;:&amp;quot;Sales&amp;quot;,&amp;quot;dataType&amp;quot;:2}&lt;br /&gt;
+                        &amp;nbsp; ],&lt;br /&gt;
+                        &amp;nbsp; rowFields:{items:[&amp;quot;Product&amp;quot;]},&lt;br /&gt;
+                        &amp;nbsp; columnFields:{items:[&amp;quot;Country&amp;quot;]},&lt;br /&gt;
+                        &amp;nbsp; valueFields:{items:[&amp;quot;Sales&amp;quot;]}&lt;br /&gt;
+                        }
+                    &lt;/em&gt;</value>
+  </data>
+  <data name="Analyze_Headers" xml:space="preserve">
+    <value>Headers</value>
+  </data>
+  <data name="Analyze_ResponseData" xml:space="preserve">
+    <value>Response Data</value>
+  </data>
+  <data name="Analyze_DataSource_None" xml:space="preserve">
+    <value>Select a data source</value>
+  </data>
+  <data name="Analyze_DataSource_Complex10" xml:space="preserve">
+    <value>Complex (100,000 items)</value>
+  </data>
+  <data name="Analyze_DataSource_Complex50" xml:space="preserve">
+    <value>Complex (500,000 items)</value>
+  </data>
+  <data name="Analyze_DataSource_Complex100" xml:space="preserve">
+    <value>Complex (1,000,000 items)</value>
+  </data>
+  <data name="Analyze_DataSource_Dataset10" xml:space="preserve">
+    <value>DataSource (100,000 items)</value>
+  </data>
+  <data name="Analyze_DataSource_Dataset50" xml:space="preserve">
+    <value>DataSource (500,000 items)</value>
+  </data>
+  <data name="Analyze_DataSource_Dataset100" xml:space="preserve">
+    <value>DataSource (1,000,000 items)</value>
+  </data>
+  <data name="Analyze_DataSource_Cube" xml:space="preserve">
+    <value>SSAS (Adventure Works)</value>
+  </data>
+  <data name="Clear_Parameters" xml:space="preserve">
+    <value>Parameters</value>
+  </data>
+  <data name="Clear_Clear" xml:space="preserve">
+    <value>Clear</value>
+  </data>
+  <data name="Clear_Parameter" xml:space="preserve">
+    <value>Parameter</value>
+  </data>
+  <data name="Clear_Value" xml:space="preserve">
+    <value>Value</value>
+  </data>
+  <data name="Clear_Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="Clear_DataSource" xml:space="preserve">
+    <value>Data Source</value>
+  </data>
+  <data name="Clear_DataSourceDesc" xml:space="preserve">
+    <value>The data source to analyze.</value>
+  </data>
+  <data name="Clear_Token" xml:space="preserve">
+    <value>Token</value>
+  </data>
+  <data name="Clear_TokenDesc" xml:space="preserve">
+    <value>The token of analysis instance.</value>
+  </data>
+  <data name="Clear_Headers" xml:space="preserve">
+    <value>Headers</value>
+  </data>
+  <data name="Clear_ResponseData" xml:space="preserve">
+    <value>Response Data</value>
+  </data>
+  <data name="Detail_Parameters" xml:space="preserve">
+    <value>Parameters</value>
+  </data>
+  <data name="Detail_GetDetails" xml:space="preserve">
+    <value>Get Details</value>
+  </data>
+  <data name="Detail_Parameter" xml:space="preserve">
+    <value>Parameter</value>
+  </data>
+  <data name="Detail_Value" xml:space="preserve">
+    <value>Value</value>
+  </data>
+  <data name="Detail_Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="Detail_DataSource" xml:space="preserve">
+    <value>Data Source</value>
+  </data>
+  <data name="Detail_DataSource_none" xml:space="preserve">
+    <value>Select a data source</value>
+  </data>
+  <data name="Detail_DataSource_Complex10" xml:space="preserve">
+    <value>Complex (100,000 items)</value>
+  </data>
+  <data name="Detail_DataSource_Complex50" xml:space="preserve">
+    <value>Complex (500,000 items)</value>
+  </data>
+  <data name="Detail_DataSource_Complex100" xml:space="preserve">
+    <value>Complex (1,000,000 items)</value>
+  </data>
+  <data name="Detail_DataSource_Dataset10" xml:space="preserve">
+    <value>DataSource (100,000 items)</value>
+  </data>
+  <data name="Detail_DataSource_Dataset50" xml:space="preserve">
+    <value>DataSource (500,000 items)</value>
+  </data>
+  <data name="Detail_DataSource_Dataset100" xml:space="preserve">
+    <value>DataSource (1,000,000 items)</value>
+  </data>
+  <data name="Detail_DataSourceDesc" xml:space="preserve">
+    <value>The data source to analyze.</value>
+  </data>
+  <data name="Detail_Skip" xml:space="preserve">
+    <value>Skip</value>
+  </data>
+  <data name="Detail_SkipDesc" xml:space="preserve">
+    <value>A positive integer value to specify the start index of the whole detail entries.  If not set, then returns the entries from the first one.</value>
+  </data>
+  <data name="Detail_Top" xml:space="preserve">
+    <value>Top</value>
+  </data>
+  <data name="Detail_TopDesc" xml:space="preserve">
+    <value>A positive integer value to specify the count of the returned detail entries. If not set, then returns all entries starting with the skip value.</value>
+  </data>
+  <data name="Detail_ViewDefinition" xml:space="preserve">
+    <value>View Definition</value>
+  </data>
+  <data name="Detail_ViewDefinitionDesc" xml:space="preserve">
+    <value>The view definition to analyze. For example:&lt;br /&gt;
+                    &lt;em class="codes"&gt;
+                        {&lt;br /&gt;
+                        &amp;nbsp; fields:[&lt;br /&gt;
+                        &amp;nbsp;&amp;nbsp; {&amp;quot;binding&amp;quot;:&amp;quot;Active&amp;quot;,&amp;quot;dataType&amp;quot;:3},&lt;br /&gt;
+                        &amp;nbsp;&amp;nbsp; {&amp;quot;binding&amp;quot;:&amp;quot;Country&amp;quot;,&amp;quot;dataType&amp;quot;:1},&lt;br /&gt;
+                        &amp;nbsp;&amp;nbsp; {&amp;quot;binding&amp;quot;:&amp;quot;Date&amp;quot;,&amp;quot;dataType&amp;quot;:4},&lt;br /&gt;
+                        &amp;nbsp;&amp;nbsp; {&amp;quot;binding&amp;quot;:&amp;quot;Discount&amp;quot;,&amp;quot;dataType&amp;quot;:2},
+                        &lt;br /&gt;
+                        &amp;nbsp;&amp;nbsp; {&amp;quot;binding&amp;quot;:&amp;quot;Downloads&amp;quot;,&amp;quot;dataType&amp;quot;:2},
+                        &lt;br /&gt;
+                        &amp;nbsp;&amp;nbsp; {&amp;quot;binding&amp;quot;:&amp;quot;ID&amp;quot;,&amp;quot;dataType&amp;quot;:2},
+                        &lt;br /&gt;
+                        &amp;nbsp;&amp;nbsp; {&amp;quot;binding&amp;quot;:&amp;quot;Product&amp;quot;,&amp;quot;dataType&amp;quot;:1},
+                        &lt;br /&gt;
+                        &amp;nbsp;&amp;nbsp; {&amp;quot;binding&amp;quot;:&amp;quot;Sales&amp;quot;,&amp;quot;dataType&amp;quot;:2}&lt;br /&gt;
+                        &amp;nbsp; ],&lt;br /&gt;
+                        &amp;nbsp; rowFields:{items:[&amp;quot;Product&amp;quot;]},&lt;br /&gt;
+                        &amp;nbsp; columnFields:{items:[&amp;quot;Country&amp;quot;]},&lt;br /&gt;
+                        &amp;nbsp; valueFields:{items:[&amp;quot;Sales&amp;quot;]}&lt;br /&gt;
+                        }
+                    &lt;/em&gt;</value>
+  </data>
+  <data name="Detail_Key" xml:space="preserve">
+    <value>Key</value>
+  </data>
+  <data name="Detail_KeyDesc" xml:space="preserve">
+    <value>Specify the cell via the corresponding value. It is an array object. Firstly, you need add the values of the fields in rowFields in order into keys. Then add the values of the fields in columnFields in order. If some field value is null, JUST add null into array and DO NOT remove it. You should keep the count of the keys array same as the count of the fields in rowFields and columnFields.
+                    &lt;br/&gt;
+                    For example:
+                    &lt;br /&gt;
+                    &lt;em class="codes"&gt;
+                        [&amp;quot;Aoba&amp;quot;, &amp;quot;China&amp;quot;]
+                    &lt;/em&gt;</value>
+  </data>
+  <data name="Detail_Headers" xml:space="preserve">
+    <value>Headers</value>
+  </data>
+  <data name="Detail_ResponseData" xml:space="preserve">
+    <value>Response Data</value>
+  </data>
+  <data name="Fields_Parameters" xml:space="preserve">
+    <value>Parameters</value>
+  </data>
+  <data name="Fields_GetFields" xml:space="preserve">
+    <value>Get Fields</value>
+  </data>
+  <data name="Fields_Parameter" xml:space="preserve">
+    <value>Parameter</value>
+  </data>
+  <data name="Fields_Value" xml:space="preserve">
+    <value>Value</value>
+  </data>
+  <data name="Fields_Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="Fields_DataSource" xml:space="preserve">
+    <value>Data Source</value>
+  </data>
+  <data name="Fields_DataSource_None" xml:space="preserve">
+    <value>Select a data source</value>
+  </data>
+  <data name="Fields_DataSource_Complex10" xml:space="preserve">
+    <value>Complex (100,000 items)</value>
+  </data>
+  <data name="Fields_DataSource_Complex50" xml:space="preserve">
+    <value>Complex (500,000 items)</value>
+  </data>
+  <data name="Fields_DataSource_Complex100" xml:space="preserve">
+    <value>Complex (1,000,000 items)</value>
+  </data>
+  <data name="Fields_DataSource_Dataset10" xml:space="preserve">
+    <value>DataSource (100,000 items)</value>
+  </data>
+  <data name="Fields_DataSource_Dataset50" xml:space="preserve">
+    <value>DataSource (500,000 items)</value>
+  </data>
+  <data name="Fields_DataSource_Dataset100" xml:space="preserve">
+    <value>DataSource (1,000,000 items)</value>
+  </data>
+  <data name="Fields_DataSource_Cube" xml:space="preserve">
+    <value>SSAS (Adventure Works)</value>
+  </data>
+  <data name="Fields_DataSourceDesc" xml:space="preserve">
+    <value>The data source to get the fields information.</value>
+  </data>
+  <data name="Fields_Headers" xml:space="preserve">
+    <value>Headers</value>
+  </data>
+  <data name="Fields_ResponseData" xml:space="preserve">
+    <value>Response Data</value>
+  </data>
+  <data name="RawData_Parameters" xml:space="preserve">
+    <value>Parameters</value>
+  </data>
+  <data name="RawData_GetRawData" xml:space="preserve">
+    <value>Get Raw Data</value>
+  </data>
+  <data name="RawData_Parameter" xml:space="preserve">
+    <value>Parameter</value>
+  </data>
+  <data name="RawData_Value" xml:space="preserve">
+    <value>Value</value>
+  </data>
+  <data name="RawData_Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="RawData_DataSource" xml:space="preserve">
+    <value>Data Source</value>
+  </data>
+  <data name="RawData_DataSource_None" xml:space="preserve">
+    <value>Select a data source</value>
+  </data>
+  <data name="RawData_DataSource_Complex10" xml:space="preserve">
+    <value>Complex (100,000 items)</value>
+  </data>
+  <data name="RawData_DataSource_Complex50" xml:space="preserve">
+    <value>Complex (500,000 items)</value>
+  </data>
+  <data name="RawData_DataSource_Complex100" xml:space="preserve">
+    <value>Complex (1,000,000 items)</value>
+  </data>
+  <data name="RawData_DataSource_Dataset10" xml:space="preserve">
+    <value>DataSource (100,000 items)</value>
+  </data>
+  <data name="RawData_DataSource_Dataset50" xml:space="preserve">
+    <value>DataSource (500,000 items)</value>
+  </data>
+  <data name="RawData_DataSource_Dataset100" xml:space="preserve">
+    <value>DataSource (1,000,000 items)</value>
+  </data>
+  <data name="RawData_DataSourceDesc" xml:space="preserve">
+    <value>The data source to analyze.</value>
+  </data>
+  <data name="RawData_Skip" xml:space="preserve">
+    <value>Skip</value>
+  </data>
+  <data name="RawData_SkipDesc" xml:space="preserve">
+    <value>A positive integer value to specify the start index of the whole raw data.  If not set, then returns the entries from the first one.</value>
+  </data>
+  <data name="RawData_Top" xml:space="preserve">
+    <value>Top</value>
+  </data>
+  <data name="RawData_TopDesc" xml:space="preserve">
+    <value>A positive integer value to specify the count of the returned raw data. If not set, then returns all entries starting with the skip value.</value>
+  </data>
+  <data name="RawData_Headers" xml:space="preserve">
+    <value>Headers</value>
+  </data>
+  <data name="RawData_ResponseData" xml:space="preserve">
+    <value>Response Data</value>
+  </data>
+  <data name="Result_Parameters" xml:space="preserve">
+    <value>Parameters</value>
+  </data>
+  <data name="Result_GetResultData" xml:space="preserve">
+    <value>Get ResultData</value>
+  </data>
+  <data name="Result_Parameter" xml:space="preserve">
+    <value>Parameter</value>
+  </data>
+  <data name="Result_Value" xml:space="preserve">
+    <value>Value</value>
+  </data>
+  <data name="Result_Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="Result_DataSource" xml:space="preserve">
+    <value>Data Source</value>
+  </data>
+  <data name="Result_DataSourceDesc" xml:space="preserve">
+    <value>The data source to analyze.</value>
+  </data>
+  <data name="Result_Token" xml:space="preserve">
+    <value>Token</value>
+  </data>
+  <data name="Result_TokenDesc" xml:space="preserve">
+    <value>The token of analysis instance.</value>
+  </data>
+  <data name="Result_Headers" xml:space="preserve">
+    <value>Headers</value>
+  </data>
+  <data name="Result_ResponseData" xml:space="preserve">
+    <value>Response Data</value>
+  </data>
+  <data name="Status_Parameters" xml:space="preserve">
+    <value>Parameters</value>
+  </data>
+  <data name="Status_GetStatus" xml:space="preserve">
+    <value>Get Status</value>
+  </data>
+  <data name="Status_Parameter" xml:space="preserve">
+    <value>Parameter</value>
+  </data>
+  <data name="Status_Value" xml:space="preserve">
+    <value>Value</value>
+  </data>
+  <data name="Status_Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="Status_DataSource" xml:space="preserve">
+    <value>Data Source</value>
+  </data>
+  <data name="Status_DataSourceDesc" xml:space="preserve">
+    <value>The data source to analyze.</value>
+  </data>
+  <data name="Status_Token" xml:space="preserve">
+    <value>Token</value>
+  </data>
+  <data name="Status_TokenDesc" xml:space="preserve">
+    <value>The token of analysis instance.</value>
+  </data>
+  <data name="Status_Headers" xml:space="preserve">
+    <value>Headers</value>
+  </data>
+  <data name="Status_ResponseData" xml:space="preserve">
+    <value>Response Data</value>
+  </data>
+  <data name="UniqueValues_Parameters" xml:space="preserve">
+    <value>Parameters</value>
+  </data>
+  <data name="UniqueValues_GetUnqiueValues" xml:space="preserve">
+    <value>Get UnqiueValues</value>
+  </data>
+  <data name="UniqueValues_Parameter" xml:space="preserve">
+    <value>Parameter</value>
+  </data>
+  <data name="UniqueValues_Value" xml:space="preserve">
+    <value>Value</value>
+  </data>
+  <data name="UniqueValues_Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="UniqueValues_DataSource" xml:space="preserve">
+    <value>Data Source</value>
+  </data>
+  <data name="UniqueValues_DataSource_None" xml:space="preserve">
+    <value>Select a data source</value>
+  </data>
+  <data name="UniqueValues_DataSource_Complex10" xml:space="preserve">
+    <value>Complex (100,000 items)</value>
+  </data>
+  <data name="UniqueValues_DataSource_Complex50" xml:space="preserve">
+    <value>Complex (500,000 items)</value>
+  </data>
+  <data name="UniqueValues_DataSource_Complex100" xml:space="preserve">
+    <value>Complex (1,000,000 items)</value>
+  </data>
+  <data name="UniqueValues_DataSource_Dataset10" xml:space="preserve">
+    <value>DataSource (100,000 items)</value>
+  </data>
+  <data name="UniqueValues_DataSource_Dataset50" xml:space="preserve">
+    <value>DataSource (500,000 items)</value>
+  </data>
+  <data name="UniqueValues_DataSource_Dataset100" xml:space="preserve">
+    <value>DataSource (1,000,000 items)</value>
+  </data>
+  <data name="UniqueValues_DataSourceDesc" xml:space="preserve">
+    <value>The data source to analyze.</value>
+  </data>
+  <data name="UniqueValues_Field" xml:space="preserve">
+    <value>Field</value>
+  </data>
+  <data name="UniqueValues_FieldDesc" xml:space="preserve">
+    <value>The field to get the unique values for.
+                    &lt;br /&gt;
+                    For example:
+                    &lt;br /&gt;
+                    &lt;em class="codes"&gt;
+                        Product
+                    &lt;/em&gt;</value>
+  </data>
+  <data name="UniqueValues_ViewDefinition" xml:space="preserve">
+    <value>View Definition</value>
+  </data>
+  <data name="UniqueValues_ViewDefinitionDesc" xml:space="preserve">
+    <value>The view definition to analyze. For example:&lt;br /&gt;
+                    &lt;em class="codes"&gt;
+                        {&lt;br /&gt;
+                        &amp;nbsp; fields:[&lt;br /&gt;
+                        &amp;nbsp;&amp;nbsp; {&amp;quot;binding&amp;quot;:&amp;quot;Active&amp;quot;,&amp;quot;dataType&amp;quot;:3},&lt;br /&gt;
+                        &amp;nbsp;&amp;nbsp; {&amp;quot;binding&amp;quot;:&amp;quot;Country&amp;quot;,&amp;quot;dataType&amp;quot;:1},&lt;br /&gt;
+                        &amp;nbsp;&amp;nbsp; {&amp;quot;binding&amp;quot;:&amp;quot;Date&amp;quot;,&amp;quot;dataType&amp;quot;:4},&lt;br /&gt;
+                        &amp;nbsp;&amp;nbsp; {&amp;quot;binding&amp;quot;:&amp;quot;Discount&amp;quot;,&amp;quot;dataType&amp;quot;:2},
+                        &lt;br /&gt;
+                        &amp;nbsp;&amp;nbsp; {&amp;quot;binding&amp;quot;:&amp;quot;Downloads&amp;quot;,&amp;quot;dataType&amp;quot;:2},
+                        &lt;br /&gt;
+                        &amp;nbsp;&amp;nbsp; {&amp;quot;binding&amp;quot;:&amp;quot;ID&amp;quot;,&amp;quot;dataType&amp;quot;:2},
+                        &lt;br /&gt;
+                        &amp;nbsp;&amp;nbsp; {&amp;quot;binding&amp;quot;:&amp;quot;Product&amp;quot;,&amp;quot;dataType&amp;quot;:1},
+                        &lt;br /&gt;
+                        &amp;nbsp;&amp;nbsp; {&amp;quot;binding&amp;quot;:&amp;quot;Sales&amp;quot;,&amp;quot;dataType&amp;quot;:2}&lt;br /&gt;
+                        &amp;nbsp; ],&lt;br /&gt;
+                        &amp;nbsp; rowFields:{items:[&amp;quot;Product&amp;quot;]},&lt;br /&gt;
+                        &amp;nbsp; columnFields:{items:[&amp;quot;Country&amp;quot;]},&lt;br /&gt;
+                        &amp;nbsp; valueFields:{items:[&amp;quot;Sales&amp;quot;]}&lt;br /&gt;
+                        }
+                    &lt;/em&gt;</value>
+  </data>
+  <data name="UniqueValues_Headers" xml:space="preserve">
+    <value>Headers</value>
+  </data>
+  <data name="UniqueValues_ResponseData" xml:space="preserve">
+    <value>Response Data</value>
+  </data>
+  <data name="Analysis_StatusCode" xml:space="preserve">
+    <value>Status Code: </value>
+  </data>
+  <data name="Analyze_StatusCode" xml:space="preserve">
+    <value>Status Code: </value>
+  </data>
+  <data name="Clear_StatusCode" xml:space="preserve">
+    <value>Status Code: </value>
+  </data>
+  <data name="Clear_RequestURL" xml:space="preserve">
+    <value>Request URL: </value>
+  </data>
+  <data name="Analysis_RequestURL" xml:space="preserve">
+    <value>Request URL: </value>
+  </data>
+  <data name="Analyze_RequestURL" xml:space="preserve">
+    <value>Request URL: </value>
+  </data>
+  <data name="Detail_RequestURL" xml:space="preserve">
+    <value>Request URL: </value>
+  </data>
+  <data name="Detail_StatusCode" xml:space="preserve">
+    <value>Status Code: </value>
+  </data>
+  <data name="Fields_RequestURL" xml:space="preserve">
+    <value>Request URL: </value>
+  </data>
+  <data name="Fields_StatusCode" xml:space="preserve">
+    <value>Status Code: </value>
+  </data>
+  <data name="RawData_RequestURL" xml:space="preserve">
+    <value>Request URL: </value>
+  </data>
+  <data name="RawData_StatusCode" xml:space="preserve">
+    <value>Status Code: </value>
+  </data>
+  <data name="Result_RequestURL" xml:space="preserve">
+    <value>Request URL: </value>
+  </data>
+  <data name="Result_StatusCode" xml:space="preserve">
+    <value>Status Code: </value>
+  </data>
+  <data name="Status_RequestURL" xml:space="preserve">
+    <value>Request URL: </value>
+  </data>
+  <data name="Status_StatusCode" xml:space="preserve">
+    <value>Status Code: </value>
+  </data>
+  <data name="UniqueValues_RequestURL" xml:space="preserve">
+    <value>Request URL: </value>
+  </data>
+  <data name="UniqueValues_StatusCode" xml:space="preserve">
+    <value>Status Code: </value>
+  </data>
+</root>

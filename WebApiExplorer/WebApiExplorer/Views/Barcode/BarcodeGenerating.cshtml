@@ -1,0 +1,512 @@
+@model WebApiExplorer.Models.ControlsClass.Function
+<div class="settings-panel-content">
+    <div style="float:left;width:100%">
+        <div style="float:left"><h4>@Html.Raw(Resources.Barcode.BarcodeGenerating_Parameters)</h4></div>
+        <div style="float:right">
+            <button style="margin-top:3px;padding: 4px;" class="btn btn-primary"
+                    onclick="showBarcode('@Model.FunctionName', '@(System.Configuration.ConfigurationManager.AppSettings["WebAPIService"] + Model.FunctionUrl.Substring(1))');">
+                @Html.Raw(Resources.Barcode.BarcodeGenerating_GenerateBarcode)
+            </button>
+        </div>
+    </div>
+    <div>
+        <div class="settings-panel settings-panel-basic">
+            <h4>@Html.Raw(Resources.Barcode.BarcodeGenerating_BacisSettings)</h4>
+            <div class="param-item">
+                <label class="param-lable parameter"><b>@Html.Raw(Resources.Barcode.BarcodeGenerating_Parameter)</b></label>
+                <label class="param-lable value"><b>@Html.Raw(Resources.Barcode.BarcodeGenerating_Value)</b></label>
+                <label class="param-lable description"><b>@Html.Raw(Resources.Barcode.BarcodeGenerating_Description)</b></label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Resources.Barcode.BarcodeGenerating_BacisType)</label>
+                <select class="param-value" name="Type" defaultvalue="Png">
+                    <option selected="selected">Png</option>
+                    <option>Jpeg</option>
+                    <option>Bmp</option>
+                    <option>Gif</option>
+                    <option>Tiff</option>
+                </select>
+                <label class="param-lable description">@Html.Raw(Resources.Barcode.BarcodeGenerating_BacisTypeDesc)</label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Resources.Barcode.BarcodeGenerating_BacisText)</label>
+                <input class="param-value" type="text" name="Text" value="1234567890" />
+                <label class="param-lable description">@Html.Raw(Resources.Barcode.BarcodeGenerating_BacisTextDesc)</label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Resources.Barcode.BarcodeGenerating_BacisCodeType)</label>
+                <select class="param-value" name="CodeType" defaultvalue="Code39" onchange="typeChanged(this[selectedIndex].value);">
+                    <option>None</option>
+                    <option>Ansi39</option>
+                    <option>Ansi39x</option>
+                    <option>Code_2_of_5</option>
+                    <option>Code25intlv</option>
+                    <option>Matrix_2_of_5</option>
+                    <option selected="selected">Code39</option>
+                    <option>Code39x</option>
+                    <option>Code_128_A</option>
+                    <option>Code_128_B</option>
+                    <option>Code_128_C</option>
+                    <option>Code_128auto</option>
+                    <option>Code_93</option>
+                    <option>Code93x</option>
+                    <option>MSI</option>
+                    <option>PostNet</option>
+                    <option>Codabar</option>
+                    <option>EAN_8</option>
+                    <option>EAN_13</option>
+                    <option>UPC_A</option>
+                    <option>UPC_E0</option>
+                    <option>UPC_E1</option>
+                    <option>RM4SCC</option>
+                    <option>UCCEAN128</option>
+                    <option>QRCode</option>
+                    <option>Code49</option>
+                    <option>JapanesePostal</option>
+                    <option>Pdf417</option>
+                    <option>EAN128FNC1</option>
+                    <option>RSS14</option>
+                    <option>RSS14Truncated</option>
+                    <option>RSS14Stacked</option>
+                    <option>RSS14StackedOmnidirectional</option>
+                    <option>RSSExpanded</option>
+                    <option>RSSExpandedStacked</option>
+                    <option>RSSLimited</option>
+                    <option>DataMatrix</option>
+                    <option>MicroPDF417</option>
+                    <option>IntelligentMail</option>
+                </select>
+                <label class="param-lable description">@Html.Raw(Resources.Barcode.BarcodeGenerating_BacisCodeTypeDesc)</label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Resources.Barcode.BarcodeGenerating_BacisBackColor)</label>
+                <select class="param-value" name="BackColor" defaultvalue="White">
+                    <option>Transparent</option>
+                    <option selected="selected">White</option>
+                    <option>Black</option>
+                    <option>Red</option>
+                    <option>Green</option>
+                    <option>Blue</option>
+                    <option>Yellow</option>
+                    <option>Orange</option>
+                </select>
+                <label class="param-lable description">@Html.Raw(Resources.Barcode.BarcodeGenerating_BacisBackColorDesc)</label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Resources.Barcode.BarcodeGenerating_BacisForeColor)</label>
+                <select class="param-value" name="ForeColor" defaultvalue="Black">
+                    <option>Transparent</option>
+                    <option>White</option>
+                    <option selected="selected">Black</option>
+                    <option>Red</option>
+                    <option>Green</option>
+                    <option>Blue</option>
+                    <option>Yellow</option>
+                    <option>Orange</option>
+                </select>
+                <label class="param-lable description">@Html.Raw(Resources.Barcode.BarcodeGenerating_BacisForeColorDesc)</label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Resources.Barcode.BarcodeGenerating_BacisCaptionPosition)</label>
+                <select class="param-value" name="CaptionPosition" defaultvalue="None">
+                    <option selected="selected">None</option>
+                    <option>Above</option>
+                    <option>Below</option>
+                </select>
+                <label class="param-lable description">@Html.Raw(Resources.Barcode.BarcodeGenerating_BacisCaptionPositionDesc)</label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Resources.Barcode.BarcodeGenerating_BacisCaptionAlignment)</label>
+                <select class="param-value" name="CaptionAlignment" defaultvalue="Center">
+                    <option>Left</option>
+                    <option selected="selected">Center</option>
+                    <option>Right</option>
+                </select>
+                <label class="param-lable description">@Html.Raw(Resources.Barcode.BarcodeGenerating_BacisCaptionAlignmentDesc)</label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Resources.Barcode.BarcodeGenerating_BacisCheckSumEnabled)</label>
+                <input id="param_Connection" class="param-value value" type="checkbox" name="CheckSumEnabled" defaultvalue="true" checked />
+                <label class="param-lable description">@Html.Raw(Resources.Barcode.BarcodeGenerating_BacisCheckSumEnabledDesc)</label>
+            </div>
+        </div>
+        <div class="settings-panel settings-panel-detail settings-panel-QRCode">
+            <h4>@Html.Raw(Resources.Barcode.BarcodeGenerating_QRCodeSettings)</h4>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Resources.Barcode.BarcodeGenerating_QRCodeModel)</label>
+                <select class="param-value value" name="QRCodeOptions.Model" defaultvalue="Model2">
+                    <option>Model1</option>
+                    <option selected="selected">Model2</option>
+                </select>
+                <label class="param-lable description">@Html.Raw(Resources.Barcode.BarcodeGenerating_QRCodeModelDesc)</label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Resources.Barcode.BarcodeGenerating_QRCodeErrorLevel)</label>
+                <select class="param-value value" name="QRCodeOptions.ErrorLevel" defaultvalue="Low">
+                    <option selected="selected">Low</option>
+                    <option>Medium</option>
+                    <option>Quality</option>
+                    <option>High</option>
+                </select>
+                <label class="param-lable description">@Html.Raw(Resources.Barcode.BarcodeGenerating_QRCodeErrorLevelDesc)</label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Resources.Barcode.BarcodeGenerating_QRCodeVersion)</label>
+                <input class="param-value value" type="text" name="QRCodeOptions.Version" defaultvalue="-1" value="-1" />
+                <label class="param-lable description">@Html.Raw(Resources.Barcode.BarcodeGenerating_QRCodeVersionDesc)</label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Resources.Barcode.BarcodeGenerating_QRCodeMask)</label>
+                <select class="param-value value" name="QRCodeOptions.Mask" defaultvalue="Auto">
+                    <option selected="selected">Auto</option>
+                    <option>Mask000</option>
+                    <option>Mask001</option>
+                    <option>Mask010</option>
+                    <option>Mask011</option>
+                    <option>Mask100</option>
+                    <option>Mask101</option>
+                    <option>Mask110</option>
+                    <option>Mask111</option>
+                </select>
+                <label class="param-lable description">@Html.Raw(Resources.Barcode.BarcodeGenerating_QRCodeMaskDesc)</label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Resources.Barcode.BarcodeGenerating_QRCodeConnectionNumber)</label>
+                <input class="param-value value" type="text" name="QRCodeOptions.ConnectionNumber" defaultvalue="0" value="0" />
+                <label class="param-lable description">@Html.Raw(Resources.Barcode.BarcodeGenerating_QRCodeConnectionNumberDesc)</label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter" for="param_Connection">
+                    @Html.Raw(Resources.Barcode.BarcodeGenerating_QRCodeConnection)
+                </label>
+                <input id="param_Connection" class="param-value value" type="checkbox" name="QRCodeOptions.Connection" defaultvalue="false" />
+                <label class="param-lable description">@Html.Raw(Resources.Barcode.BarcodeGenerating_QRCodeConnectionDesc)</label>
+            </div>
+        </div>
+        <div class="settings-panel settings-panel-detail settings-panel-Pdf417">
+            <h4>@Html.Raw(Resources.Barcode.BarcodeGenerating_PDF417Settings)</h4>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Resources.Barcode.BarcodeGenerating_PDF417Column)</label>
+                <input class="param-value value" type="text" name="Pdf417Options.Column" defaultvalue="-1" value="-1" />
+                <label class="param-lable description">@Html.Raw(Resources.Barcode.BarcodeGenerating_PDF417ColumnDesc)</label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Resources.Barcode.BarcodeGenerating_PDF417Row)</label>
+                <input class="param-value value" type="text" name="Pdf417Options.Row" defaultvalue="-1" value="-1" />
+                <label class="param-lable description">@Html.Raw(Resources.Barcode.BarcodeGenerating_PDF417Desc)</label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Resources.Barcode.BarcodeGenerating_PDF417ErrorLevel)</label>
+                <input class="param-value value" type="text" name="Pdf417Options.ErrorLevel" defaultvalue="-1" value="-1" />
+                <label class="param-lable description">@Html.Raw(Resources.Barcode.BarcodeGenerating_PDF417ErrorLevelDesc)</label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Resources.Barcode.BarcodeGenerating_PDF417Type)</label>
+                <select class="param-value value" name="Pdf417Options.Type" defaultvalue="Normal">
+                    <option selected="selected">Normal</option>
+                    <option>Simple</option>
+                </select>
+                <label class="param-lable description">@Html.Raw(Resources.Barcode.BarcodeGenerating_PDF417TypeDesc)</label>
+            </div>
+        </div>
+        <div class="settings-panel settings-panel-detail settings-panel-Code49">
+            <h4>@Html.Raw(Resources.Barcode.BarcodeGenerating_Code49Settings)</h4>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Resources.Barcode.BarcodeGenerating_Code49Group)</label>
+                <input class="param-value value" type="text" name="Code49Options.Group" defaultvalue="0" value="0" />
+                <label class="param-lable description">@Html.Raw(Resources.Barcode.BarcodeGenerating_Code49GroupDesc)</label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter" for="param_Grouping">
+                    @Html.Raw(Resources.Barcode.BarcodeGenerating_Code49Grouping)
+                </label>
+                <input id="param_Grouping" class="param-value value" type="checkbox" name="Code49Options.Grouping" defaultvalue="false" />
+                <label class="param-lable description">@Html.Raw(Resources.Barcode.BarcodeGenerating_Code49GroupingDesc)</label>
+            </div>
+        </div>
+        <div class="settings-panel settings-panel-detail settings-panel-RSSExpandedStacked">
+            <h4>@Html.Raw(Resources.Barcode.BarcodeGenerating_RssExpandedStackedSettings)</h4>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Resources.Barcode.BarcodeGenerating_RssExpandedStackedRowCount)</label>
+                <input class="param-value value" type="text" name="RssExpandedStackedOptions.RowCount" defaultvalue="2" value="2" />
+                <label class="param-lable description">@Html.Raw(Resources.Barcode.BarcodeGenerating_RssExpandedStackedRowCountDesc)</label>
+            </div>
+        </div>
+        <div class="settings-panel settings-panel-detail settings-panel-MicroPDF417">
+            <h4>@Html.Raw(Resources.Barcode.BarcodeGenerating_MicroPDF417Settings)</h4>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Resources.Barcode.BarcodeGenerating_MicroPDF417CompactionMode)</label>
+                <select class="param-value value" name="MicroPDF417Options.CompactionMode" defaultvalue="Auto">
+                    <option selected="selected">Auto</option>
+                    <option>TextCompactionMode</option>
+                    <option>NumericCompactionMode</option>
+                    <option>ByteCompactionMode</option>
+                </select>
+                <label class="param-lable description">@Html.Raw(Resources.Barcode.BarcodeGenerating_MicroPDF417CompactionModeDesc)</label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Resources.Barcode.BarcodeGenerating_MicroPDF417FileID)</label>
+                <input class="param-value value" type="text" name="MicroPDF417Options.FileID" defaultvalue="0" value="0" />
+                <label class="param-lable description">@Html.Raw(Resources.Barcode.BarcodeGenerating_MicroPDF417FileIDDesc)</label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Resources.Barcode.BarcodeGenerating_MicroPDF417SegmentCount)</label>
+                <input class="param-value value" type="text" name="MicroPDF417Options.SegmentCount" defaultvalue="0" value="0" />
+                <label class="param-lable description">@Html.Raw(Resources.Barcode.BarcodeGenerating_MicroPDF417SegmentCountDesc)</label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Resources.Barcode.BarcodeGenerating_MicroPDF417SegmentIndex)</label>
+                <input class="param-value value" type="text" name="MicroPDF417Options.SegmentIndex" defaultvalue="0" value="0" />
+                <label class="param-lable description">@Html.Raw(Resources.Barcode.BarcodeGenerating_MicroPDF417SegmentIndexDesc)</label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Resources.Barcode.BarcodeGenerating_MicroPDF417Version)</label>
+                <select class="param-value value" name="MicroPDF417Options.Version" defaultvalue="ColumnPriorAuto">
+                    <option selected="selected">ColumnPriorAuto</option>
+                    <option>RowPriorAuto</option>
+                    <option>Version1X11</option>
+                    <option>Version1X14</option>
+                    <option>Version1X17</option>
+                    <option>Version1X20</option>
+                    <option>Version1X24</option>
+                    <option>Version1X28</option>
+                    <option>Version2X8</option>
+                    <option>Version2X11</option>
+                    <option>Version2X14</option>
+                    <option>Version2X17</option>
+                    <option>Version2X20</option>
+                    <option>Version2X23</option>
+                    <option>Version2X26</option>
+                    <option>Version3X6</option>
+                    <option>Version3X8</option>
+                    <option>Version3X10</option>
+                    <option>Version3X12</option>
+                    <option>Version3X15</option>
+                    <option>Version3X20</option>
+                    <option>Version3X26</option>
+                    <option>Version3X32</option>
+                    <option>Version3X38</option>
+                    <option>Version3X44</option>
+                    <option>Version4X4</option>
+                    <option>Version4X6</option>
+                    <option>Version4X8</option>
+                    <option>Version4X10</option>
+                    <option>Version4X12</option>
+                    <option>Version4X15</option>
+                    <option>Version4X20</option>
+                    <option>Version4X26</option>
+                    <option>Version4X32</option>
+                    <option>Version4X38</option>
+                    <option>Version4X44</option>
+                </select>
+                <label class="param-lable description">@Html.Raw(Resources.Barcode.BarcodeGenerating_MicroPDF417VersionDesc)</label>
+            </div>
+        </div>
+        <div class="settings-panel settings-panel-detail settings-panel-Code25intlv">
+            <h4>@Html.Raw(Resources.Barcode.BarcodeGenerating_Code25IntlvSettings)</h4>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Resources.Barcode.BarcodeGenerating_Code25IntlvLineStroke)</label>
+                <select class="param-value value" name="Code25intlvOptions.LineStroke" defaultvalue="Black">
+                    <option>Transparent</option>
+                    <option>White</option>
+                    <option selected="selected">Black</option>
+                    <option>Red</option>
+                    <option>Green</option>
+                    <option>Blue</option>
+                    <option>Yellow</option>
+                    <option>Orange</option>
+                </select>
+                <label class="param-lable description">@Html.Raw(Resources.Barcode.BarcodeGenerating_Code25IntlvLineStrokeDesc)</label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter" for="param_BearBar">
+                    @Html.Raw(Resources.Barcode.BarcodeGenerating_Code25IntlvBearBar)
+                </label>
+                <input id="Checkbox1" class="param-value value" type="checkbox" name="Code25intlvOptions.BearBar" defaultvalue="false" />
+                <label class="param-lable description">@Html.Raw(Resources.Barcode.BarcodeGenerating_Code25IntlvBearBarDesc)</label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Resources.Barcode.BarcodeGenerating_Code25IntlvLineStrokeThickness)</label>
+                <input class="param-value value" type="text" name="Code25intlvOptions.LineStrokeThickness" defaultvalue="1" value="1" />
+                <label class="param-lable description">@Html.Raw(Resources.Barcode.BarcodeGenerating_Code25IntlvLineStrokeThicknessDesc)</label>
+            </div>
+        </div>
+        <div class="settings-panel settings-panel-detail settings-panel-GS1Composite">
+            <h4>@Html.Raw(Resources.Barcode.BarcodeGenerating_GS1CompositeSettings)</h4>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Resources.Barcode.BarcodeGenerating_GS1CompositeType)</label>
+                <select class="param-value value" name="GS1CompositeOptions.Type" defaultvalue="None">
+                    <option selected="selected">None</option>
+                    <option>CCA</option>
+                </select>
+                <label class="param-lable description">@Html.Raw(Resources.Barcode.BarcodeGenerating_GS1CompositeTypeDesc)</label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Resources.Barcode.BarcodeGenerating_GS1CompositeValue)</label>
+                <input class="param-value value" type="text" name="GS1CompositeOptions.Value" defaultvalue="" value="" />
+                <label class="param-lable description">@Html.Raw(Resources.Barcode.BarcodeGenerating_GS1CompositeValueDesc)</label>
+            </div>
+        </div>
+        <div class="settings-panel settings-panel-detail settings-panel-EAN128FNC1">
+            <h4>@Html.Raw(Resources.Barcode.BarcodeGenerating_Ean128Fnc1Settings)</h4>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Resources.Barcode.BarcodeGenerating_Ean128Fnc1BarAdjust)</label>
+                <input class="param-value value" type="text" name="Ean128Fnc1Options.BarAdjust" defaultvalue="0" value="0" />
+                <label class="param-lable description">@Html.Raw(Resources.Barcode.BarcodeGenerating_Ean128Fnc1BarAdjustDesc)</label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Resources.Barcode.BarcodeGenerating_Ean128Fnc1Dpi)</label>
+                <input class="param-value value" type="text" name="Ean128Fnc1Options.Dpi" defaultvalue="0" value="0" />
+                <label class="param-lable description">@Html.Raw(Resources.Barcode.BarcodeGenerating_Ean128Fnc1DpiDesc)</label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Resources.Barcode.BarcodeGenerating_Ean128Fnc1ModuleSize)</label>
+                <input class="param-value value" type="text" name="Ean128Fnc1Options.ModuleSize" defaultvalue="0" value="0" />
+                <label class="param-lable description">@Html.Raw(Resources.Barcode.BarcodeGenerating_Ean128Fnc1ModuleSizeDesc)</label>
+            </div>
+        </div>
+        <div class="settings-panel settings-panel-detail settings-panel-DataMatrix">
+            <h4>@Html.Raw(Resources.Barcode.BarcodeGenerating_DataMatrixSettings)</h4>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Resources.Barcode.BarcodeGenerating_DataMatrixEccMode)</label>
+                <select class="param-value value" name="DataMatrixOptions.EccMode" defaultvalue="ECC200">
+                    <option>ECC000</option>
+                    <option>ECC050</option>
+                    <option>ECC080</option>
+                    <option>ECC100</option>
+                    <option>ECC140</option>
+                    <option selected="selected">ECC200</option>
+                </select>
+                <label class="param-lable description">@Html.Raw(Resources.Barcode.BarcodeGenerating_DataMatrixEccModeDesc)</label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Resources.Barcode.BarcodeGenerating_DataMatrixEcc200SymbolSize)</label>
+                <select class="param-value value" name="DataMatrixOptions.Ecc200SymbolSize" defaultvalue="SquareAuto">
+                    <option selected="selected">SquareAuto</option>
+                    <option>RectangularAuto</option>
+                    <option>Square10</option>
+                    <option>Square12</option>
+                    <option>Square14</option>
+                    <option>Square16</option>
+                    <option>Square18</option>
+                    <option>Square20</option>
+                    <option>Square22</option>
+                    <option>Square24</option>
+                    <option>Square26</option>
+                    <option>Square32</option>
+                    <option>Square36</option>
+                    <option>Square40</option>
+                    <option>Square44</option>
+                    <option>Square48</option>
+                    <option>Square52</option>
+                    <option>Square64</option>
+                    <option>Square72</option>
+                    <option>Square80</option>
+                    <option>Square88</option>
+                    <option>Square96</option>
+                    <option>Square104</option>
+                    <option>Square120</option>
+                    <option>Square132</option>
+                    <option>Square144</option>
+                    <option>Rectangular8x18</option>
+                    <option>Rectangular8x32</option>
+                    <option>Rectangular12x26</option>
+                    <option>Rectangular12x36</option>
+                    <option>Rectangular16x36</option>
+                    <option>Rectangular16x48</option>
+                </select>
+                <label class="param-lable description">@Html.Raw(Resources.Barcode.BarcodeGenerating_DataMatrixEcc200SymbolSizeDesc)</label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Resources.Barcode.BarcodeGenerating_DataMatrixEcc200EncodingMode)</label>
+                <select class="param-value value" name="DataMatrixOptions.Ecc200EncodingMode" defaultvalue="Auto">
+                    <option selected="selected">Auto</option>
+                    <option>ASCII</option>
+                    <option>C40</option>
+                    <option>Text</option>
+                    <option>X12</option>
+                    <option>EDIFACT</option>
+                    <option>Base256</option>
+                </select>
+                <label class="param-lable description">@Html.Raw(Resources.Barcode.BarcodeGenerating_DataMatrixEcc200EncodingModeDesc)</label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Resources.Barcode.BarcodeGenerating_DataMatrixEcc000_140SymbolSize)</label>
+                <select class="param-value value" name="DataMatrixOptions.Ecc000_140SymbolSize" defaultvalue="Auto">
+                    <option selected="selected">Auto</option>
+                    <option>Square9</option>
+                    <option>Square11</option>
+                    <option>Square13</option>
+                    <option>Square15</option>
+                    <option>Square17</option>
+                    <option>Square19</option>
+                    <option>Square21</option>
+                    <option>Square23</option>
+                    <option>Square25</option>
+                    <option>Square27</option>
+                    <option>Square29</option>
+                    <option>Square31</option>
+                    <option>Square33</option>
+                    <option>Square35</option>
+                    <option>Square37</option>
+                    <option>Square39</option>
+                    <option>Square41</option>
+                    <option>Square43</option>
+                    <option>Square45</option>
+                    <option>Square47</option>
+                    <option>Square49</option>
+                </select>
+                <label class="param-lable description">@Html.Raw(Resources.Barcode.BarcodeGenerating_DataMatrixEcc000_140SymbolSizeDesc)</label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Resources.Barcode.BarcodeGenerating_DataMatrixStructureNumber)</label>
+                <input class="param-value value" type="text" name="DataMatrixOptions.StructureNumber" defaultvalue="0" value="0" />
+                <label class="param-lable description">@Html.Raw(Resources.Barcode.BarcodeGenerating_DataMatrixStructureNumberDesc)</label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter" for="param_StructuredAppend">
+                    @Html.Raw(Resources.Barcode.BarcodeGenerating_DataMatrixStructuredAppend)
+                </label>
+                <input id="param_StructuredAppend" class="param-value value" type="checkbox" name="DataMatrixOptions.StructuredAppend" defaultvalue="false" />
+                <label class="param-lable description">@Html.Raw(Resources.Barcode.BarcodeGenerating_DataMatrixStructuredAppendDesc)</label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Resources.Barcode.BarcodeGenerating_DataMatrixFileIdentifier)</label>
+                <input class="param-value value" type="text" name="DataMatrixOptions.FileIdentifier" defaultvalue="0" value="0" />
+                <label class="param-lable description">@Html.Raw(Resources.Barcode.BarcodeGenerating_DataMatrixFileIdentifierDesc)</label>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="@(Model.FunctionName)result" class="content-panel-result">
+    <h4>@Html.Raw(Resources.Barcode.BarcodeGenerating_RequestUrl)</h4>
+    <div id="@(Model.FunctionName)url" class="content-panel-result-url">
+        <pre>
+        </pre>
+    </div>
+
+    <h4>@Html.Raw(Resources.Barcode.BarcodeGenerating_Barcode)</h4>
+    <img id="result@(Model.FunctionName)" src="" style="border:2px solid black" />
+    <div id="messageInfo" style="display: none">@Html.Raw(Resources.Barcode.BarcodeGenerating_MessageInfo)</div>
+</div>
+<script>
+    function showBarcode(id, url) {
+        var fullUrl = showResult(id, url);
+        $("#result" + id).attr("src", fullUrl);
+        $("#downloadLink").attr("href",fullUrl);
+
+        var userAgent = navigator.userAgent.toLowerCase(),
+            isEdge = userAgent.indexOf("edge/") > 0,
+            isIE11 = /trident/.test(userAgent),
+            isIE = isEdge || isIE11 || /msie/.test(userAgent);
+
+        if(!isIE && $(".settings-panel-basic select[name='Type']").val()==="Tiff" ) {
+            $("#result" + id).hide();
+            $("#messageInfo").show();
+        }
+        else {
+            $("#result" + id).show();
+            $("#messageInfo").hide();
+        }
+    }
+</script>

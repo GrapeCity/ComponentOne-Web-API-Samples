@@ -1,0 +1,71 @@
+@{
+    ClientSettingsModel settings = ViewBag.DemoSettingsModel;
+    ImageExportOptions optionsModel = ViewBag.Options;
+    ViewBag.DemoSettings = true;
+}
+
+<div id="@(optionsModel.ControlId)"></div>
+@section Settings{
+    @Html.Partial("_ImageExportOptions", optionsModel)
+    <script>
+        function convertPalette(value) {
+            return wijmo.chart.Palettes[value];
+        }
+    </script>
+}
+<script>
+    // create controls
+    var data = [],
+        chart = new wijmo.chart.hierarchical.Sunburst('#@(optionsModel.ControlId)'),
+        times = [['Jan', 'Feb', 'Mar'], ['Apr', 'May', 'June'], ['Jul', 'Aug', 'Sep'], ['Oct', 'Nov', 'Dec']],
+        years = [], year = new Date().getFullYear(), yearLen, i;
+
+    yearLen = Math.max(Math.round(Math.abs(5 - Math.random() * 10)), 3);
+    for (i = yearLen; i > 0; i--) {
+        years.push(year - i);
+    }
+
+    // populate itemsSource
+    for (y = 0; y < years.length; y++) {
+        var addQuarter = Math.random() > 0.5;
+        if (addQuarter) {
+            for (q = 0; q < times.length; q++) {
+                var addMonth = Math.random() > 0.5,
+                    quar = 'Q' + (q + 1);
+                if (addMonth) {
+                    for (m = 0; m < times[q].length; m++) {
+                        data.push({
+                            year: years[y].toString(),
+                            quarter: quar,
+                            month: times[q][m],
+                            value: Math.round(Math.random() * 100)
+                        });
+                    };
+                } else {
+                    data.push({
+                        year: years[y].toString(),
+                        quarter: quar,
+                        value: Math.round(Math.random() * 400)
+                    });
+                }
+            };
+        } else {
+            data.push({
+                year: years[y].toString(),
+                value: Math.round(Math.random() * 1200)
+            });
+        }
+    };
+    // initialize Sunburst's properties
+    chart.beginUpdate();
+    chart.binding = 'value';
+    chart.bindingName = ['year', 'quarter', 'month'];
+    chart.itemsSource = data;
+    chart.dataLabel.position = wijmo.chart.PieLabelPosition.Center;
+    chart.dataLabel.content = '{name}';
+    chart.endUpdate();
+</script>
+
+@section Description{
+    @Html.Raw(Resources.Wijmo5Sunburst.Index_Text0)
+}

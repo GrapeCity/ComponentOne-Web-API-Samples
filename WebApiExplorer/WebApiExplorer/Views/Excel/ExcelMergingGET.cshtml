@@ -1,0 +1,104 @@
+@model WebApiExplorer.Models.ControlsClass.Function
+
+<div class="settings-panel-content">
+    <div style="float:left;width:100%">
+        <div style="float:left"><h4>@Html.Raw(Resources.Excel.ExcelMergingGET_Parameters)</h4></div>
+        <div style="float:right">
+            <button style="margin-top:3px;padding: 4px;" class="btn btn-primary"
+                    onclick="mergeExcelGet('@Model.FunctionName', '@(System.Configuration.ConfigurationManager.AppSettings["WebAPIService"] + Model.FunctionUrl.Substring(1))');">
+                @Html.Raw(Resources.Excel.ExcelMergingGET_MergeExcel)
+            </button>
+        </div>
+    </div>
+    <div>
+        <div class="settings-panel">
+            <div class="param-item">
+                <label class="param-lable parameter"><b>@Html.Raw(Resources.Excel.ExcelMergingGET_Parameter)</b></label>
+                <label class="param-lable value"><b>@Html.Raw(Resources.Excel.ExcelMergingGET_Value)</b></label>
+                <label class="param-lable description"><b>@Html.Raw(Resources.Excel.ExcelMergingGET_Description)</b></label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Resources.Excel.ExcelMergingGET_FileName)</label>
+                <input class="param-value value" type="text" name="FileName" value="excel" />
+                <label class="param-lable description">@Html.Raw(Resources.Excel.ExcelMergingGET_FileNameText)</label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Resources.Excel.ExcelMergingGET_Type)</label>
+                <select class="param-value value" name="type">
+                    <option value="xlsx" selected="selected">xlsx</option>
+                    <option value="xls">xls</option>
+                    <option value="xml">xml</option>
+                </select>
+                <label class="param-lable description">@Html.Raw(Resources.Excel.ExcelMergingGET_TypeText)</label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Resources.Excel.ExcelMergingGET_FileNamesToMerge)</label>
+                <span class ="param-value-group">
+                    <select name="FileNamesToMerge" class="param-value" style=" width: 100%; margin-bottom: 10px;">
+                        <option value="none" selected="selected">@Html.Raw(Resources.Excel.ExcelMergingGET_FileNamesToMerge_None)</option>
+                        <option value="ExcelRoot/align.xls">align.xls</option>
+                        <option value="ExcelRoot/AllFormats.xls">AllFormats.xls</option>
+                        <option value="ExcelRoot/FlexGrid.xlsx">FlexGrid.xlsx</option>
+                        <option value="ExcelRoot/GAS.xls">GAS.xls</option>
+                        <option value="ExcelRoot/Grouping.xlsx">Grouping.xlsx</option>
+                        <option value="ExcelRoot/Hierarchical.xlsx">Hierarchical.xlsx</option>
+                        <option value="ExcelRoot/Houston.xlsx">Houston.xlsx</option>
+                        <option value="ExcelRoot/Palette.xls">Palette.xls</option>
+                        <option value="ExcelRoot/ExcelWithFormula.xls">ExcelWithFormula.xls</option>
+                        <option value="OneDrive/Documents/align.xls">OneDrive/Documents/align.xls</option>
+                        <option value="OneDrive/Documents/AllFormats.xls">OneDrive/Documents/AllFormats.xls</option>
+                        <option value="OneDrive/Documents/FlexGrid.xlsx">OneDrive/Documents/FlexGrid.xlsx</option>
+                        <option value="OneDrive/Documents/GAS.xls">OneDrive/Documents/GAS.xls</option>
+                        <option value="OneDrive/Documents/Grouping.xlsx">OneDrive/Documents/Grouping.xlsx</option>
+                        <option value="OneDrive/Documents/Hierarchical.xlsx">OneDrive/Documents/Hierarchical.xlsx</option>
+                        <option value="OneDrive/Documents/Houston.xlsx">OneDrive/Documents/Houston.xlsx</option>
+                        <option value="OneDrive/Documents/Palette.xls">OneDrive/Documents/Palette.xls</option>
+                        <option value="OneDrive/Documents/ExcelWithFormula.xls">OneDrive/Documents/ExcelWithFormula.xls</option>
+                    </select><br />
+                    <select name="FileNamesToMerge" class="param-value" style="width: 100%">
+                        <option value="none" selected="selected">@Html.Raw(Resources.Excel.ExcelMergingGET_FileNamesToMerge_None)</option>
+                        <option value="ExcelRoot/align.xls">align.xls</option>
+                        <option value="ExcelRoot/AllFormats.xls">AllFormats.xls</option>
+                        <option value="ExcelRoot/FlexGrid.xlsx">FlexGrid.xlsx</option>
+                        <option value="ExcelRoot/GAS.xls">GAS.xls</option>
+                        <option value="ExcelRoot/Grouping.xlsx">Grouping.xlsx</option>
+                        <option value="ExcelRoot/Hierarchical.xlsx">Hierarchical.xlsx</option>
+                        <option value="ExcelRoot/Houston.xlsx">Houston.xlsx</option>
+                        <option value="ExcelRoot/Palette.xls">Palette.xls</option>
+                        <option value="ExcelRoot/ExcelWithFormula.xls">ExcelWithFormula.xls</option>
+                        <option value="OneDrive/Documents/align.xls">OneDrive/Documents/align.xls</option>
+                        <option value="OneDrive/Documents/AllFormats.xls">OneDrive/Documents/AllFormats.xls</option>
+                        <option value="OneDrive/Documents/FlexGrid.xlsx">OneDrive/Documents/FlexGrid.xlsx</option>
+                        <option value="OneDrive/Documents/GAS.xls">OneDrive/Documents/GAS.xls</option>
+                        <option value="OneDrive/Documents/Grouping.xlsx">OneDrive/Documents/Grouping.xlsx</option>
+                        <option value="OneDrive/Documents/Hierarchical.xlsx">OneDrive/Documents/Hierarchical.xlsx</option>
+                        <option value="OneDrive/Documents/Houston.xlsx">OneDrive/Documents/Houston.xlsx</option>
+                        <option value="OneDrive/Documents/Palette.xls">OneDrive/Documents/Palette.xls</option>
+                        <option value="OneDrive/Documents/ExcelWithFormula.xls">OneDrive/Documents/ExcelWithFormula.xls</option>
+                    </select>
+                </span>
+                <label class="param-lable description">@Html.Raw(Resources.Excel.ExcelMergingGET_FileNamesToMergeText)</label>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="@(Model.FunctionName)result" class="content-panel-result content-panel-result-grid">
+    <h4>@Html.Raw(Resources.Excel.ExcelMergingGET_RequestUrl)</h4>
+    <div id="@(Model.FunctionName)url" class="content-panel-result-url">
+        <pre>
+        </pre>
+    </div>
+    <h4 class="content-json-data">@Html.Raw(Resources.Excel.ExcelMergingGET_ShowJsonDataByFlexGrid)</h4>
+    <div id="@(Model.FunctionName)showdata" class="result-content-data">
+    </div>
+    <h4 class="content-json-xml">@Html.Raw(Resources.Excel.ExcelMergingGET_ShowXMLData)</h4>
+    <pre class="result-content-xml">
+    </pre>
+</div>
+
+<script>
+    function mergeExcelGet(id, url) {
+        var fullUrl = showResult(id, url);
+        formGet(id, fullUrl);
+    }
+</script>

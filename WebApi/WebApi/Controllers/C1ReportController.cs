@@ -39,8 +39,8 @@ namespace WebApi.Controllers
         private string GetDetails()
         {
             var sbContent = new StringBuilder();
-            sbContent.Append(GetReportTree("FlexReports", Localization.Resource.FlexReports, ReportFiles.Reports));
-            sbContent.Append(GetReportTree("SSRSReports", Localization.Resource.SSRSReports, Documents.SsrsReports.Items));
+            sbContent.Append(GetReportTree("FlexReports", Resources.Resource.FlexReports, ReportFiles.Reports));
+            sbContent.Append(GetReportTree("SSRSReports", Resources.Resource.SSRSReports, Documents.SsrsReports.Items));
             return sbContent.ToString();
         }
 
@@ -48,10 +48,10 @@ namespace WebApi.Controllers
         {
             var c1APIIntroduction = new C1APIIntroduction();
             c1APIIntroduction.Name = "Report";
-            c1APIIntroduction.Abstract = "<p>" + Localization.Resource.Report_Text1 + "</p>"
-                + "<p>" + Localization.Resource.Report_Text2 + "</p>"
-                + "<h4>" + Localization.Resource.Report_Text3 + "</h4>"
-                + "<p>" + Localization.Resource.Report_Text4 + "</p>";
+            c1APIIntroduction.Abstract = "<p>"+ Resources.Resource.Report_Text1 + "</p>"
+                + "<p>" + Resources.Resource.Report_Text2 + "</p>"
+                + "<h4>" + Resources.Resource.Report_Text3 + "</h4>"
+                + "<p>" + Resources.Resource.Report_Text4 + "</p>";
             c1APIIntroduction.Details = GetDetails();
             return c1APIIntroduction;
         }

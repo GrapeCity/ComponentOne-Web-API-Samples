@@ -1,0 +1,83 @@
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+
+<div class="settings-panel-content">
+    <div style="float:left;width:100%">
+        <div style="float:left"><h4>@Html.Raw(Excel.ExcelGeneratingConvertFormatGET_Parameters)</h4></div>
+        <div style="float:right">
+            <button style="margin-top:3px;padding: 4px;" class="btn btn-primary"
+                    onclick="generateExcelGet_@(Model.FunctionName)('@Model.FunctionName', '@(Configuration["WebAPIService"] + Model.FunctionUrl.Substring(1))');">
+                @Html.Raw(Excel.ExcelGeneratingConvertFormatGET_GenerateExcel)
+            </button>
+        </div>
+    </div>
+    <div>
+        <div class="settings-panel">
+            <div class="param-item">
+                <label class="param-lable parameter"><b>@Html.Raw(Excel.ExcelGeneratingConvertFormatGET_Parameter)</b></label>
+                <label class="param-lable value"><b>@Html.Raw(Excel.ExcelGeneratingConvertFormatGET_Value)</b></label>
+                <label class="param-lable description"><b>@Html.Raw(Excel.ExcelGeneratingConvertFormatGET_Description)</b></label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Excel.ExcelGeneratingConvertFormatGET_FileName)</label>
+                <input class="param-value value" type="text" name="FileName" value="excel" />
+                <label class="param-lable description">@Html.Raw(Excel.ExcelGeneratingConvertFormatGET_FileNameDesc)</label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Excel.ExcelGeneratingConvertFormatGET_Type)</label>
+                <select class="param-value value" name="type">
+                    <option value="json">json</option>
+                    <option selected="selected" value="xlsx">xlsx</option>
+                    <option value="csv">csv</option>
+                    <option value="xml">xml</option>
+                </select>
+                <label class="param-lable description">@Html.Raw(Excel.ExcelGeneratingConvertFormatGET_TypeDesc)</label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Excel.ExcelGeneratingConvertFormatGET_WorkBookFileName)</label>
+                <select class="param-value value" name="workbookfilename">
+                    <option value="none" selected="selected">@Html.Raw(Excel.ExcelGeneratingConvertFormatGET_WorkBookFileName_None)</option>
+                    <option value="ExcelRoot/align.xlsx">align.xlsx</option>
+                    <option value="ExcelRoot/FlexGrid.xlsx">FlexGrid.xlsx</option>
+                    <option value="ExcelRoot/GAS.xlsx">GAS.xlsx</option>
+                    <option value="ExcelRoot/Grouping.xlsx">Grouping.xlsx</option>
+                    <option value="ExcelRoot/Hierarchical.xlsx">Hierarchical.xlsx</option>
+                    <option value="ExcelRoot/Houston.xlsx">Houston.xlsx</option>
+                    <option value="ExcelRoot/Palette.xlsx">Palette.xlsx</option>
+                    <option value="ExcelRoot/ExcelWithFormula.xlsx">ExcelWithFormula.xlsx</option>
+                    <option value="OneDrive/Documents/align.xlsx">OneDrive/Documents/align.xlsx</option>
+                    <option value="OneDrive/Documents/FlexGrid.xlsx">OneDrive/Documents/FlexGrid.xlsx</option>
+                    <option value="OneDrive/Documents/GAS.xlsx">OneDrive/Documents/GAS.xlsx</option>
+                    <option value="OneDrive/Documents/Grouping.xlsx">OneDrive/Documents/Grouping.xlsx</option>
+                    <option value="OneDrive/Documents/Hierarchical.xlsx">OneDrive/Documents/Hierarchical.xlsx</option>
+                    <option value="OneDrive/Documents/Houston.xlsx">OneDrive/Documents/Houston.xlsx</option>
+                    <option value="OneDrive/Documents/Palette.xlsx">OneDrive/Documents/Palette.xlsx</option>
+                    <option value="OneDrive/Documents/ExcelWithFormula.xlsx">OneDrive/Documents/ExcelWithFormula.xlsx</option>
+                </select>
+                <label class="param-lable description">
+                    @Html.Raw(Excel.ExcelGeneratingConvertFormatGET_WorkBookFileNameDesc)
+                </label>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="@(Model.FunctionName)result" class="content-panel-result content-panel-result-grid">
+    <h4>@Html.Raw(Excel.ExcelGeneratingConvertFormatGET_RequestUrl)</h4>
+    <div id="@(Model.FunctionName)url" class="content-panel-result-url">
+        <pre>
+        </pre>
+    </div>
+    <h4 class="content-json-data">@Html.Raw(Excel.ExcelGeneratingConvertFormatGET_ShowJsonDataByFlexGrid)</h4>
+    <div id="@(Model.FunctionName)showdata" class="result-content-data">
+    </div>
+    <h4 class="content-json-xml">@Html.Raw(Excel.ExcelGeneratingConvertFormatGET_ShowXMLData)</h4>
+    <pre class="result-content-xml">
+    </pre>
+</div>
+
+<script>
+    function generateExcelGet_@(Model.FunctionName)(id, url) {
+        var fullUrl = showResult(id, url);
+        formGet(id, fullUrl);
+    }
+</script>

@@ -1,0 +1,136 @@
+﻿<div class="controls-panel-container">
+    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="false">
+        @{var i = 0;}
+        @{for (int catcount = 0; catcount < ControlsClass.ControlCatList.Count(); catcount++)
+            {
+                var catName = ControlsClass.ControlCatList.ToList()[catcount].CatName;
+                string bodyClass = "panel-collapse collapse";
+                if (catcount == 0)
+                { bodyClass = "panel-collapse collapse in"; }
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingOne_@catcount">
+                        <div class="panel-title">
+                            <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne_@catcount" aria-expanded="true" aria-controls="collapseOne_@catcount">
+                                <div class="title"><img src="~/Content/css/images/@(catName).svg" />&nbsp;&nbsp;<span>@catName</span></div>
+                            </a>
+                        </div>
+                    </div>
+                    <div id="collapseOne_@catcount" class="@bodyClass" role="tabpanel" aria-labelledby="headingOne_@catcount">
+                        <div class="panel-body">
+                            <div class="controls-panel">
+                                <div class="ui-helper-clearfix function-group-container">
+                                    <div id="controlsGrpM_@catcount" class="ui-helper-clearfix function-group">
+                                        <div class="panel-group" id="accordion_@catcount" role="tablist" aria-multiselectable="false">
+                                            @foreach (var functionGroup in ControlsClass.ControlCatList.ToList()[catcount].FunctionGroups)
+                                            {
+                                                i++;
+                                                <div class="functionHead" role="tab" id="functionHeadingOne_@i">
+                                                    <div class="panel-title">
+                                                        <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion_@catcount" href="#functionCollapseOne_@i" aria-expanded="true" aria-controls="functionCollapseOne_@i">
+                                                            <div class="sub-title"><div class="collapsed-icon"></div>&nbsp;&nbsp;@functionGroup.FunctionGroupName</div>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div id="functionCollapseOne_@i" class="panel-collapse ui-helper-clearfix controls-group collapse @functionGroup.FunctionGroupNameEn.Replace(' ', '_')" role="tabpanel" aria-labelledby="functionHeadingOne_@i">
+                                                    @foreach (var function in functionGroup.Functions)
+                                                    {
+                                                        <div data-toggle="collapse" data-target="#@function.FunctionName" class="collapsed">
+                                                            <div class="heading">
+                                                                <div class="method @function.FunctionMethod ">
+                                                                    @function.FunctionMethod
+                                                                </div>
+                                                                <div class="path">
+                                                                    @function.FunctionUrl
+                                                                </div>
+                                                                @if (!string.IsNullOrEmpty(function.FunctionUsage))
+                                                                {
+                                                                    <div class="usage">
+                                                                        @function.FunctionUsage
+                                                                    </div>
+                                                                }
+                                                            </div>
+                                                        </div>
+                                                        <div id="@function.FunctionName" class="panel-content collapse">
+                                                            <div class="panel-content-main">
+                                                                <div class="settings-panel-content">
+                                                                    <div class="panel-content-desc">
+                                                                        <h4>@Html.Raw(Resource.ControlList_Description)</h4>
+                                                                        @function.FunctionDescription
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="panel-content-main">
+                                                                @await Html.PartialAsync("../" + catName + "/" + function.FunctionName, function)
+                                                            </div>
+                                                            @if (!string.IsNullOrEmpty(function.ResponseSchema))
+                                                            {
+                                                                <div class="panel-content-main">
+                                                                    <div class="settings-panel-content">
+                                                                        <div class="panel-content-desc">
+                                                                            <h4 class="schema-title">@Html.Raw(Resource.ControlList_ResponseSchema)</h4>
+                                                                        </div>
+                                                                        <pre class="panel-content-schema"></pre>
+                                                                        <script>
+                                                                        $("#@function.FunctionName pre.panel-content-schema").html("@function.ResponseSchema")
+                                                                        </script>
+                                                                    </div>
+                                                                </div>
+                                                            }
+                                                            @if (function.Statuses.Count() > 0)
+                                                            {
+                                                                <div class="panel-content-main">
+                                                                    <div class="status-panel-content">
+                                                                        <div style="float:left"><h4>@Html.Raw(Resource.ControlList_ResponseMessages)</h4></div>
+                                                                        <div class="status-item">
+                                                                            <label class="status-label name"><b>@Html.Raw(Resource.ControlList_HTTPStatusCode)</b></label>
+                                                                            <label class="status-label description"><b>@Html.Raw(Resource.ControlList_Reason)</b></label>
+                                                                        </div>
+                                                                        @foreach (var status in function.Statuses)
+                                                                        {
+                                                                            <div class="status-item">
+                                                                                <label class="status-label name">@status.StatusName</label>
+                                                                                <label class="status-label description">@status.StatusDescription</label>
+                                                                            </div>
+                                                                        }
+                                                                    </div>
+                                                                </div>
+                                                            }
+                                                        </div>
+                                                    }
+                                                    @foreach (var groups in functionGroup.ControlGroups)
+                                                    {
+                                                        <div id="controlsPanelCol_@groups.GroupId" class="column">
+                                                            <div id="Grp_@groups.GroupId">
+                                                                <a class="collapse-title" href="#" target="_self">@groups.GroupName<span class="caret"></span></a>
+                                                                <ul class="controls-menu mob-hide-1 collapse-panel">
+                                                                    @foreach (var controlPage in groups.controls)
+                                                                    {
+                                                                        var controlName = controlPage.ControlName;
+                                                                        if (controlName.StartsWith("MVC"))
+                                                                        {
+                                                                            controlName = controlName.Substring(3);
+                                                                        }
+                                                                        else if (controlName.StartsWith("Wijmo5"))
+                                                                        {
+                                                                            controlName = controlName.Substring(6);
+                                                                        }
+                                                                        <li>@Html.ActionLink(controlName, "Index", controlPage.ControlName)</li>
+                                                                    }
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    }
+                                                </div>
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            }
+        }
+    </div>
+</div>

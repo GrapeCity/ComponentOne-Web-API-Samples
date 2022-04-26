@@ -1,0 +1,27 @@
+@using WebApiExplorer.Models
+@{
+    ClientSettingsModel settings = ViewBag.DemoSettingsModel;
+    ImageExportOptions optionsModel = ViewBag.Options;
+    ViewBag.DemoSettings = true;
+}
+
+@(Html.C1().RadialGauge().Id(optionsModel.ControlId)
+    .Face(fb => fb.Min(0).Max(10))
+    .Pointer(pb => pb.Max(5).Thickness(0.5)).Format("").ShowText(ShowText.All)
+    .IsReadOnly(false).Step(0.5)
+    .Ranges(items => items
+        .Add(item => item.Min(1).Max(2).Color(System.Drawing.Color.Red))
+        .Add(item => item.Min(3).Max(4).Color(System.Drawing.Color.Green))
+        .Add(item => item.Min(7).Max(10).Color(System.Drawing.Color.Yellow))
+    ).ShowRanges(true)
+    .SweepAngle(180).StartAngle(0)
+    .Width(400).Height(200)
+)
+
+@section Settings{
+    @Html.Partial("_ImageExportOptions", optionsModel)
+}
+
+@section Description{
+    @Html.Raw(Resources.MVCRadialGauge.Index_Text0)
+}

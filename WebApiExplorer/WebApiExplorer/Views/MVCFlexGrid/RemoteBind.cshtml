@@ -1,0 +1,36 @@
+@using WebApiExplorer.Models
+@using C1.Web.Mvc.Grid
+@{
+    GridExportImportOptions optionsModel = ViewBag.Options;
+    ViewBag.DemoSettings = true;
+}
+
+@(Html.C1().FlexGrid().Id(optionsModel.ControlId)
+    .AutoGenerateColumns(false)
+    .AllowSorting(true)
+    .IsReadOnly(true)
+    .Bind(bl => bl.InitialItemsCount(10).Bind(Url.Action("RemoteBind_Read")))
+    .CssClass("grid")
+    .SelectionMode(SelectionMode.Row).Filterable()
+    .Columns(columns =>
+    {
+        columns.Add(column => column.Binding("ID"));
+        columns.Add(column => column.Binding("Start").Format("MMM d yy"));
+        columns.Add(column => column.Binding("End").Format("HH:mm"));
+        columns.Add(column => column.Binding("Country"));
+        columns.Add(column => column.Binding("Product"));
+        columns.Add(column => column.Binding("Color"));
+        columns.Add(column => column.Binding("Amount").Format("c"));
+        columns.Add(column => column.Binding("Amount2").Format("c"));
+        columns.Add(column => column.Binding("Discount").Format("p0"));
+        columns.Add(column => column.Binding("Active"));
+    })
+)
+
+@section Settings{
+    @Html.Partial("_FlexGridOptions", optionsModel)
+}
+
+@section Description{
+    @Html.Raw(Resources.MVCFlexGrid.RemoteBind_Text0)
+}

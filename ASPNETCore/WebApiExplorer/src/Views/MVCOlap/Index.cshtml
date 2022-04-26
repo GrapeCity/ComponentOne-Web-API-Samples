@@ -1,0 +1,64 @@
+﻿@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+
+@{
+    ViewBag.Title = "DataEngine";
+    ViewBag.HideFeatures = true;
+    ViewBag.DemoDescription = false;
+    var webAPIService = Configuration["WebAPIService"] + "api/dataengine";
+    var dataSets = (IEnumerable<OlapData>)(ViewBag.DataSets);
+    var showTotals = (IEnumerable<string>)(ViewBag.ShowTotals);
+}
+
+@section Head{
+    <script type="text/javascript">
+        window['webAPIService'] = '@webAPIService';
+    </script>
+    <script src="~/Scripts/DataEngine/common.js" type="text/javascript"></script>
+}
+
+<div class="title-container">
+    <p>@Html.Raw(MVCOlap.Index_Text0)</p>
+    <p>@Html.Raw(MVCOlap.Index_Text1)</p>
+    <p>@Html.Raw(MVCOlap.Index_Text2)</p>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <c1-pivot-engine id="dataSourceEngine" service-url="@(webAPIService + "/complex10")" show-row-totals="None" show-column-totals="None" show-zeros="false">
+            <c1-view-field-collection c1-property="RowFields" items="Product,Country"></c1-view-field-collection>
+            <c1-view-field-collection c1-property="ValueFields" items="Sales,Downloads"></c1-view-field-collection>
+        </c1-pivot-engine>
+        <div class="col-sm-4 col-md-4">
+            <c1-pivot-panel id="pivotPanel" items-source-id="dataSourceEngine"></c1-pivot-panel>
+        </div>
+        <div class="col-sm-8 col-md-8">
+            <c1-pivot-grid id="pivotGrid" items-source-id="dataSourceEngine" show-selected-headers="All"></c1-pivot-grid>
+        </div>
+    </div>
+</div>
+
+<div class="col-lg-12 ui-helper-clearfix content-panel" style="margin-top:20px">
+    <p>@Html.Raw(MVCOlap.Index_Text3)</p>
+    <dl class="dl-horizontal">
+        <dt>@Html.Raw(MVCOlap.Index_Dataset)</dt>
+        <dd>
+            <c1-combo-box id="cmbDataSets" display-member-path="Name" selected-value-path="Value" selected-index-changed="cmbDataSets_SelectIndexChanged">
+                <c1-items-source source-collection="@dataSets"></c1-items-source>
+            </c1-combo-box>
+        </dd>
+        <dt>@Html.Raw(MVCOlap.Index_RowTotals)</dt>
+        <dd>
+            <c1-combo-box id="cmbRowTotals" selected-index-changed="cmbRowTotals_SelectIndexChanged">
+                <c1-items-source source-collection="@showTotals"></c1-items-source>
+            </c1-combo-box>
+        </dd>
+        <dt>@Html.Raw(MVCOlap.Index_ColumnTotals)</dt>
+        <dd>
+            <c1-combo-box id="cmbColTotals" selected-index-changed="cmbColTotals_SelectIndexChanged">
+                <c1-items-source source-collection="@showTotals"></c1-items-source>
+            </c1-combo-box>
+        </dd>
+        <dt>@Html.Raw(MVCOlap.Index_ShowZeros)</dt>
+        <dd><input id="chkShowZeros" type="checkbox" onclick="chkShowZeros_CheckedChanged()" /></dd>
+    </dl>
+</div>

@@ -1,0 +1,61 @@
+﻿<div class="main-content">
+    <div class="col-md-2"></div>
+    <div class="col-md-4">
+        <div class="error"></div>
+        @Html.Raw(Resources.Resource.Index_Email) <select id="loginEmail" class="form-control"></select><br />
+        @Html.Raw(Resources.Resource.Index_Password) <input id="loginPassword" type="password" readonly class="form-control" /><br />
+        @Html.Raw(Resources.Resource.Index_Role)<input id="loginRole" readonly class="form-control" /><br />
+        <input type="button" value="Login" onclick="login('@Url.Action("files", "home")')" class="form-control" />
+    </div>
+    <div class="col-md-4">
+        @Html.Raw(Resources.Resource.Index_Content)
+    </div>
+    <div class="col-md-2"></div>
+
+    <div class="hidden">
+        @Html.Raw(Resources.Resource.Index_Register)<br />
+        @Html.Raw(Resources.Resource.Index_Email) <input id="registerEmail" /><br />
+        @Html.Raw(Resources.Resource.Index_Password) <input id="registerPassword" /><br />
+        @Html.Raw(Resources.Resource.Index_ConfirmPassword) <input id="registerConfirmPassword" /><br />
+        <input type="button" value="@Html.Raw(Resources.Resource.Index_Register)" onclick="register()" />
+    </div>
+</div>
+@section scripts
+{
+    <script>
+        var definedUsers = [
+            { email: 'test@test.com', password: 'C1_test', role: 'Admin' },
+            { email: 'nancy@test.com', password: 'C1_test', role: 'Sales Representative' },
+            { email: 'steven@test.com', password: 'C1_test', role: 'Sales Manager' },
+        ];
+
+        $(function () {
+            var $loginEmail = $('#loginEmail'),
+                $loginPassword = $('#loginPassword'),
+                $loginRole = $('#loginRole');
+            var update = function (data) {
+                $loginPassword.val(data.password);
+                $loginRole.val(data.role);
+            };
+
+            $loginEmail.on('change', function () {
+                var selectedOption = $(this).children('option:selected');
+                var data = selectedOption.data('user');
+                update(data);
+            });
+
+            for (var i = 0, length = definedUsers.length; i < length; i++) {
+                var item = definedUsers[i];
+                var $option = $('<option>')
+                    .val(item.email)
+                    .data('user', item)
+                    .text(item.email);
+                $loginEmail.append($option);
+                if (i === 0) {
+                    $option.prop('selected', true);
+                    update(item);
+                }
+            }
+        });
+    </script>
+}

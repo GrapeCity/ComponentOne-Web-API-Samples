@@ -1,0 +1,141 @@
+@model WebApiExplorer.Models.ControlsClass.Function
+
+<div class="settings-panel-content">
+    <div style="float:left;width:100%">
+        <div style="float:left"><h4>@Html.Raw(Resources.DataEngine.Detail_Parameters)</h4></div>
+        <div style="float:right">
+            <button style="margin-top:3px;padding: 4px;" class="btn btn-primary btn-getting-details" disabled="disabled"
+                    onclick="getDetail();">
+                @Html.Raw(Resources.DataEngine.Detail_GetDetails)
+            </button>
+        </div>
+    </div>
+    <div>
+        <div class="settings-panel getting-details">
+            <div class="param-item">
+                <label class="param-lable parameter"><b>@Html.Raw(Resources.DataEngine.Detail_Parameter)</b></label>
+                <label class="param-lable value"><b>@Html.Raw(Resources.DataEngine.Detail_Value)</b></label>
+                <label class="param-lable description"><b>@Html.Raw(Resources.DataEngine.Detail_Description)</b></label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Resources.DataEngine.Detail_DataSource)</label>
+                <span class="param-value-group">
+                    <select name="dataSourceKey" class="param-value" onchange="gettingDetails_DataChanged()" style=" width: 100%; margin-bottom: 10px;">
+                        <option value="none" selected="selected">@Html.Raw(Resources.DataEngine.Detail_DataSource_none)</option>
+                        <option value="complex10">@Html.Raw(Resources.DataEngine.Detail_DataSource_Complex10)</option>
+                        <option value="complex50">@Html.Raw(Resources.DataEngine.Detail_DataSource_Complex50)</option>
+                        <option value="complex100">@Html.Raw(Resources.DataEngine.Detail_DataSource_Complex100)</option>
+                        <option value="dataset10">@Html.Raw(Resources.DataEngine.Detail_DataSource_Dataset10)</option>
+                        <option value="dataset50">@Html.Raw(Resources.DataEngine.Detail_DataSource_Dataset50)</option>
+                        <option value="dataset100">@Html.Raw(Resources.DataEngine.Detail_DataSource_Dataset100)</option>
+                    </select>
+                </span>
+                <label class="param-lable description">@Html.Raw(Resources.DataEngine.Detail_DataSourceDesc)</label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Resources.DataEngine.Detail_Skip)</label>
+                <span class="param-value-group">
+                    <input type="number" name="skip" class="param-value" style="width: 100%;" min="1" />
+                </span>
+                <label class="param-lable description">@Html.Raw(Resources.DataEngine.Detail_SkipDesc)</label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Resources.DataEngine.Detail_Top)</label>
+                <span class="param-value-group">
+                    <input type="number" name="top" class="param-value" style="width: 100%;" min="0" value="10" />
+                </span>
+                <label class="param-lable description">@Html.Raw(Resources.DataEngine.Detail_TopDesc)</label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Resources.DataEngine.Detail_ViewDefinition)</label>
+                <span class="param-value-group">
+                    <textarea name="view" class="param-value" style="width: 100%; height:100px;" oninput="gettingDetails_SettingChanged()"></textarea>
+                </span>
+                <label class="param-lable description">
+                    @Html.Raw(Resources.DataEngine.Detail_ViewDefinitionDesc)
+                </label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Resources.DataEngine.Detail_Key)</label>
+                <span class="param-value-group">
+                    <input name="keys" class="param-value" style="width: 100%;" oninput="gettingDetails_SettingChanged()"/>
+                </span>
+                <label class="param-lable description">
+                    @Html.Raw(Resources.DataEngine.Detail_KeyDesc)
+                </label>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="@(Model.FunctionName)result" class="content-panel-result">
+    <h4>@Html.Raw(Resources.DataEngine.Detail_Headers)</h4>
+    <div id="@(Model.FunctionName)headers" class="content-panel-result-url">
+        <pre>
+        </pre>
+    </div>
+    <h4 class="content-json-data">@Html.Raw(Resources.DataEngine.Detail_ResponseData)</h4>
+    <div id="@(Model.FunctionName)showdata" class="result-content-data" style="height:auto">
+        <pre style="max-height:200px">
+        </pre>
+    </div>
+</div>
+
+<script>
+    function getDetail() {
+        var dataSourceKey = $(".getting-details .param-value[name=dataSourceKey]").val();
+        var skip = parseInt($(".getting-details .param-value[name=skip]").val());
+        var top = parseInt($(".getting-details .param-value[name=top]").val());
+        var viewDefinition = $(".getting-details .param-value[name=view]").val();
+        var keys = $(".getting-details .param-value[name=keys]").val();
+        var fullUrl = '@(System.Configuration.ConfigurationManager.AppSettings["WebAPIService"])'
+            + "api/dataengine/" + dataSourceKey;
+
+        var postData = {
+            view: viewDefinition,
+            keys: JSON.parse(keys)
+        };
+        if (!isNaN(skip)) {
+            postData.skip = skip;
+        }
+        if (!isNaN(top)) {
+            postData.top = top;
+        }
+        postData = JSON.stringify(postData);
+
+        $("#@(Model.FunctionName)headers pre").text("@(Resources.DataEngine.Detail_RequestURL)" + fullUrl);
+        $("#@(Model.FunctionName)result").show();
+
+        $.ajax({
+            type: "POST",
+            contentType: "application/json",
+            url: fullUrl,
+            cache: false,
+            data: postData,
+            success: function (data) {
+                $("#@(Model.FunctionName)showdata pre").text(JSON.stringify(data, null, 4));
+                $(".content-json-data").show();
+            },
+            complete: function (xhr, status) {
+                $("#@(Model.FunctionName)headers pre").append("\r\n@(Resources.DataEngine.Detail_StatusCode)" + xhr.status);
+            }
+        });
+    }
+
+    function gettingDetails_DataChanged() {
+        var dataSourceKey = $(".getting-details .param-value[name=dataSourceKey]").val();
+        var text = "";
+        if (dataSourceKey != "none") {
+            text = "{fields:[{'binding':'Active','dataType':3},{'binding':'Country','dataType':1},{'binding':'Date','dataType':4},{'binding':'Discount','dataType':2},{'binding':'Downloads','dataType':2},{'binding':'ID','dataType':2},{'binding':'Product','dataType':1},{'binding':'Sales','dataType':2}],rowFields:{items:['Product']},columnFields:{items:['Country']},valueFields:{items:['Sales']}}";
+        }
+        $(".getting-details .param-value[name=view]").val(text);
+        $(".getting-details .param-value[name=keys]").val("[\"Aoba\", \"China\"]");
+        gettingDetails_SettingChanged();
+    }
+
+    function gettingDetails_SettingChanged() {
+        var dataSourceKey = $(".getting-details .param-value[name=dataSourceKey]").val();
+        var viewDefinition = $(".getting-details .param-value[name=view]").val();
+        var keys = $(".getting-details .param-value[name=keys]").val();
+        $("button.btn-getting-details").attr("disabled", dataSourceKey === "none" || !viewDefinition || !keys);
+    }
+</script>

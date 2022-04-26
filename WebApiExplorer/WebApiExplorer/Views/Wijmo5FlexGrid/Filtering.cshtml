@@ -1,0 +1,18 @@
+@using WebApiExplorer.Models
+@{
+    GridExportImportOptions optionsModel = ViewBag.Options;
+    ViewBag.DemoSettings = true;
+}
+
+<div id="@(optionsModel.ControlId)" style="height:300px"></div>
+@section Settings{
+    @Html.Partial("_FlexGridOptions", optionsModel)
+}
+<script>
+    var grid = new wijmo.grid.FlexGrid('#@(optionsModel.ControlId)'), filter;
+    initializeFlexGrid(grid);
+    filter = new wijmo.grid.filter.FlexGridFilter(grid);
+</script>
+@section Description{
+    @Html.Raw(Resources.Wijmo5FlexGrid.Filtering_Text0)
+}

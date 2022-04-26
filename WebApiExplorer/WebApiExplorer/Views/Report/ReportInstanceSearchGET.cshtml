@@ -1,0 +1,117 @@
+@model WebApiExplorer.Models.ControlsClass.Function
+
+<div class="settings-panel-content">
+    <div style="float:left;width:100%">
+        <div style="float:left"><h4>@Html.Raw(Resources.Report.ReportInstanceSearchGET_Parameters)</h4></div>
+        <div style="float:right">
+            <button style="margin-top:3px;padding: 4px;" class="btn btn-primary btn-report-instance" disabled="disabled"
+                    onclick="reportinstanceSearch('@Model.FunctionName', '@(System.Configuration.ConfigurationManager.AppSettings["WebAPIService"])');">
+                @Html.Raw(Resources.Report.ReportInstanceSearchGET_Search)
+            </button>
+        </div>
+    </div>
+    <div>
+        <div class="settings-panel report-instance-search">
+            <div class="param-item">
+                <label class="param-lable parameter"><b>@Html.Raw(Resources.Report.ReportInstanceSearchGET_Parameter)</b></label>
+                <label class="param-lable value"><b>@Html.Raw(Resources.Report.ReportInstanceSearchGET_Value)</b></label>
+                <label class="param-lable description"><b>@Html.Raw(Resources.Report.ReportInstanceSearchGET_Description)</b></label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Resources.Report.ReportInstanceSearchGET_ReportFullPath)</label>
+                <span class="param-value-group">
+                    <input type="text" name="reportFullPath" class="param-value" style="width: 100%; margin-bottom: 10px;" disabled="disabled" value="@(Resources.Report.ReportInstanceSearchGET_PleaseLoadAReportFirst)" />
+                </span>
+                <label class="param-lable description">@Html.Raw(Resources.Report.ReportInstanceSearchGET_ReportFullPathText)</label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Resources.Report.ReportInstanceSearchGET_InstanceId)</label>
+                <span class="param-value-group">
+                    <input type="text" name="instanceId" class="param-value" style="width: 100%; margin-bottom: 10px;" disabled="disabled" value="@(Resources.Report.ReportInstanceSearchGET_PleaseLoadAReportFirst)" />
+                </span>
+                <label class="param-lable description">@Html.Raw(Resources.Report.ReportInstanceSearchGET_InstanceIdText)</label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Resources.Report.ReportInstanceSearchGET_StartPageIndex)</label>
+                <span class="param-value-group">
+                    <input type="text" name="startPageIndex" value="0" class="param-value" style="width: 100%; margin-bottom: 10px;" />
+                </span>
+                <label class="param-lable description">@Html.Raw(Resources.Report.ReportInstanceSearchGET_StartPageIndexText)</label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Resources.Report.ReportInstanceSearchGET_SearchScope)</label>
+                <span class="param-value-group">
+                    <select name="scope" class="param-value" style="width: 100%; margin-bottom: 10px;">
+                        <option value="WholeDocument" selected="selected">@Html.Raw(Resources.Report.ReportInstanceSearchGET_SearchScope_WholeDocument)</option>
+                        <option value="EndOfDocument">@Html.Raw(Resources.Report.ReportInstanceSearchGET_SearchScope_EndOfDocument)</option>
+                        <option value="FirstOccurrence">@Html.Raw(Resources.Report.ReportInstanceSearchGET_SearchScope_FirstOccurrence)</option>
+                        <option value="SinglePage">@Html.Raw(Resources.Report.ReportInstanceSearchGET_SearchScope_SinglePage)</option>
+                    </select>
+                </span>
+                <label class="param-lable description">@Html.Raw(Resources.Report.ReportInstanceSearchGET_SearchScopeText)</label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Resources.Report.ReportInstanceSearchGET_SearchText)</label>
+                <span class="param-value-group">
+                    <input type="text" name="searchText" class="param-value" style="width: 100%; margin-bottom: 10px;" />
+                </span>
+                <label class="param-lable description">@Html.Raw(Resources.Report.ReportInstanceSearchGET_SearchTextText)</label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Resources.Report.ReportInstanceSearchGET_MatchCase)</label>
+                <span class="param-value-group">
+                    <input type="checkbox" name="matchCase" class="param-value" style="margin-bottom: 10px;" />
+                </span>
+                <label class="param-lable description">@Html.Raw(Resources.Report.ReportInstanceSearchGET_MatchCaseText)</label>
+            </div>
+            <div class="param-item">
+                <label class="param-lable parameter">@Html.Raw(Resources.Report.ReportInstanceSearchGET_WholeWord)</label>
+                <span class="param-value-group">
+                    <input type="checkbox" name="wholeWord" class="param-value" style="margin-bottom: 10px;" />
+                </span>
+                <label class="param-lable description">@Html.Raw(Resources.Report.ReportInstanceSearchGET_WholeWordText)</label>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="@(Model.FunctionName)result" class="content-panel-result">
+    <h4>@Html.Raw(Resources.Report.ReportInstanceSearchGET_Headers)</h4>
+    <div id="@(Model.FunctionName)headers" class="content-panel-result-url">
+        <pre>
+        </pre>
+    </div>
+    <h4 class="content-json-data">@Html.Raw(Resources.Report.ReportInstanceSearchGET_ResponseData)</h4>
+    <div id="@(Model.FunctionName)showdata" class="result-content-data" style="height:auto">
+        <pre style="max-height:200px">
+        </pre>
+    </div>
+</div>
+
+<script>
+    function reportinstanceSearch(id, url) {
+        var instanceId = $(".report-instance-search .param-value[name=instanceId]").val();
+        var reportFullPath = $(".report-instance-search .param-value[name=reportFullPath]").val();
+        var startPageIndex = $(".report-instance-search .param-value[name=startPageIndex]").val();
+        var scope = $(".report-instance-search .param-value[name=scope]").val();
+        var searchText = $(".report-instance-search .param-value[name=searchText]").val();
+        var matchCase = $(".report-instance-search .param-value[name=matchCase]").is(":checked");
+        var wholeWord = $(".report-instance-search .param-value[name=wholeWord]").is(":checked");
+        var fullUrl = url + "api/report/" + reportFullPath + "/$instances/" + instanceId + "/search?text=" + searchText + "&matchCase=" + matchCase + "&wholeWord=" + wholeWord + "&startPageIndex=" + startPageIndex + "&scope=" + scope;
+
+        $("#@(Model.FunctionName)headers pre").text("@(Resources.Report.ReportInstanceSearchGET_RequestURL)" + fullUrl);
+        $("#@(Model.FunctionName)result").show();
+
+        $.ajax({
+            type: "GET",
+            url: fullUrl,
+            cache: false,
+            success: function (data) {
+                $("#@(Model.FunctionName)showdata pre").text(JSON.stringify(data, null, 4));
+                $(".content-json-data").show();
+            },
+            complete: function (xhr, status) {
+                $("#@(Model.FunctionName)headers pre").append("\r\n@(Resources.Report.ReportInstanceSearchGET_StatusCode)" + xhr.status);
+            }
+        });
+    }
+</script>

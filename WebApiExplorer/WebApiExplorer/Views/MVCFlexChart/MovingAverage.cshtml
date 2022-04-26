@@ -1,0 +1,82 @@
+@using C1.Web.Mvc.Chart
+@model List<MathPoint>
+@{
+    ImageExportOptions optionsModel = ViewBag.Options;
+    ViewBag.DemoSettings = true;
+    var type = Resources.Wijmo5FlexChart.MovingAverage_Type;
+}
+
+@(Html.C1().FlexChart().Id(optionsModel.ControlId).Bind("X", Model).Height(300)
+    .Legend(Position.Right)
+    .Series(ses =>
+    {
+        ses.Add(ChartType.Line, "Base Data").Binding("Y");
+        ses.AddMovingAverage("SMA").Binding("Y").Type(MovingAverageType.Simple).Period(2);
+    }))
+
+@section Settings{
+    <script>
+        var typeMenu, chart, movingAverage;
+        c1.documentReady(function () {
+            typeMenu = wijmo.Control.getControl('#typeMenu');
+            chart = wijmo.Control.getControl('#@(optionsModel.ControlId)');
+            if (chart) {
+                movingAverage = chart.series[1];
+            }
+        });
+
+        function itemClicked(arg) {
+            if (!typeMenu || !chart || !movingAverage) {
+                return;
+            }
+            typeMenu.header = '@type: <b>' + arg + '</b>'
+            chart.beginUpdate();
+            movingAverage.type = arg;
+            movingAverage.name = arg[0] + 'MA';
+            chart.endUpdate();
+        }
+
+        function periodChanged(host) {
+            if (!checkValue(host)) {
+                return;
+            }
+
+            if (!chart || !movingAverage) {
+                return;
+            }
+
+            chart.beginUpdate();
+            movingAverage.period = host.value;
+            chart.endUpdate();
+        }
+
+        function checkValue(number) {
+            return number.value >= number.min && number.value <= number.max;
+        }
+    </script>
+<div class="container-fluid well">
+    <div class="row">
+        <div class="col-sm-3 col-xs-12">
+            @(Html.C1().Menu().Id("typeMenu").Header(type + ": <b>Simple</b>")
+            .Command("itemClicked")
+                .MenuItems(items =>
+                {
+                    items.Add("Simple", "Simple");
+                    items.Add("Weighted", "Weighted");
+                    items.Add("Exponential", "Exponential");
+                    items.Add("Triangular", "Triangular");
+                }))
+        </div>
+        <div class="col-sm-5 col-xs-12">
+            <label id="labelPeriod" for="inputPeriod">@Html.Raw(Resources.MVCFlexChart.MovingAverage_Period)</label>
+            @(Html.C1().InputNumber().Id("periodInput").Value(2).Min(2).Max(29).Step(1).Format("n0").OnClientValueChanged("periodChanged"))
+        </div>
+    </div>
+</div>
+
+    @Html.Partial("_ImageExportOptions", optionsModel)
+}
+
+@section Description{
+    @Html.Raw(Resources.MVCFlexChart.MovingAverage_Text0)
+}
