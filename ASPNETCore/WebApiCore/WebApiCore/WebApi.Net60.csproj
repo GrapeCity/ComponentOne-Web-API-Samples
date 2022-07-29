@@ -25,15 +25,15 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="C1.AspNetCore.Api" Version="3.0.20221.313" />
-    <PackageReference Include="C1.AspNetCore.Api.BarCode" Version="3.0.20221.313" />
-    <PackageReference Include="C1.AspNetCore.Api.Cloud" Version="3.0.20221.313" />
-    <PackageReference Include="C1.AspNetCore.Api.DataEngine" Version="3.0.20221.313" />
-    <PackageReference Include="C1.AspNetCore.Api.Document" Version="3.0.20221.313" />
-    <PackageReference Include="C1.AspNetCore.Api.Excel" Version="3.0.20221.313" />
-    <PackageReference Include="C1.AspNetCore.Api.Pdf" Version="3.0.20221.313" />
-    <PackageReference Include="C1.AspNetCore.Api.Visitor" Version="3.0.20221.313" />
-    <PackageReference Include="C1.AspNetCore.Api.Report" Version="3.0.20221.313" />
+    <PackageReference Include="C1.AspNetCore.Api" Version="3.0.20222.320" />
+    <PackageReference Include="C1.AspNetCore.Api.BarCode" Version="3.0.20222.320" />
+    <PackageReference Include="C1.AspNetCore.Api.Cloud" Version="3.0.20222.320" />
+    <PackageReference Include="C1.AspNetCore.Api.DataEngine" Version="3.0.20222.320" />
+    <PackageReference Include="C1.AspNetCore.Api.Document" Version="3.0.20222.320" />
+    <PackageReference Include="C1.AspNetCore.Api.Excel" Version="3.0.20222.320" />
+    <PackageReference Include="C1.AspNetCore.Api.Pdf" Version="3.0.20222.320" />
+    <PackageReference Include="C1.AspNetCore.Api.Visitor" Version="3.0.20222.320" />
+    <PackageReference Include="C1.AspNetCore.Api.Report" Version="3.0.20222.320" />
     <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.WebApiCompatShim" Version="2.2.0" />

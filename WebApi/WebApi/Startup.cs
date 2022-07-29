@@ -2,6 +2,7 @@
 using Microsoft.Owin.Cors;
 using Owin;
 using System;
+using System.Net;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Http;
@@ -38,6 +39,9 @@ namespace WebApi
 
         public void Configuration(IAppBuilder app)
         {
+            // C1WEB-29052: Adding more the old SSL protocols explicitly to avoid error of HTTP requests in some cases.
+            ServicePointManager.SecurityProtocol |= SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
+
             // CORS supports - does not apply to <form>
             app.UseCors(CorsOptions.AllowAll);
 
