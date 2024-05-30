@@ -288,7 +288,7 @@ namespace WebApi.Models
 
     public class ControlPageGroup
     {
-        private const string DocumentationRoot = "https://www.grapecity.com/componentone/docs/webapi/online-webapi/overview.html";
+        private const string DocumentationRoot = "https://developer.mescius.com/componentone/docs/webapi/online-webapi/overview.html";
         private string _documentation;
 
         public string Documentation

@@ -1,4 +1,4 @@
-﻿using SalesAnalysis.App_GlobalResources;
+﻿using Resources;
 using System.Web;
 using System.Web.Optimization;
 

@@ -14,7 +14,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ExcelConvertFromCloud</RootNamespace>
     <AssemblyName>ExcelConvertFromCloud</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
@@ -22,6 +22,7 @@
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -49,41 +50,40 @@
       <HintPath>..\packages\AWSSDK.S3.3.3.31.12\lib\net45\AWSSDK.S3.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="C1.C1Excel.4.5.2">
-      <HintPath>..\packages\C1.C1Excel.4.5.20222.566\lib\net452\C1.C1Excel.4.5.2.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="C1.C1Zip.4.5.2">
-      <HintPath>..\packages\C1.C1Zip.4.5.20222.566\lib\net452\C1.C1Zip.4.5.2.dll</HintPath>
+    <Reference Include="C1.C1Excel.4.8">
+      <HintPath>..\packages\C1.C1Excel.4.8.20241.657\lib\net48\C1.C1Excel.4.8.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="C1.Web.Api">
-      <HintPath>..\packages\C1.Web.Api.4.5.20222.320\lib\net45\C1.Web.Api.dll</HintPath>
+      <HintPath>..\packages\C1.Web.Api.4.8.20241.340\lib\net48\C1.Web.Api.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="C1.Web.Api.Cloud">
-      <HintPath>..\packages\C1.Web.Api.Cloud.4.5.20222.320\lib\net45\C1.Web.Api.Cloud.dll</HintPath>
+      <HintPath>..\packages\C1.Web.Api.Cloud.4.8.20241.340\lib\net48\C1.Web.Api.Cloud.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="C1.Web.Api.Excel">
-      <HintPath>..\packages\C1.Web.Api.Excel.4.5.20222.320\lib\net45\C1.Web.Api.Excel.dll</HintPath>
+      <HintPath>..\packages\C1.Web.Api.Excel.4.8.20241.340\lib\net48\C1.Web.Api.Excel.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="C1.Web.Mvc">
-      <HintPath>..\packages\C1.Web.Mvc.4.5.20222.340\lib\net45\C1.Web.Mvc.dll</HintPath>
+      <HintPath>..\packages\C1.Web.Mvc.4.8.20241.360\lib\net48\C1.Web.Mvc.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="C1.Win.4.5.2">
-      <HintPath>..\packages\C1.Win.4.5.20222.566\lib\net452\C1.Win.4.5.2.dll</HintPath>
+    <Reference Include="C1.Win.4.8">
+      <HintPath>..\packages\C1.Win.8.0.20241.657\lib\net48\C1.Win.4.8.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="C1.Win.Bitmap.4.5.2">
-      <HintPath>..\packages\C1.Win.Bitmap.4.5.20222.566\lib\net452\C1.Win.Bitmap.4.5.2.dll</HintPath>
+    <Reference Include="C1.Win.Bitmap.4.8">
+      <HintPath>..\packages\C1.Win.Bitmap.8.0.20241.657\lib\net48\C1.Win.Bitmap.4.8.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="C1.Win.C1DX.4.5.2">
-      <HintPath>..\packages\C1.Win.C1DX.4.5.20222.566\lib\net452\C1.Win.C1DX.4.5.2.dll</HintPath>
+    <Reference Include="C1.Win.C1DX.4.8">
+      <HintPath>..\packages\C1.Win.C1DX.4.8.20241.657\lib\net48\C1.Win.C1DX.4.8.dll</HintPath>
       <Private>True</Private>
+    </Reference>
+    <Reference Include="C1.Zip">
+      <HintPath>..\packages\C1.Zip.2.0.20233.4\lib\netstandard2.0\C1.Zip.dll</HintPath>
     </Reference>
     <Reference Include="Dropbox.Api, Version=4.0.0.0, Culture=neutral, PublicKeyToken=310f0e82fbb45d01, processorArchitecture=MSIL">
       <HintPath>..\packages\Dropbox.Api.4.9.3\lib\net45\Dropbox.Api.dll</HintPath>
@@ -140,8 +140,8 @@
       <HintPath>..\packages\WindowsAzure.Storage.8.7.0\lib\net45\Microsoft.WindowsAzure.Storage.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -277,6 +277,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_GlobalResources\ExcelToJSON.zh-CN.designer.cs">
+      <DependentUpon>ExcelToJSON.zh-CN.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="App_GlobalResources\ExcelToJSON.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -310,6 +315,14 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\css\images\logotext.png" />
+    <Content Include="Content\css\images\logotext_w.png" />
+    <Content Include="Content\favicon\android-chrome-192.png" />
+    <Content Include="Content\favicon\android-chrome-256.png" />
+    <Content Include="Content\favicon\apple-touch-icon180.png" />
+    <Content Include="Content\favicon\logo16.png" />
+    <Content Include="Content\favicon\logo32.png" />
+    <Content Include="Content\favicon\safari-pinned-tab.svg" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\images\electronics.png" />
     <Content Include="Content\images\home.png" />
@@ -332,7 +345,8 @@
     <Content Include="Content\fonts\fira\FiraSans-Regular.ttf" />
     <Content Include="Content\fonts\fira\LICENSE" />
     <Content Include="Content\fonts\gcicons.ttf" />
-    <Content Include="Content\fonts\grapecity-dev.ttf" />
+    <Content Include="Content\fonts\mescius-dev.ttf" />
+    <Content Include="Content\favicon\manifest.json" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\ControlLayout.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -369,8 +383,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\css\" />
-    <Folder Include="Content\favicon\" />
     <Folder Include="Scripts\BootStrap\" />
     <Folder Include="Scripts\SyntaxHighlighter\" />
   </ItemGroup>
@@ -391,6 +403,11 @@
     <Content Include="App_GlobalResources\ExcelToJSON.resx">
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>ExcelToJSON.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\ExcelToJSON.zh-CN.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>ExcelToJSON.zh-CN.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </Content>
     <EmbeddedResource Include="Properties\licenses.licx" />
   </ItemGroup>

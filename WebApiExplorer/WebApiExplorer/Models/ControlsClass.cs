@@ -336,8 +336,8 @@ namespace WebApiExplorer.Models
 
     public class ControlPageGroup
     {
-        private const string DocumentationRootEn = "https://www.grapecity.com/componentone/docs/webapi/online-webapi/overview.html";
-        private const string DocumentationRootJp = "http://docs.grapecity.com/help/c1/aspnet-mvc/webapi/";
+        private const string DocumentationRootEn = "https://developer.mescius.com/componentone/docs/webapi/online-webapi/overview.html";
+        private const string DocumentationRootJp = "http://docs.mescius.jp/help/c1/aspnet-mvc/webapi/";
         private string _documentation;
 
         public string Documentation

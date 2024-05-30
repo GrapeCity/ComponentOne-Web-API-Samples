@@ -11,8 +11,8 @@
 namespace WebApi.Localization {
     using System;
     using System.Reflection;
-    
-    
+
+
     /// <summary>
     ///    A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
@@ -60,7 +60,7 @@ namespace WebApi.Localization {
         }
         
         /// <summary>
-        ///    Looks up a localized string similar to Generate scannable C1 supported barcode on the fly from the (given) text, in/using a variety of standard &lt;a href=\&quot;http://help.grapecity.com/componentone/NetHelp/c1webapi/webframe.html#SupportedBarcodeSymbology.html\&quot;&gt;encoding types&lt;/a&gt;. The barcode so obtained can then be saved as image or stream..
+        ///    Looks up a localized string similar to Generate scannable C1 supported barcode on the fly from the (given) text, in/using a variety of standard &lt;a href=\&quot;https://developer.mescius.com/componentone/docs/webapi/online-webapicore/GenerateBarcode.html\&quot;&gt;encoding types&lt;/a&gt;. The barcode so obtained can then be saved as image or stream..
         /// </summary>
         public static string Barcode_Text1 {
             get {
@@ -69,7 +69,7 @@ namespace WebApi.Localization {
         }
         
         /// <summary>
-        ///    Looks up a localized string similar to  Let&apos;s say you want to use barcode in PDF document or a form. You simply need to provide the desired text to be barcoded and the barcode type through your simple client application. The client application sends a GET request to the REST API service, which returns the generated barcode in response as an image stream. Barcode service lets you save the barcode image to PNG, JPEG, BMP, GIF, or TIFF image formats. Embed/ use the obtained barcode image in PDF or other documents, forms, databases, ID cards and more [rest of string was truncated]&quot;;.
+        ///    Looks up a localized string similar to Let&apos;s say you want to use barcode in PDF document or a form. You simply need to provide the desired text to be barcoded and the barcode type through your simple client application. The client application sends a GET request to the REST API service, which returns the generated barcode in response as an image stream. Barcode service lets you save the barcode image to PNG, JPEG, BMP, GIF, or TIFF image formats. Embed/ use the obtained barcode image in PDF or other documents, forms, databases, ID cards and more [rest of string was truncated]&quot;;.
         /// </summary>
         public static string Barcode_Text2 {
             get {
@@ -78,7 +78,7 @@ namespace WebApi.Localization {
         }
         
         /// <summary>
-        ///    Looks up a localized string similar to DataEngine provides a suite of APIs that allow the user to analyze data from multiple data sources, including SQL Server, other SQL based RDMS servers, NoSQL service, web service, structured files from file/network systems, and more. The aggregating data can be consumed by other controls or application..
+        ///   Looks up a localized string similar to DataEngine provides a suite of APIs that allow the user to analyze data from multiple data sources, including SQL Server, other SQL based RDMS servers, NoSQL service, web service, structured files from file/network systems, and more. The aggregating data can be consumed by other controls or application..
         /// </summary>
         public static string DataEngine_Text1 {
             get {
@@ -87,7 +87,7 @@ namespace WebApi.Localization {
         }
         
         /// <summary>
-        ///    Looks up a localized string similar to  DataEngine Web API uses a column - oriented data model which is widely used in many open source and commercial analytical databases and libraries. Data Engine can handle up to million records in a fraction of a second. The aggregated data is fetched from the Web API, the client application is simple, and it only sends the corresponding query to the server with some format to fetch the data. For more information about Data Engine services, see &lt;a href =\&quot;http://help.grapecity.com/componentone/NetHelp/c1webap [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to DataEngine Web API uses a column - oriented data model which is widely used in many open source and commercial analytical databases and libraries. Data Engine can handle up to million records in a fraction of a second. The aggregated data is fetched from the Web API, the client application is simple, and it only sends the corresponding query to the server with some format to fetch the data. For more information about Data Engine services, see &lt;a href =\&quot;https://developer.mescius.com/componentone/docs/webapi [rest of string was truncated]&quot;;.
         /// </summary>
         public static string DataEngine_Text2 {
             get {
@@ -96,7 +96,7 @@ namespace WebApi.Localization {
         }
         
         /// <summary>
-        ///    Looks up a localized string similar to This service exposes the following data sources:.
+        ///   Looks up a localized string similar to This service exposes the following data sources:.
         /// </summary>
         public static string DataEngine_Text3 {
             get {
@@ -105,7 +105,7 @@ namespace WebApi.Localization {
         }
         
         /// <summary>
-        ///    Looks up a localized string similar to Data Sources.
+        ///   Looks up a localized string similar to Data Sources.
         /// </summary>
         public static string DataEngine_Title1 {
             get {
@@ -114,7 +114,7 @@ namespace WebApi.Localization {
         }
         
         /// <summary>
-        ///    Looks up a localized string similar to Web API Studio Edition provides excel services for- import and export of MVC and Wijmo 5 controls, and REST API services to generate and merge excel files..
+        ///   Looks up a localized string similar to Web API Studio Edition provides excel services for- import and export of MVC and Wijmo 5 controls, and REST API services to generate and merge excel files..
         /// </summary>
         public static string Excel_Text1 {
             get {
@@ -123,7 +123,7 @@ namespace WebApi.Localization {
         }
         
         /// <summary>
-        ///    Looks up a localized string similar to nside Web API Edition, you will find HTTP request messages which provide export and import functionalities for Excel files. Also, GET and POST methods aid in generating and merging excel files. Available as Visual Studio template, Web API Edition enables you to create Web API service on Visual Studio. This service can then be consumed by client applications to export/import FlexGrid and Excel data, and generate and merge excel files..
+        ///   Looks up a localized string similar to nside Web API Edition, you will find HTTP request messages which provide export and import functionalities for Excel files. Also, GET and POST methods aid in generating and merging excel files. Available as Visual Studio template, Web API Edition enables you to create Web API service on Visual Studio. This service can then be consumed by client applications to export/import FlexGrid and Excel data, and generate and merge excel files..
         /// </summary>
         public static string Excel_Text2 {
             get {
@@ -132,7 +132,7 @@ namespace WebApi.Localization {
         }
         
         /// <summary>
-        ///    Looks up a localized string similar to It provided the following services:.
+        ///   Looks up a localized string similar to It provided the following services:.
         /// </summary>
         public static string Excel_Text3 {
             get {
@@ -141,7 +141,7 @@ namespace WebApi.Localization {
         }
         
         /// <summary>
-        ///    Looks up a localized string similar to FlexReports.
+        ///   Looks up a localized string similar to FlexReports.
         /// </summary>
         public static string FlexReports {
             get {
@@ -150,7 +150,7 @@ namespace WebApi.Localization {
         }
         
         /// <summary>
-        ///    Looks up a localized string similar to  Web API Studio Edition supports image export services for MVC and Wijmo 5 controls. Available as Visual Studio template, C1 Web API enables you to create Web API service on Visual Studio. Client applications then send a request to the Web API service application to export MVC and Wijmo 5 controls as an image. The service supports image export to PNG, JPG, BMP, TIFF, and GIFF &lt;a href=\&quot;http://help.grapecity.com/componentone/NetHelp/c1webapi/webframe.html#C1.Web.Api~C1.Web.Api.ExportFileType.html\&quot;&gt;formats&lt;/a [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to Web API Studio Edition supports image export services for MVC and Wijmo 5 controls. Available as Visual Studio template, C1 Web API enables you to create Web API service on Visual Studio. Client applications then send a request to the Web API service application to export MVC and Wijmo 5 controls as an image. The service supports image export to PNG, JPG, BMP, TIFF, and GIFF &lt;a href=\&quot;https://developer.mescius.com/componentone/docs/webapi/online-webapicore/overview.html\&quot;&gt;formats&lt;/a&gt;..
         /// </summary>
         public static string Image_Text1 {
             get {
@@ -159,7 +159,7 @@ namespace WebApi.Localization {
         }
         
         /// <summary>
-        ///    Looks up a localized string similar to While you are working with the image services for exporting MVC or Wijmo5 controls, you need to add phantomjs.exe file to your service application. For more information, see &lt;a href=\&quot;http://help.grapecity.com/componentone/NetHelp/c1webapi/webframe.html#Addphantomjs.html\&quot;&gt;How to add phantomjs in your Visual Studio application&lt;/a&gt;..
+        ///   Looks up a localized string similar to While you are working with the image services for exporting MVC or Wijmo5 controls, you need to add phantomjs.exe file to your service application. For more information, see &lt;a href=\&quot;https://developer.mescius.com/componentone/docs/webapi/online-webapicore/overview.html\&quot;&gt;How to add phantomjs in your Visual Studio application&lt;/a&gt;..
         /// </summary>
         public static string Image_Text2 {
             get {
@@ -168,7 +168,7 @@ namespace WebApi.Localization {
         }
         
         /// <summary>
-        ///    Looks up a localized string similar to Web API Studio Edition introduces PDFDocument Services that enables you to build HTTP services, which can be consumed by a variety of clients for viewing, loading and caching PDF documents. These are REST based API services, which communicate with HTML 5 PDFViewer control to display the PDF documents on the web..
+        ///   Looks up a localized string similar to Web API Studio Edition introduces PDFDocument Services that enables you to build HTTP services, which can be consumed by a variety of clients for viewing, loading and caching PDF documents. These are REST based API services, which communicate with HTML 5 PDFViewer control to display the PDF documents on the web..
         /// </summary>
         public static string Pdf_Text1 {
             get {
@@ -177,7 +177,7 @@ namespace WebApi.Localization {
         }
         
         /// <summary>
-        ///    Looks up a localized string similar to Available as Visual Studio template, C1 Web API enables you to create PDFDocument service on Visual Studio. Client applications send a request to the PDFDocument service applications to load or export PDF files. The service supports saving your pdf files to Html and Image..
+        ///   Looks up a localized string similar to Available as Visual Studio template, C1 Web API enables you to create PDFDocument service on Visual Studio. Client applications send a request to the PDFDocument service applications to load or export PDF files. The service supports saving your pdf files to Html and Image..
         /// </summary>
         public static string Pdf_Text2 {
             get {
@@ -186,7 +186,7 @@ namespace WebApi.Localization {
         }
         
         /// <summary>
-        ///    Looks up a localized string similar to PDF Files.
+        ///   Looks up a localized string similar to PDF Files.
         /// </summary>
         public static string PdfFiles {
             get {
@@ -195,7 +195,7 @@ namespace WebApi.Localization {
         }
         
         /// <summary>
-        ///    Looks up a localized string similar to Web API Studio Edition releases/ introduces Report Services that enables you to build HTTP services, which can be consumed by a variety of clients for viewing, loading and caching FlexReports and SSRS reports. These are REST based API services, which communicate with HTML 5 ReportViewer control to display the report content on the web. You can view a variety of reports in the HTML5 based ReportViewer control, mainly FlexReport and SSRS reports..
+        ///   Looks up a localized string similar to Web API Studio Edition releases/ introduces Report Services that enables you to build HTTP services, which can be consumed by a variety of clients for viewing, loading and caching FlexReports and SSRS reports. These are REST based API services, which communicate with HTML 5 ReportViewer control to display the report content on the web. You can view a variety of reports in the HTML5 based ReportViewer control, mainly FlexReport and SSRS reports..
         /// </summary>
         public static string Report_Text1 {
             get {
@@ -204,7 +204,7 @@ namespace WebApi.Localization {
         }
         
         /// <summary>
-        ///    Looks up a localized string similar to Available as Visual Studio template, C1 Web API enables you to create reporting services on Visual Studio. Client applications send a request to the report service applications to load reports, export reports, and allow users to use parameters in the report. The service supports exporting your reports to PDF, Excel, HTML, RTF, OpenXML, and Image..
+        ///   Looks up a localized string similar to Available as Visual Studio template, C1 Web API enables you to create reporting services on Visual Studio. Client applications send a request to the report service applications to load reports, export reports, and allow users to use parameters in the report. The service supports exporting your reports to PDF, Excel, HTML, RTF, OpenXML, and Image..
         /// </summary>
         public static string Report_Text2 {
             get {
@@ -213,7 +213,7 @@ namespace WebApi.Localization {
         }
         
         /// <summary>
-        ///    Looks up a localized string similar to Reports.
+        ///   Looks up a localized string similar to Reports.
         /// </summary>
         public static string Report_Text3 {
             get {
@@ -222,7 +222,7 @@ namespace WebApi.Localization {
         }
         
         /// <summary>
-        ///    Looks up a localized string similar to This service exposes the following report files:.
+        ///   Looks up a localized string similar to This service exposes the following report files:.
         /// </summary>
         public static string Report_Text4 {
             get {
@@ -231,7 +231,7 @@ namespace WebApi.Localization {
         }
         
         /// <summary>
-        ///    Looks up a localized string similar to SSRS Reports.
+        ///   Looks up a localized string similar to SSRS Reports.
         /// </summary>
         public static string SSRSReports {
             get {

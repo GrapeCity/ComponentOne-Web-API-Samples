@@ -122,8 +122,8 @@
     <comment>~/Content/css/gcicons.css</comment>
   </data>
   <data name="Layout_ProductUrl" xml:space="preserve">
-    <value>https://www.grapecity.co.jp/developer/controls/aspnet-mvc/webapi</value>
-    <comment>https://www.grapecity.com/en/webapi/</comment>
+    <value>https://developer.mescius.jp/controls/aspnet-mvc/webapi</value>
+    <comment>https://developer.mescius.com/webapi/</comment>
   </data>
   <data name="Layout_ComponentOne" xml:space="preserve">
     <value>ComponentOne</value>
@@ -138,8 +138,8 @@
     <comment>ASP.NET Web API Explorer</comment>
   </data>
   <data name="Layout_License1" xml:space="preserve">
-    <value>GrapeCity, Inc. All Rights Reserved.</value>
-    <comment>GrapeCity, Inc. All Rights Reserved.</comment>
+    <value>MESCIUS inc. All rights reserved.</value>
+    <comment>MESCIUS inc. All rights reserved.</comment>
   </data>
   <data name="Layout_License2" xml:space="preserve">
     <value>ここで示されているすべての製品および会社名は、それぞれの所有者の商標である場合があります。</value>
@@ -149,25 +149,25 @@
     <value>こちらもご覧ください。 C1 Web API</value>
     <comment>Have you seen this? C1Studio Web API</comment>
   </data>
-  <data name="Layout_GrapeCityUrl" xml:space="preserve">
-    <value>https://www.grapecity.co.jp/developer</value>
-    <comment>http://www.grapecity.com/</comment>
+  <data name="Layout_MesciusUrl" xml:space="preserve">
+    <value>https://developer.mescius.jp/</value>
+    <comment>http://developer.mescius.com/</comment>
   </data>
   <data name="SiteNav_AboutUrl" xml:space="preserve">
-    <value>https://www.grapecity.co.jp/developer/controls/aspnet-mvc/webapi</value>
-    <comment>https://www.grapecity.com/en/webapi/</comment>
+    <value>https://developer.mescius.jp/controls/aspnet-mvc/webapi</value>
+    <comment>https://developer.mescius.com/webapi/</comment>
   </data>
   <data name="SiteNav_SupportUrl" xml:space="preserve">
-    <value>https://www.grapecity.co.jp/developer/support</value>
+    <value>https://developer.mescius.jp/support</value>
     <comment>http://supportone.componentone.com/login</comment>
   </data>
   <data name="SiteNav_PricingUrl" xml:space="preserve">
-    <value>https://www.grapecity.co.jp/developer/purchase</value>
-    <comment>https://www.grapecity.com/en/pricing</comment>
+    <value>https://developer.mescius.jp/purchase</value>
+    <comment>https://developer.mescius.com/pricing</comment>
   </data>
   <data name="SiteNav_FreeTrialUrl" xml:space="preserve">
-    <value>https://www.grapecity.co.jp/developer/download</value>
-    <comment>https://www.grapecity.com/en/download/componentone-studio</comment>
+    <value>https://developer.mescius.jp/download</value>
+    <comment>https://developer.mescius.com/download/componentone-studio</comment>
   </data>
   <data name="SiteNav_About" xml:space="preserve">
     <value>製品情報</value>
@@ -184,6 +184,24 @@
   <data name="SiteNav_FreeTrial" xml:space="preserve">
     <value>トライアル版</value>
     <comment>FREE TRIAL</comment>
+  </data>
+  <data name="SiteNav_Demos" xml:space="preserve">
+    <value>Demos</value>
+  </data>
+  <data name="SiteNav_DemosUrl" xml:space="preserve">
+    <value>https://developer.mescius.com/componentone/demos</value>
+  </data>
+  <data name="SiteNav_Docs" xml:space="preserve">
+    <value>Docs</value>
+  </data>
+  <data name="SiteNav_DocsUrl" xml:space="preserve">
+    <value>https://developer.mescius.com/componentone/docs/webapi</value>
+  </data>
+  <data name="SiteNav_Samples" xml:space="preserve">
+    <value>Samples</value>
+  </data>
+  <data name="SiteNav_SamplesUrl" xml:space="preserve">
+    <value>https://developer.mescius.com/componentone/samples</value>
   </data>
   <data name="ImageExportOptions_Export" xml:space="preserve">
     <value>エクスポート</value>
@@ -298,10 +316,10 @@
   </data>
   <data name="Description_Content" xml:space="preserve">
     <value>&lt;p&gt;
-        Because of browsers and JavaScript limitations, &lt;a href="https://www.grapecity.com/wijmo/api/classes/wijmo_grid.flexgrid.html"&gt;FlexGird&lt;/a&gt;
+        Because of browsers and JavaScript limitations, &lt;a href="https://developer.mescius.com/wijmo/api/classes/wijmo_grid.flexgrid.html"&gt;FlexGird&lt;/a&gt;
         control with large data(more than 50,000 rows) cannot be converted to Excel file by
-        &lt;a href="https://www.grapecity.com/wijmo/api/classes/wijmo_grid_xlsx.flexgridxlsxconverter.html"&gt;FlexGridXlsxConverter&lt;/a&gt;
-        or &lt;a href="http://help.grapecity.com/componentone/NetHelp/c1webapi/webframe.html#C1%20Web%20API%20Client%20Javascript.html"&gt;C1 Web API Client&lt;/a&gt;.
+        &lt;a href="https://developer.mescius.com/wijmo/api/classes/wijmo_grid_xlsx.flexgridxlsxconverter.html"&gt;FlexGridXlsxConverter&lt;/a&gt;
+        or &lt;a href="https://developer.mescius.com/componentone/docs/webapi/online-webapicore/overview.html"&gt;C1 Web API Client&lt;/a&gt;.
     &lt;/p&gt;
     &lt;p&gt;
         This sample demonstrates how to solve this issue. The steps:
@@ -309,11 +327,11 @@
     &lt;ol&gt;
         &lt;li&gt;Create a MVC application with Web API framework.&lt;/li&gt;
         &lt;li&gt;Prepare a large data (E.g.: 200,000 rows).&lt;/li&gt;
-        &lt;li&gt;Install &lt;a href="http://help.grapecity.com/componentone/NetHelp/c1webapi/webframe.html#Installation.html"&gt;C1 Web API Excel Services&lt;/a&gt; NuGet packages and &lt;a href="http://help.grapecity.com/componentone/NetHelp/c1webapi/webframe.html#Licensing.html"&gt;add license&lt;/a&gt;.&lt;/li&gt;
+        &lt;li&gt;Install &lt;a href="https://developer.mescius.com/componentone/docs/webapi/online-webapicore/overview.html"&gt;C1 Web API Excel Services&lt;/a&gt; NuGet packages and &lt;a href="https://developer.mescius.com/componentone/docs/webapi/online-webapicore/overview.html"&gt;add license&lt;/a&gt;.&lt;/li&gt;
         &lt;li&gt;Create an xlsx file as the &lt;a href="api/storage/files/OrdersTemplate.xlsx"&gt;template&lt;/a&gt;.&lt;/li&gt;
-        &lt;li&gt;&lt;a href="http://help.grapecity.com/componentone/NetHelp/c1webapi/webframe.html#Configuring.NETCollections.html"&gt;Configure data provider&lt;/a&gt; in Startup.&lt;/li&gt;
-        &lt;li&gt;&lt;a href="http://help.grapecity.com/componentone/NetHelp/c1webapi/webframe.html#ConfiguringStorage.html"&gt;Configure storage provider&lt;/a&gt; in Startup.&lt;/li&gt;
-        &lt;li&gt;Add C1.Web.Mvc(in &lt;a href="https://www.grapecity.com/en/aspnet-mvc"&gt;C1 MVC Edition&lt;/a&gt;) as reference and &lt;a href="http://help.grapecity.com/componentone/NetHelp/c1mvchelpers/webframe.html#UsingVSTemplate.html"&gt;some configuration&lt;/a&gt;.&lt;/li&gt;
+        &lt;li&gt;&lt;a href="https://developer.mescius.com/componentone/docs/webapi/online-webapicore/overview.html"&gt;Configure data provider&lt;/a&gt; in Startup.&lt;/li&gt;
+        &lt;li&gt;&lt;a href="https://developer.mescius.com/componentone/docs/webapi/online-webapicore/overview.html"&gt;Configure storage provider&lt;/a&gt; in Startup.&lt;/li&gt;
+        &lt;li&gt;Add C1.Web.Mvc(in &lt;a href="https://developer.mescius.com/aspnet-mvc"&gt;C1 MVC Edition&lt;/a&gt;) as reference and &lt;a href="https://developer.mescius.com/componentone/docs/mvc/online-mvc/overview.html"&gt;some configuration&lt;/a&gt;.&lt;/li&gt;
         &lt;li&gt;Add a FlexGrid to show all the large data on view page.&lt;/li&gt;
         &lt;li&gt;
             Create a button for generating the Excel file from Excel Services, the url is like:&lt;br /&gt;
@@ -322,10 +340,10 @@
         &lt;/li&gt;
     &lt;/ol&gt;</value>
     <comment>ja:&lt;p&gt;
-        Because of browsers and JavaScript limitations, &lt;a href="http://help.grapecity.com/componentone/NetHelp/c1mvchelpers/webframe.html#wijmo.grid.FlexGrid.Class.html"&gt;FlexGird&lt;/a&gt;
+        Because of browsers and JavaScript limitations, &lt;a href="https://developer.mescius.com/componentone/docs/mvc/online-mvc/overview.html"&gt;FlexGird&lt;/a&gt;
         control with large data(more than 50,000 rows) cannot be converted to Excel file by
-        &lt;a href="http://help.grapecity.com/componentone/NetHelp/c1mvchelpers/webframe.html#wijmo.grid.xlsx.FlexGridXlsxConverter.Class.html"&gt;FlexGridXlsxConverter&lt;/a&gt;
-        or &lt;a href="http://help.grapecity.com/componentone/NetHelp/c1webapi/webframe.html#C1%20Web%20API%20Client%20Javascript.html"&gt;C1 Web API Client&lt;/a&gt;.
+        &lt;a href="https://developer.mescius.com/componentone/docs/mvc/online-mvc/overview.html"&gt;FlexGridXlsxConverter&lt;/a&gt;
+        or &lt;a href="https://developer.mescius.com/componentone/docs/webapi/online-webapicore/overview.html"&gt;C1 Web API Client&lt;/a&gt;.
     &lt;/p&gt;
     &lt;p&gt;
         This sample demonstrates how to solve this issue. The steps:
@@ -333,11 +351,11 @@
     &lt;ol&gt;
         &lt;li&gt;Create a MVC application with Web API framework.&lt;/li&gt;
         &lt;li&gt;Prepare a large data (E.g.: 200,000 rows).&lt;/li&gt;
-        &lt;li&gt;Install &lt;a href="http://help.grapecity.com/componentone/NetHelp/c1webapi/webframe.html#Installation.html"&gt;C1 Web API Excel Services&lt;/a&gt; NuGet packages and &lt;a href="http://help.grapecity.com/componentone/NetHelp/c1webapi/webframe.html#Licensing.html"&gt;add license&lt;/a&gt;.&lt;/li&gt;
+        &lt;li&gt;Install &lt;a href="https://developer.mescius.com/componentone/docs/webapi/online-webapicore/overview.html"&gt;C1 Web API Excel Services&lt;/a&gt; NuGet packages and &lt;a href="https://developer.mescius.com/componentone/docs/webapi/online-webapicore/overview.html"&gt;add license&lt;/a&gt;.&lt;/li&gt;
         &lt;li&gt;Create an xlsx file as the &lt;a href="@Url.Content("~/api/storage/files/OrdersTemplate.xlsx")"&gt;template&lt;/a&gt;.&lt;/li&gt;
-        &lt;li&gt;&lt;a href="http://help.grapecity.com/componentone/NetHelp/c1webapi/webframe.html#Configuring.NETCollections.html"&gt;Configure data provider&lt;/a&gt; in Startup.&lt;/li&gt;
-        &lt;li&gt;&lt;a href="http://help.grapecity.com/componentone/NetHelp/c1webapi/webframe.html#ConfiguringStorage.html"&gt;Configure storage provider&lt;/a&gt; in Startup.&lt;/li&gt;
-        &lt;li&gt;Add C1.Web.Mvc(in &lt;a href="https://www.grapecity.com/en/aspnet-mvc"&gt;C1 MVC Edition&lt;/a&gt;) as reference and &lt;a href="http://help.grapecity.com/componentone/NetHelp/c1mvchelpers/webframe.html#UsingVSTemplate.html"&gt;some configuration&lt;/a&gt;.&lt;/li&gt;
+        &lt;li&gt;&lt;a href="https://developer.mescius.com/componentone/docs/webapi/online-webapicore/overview.html"&gt;Configure data provider&lt;/a&gt; in Startup.&lt;/li&gt;
+        &lt;li&gt;&lt;a href="https://developer.mescius.com/componentone/docs/webapi/online-webapicore/overview.html"&gt;Configure storage provider&lt;/a&gt; in Startup.&lt;/li&gt;
+        &lt;li&gt;Add C1.Web.Mvc(in &lt;a href="https://developer.mescius.com/aspnet-mvc"&gt;C1 MVC Edition&lt;/a&gt;) as reference and &lt;a href="https://developer.mescius.com/componentone/docs/mvc/online-mvc/overview.html"&gt;some configuration&lt;/a&gt;.&lt;/li&gt;
         &lt;li&gt;Add a FlexGrid to show all the large data on view page.&lt;/li&gt;
         &lt;li&gt;
             Create a button for generating the Excel file from Excel Services, the url is like:&lt;br /&gt;

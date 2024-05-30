@@ -205,11 +205,29 @@
   <data name="Index_Text9" xml:space="preserve">
     <value>Upload success.</value>
   </data>
+  <data name="SiteNav_Demos" xml:space="preserve">
+    <value>Demos</value>
+  </data>
+  <data name="SiteNav_DemosUrl" xml:space="preserve">
+    <value>https://developer.mescius.com/componentone/demos</value>
+  </data>
+  <data name="SiteNav_Docs" xml:space="preserve">
+    <value>Docs</value>
+  </data>
+  <data name="SiteNav_DocsUrl" xml:space="preserve">
+    <value>https://developer.mescius.com/componentone/docs/webapi</value>
+  </data>
+  <data name="SiteNav_Samples" xml:space="preserve">
+    <value>Samples</value>
+  </data>
+  <data name="SiteNav_SamplesUrl" xml:space="preserve">
+    <value>https://developer.mescius.com/componentone/samples</value>
+  </data>
   <data name="String1" xml:space="preserve">
     <value />
   </data>
   <data name="_Layout_Text0" xml:space="preserve">
-    <value>GrapeCity, Inc. All Rights Reserved.&lt;br /&gt;&lt;/br&gt;All product and company names here in may be trademarks of their respective owners.</value>
+    <value>MESCIUS inc. All rights reserved.&lt;br /&gt;&lt;/br&gt;All product and company names here in may be trademarks of their respective owners.</value>
   </data>
   <data name="_Layout_Text1" xml:space="preserve">
     <value>ComponentOne</value>
@@ -221,7 +239,7 @@
     <value>ASP.NET MVC ExcelToJSON</value>
   </data>
   <data name="_Layout_Text4" xml:space="preserve">
-    <value>https://www.grapecity.com/en/aspnet-mvc</value>
+    <value>https://developer.mescius.com/aspnet-mvc</value>
   </data>
   <data name="_Layout_Text5" xml:space="preserve">
     <value>C1 ASP.NET MVC</value>
@@ -245,15 +263,15 @@
     <value>Edit Theme &amp;gt;</value>
   </data>
   <data name="_SiteNav_Text5" xml:space="preserve">
-    <value>https://www.grapecity.com/en/aspnet-mvc</value>
+    <value>https://developer.mescius.com/aspnet-mvc</value>
   </data>
   <data name="_SiteNav_Text6" xml:space="preserve">
-    <value>http://supportone.componentone.com/login</value>
+    <value>https://developer.mescius.com/my-account/my-support</value>
   </data>
   <data name="_SiteNav_Text7" xml:space="preserve">
-    <value>https://www.grapecity.com/en/pricing</value>
+    <value>https://developer.mescius.com/pricing</value>
   </data>
   <data name="_SiteNav_Text8" xml:space="preserve">
-    <value>https://www.grapecity.com/en/download/componentone-studio</value>
+    <value>https://developer.mescius.com/download/componentone-studio</value>
   </data>
 </root>

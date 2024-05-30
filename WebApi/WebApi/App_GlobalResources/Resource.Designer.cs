@@ -59,9 +59,9 @@ namespace Resources {
                 resourceCulture = value;
             }
         }
-        
+
         /// <summary>
-        ///  查找类似 Generate scannable C1 supported barcode on the fly from the (given) text, in/using a variety of standard &lt;a href=\&quot;http://help.grapecity.com/componentone/NetHelp/c1webapi/webframe.html#SupportedBarcodeSymbology.html\&quot;&gt;encoding types&lt;/a&gt;. The barcode so obtained can then be saved as image or stream. 的本地化字符串。
+        ///  查找类似 Generate scannable C1 supported barcode on the fly from the (given) text, in/using a variety of standard &lt;a href=\&quot;https://developer.mescius.com/componentone/docs/webapi/online-webapicore/GenerateBarcode.html\&quot;&gt;encoding types&lt;/a&gt;. The barcode so obtained can then be saved as image or stream. 的本地化字符串。
         /// </summary>
         internal static string Barcode_Text1 {
             get {
@@ -86,9 +86,9 @@ namespace Resources {
                 return ResourceManager.GetString("DataEngine_Text1", resourceCulture);
             }
         }
-        
+
         /// <summary>
-        ///  查找类似 DataEngine Web API uses a column - oriented data model which is widely used in many open source and commercial analytical databases and libraries. Data Engine can handle up to million records in a fraction of a second. The aggregated data is fetched from the Web API, the client application is simple, and it only sends the corresponding query to the server with some format to fetch the data. For more information about Data Engine services, see &lt;a href =\&quot;http://help.grapecity.com/componentone/NetHelp/c1webap [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        ///  查找类似 DataEngine Web API uses a column - oriented data model which is widely used in many open source and commercial analytical databases and libraries. Data Engine can handle up to million records in a fraction of a second. The aggregated data is fetched from the Web API, the client application is simple, and it only sends the corresponding query to the server with some format to fetch the data. For more information about Data Engine services, see &lt;a href =\&quot;https://developer.mescius.com/componentone/docs/webapi/online-webapicore/data-engine.html [字符串的其余部分被截断]&quot;; 的本地化字符串。
         /// </summary>
         internal static string DataEngine_Text2 {
             get {
@@ -149,18 +149,18 @@ namespace Resources {
                 return ResourceManager.GetString("FlexReports", resourceCulture);
             }
         }
-        
+
         /// <summary>
-        ///  查找类似 Web API Studio Edition supports image export services for MVC and Wijmo 5 controls. Available as Visual Studio template, C1 Web API enables you to create Web API service on Visual Studio. Client applications then send a request to the Web API service application to export MVC and Wijmo 5 controls as an image. The service supports image export to PNG, JPG, BMP, TIFF, and GIFF &lt;a href=\&quot;http://help.grapecity.com/componentone/NetHelp/c1webapi/webframe.html#C1.Web.Api~C1.Web.Api.ExportFileType.html\&quot;&gt;formats&lt;/a [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        ///  查找类似 Web API Studio Edition supports image export services for MVC and Wijmo 5 controls. Available as Visual Studio template, C1 Web API enables you to create Web API service on Visual Studio. Client applications then send a request to the Web API service application to export MVC and Wijmo 5 controls as an image. The service supports image export to PNG, JPG, BMP, TIFF, and GIFF &lt;a href=\&quot;https://developer.mescius.com/componentone/docs/webapi/online-webapicore/overview.html\&quot;&gt;formats&lt;/a [字符串的其余部分被截断]&quot;; 的本地化字符串。
         /// </summary>
         internal static string Image_Text1 {
             get {
                 return ResourceManager.GetString("Image_Text1", resourceCulture);
             }
         }
-        
+
         /// <summary>
-        ///  查找类似 While you are working with the image services for exporting MVC or Wijmo5 controls, you need to add phantomjs.exe file to your service application. For more information, see &lt;a href=\&quot;http://help.grapecity.com/componentone/NetHelp/c1webapi/webframe.html#Addphantomjs.html\&quot;&gt;How to add phantomjs in your Visual Studio application&lt;/a&gt;. 的本地化字符串。
+        ///  查找类似 While you are working with the image services for exporting MVC or Wijmo5 controls, you need to add phantomjs.exe file to your service application. For more information, see &lt;a href=\&quot;https://developer.mescius.com/componentone/docs/webapi/online-webapicore/overview.html\&quot;&gt;How to add phantomjs in your Visual Studio application&lt;/a&gt;. 的本地化字符串。
         /// </summary>
         internal static string Image_Text2 {
             get {

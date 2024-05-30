@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Barcode_Text1" xml:space="preserve">
-    <value>Generate scannable C1 supported barcode on the fly from the (given) text, in/using a variety of standard &lt;a href=\"http://help.grapecity.com/componentone/NetHelp/c1webapi/webframe.html#SupportedBarcodeSymbology.html\"&gt;encoding types&lt;/a&gt;. The barcode so obtained can then be saved as image or stream.</value>
+    <value>Generate scannable C1 supported barcode on the fly from the (given) text, in/using a variety of standard &lt;a href=\"https://developer.mescius.com/componentone/docs/webapi/online-webapicore/GenerateBarcode.html\"&gt;encoding types&lt;/a&gt;. The barcode so obtained can then be saved as image or stream.</value>
   </data>
   <data name="Barcode_Text2" xml:space="preserve">
     <value>Let's say you want to use barcode in PDF document or a form. You simply need to provide the desired text to be barcoded and the barcode type through your simple client application. The client application sends a GET request to the REST API service, which returns the generated barcode in response as an image stream. Barcode service lets you save the barcode image to PNG, JPEG, BMP, GIF, or TIFF image formats. Embed/ use the obtained barcode image in PDF or other documents, forms, databases, ID cards and more.</value>
@@ -127,7 +127,7 @@
     <value>DataEngine provides a suite of APIs that allow the user to analyze data from multiple data sources, including SQL Server, other SQL based RDMS servers, NoSQL service, web service, structured files from file/network systems, and more. The aggregating data can be consumed by other controls or application.</value>
   </data>
   <data name="DataEngine_Text2" xml:space="preserve">
-    <value>DataEngine Web API uses a column - oriented data model which is widely used in many open source and commercial analytical databases and libraries. Data Engine can handle up to million records in a fraction of a second. The aggregated data is fetched from the Web API, the client application is simple, and it only sends the corresponding query to the server with some format to fetch the data. For more information about Data Engine services, see &lt;a href =\"http://help.grapecity.com/componentone/NetHelp/c1webapi/webframe.html#APIDataEngine.html\"&gt;Configuring Data Engine Services&lt;/a&gt;.</value>
+    <value>DataEngine Web API uses a column - oriented data model which is widely used in many open source and commercial analytical databases and libraries. Data Engine can handle up to million records in a fraction of a second. The aggregated data is fetched from the Web API, the client application is simple, and it only sends the corresponding query to the server with some format to fetch the data. For more information about Data Engine services, see &lt;a href =\"https://developer.mescius.com/componentone/docs/webapi/online-webapicore/data-engine.html\"&gt;Configuring Data Engine Services&lt;/a&gt;.</value>
   </data>
   <data name="DataEngine_Text3" xml:space="preserve">
     <value>This service exposes the following data sources:</value>
@@ -148,10 +148,10 @@
     <value>FlexReports</value>
   </data>
   <data name="Image_Text1" xml:space="preserve">
-    <value>Web API Studio Edition supports image export services for MVC and Wijmo 5 controls. Available as Visual Studio template, C1 Web API enables you to create Web API service on Visual Studio. Client applications then send a request to the Web API service application to export MVC and Wijmo 5 controls as an image. The service supports image export to PNG, JPG, BMP, TIFF, and GIFF &lt;a href=\"http://help.grapecity.com/componentone/NetHelp/c1webapi/webframe.html#C1.Web.Api~C1.Web.Api.ExportFileType.html\"&gt;formats&lt;/a&gt;.</value>
+    <value>Web API Studio Edition supports image export services for MVC and Wijmo 5 controls. Available as Visual Studio template, C1 Web API enables you to create Web API service on Visual Studio. Client applications then send a request to the Web API service application to export MVC and Wijmo 5 controls as an image. The service supports image export to PNG, JPG, BMP, TIFF, and GIFF &lt;a href=\"https://developer.mescius.com/componentone/docs/webapi/online-webapicore/overview.html\"&gt;formats&lt;/a&gt;.</value>
   </data>
   <data name="Image_Text2" xml:space="preserve">
-    <value>While you are working with the image services for exporting MVC or Wijmo5 controls, you need to add phantomjs.exe file to your service application. For more information, see &lt;a href=\"http://help.grapecity.com/componentone/NetHelp/c1webapi/webframe.html#Addphantomjs.html\"&gt;How to add phantomjs in your Visual Studio application&lt;/a&gt;.</value>
+    <value>While you are working with the image services for exporting MVC or Wijmo5 controls, you need to add phantomjs.exe file to your service application. For more information, see &lt;a href=\"https://developer.mescius.com/componentone/docs/webapi/online-webapicore/overview.html\"&gt;How to add phantomjs in your Visual Studio application&lt;/a&gt;.</value>
   </data>
   <data name="PdfFiles" xml:space="preserve">
     <value>PDF Files</value>

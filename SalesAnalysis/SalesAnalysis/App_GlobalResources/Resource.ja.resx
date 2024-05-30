@@ -122,8 +122,8 @@
     <comment>~/Content/css/gcicons.css</comment>
   </data>
   <data name="Layout_ProductUrl" xml:space="preserve">
-    <value>https://www.grapecity.co.jp/developer/controls/aspnet-mvc/webapi</value>
-    <comment>https://www.grapecity.com/en/webapi/</comment>
+    <value>https://developer.mescius.jp/controls/aspnet-mvc/webapi</value>
+    <comment>https://developer.mescius.com/webapi/</comment>
   </data>
   <data name="Layout_ComponentOne" xml:space="preserve">
     <value>ComponentOne</value>
@@ -138,32 +138,32 @@
     <comment>ASP.NET Web API Explorer</comment>
   </data>
   <data name="Layout_License1" xml:space="preserve">
-    <value>GrapeCity, Inc. All Rights Reserved.</value>
-    <comment>GrapeCity, Inc. All Rights Reserved.</comment>
+    <value>MESCIUS inc. All rights reserved.</value>
+    <comment>MESCIUS inc. All rights reserved.</comment>
   </data>
   <data name="Layout_TwitterText" xml:space="preserve">
     <value>こちらもご覧ください。 C1 Web API</value>
     <comment>Have you seen this? C1Studio Web API</comment>
   </data>
-  <data name="Layout_GrapeCityUrl" xml:space="preserve">
-    <value>https://www.grapecity.co.jp/developer</value>
-    <comment>http://www.grapecity.com/</comment>
+  <data name="Layout_MesciusUrl" xml:space="preserve">
+    <value>https://developer.mescius.jp/</value>
+    <comment>http://developer.mescius.com/</comment>
   </data>
   <data name="SiteNav_AboutUrl" xml:space="preserve">
-    <value>https://www.grapecity.co.jp/developer/controls/aspnet-mvc/webapi</value>
-    <comment>https://www.grapecity.com/en/webapi/</comment>
+    <value>https://developer.mescius.jp/controls/aspnet-mvc/webapi</value>
+    <comment>https://developer.mescius.com/webapi/</comment>
   </data>
   <data name="SiteNav_SupportUrl" xml:space="preserve">
-    <value>https://www.grapecity.co.jp/developer/support</value>
+    <value>https://developer.mescius.jp/support</value>
     <comment>http://supportone.componentone.com/login</comment>
   </data>
   <data name="SiteNav_PricingUrl" xml:space="preserve">
-    <value>https://www.grapecity.co.jp/developer/purchase</value>
-    <comment>https://www.grapecity.com/en/pricing</comment>
+    <value>https://developer.mescius.jp/purchase</value>
+    <comment>https://developer.mescius.com/pricing</comment>
   </data>
   <data name="SiteNav_FreeTrialUrl" xml:space="preserve">
-    <value>https://www.grapecity.co.jp/developer/download</value>
-    <comment>https://www.grapecity.com/en/download/componentone-studio</comment>
+    <value>https://developer.mescius.jp/download</value>
+    <comment>https://developer.mescius.com/download/componentone-studio</comment>
   </data>
   <data name="SiteNav_About" xml:space="preserve">
     <value>製品情報</value>
@@ -330,5 +330,23 @@
   <data name="SiteNav_Home" xml:space="preserve">
     <value>Home</value>
     <comment>ja:Home</comment>
+  </data>
+  <data name="SiteNav_Demos" xml:space="preserve">
+    <value>Demos</value>
+  </data>
+  <data name="SiteNav_DemosUrl" xml:space="preserve">
+    <value>https://developer.mescius.com/componentone/demos</value>
+  </data>
+    <data name="SiteNav_Docs" xml:space="preserve">
+    <value>Docs</value>
+  </data>
+  <data name="SiteNav_DocsUrl" xml:space="preserve">
+    <value>https://developer.mescius.com/componentone/docs/webapi</value>
+  </data>
+  <data name="SiteNav_Samples" xml:space="preserve">
+    <value>Samples</value>
+  </data>
+  <data name="SiteNav_SamplesUrl" xml:space="preserve">
+    <value>https://developer.mescius.com/componentone/samples</value>
   </data>
 </root>
